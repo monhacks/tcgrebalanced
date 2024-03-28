@@ -415,8 +415,8 @@ WildfireName:
 	done
 
 WildfireDescription:
-	text "Discard any number of <FIRE> Energy"
-	line "attached to this Pokémon."
+	text "Discard 1 or more <FIRE> Energy attached"
+	line "to this Pokémon to use this attack."
 	line "This attack does 10 more damage for"
 	line "each Energy discarded this way."
 	line "Discard that many cards from the"
@@ -428,8 +428,8 @@ SheerColdName:
 	done
 
 SheerColdDescription:
-	text "Discard any number of <WATER> Energy"
-	line "attached to this Pokémon."
+	text "Discard 1 or more <WATER> Energy attached"
+	line "to this Pokémon to use this attack."
 	line "This attack does 10 more damage for"
 	line "each Energy discarded this way."
 	line "Discard an Energy attached to the"
@@ -441,8 +441,8 @@ ThunderstormName:
 	done
 
 ThunderstormDescription:
-	text "Discard any number of <LIGHTNING> Energy"
-	line "attached to this Pokémon."
+	text "Discard 1 or more <LIGHTNING> Energy attached"
+	line "to this Pokémon to use this attack."
 	line "This attack does 10 damage for each"
 	line "Energy discarded this way."
 	line "It also does 10 damage to each of"
