@@ -447,7 +447,8 @@ HandlePlayerSelectionMatchingPokemonInPlayArea_AllowCancel:
 	push de
 	call CheckPlayAreaPokemonMatchesPattern
 	pop de
-	ret nc  ; found a match
+	ld a, e  ; play area location
+	ret nc   ; found a match
 	jr .loop_input  ; no match
 
 HandlePlayerSelectionMatchingPokemonInBench_AllowCancel:
