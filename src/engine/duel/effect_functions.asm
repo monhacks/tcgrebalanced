@@ -325,6 +325,11 @@ CrushingCharge_PreconditionCheck:
 	; fallthrough
 
 WaveRider_PreconditionCheck:
+	ld c, 3
+	call CheckHandSizeIsLessThanC
+	ret c
+	; fallthrough
+
 Synthesis_PreconditionCheck:
 	call CheckDeckIsNotEmpty
 	ret c
@@ -7593,10 +7598,18 @@ Pokedex_OrderDeckCardsEffect:
 	ret
 
 
-
 DrawUntil5CardsInHandEffect:
 	ld c, 5
 	jr DrawUntilNCardsInHandEffect
+
+
+;
+WaveRider_DrawEffect:
+	ldtx hl, DrawCardsUntil3CardsInHandText
+	call DrawWideTextBox_WaitForInput
+	call SetUsedPokemonPowerThisTurn
+	; jp DrawUntil3CardsInHandEffect
+	; fallthrough
 
 DrawUntil3CardsInHandEffect:
 	ld c, 3

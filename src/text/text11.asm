@@ -1850,3 +1850,8 @@ ElectromagneticWallDescription:
 MoveThisPokemonToTheActiveSpotText:
 	text "Move to the Active Spot?"
 	done
+
+DrawCardsUntil3CardsInHandText:
+	text "Draw cards until you have 3 cards"
+	line "in your hand."
+	done

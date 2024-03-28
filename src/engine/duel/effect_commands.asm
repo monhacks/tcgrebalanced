@@ -688,7 +688,7 @@ CourierEffectCommands:
 
 WaveRiderEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, WaveRider_PreconditionCheck
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DrawUntil3CardsInHandEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, WaveRider_DrawEffect
 	db  $00
 
 FleetFootedEffectCommands:
