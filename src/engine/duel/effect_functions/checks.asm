@@ -331,6 +331,7 @@ CheckSomeEvolvedPokemonInPlayArea:
 	jr z, .loop ; is Basic Stage
 	ret
 .set_carry
+	ldtx hl, ThereAreNoEvolvedPokemonInPlayAreaText
 	scf
 	ret
 
