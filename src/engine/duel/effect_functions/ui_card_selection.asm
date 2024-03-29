@@ -233,11 +233,12 @@ HandlePlayerSelectionCardTypeFromDeckToHand:
 ;   [hTempCardIndex_ff98]: deck index of the selected card | $ff
 HandlePlayerSelectionCardTypeFromDeckListToHand:
 	push af
-.show_ui
+	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
 	ldtx hl, ChooseCardToPlaceInHandText
 	ldtx de, DuelistDeckText
+	bank1call SetCardListHeaderText
 .read_input
-	bank1call DisplayCardList_PrintText
+	bank1call DisplayCardList
 ; if B was pressed, either there are no cards or Player does not want any
 	jr c, .no_cards
 	ldh a, [hTempCardIndex_ff98]
@@ -283,8 +284,7 @@ HandlePlayerSelectionAnyCardFromDeckToHand:
 HandlePlayerSelectionAnyCardFromDeckListToHand:
 	ldtx hl, ChooseCardToPlaceInHandText
 	ldtx de, DuelistDeckText
-.loop_input
-	bank1call DisplayCardList_PrintText
+	bank1call DisplayCardList_PrintText  ; no loop, use just one far call
 ; if B was pressed, either there are no cards or Player does not want any
 	jr c, .no_cards
 	ldh a, [hTempCardIndex_ff98]
@@ -365,9 +365,13 @@ HandlePlayerSelectionPokemonFromDeckList:
 HandlePlayerSelectionFromDeckList:
 	ld [wDataTableIndex], a
 ; handle input
+	push hl
+	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
+	pop hl
 	ldtx de, DuelistDeckText
+	bank1call SetCardListHeaderText
 .read_input
-	bank1call DisplayCardList_PrintText
+	bank1call DisplayCardList
 ; if B was pressed, either there are no cards or Player does not want any
 	jr c, .try_cancel
 	ldh a, [hTempCardIndex_ff98]
