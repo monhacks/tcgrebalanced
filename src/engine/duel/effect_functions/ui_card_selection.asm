@@ -221,7 +221,9 @@ HandlePlayerSelectionSupporterFromDeck:
 HandlePlayerSelectionCardTypeFromDeckToHand:
 	push af
 	call CreateDeckCardList
-	jr HandlePlayerSelectionCardTypeFromDeckListToHand.show_ui
+	pop af
+	; jr HandlePlayerSelectionCardTypeFromDeckListToHand
+	; fallthrough
 
 ; Handles screen for the Player to choose a card of given type from a Deck list
 ; input:
