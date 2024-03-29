@@ -787,6 +787,8 @@ CardTypeTest_FunctionTable:
 	dw CardTypeTest_BasicPokemon           ; CARDTEST_BASIC_POKEMON
 	dw CardTypeTest_EvolvedPokemon         ; CARDTEST_EVOLVED_POKEMON
 	dw CardTypeTest_BasicEnergy            ; CARDTEST_BASIC_ENERGY
+	dw CardTypeTest_IsEnergizedPokemon     ; CARDTEST_ENERGIZED_POKEMON
+	dw CardTypeTest_IsNonEnergizedPokemon  ; CARDTEST_NON_ENERGIZED_POKEMON
 	dw CardTypeTest_IsMagmar               ; CARDTEST_MAGMAR
 	dw CardTypeTest_IsEnergizedMagmar      ; CARDTEST_ENERGIZED_MAGMAR
 	dw CardTypeTest_IsElectabuzz           ; CARDTEST_ELECTABUZZ
@@ -869,6 +871,24 @@ IsBasicEnergyCard:
 	ret z  ; not a Basic Energy card
 	scf
 	ret
+
+
+; input:
+;   [wDynamicFunctionArgument]: PLAY_AREA_* of the Pokémon to check
+CardTypeTest_IsEnergizedPokemon:
+	ld a, [wDynamicFunctionArgument]
+	ld e, a
+	call CheckPlayAreaPokemonHasAnyEnergiesAttached
+	ccf
+	ret
+
+
+; input:
+;   [wDynamicFunctionArgument]: PLAY_AREA_* of the Pokémon to check
+CardTypeTest_IsNonEnergizedPokemon:
+	ld a, [wDynamicFunctionArgument]
+	ld e, a
+	jp CheckPlayAreaPokemonHasAnyEnergiesAttached
 
 
 CardTypeTest_IsMagmar:
