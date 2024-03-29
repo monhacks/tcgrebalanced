@@ -3002,10 +3002,8 @@ DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect:
 	ldh a, [hCurSelectionItem]
 	ld [wEnergyDiscardMenuNumerator], a
 	bank1call HandleEnergyDiscardMenuInput
-	jr c, .done
+	jr c, .done  ; cancelled
 	ld c, a  ; deck index
-	call RemoveCardFromDuelTempList  ; preserves bc
-	jr c, .done
 	ldh a, [hCurSelectionItem]
 	ld d, 0
 	ld e, a  ; offset
@@ -3015,6 +3013,8 @@ DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect:
 	add hl, de
 	ld a, c  ; deck index
 	ld [hl], a
+	call RemoveCardFromDuelTempList  ; preserves bc
+	jr c, .done  ; list is now empty
 	bank1call DisplayEnergyDiscardMenu
 	jr .loop
 
