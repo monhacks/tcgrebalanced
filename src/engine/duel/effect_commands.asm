@@ -1479,7 +1479,7 @@ AquaLauncherEffectCommands:
 
 SearchingMagnetEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SelectedCard_AddToHandFromDeckEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCard_AddToHandFromDeckEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, SearchingMagnet_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, SearchingMagnet_AISelectEffect
 	db  $00
