@@ -2762,6 +2762,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ElectromagneticWallDescription
 	textpointer MoveThisPokemonToTheActiveSpotText
 	textpointer DrawCardsUntil3CardsInHandText
+	textpointer ThatPokemonAlreadyHasAttachedEnergiesText
 
 ; ------------------------------------------------------------------------------
 ; text12.asm

@@ -5539,6 +5539,8 @@ EnergyLift_PlayerSelectEffect:
 	ld a, [wTotalAttachedEnergies]
 	or a
 	ret z
+	ldtx hl, ThatPokemonAlreadyHasAttachedEnergiesText
+	call DrawWideTextBox_WaitForInput
 	jr .loop
 
 
@@ -5559,6 +5561,9 @@ AttachEnergyFromHand_OnlyActive_AISelectEffect:
 
 
 EnergyLift_AttachEnergyEffect:
+; restore [hTempPlayAreaLocation_ff9d] from [hTemp_ffa0]
+	ldh a, [hTemp_ffa0]
+	ldh [hTempPlayAreaLocation_ff9d], a
 	call SetUsedPokemonPowerThisTurn
 	; jr AttachEnergyFromHand_AttachEnergyEffect
 	; fallthrough

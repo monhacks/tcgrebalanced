@@ -1855,3 +1855,8 @@ DrawCardsUntil3CardsInHandText:
 	text "Draw cards until you have 3 cards"
 	line "in your hand."
 	done
+
+ThatPokemonAlreadyHasAttachedEnergiesText:
+	text "That Pokémon already has Energy"
+	line "cards attached to it."
+	done
