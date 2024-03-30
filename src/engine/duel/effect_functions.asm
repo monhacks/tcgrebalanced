@@ -1076,6 +1076,12 @@ VoltSwitchEffect:
 ; Compound Attacks
 ; ------------------------------------------------------------------------------
 
+
+DiscardEnergy_DamageTargetPokemon_AISelectEffect:
+	call DiscardEnergy_AISelectEffect      ; uses [hTemp_ffa0]
+	jp DamageTargetPokemon_AISelectEffect  ; uses [hTempPlayAreaLocation_ffa1]
+
+
 ScorchingColumn_DamageBurnEffect:
 	call ScorchingColumn_MultiplierEffect
 	ldh a, [hTemp_ffa0]

@@ -1522,6 +1522,13 @@ SlicingWindName: ; 615ad (18:55ad)
 	text "Slicing Wind"
 	done
 
+Discard1EnergyDeal30ToAnyPokemonDescription:
+	text "Discard an Energy card attached"
+	line "to this Pokémon."
+	line "This attack does 30 damage to 1"
+	line "of your opponent's Pokémon."
+	done
+
 Deal30ToAnyPokemonDescription:
 	text "This attack does 30 damage to 1"
 	line "of your opponent's Pokémon."
@@ -1729,7 +1736,7 @@ RiptideDescription:
 	text "Put up to 2 Basic Energy cards from"
 	line "your discard pile into your hand."
 	line "This attack does 20 more damage for"
-	line "each Energy card."
+	line "each Energy card returned this way."
 	done
 
 DeepDiveName:

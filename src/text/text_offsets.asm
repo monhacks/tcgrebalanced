@@ -2696,6 +2696,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer TinyBirdName                                       ; 0x0ad7
 	textpointer BirdName                                           ; 0x0adc
 	textpointer SlicingWindName                                    ; 0x0adf
+	textpointer Discard1EnergyDeal30ToAnyPokemonDescription
 	textpointer Deal30ToAnyPokemonDescription
 	textpointer Deal40ToAnyPokemonDescription
 	textpointer GaleName                                           ; 0x0ae1

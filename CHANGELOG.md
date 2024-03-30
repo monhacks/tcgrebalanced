@@ -82,6 +82,9 @@
 
 ### Water Changes
 
+#### Seadra
+- **Sharpshooter**: reduced cost from (WC) to (W); discards one Energy attached to this Pokémon.
+
 #### Dewgong
 - **Blizzard**: reduced cost from (WWCC) to (WWC) and base damage from 40 to 30.
 
