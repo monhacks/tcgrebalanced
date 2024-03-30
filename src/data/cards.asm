@@ -2452,11 +2452,11 @@ CharmanderCard:
 	; attack 2
 	energy FIRE, 1, COLORLESS, 1 ; energies
 	tx EmberName ; name
-	tx Discard1EnergyDescription ; description
+	tx OptionalDiscard1Energy10BonusDamageDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Discard1EnergyEffectCommands ; effect commands
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw IfDiscardedEnergy10BonusDamageEffectCommands ; effect commands
 	db NONE ; flags 1
 	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3
@@ -2605,11 +2605,11 @@ VulpixCard:
 	; attack 2
 	energy FIRE, 1, COLORLESS, 1 ; energies
 	tx EmberName ; name
-	tx Discard1EnergyDescription ; description
+	tx OptionalDiscard1Energy10BonusDamageDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Discard1EnergyEffectCommands ; effect commands
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw IfDiscardedEnergy10BonusDamageEffectCommands ; effect commands
 	db NONE ; flags 1
 	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3
@@ -4162,11 +4162,11 @@ HorseaCard:
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
 	tx AquaBurstName ; name
-	tx Discard1EnergyDescription ; description
+	tx OptionalDiscard1Energy10BonusDamageDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Discard1EnergyEffectCommands ; effect commands
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw IfDiscardedEnergy10BonusDamageEffectCommands ; effect commands
 	db NONE ; flags 1
 	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3

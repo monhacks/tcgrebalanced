@@ -486,6 +486,13 @@ SwordsDanceEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, FocusEnergyEffect
 	db  $00
 
+IfDiscardedEnergy10BonusDamageEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, OptionalDiscardEnergy_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, IfSelectedCard10BonusDamage_DamageBoostEffect
+	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, OptionalDiscardEnergyForDamage_AISelectEffect
+	db  $00
+
 OptionalDoubleDamageEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DoubleDamageIfCondition_DamageBoostEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, OptionalDoubleDamage_PlayerSelectEffect

@@ -2438,6 +2438,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer GuillotineName                                     ; 0x08d0
 	textpointer StagbeetleName                                     ; 0x08d1
 	textpointer EmberName                                          ; 0x08d4
+	textpointer OptionalDiscard1Energy10BonusDamageDescription
 	textpointer Discard1EnergyDescription
 	textpointer LizardName                                         ; 0x08d6
 	textpointer FlamethrowerName                                   ; 0x08d9

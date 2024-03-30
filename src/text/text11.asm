@@ -271,6 +271,12 @@ EmberName: ; 59e0e (16:5e0e)
 	text "Ember"
 	done
 
+OptionalDiscard1Energy10BonusDamageDescription:
+	text "You may discard an Energy card"
+	line "attached to this Pokémon. If you do,"
+	line "this attack does 10 more damage."
+	done
+
 Discard1EnergyDescription:
 	text "Discard an Energy card attached to"
 	line "this Pokémon."

@@ -35,6 +35,12 @@
 
 ### Fire Changes
 
+#### Charmander
+- **Ember**: reduced base damage from 30 to 20; optional energy discard for +10 damage.
+
+#### Vulpix
+- **Ember**: reduced base damage from 30 to 20; optional energy discard for +10 damage.
+
 #### Growlithe
 - **Fetch**: draws 2 cards.
 - **Flare**: removed.
@@ -81,6 +87,9 @@
 - New attack: **Primal Fire** (FFC): 70 damage; discard top 10 cards from deck if the user has taken more Prizes.
 
 ### Water Changes
+
+#### Horsea
+- **Aqua Burst**: reduced base damage from 30 to 20; optional energy discard for +10 damage.
 
 #### Seadra
 - **Sharpshooter**: reduced cost from (WC) to (W); discards one Energy attached to this Pokémon.
