@@ -2935,8 +2935,7 @@ Cowardice_RemoveFromPlayAreaEffect:
 
 
 ; return carry if no Lightning energy cards
-Thunderstorm_CheckEnergy:
-Discharge_CheckEnergy:
+CheckArenaPokemonHasEnergy_Lightning:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
 	call HandleEnergyBurn
@@ -2947,7 +2946,7 @@ Discharge_CheckEnergy:
 
 
 ; return carry if no Fire energy cards
-Wildfire_CheckEnergy:
+CheckArenaPokemonHasEnergy_Fire:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
 	call HandleEnergyBurn
@@ -2958,7 +2957,7 @@ Wildfire_CheckEnergy:
 
 
 ; return carry if no Water energy cards
-SheerCold_CheckEnergy:
+CheckArenaPokemonHasEnergy_Water:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
 	call HandleEnergyBurn

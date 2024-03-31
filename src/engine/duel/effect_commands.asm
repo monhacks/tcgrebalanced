@@ -1141,7 +1141,7 @@ ThunderboltEffectCommands:
 	db  $00
 
 WildfireEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Wildfire_CheckEnergy
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Fire
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, Wildfire_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Wildfire_DamageBoostEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Wildfire_DiscardDeckEffect
@@ -1151,7 +1151,7 @@ WildfireEffectCommands:
 	db  $00
 
 SheerColdEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, SheerCold_CheckEnergy
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Water
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, SheerCold_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SheerCold_DamageBoostEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DiscardOpponentEnergy_DiscardEffect
@@ -1162,7 +1162,7 @@ SheerColdEffectCommands:
 	db  $00
 
 ThunderstormEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Thunderstorm_CheckEnergy
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Lightning
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, Thunderstorm_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Thunderstorm_MultiplierEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DamageAllOpponentBenched10Effect
@@ -1172,7 +1172,7 @@ ThunderstormEffectCommands:
 	db  $00
 
 DischargeEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Discharge_CheckEnergy
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Lightning
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, Discharge_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Discharge_DamageParalysisEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, Discharge_DiscardEnergyEffect
@@ -1181,7 +1181,7 @@ DischargeEffectCommands:
 	db  $00
 
 ScorchingColumnEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Wildfire_CheckEnergy
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Fire
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, ScorchingColumn_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, ScorchingColumn_DamageBurnEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, Wildfire_DiscardEnergyEffect
