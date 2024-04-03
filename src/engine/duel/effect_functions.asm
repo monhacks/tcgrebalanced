@@ -3760,6 +3760,8 @@ PickFirstNCardsFromList_SelectEffect_DE:
 	inc de
 	dec c
 	jr nz, .loop
+	ld a, $ff
+	ld [de], a  ; terminating byte
 	ret
 
 
