@@ -5399,7 +5399,7 @@ RaichuLv35Card:
 	tx MouseName ; category
 	db 26 ; Pokedex number
 	db 0
-	db 45 ; level
+	db 35 ; level
 	db 2, 7 ; length
 	dw 66 * 10 ; weight
 	tx RaichuDescription ; description
