@@ -315,14 +315,14 @@ PrimordialDream_PreconditionCheck:
 Trade_PreconditionCheck:
 	call CheckHandSizeGreaterThan1
 	ret c
-	; fallthrough
+	jr Synthesis_PreconditionCheck
 
 ; this Power needs to back up hTempPlayAreaLocation_ff9d
 EnergyGenerator_PreconditionCheck:
 CrushingCharge_PreconditionCheck:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	ldh [hTemp_ffa0], a
-	; fallthrough
+	jr Synthesis_PreconditionCheck
 
 WaveRider_PreconditionCheck:
 	ld c, 3
