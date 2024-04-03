@@ -124,7 +124,7 @@
 - **Thunder Shock**: removed.
 - **Fly**: removed.
 - New Pokémon Power: **Energy Lift**: once per turn, attach energy from hand to Benched Pokémon without any energies.
-- New attack: **Return** (CC): 10 damage; draw until you have 5 cards in hand.
+- New attack: **Return** (C): 10 damage; draw until you have 5 cards in hand.
 
 #### Surfing Pikachu
 - **Surf**: reduced cost from (WC) to (C) and base damage from 20 to 10; double damage if attached energy this turn.

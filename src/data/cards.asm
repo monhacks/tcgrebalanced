@@ -5176,7 +5176,7 @@ FlyingPikachuCard:
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
-	energy COLORLESS, 2 ; energies
+	energy COLORLESS, 1 ; energies
 	tx ReturnName ; name
 	tx DrawUntil5CardsInHandDescription ; description
 	dw NONE ; description (cont)
