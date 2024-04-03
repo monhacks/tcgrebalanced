@@ -6175,7 +6175,7 @@ ZapdosLv68Card:
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_BIG_THUNDER ; animation
+	db ATK_ANIM_THUNDER_WHOLE_SCREEN ; animation
 
 	db 1 ; retreat cost
 	db NONE ; weakness
