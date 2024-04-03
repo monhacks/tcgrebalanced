@@ -615,8 +615,8 @@ DuelMenu_Retreat:
 	ld a, OPPACTION_ATTEMPT_RETREAT
 	call SetOppAction_SerialSendDuelData
 	call AttemptRetreat
-	call DuelMainInterface
-	jp HandleOnRetreatEffects
+	call HandleOnRetreatEffects
+	jp DuelMainInterface
 
 .unable_to_retreat
 	call DrawWideTextBox_WaitForInput
