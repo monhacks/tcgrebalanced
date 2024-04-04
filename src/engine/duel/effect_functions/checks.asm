@@ -340,6 +340,7 @@ CheckSomeEvolvedPokemonInPlayArea:
 ;   a: how to test the selected Pokémon (CARDTEST_* constants)
 ; output:
 ;   a: PLAY_AREA_* of the first matching Pokémon | $ff
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the first matching Pokémon | $ff
 ;   carry: set if there is no matching Pokémon
 CheckSomeMatchingPokemonInPlayArea:
 	ld [wDataTableIndex], a
@@ -349,6 +350,8 @@ CheckSomeMatchingPokemonInPlayArea:
 	ld e, a
 	ld l, DUELVARS_ARENA_CARD
 .loop
+	ld a, d  ; load current play area location
+	ldh [hTempPlayAreaLocation_ff9d], a
 	ld a, [hli]
 	push de
 	call DynamicCardTypeTest  ; preserves hl
@@ -361,6 +364,7 @@ CheckSomeMatchingPokemonInPlayArea:
 	dec e
 	jr nz, .loop
 	ld a, $ff
+	ldh [hTempPlayAreaLocation_ff9d], a
 	scf
 	ret
 
@@ -369,6 +373,7 @@ CheckSomeMatchingPokemonInPlayArea:
 ;   a: how to test the selected Pokémon (CARDTEST_* constants)
 ; output:
 ;   a: PLAY_AREA_* of the first matching Pokémon | $ff
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the first matching Pokémon | $ff
 ;   carry: set if there is no matching Pokémon
 CheckSomeMatchingPokemonInBench:
 	ld [wDataTableIndex], a
@@ -634,20 +639,18 @@ FullHeal_CheckPlayAreaStatus:
 ; ------------------------------------------------------------------------------
 
 CheckArenaPokemonHasAnyEnergiesAttached:
-	ld e, PLAY_AREA_ARENA
+	xor a  ; PLAY_AREA_ARENA
 	; jr CheckPlayAreaPokemonHasAnyEnergiesAttached
 	; fallthrough
 
 ; input:
-;   e: PLAY_AREA_* of the Pokémon to check
+;   a: PLAY_AREA_* of the Pokémon to check
 ; output:
 ;   carry: set if there are no attached energies
+; preserves: bc
 CheckPlayAreaPokemonHasAnyEnergiesAttached:
-	call GetPlayAreaCardAttachedEnergies
-	ld a, [wTotalAttachedEnergies]
 	ldtx hl, NoEnergyCardsText
-	cp 1
-	ret
+	jp IsNonEnergizedPokemon  ; preserves hl, bc
 
 
 ;
@@ -769,6 +772,7 @@ CheckPlayedEnergyThisTurn:
 ; input:
 ;   a: argument (e.g., deck index) to pass to a function in CardTypeTest_FunctionTable
 ;   [wDataTableIndex]: CARDTEST_* constant
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* location (if applicable)
 ; preserves:
 ;   hl: always
 ;   bc, de: if the test function also does
@@ -874,21 +878,48 @@ IsBasicEnergyCard:
 
 
 ; input:
-;   [wDynamicFunctionArgument]: PLAY_AREA_* of the Pokémon to check
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
 CardTypeTest_IsEnergizedPokemon:
-	ld a, [wDynamicFunctionArgument]
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	push de
+	jp IsEnergizedPokemon  ; preserves hl, bc
+	pop de
+	ret
+
+; input:
+;   a: PLAY_AREA_* of the Pokémon to check
+; output:
+;   carry: set if the Pokémon at the given location has some attached energies
+; preserves: hl, bc
+IsEnergizedPokemon:
 	ld e, a
-	call CheckPlayAreaPokemonHasAnyEnergiesAttached
+	call GetPlayAreaCardAttachedEnergies  ; preserves hl, bc, de
+	ld a, [wTotalAttachedEnergies]
+	cp 1
 	ccf
 	ret
 
 
 ; input:
-;   [wDynamicFunctionArgument]: PLAY_AREA_* of the Pokémon to check
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
 CardTypeTest_IsNonEnergizedPokemon:
-	ld a, [wDynamicFunctionArgument]
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	push de
+	jp IsNonEnergizedPokemon  ; preserves hl, bc
+	pop de
+	ret
+
+; input:
+;   a: PLAY_AREA_* of the Pokémon to check
+; output:
+;   carry: set if the Pokémon at the given location does not have attached energies
+; preserves: hl, bc
+IsNonEnergizedPokemon:
 	ld e, a
-	jp CheckPlayAreaPokemonHasAnyEnergiesAttached
+	call GetPlayAreaCardAttachedEnergies  ; preserves hl, bc, de
+	ld a, [wTotalAttachedEnergies]
+	cp 1
+	ret
 
 
 CardTypeTest_IsMagmar:
@@ -909,24 +940,29 @@ IsMagmarCard:
 	cp MAGMAR_LV24
 	jr z, .found
 	cp MAGMAR_LV31
-	ret nz  ; not a Magmar card
+	jr z, .found
+; must avoid accidental carry because of smaller ID number
+	or a
+	ret  ; not a Magmar card
 .found
 	scf
 	ret
 
 
 ; input:
-;   [wDynamicFunctionArgument]: PLAY_AREA_* of the Pokémon to check
+;   [wDynamicFunctionArgument]: deck index of the Pokémon card
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
 ; output:
 ;   carry: set if the given Pokémon is a Magmar with some attached energies
 ;   [wDuelTempList]: list of attached energy cards
 ; preserves: hl, bc, de
 CardTypeTest_IsEnergizedMagmar:
-	push de
 	ld a, [wDynamicFunctionArgument]
-	ld e, a
-	ld a, CARDTEST_MAGMAR
-	call IsEnergizedMatchingPokemon
+	call IsMagmarCard  ; preserves hl, bc, de
+	ret nc  ; not a Magmar card
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	push de
+	call IsEnergizedPokemon  ; preserves hl, bc
 	pop de
 	ret
 
@@ -949,24 +985,51 @@ IsElectabuzzCard:
 	cp ELECTABUZZ_LV20
 	jr z, .found
 	cp ELECTABUZZ_LV35
-	ret nz  ; not an Electabuzz card
+	jr z, .found
+; must avoid accidental carry because of smaller ID number
+	or a
+	ret  ; not an Electabuzz card
 .found
 	scf
 	ret
 
 
 ; input:
-;   [wDynamicFunctionArgument]: PLAY_AREA_* of the Pokémon to check
+;   [wDynamicFunctionArgument]: deck index of the Pokémon card
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
 ; output:
 ;   carry: set if the given Pokémon is an Electabuzz with some attached energies
 ;   [wDuelTempList]: list of attached energy cards
 ; preserves: hl, bc, de
 CardTypeTest_IsEnergizedElectabuzz:
+	push hl
 	push de
+	push bc
+	ldtx hl, CaterpieName
+	call DrawWideTextBox_WaitForInput
+	pop bc
+	pop de
+	pop hl
+
 	ld a, [wDynamicFunctionArgument]
-	ld e, a
-	ld a, CARDTEST_ELECTABUZZ
-	call IsEnergizedMatchingPokemon
+	call IsElectabuzzCard  ; preserves hl, bc, de
+	ret nc  ; not an Electabuzz card
+
+	push hl
+	push de
+	push bc
+	ld hl, wLoadedCard2Name
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call DrawWideTextBox_WaitForInput
+	pop bc
+	pop de
+	pop hl
+
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	push de
+	call IsEnergizedPokemon  ; preserves hl, bc
 	pop de
 	ret
 
@@ -992,35 +1055,3 @@ WickedTentacle_PreconditionCheck:
 	call CheckBenchIsNotEmpty
 	call nc, CheckArenaPokemonHasAnyEnergiesAttached
 	jp SwapTurn
-
-
-; input:
-;   a: how to test the selected Pokémon (CARDTEST_* constants)
-;   e: PLAY_AREA_* of the Pokémon to test
-; output:
-;   carry: set if the given Pokémon passes the test and has some attached energies
-;   [wDuelTempList]: list of attached energy cards
-; preserves: hl, bc, de
-IsEnergizedMatchingPokemon:
-	push hl
-	push bc
-	ld [wDataTableIndex], a
-	ld a, e
-; get the deck index of the play area Pokémon
-	add DUELVARS_ARENA_CARD
-	call GetTurnDuelistVariable
-; call the match test function
-	push de
-	call DynamicCardTypeTest
-	pop de
-	jr nc, .done  ; does not match
-; retrieve play area location again
-	ld a, e
-	push de
-	call CreateArenaOrBenchEnergyCardList
-	pop de
-	ccf  ; carry would be set if there are no energies
-.done
-	pop bc
-	pop hl
-	ret
