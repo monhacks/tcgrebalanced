@@ -2378,6 +2378,7 @@ DealDamageToPlayAreaPokemon:
 ; Pokémon Powers do not have damage modifiers
 	ld a, [wLoadedAttackCategory]
 	cp POKEMON_POWER
+	ld a, [wTempPlayAreaLocation_cceb]
 	jr z, .got_damage
 
 ; handle damage modifiers depending on play area location
