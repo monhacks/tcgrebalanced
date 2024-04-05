@@ -954,7 +954,6 @@ IsMagmarCard:
 ;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
 ; output:
 ;   carry: set if the given Pokémon is a Magmar with some attached energies
-;   [wDuelTempList]: list of attached energy cards
 ; preserves: hl, bc, de
 CardTypeTest_IsEnergizedMagmar:
 	ld a, [wDynamicFunctionArgument]
@@ -999,34 +998,11 @@ IsElectabuzzCard:
 ;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
 ; output:
 ;   carry: set if the given Pokémon is an Electabuzz with some attached energies
-;   [wDuelTempList]: list of attached energy cards
 ; preserves: hl, bc, de
 CardTypeTest_IsEnergizedElectabuzz:
-	push hl
-	push de
-	push bc
-	ldtx hl, CaterpieName
-	call DrawWideTextBox_WaitForInput
-	pop bc
-	pop de
-	pop hl
-
 	ld a, [wDynamicFunctionArgument]
 	call IsElectabuzzCard  ; preserves hl, bc, de
 	ret nc  ; not an Electabuzz card
-
-	push hl
-	push de
-	push bc
-	ld hl, wLoadedCard2Name
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call DrawWideTextBox_WaitForInput
-	pop bc
-	pop de
-	pop hl
-
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	push de
 	call IsEnergizedPokemon  ; preserves hl, bc
