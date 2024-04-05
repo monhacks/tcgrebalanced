@@ -6980,12 +6980,16 @@ MrFuji_PlayerSelection:
 
 
 MrFuji_ReturnToDeckAndDrawEffect:
-	ldh a, [hTempPlayAreaLocation_ffa1]
-	call ReturnPlayAreaPokemonToDeckEffect
 ; determine how many cards to draw based on Stage
 	ldh a, [hTempPlayAreaLocation_ffa1]
 	add DUELVARS_ARENA_CARD_STAGE
 	call GetTurnDuelistVariable
+	push af
+; return the selected Pokémon to the deck
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	call ReturnPlayAreaPokemonToDeckEffect
+; draw cards based on the Stage of the returned Pokémon
+	pop af
 	or a  ; BASIC
 	jp z, Draw1CardEffect
 	cp STAGE2
