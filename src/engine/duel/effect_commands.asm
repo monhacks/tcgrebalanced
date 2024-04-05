@@ -1416,7 +1416,8 @@ HealingMelodyEffectCommands:
 
 EvolutionaryWaveEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PassivePowerEffect
-	; fallthrough
+	dbw EFFECTCMDTYPE_PKMN_POWER_TRIGGER, Heal20DamageFromAll_HealEffect
+	db  $00
 
 AromatherapyEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Heal20DamageFromAll_HealEffect
