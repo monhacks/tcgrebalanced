@@ -4087,9 +4087,9 @@ DiscardEnergyFromMatchingPokemonInBench_PlayerSelectEffect:
 	call DynamicCardTypeTest
 	jr nc, .loop  ; invalid card
 ; selected a valid Pokémon
-	; ldh a, [hTempPlayAreaLocation_ff9d]
-	; call CreateArenaOrBenchEnergyCardList
-	; jr c, .loop  ; no energy
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	call CreateArenaOrBenchEnergyCardList
+	jr c, .loop  ; no energy
 	call DiscardEnergy_PlayerSelectEffect.got_energy_list
 ; ignore carry if set, because this is used for an EFFECTCMDTYPE_INITIAL_EFFECT_2
 ; otherwise, the deck index is in [hTemp_ffa0]
@@ -4110,7 +4110,7 @@ SearingSpark_AISelectEffect:
 
 FireLightningCombo_AISelectEffect:
 	call CheckSomeMatchingPokemonInBench
-	; ld e, a  ; play area location of the matching Pokémon
+	ld e, a  ; play area location of the matching Pokémon
 	ld a, $ff
 	ldh [hTemp_ffa0], a
 	ret c  ; no matches
@@ -4120,9 +4120,8 @@ FireLightningCombo_AISelectEffect:
 	; bit AI_LOGIC_MAX_DAMAGE_CAN_KO_F, a
 	; ret z  ; bonus damage is not enough
 ; choose an energy attached to the matching Pokémon
-; list of energy cards is already built in `CheckSomeMatchingPokemonInBench`
-	; ld a, e
-	; call CreateArenaOrBenchEnergyCardList
+	ld a, e
+	call CreateArenaOrBenchEnergyCardList
 	ld a, [wDuelTempList] ; pick first card
 	ldh [hTemp_ffa0], a
 	ret
