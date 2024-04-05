@@ -1,5 +1,21 @@
 ;
 
+
+; debug print lodaded card name
+; push hl
+; push de
+; push bc
+; ld hl, wLoadedCard2Name
+; ld a, [hli]
+; ld h, [hl]
+; ld l, a
+; call DrawWideTextBox_WaitForInput
+; pop bc
+; pop de
+; pop hl
+
+
+
 ZapdosThunderstormEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ThunderstormEffect
 	db  $00
