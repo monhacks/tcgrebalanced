@@ -3016,7 +3016,7 @@ MagmarLv24Card:
 	dw NONE ; description (cont)
 	db 10 ; damage
 	db DAMAGE_PLUS ; category
-	dw DoubleDamageIfUserIsDamagedEffectCommands ; effect commands
+	dw FirePunchEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db BOOST_IF_TAKEN_DAMAGE ; flags 3
