@@ -3977,7 +3977,7 @@ BounceOpponentEnergy_BounceEffect:
 	ret c ; return if attack had no effect
 	ldh a, [hEnergyTransEnergyCard]
 	cp $ff
-	ret 
+	ret z
 	call SwapTurn
 	call PutCardInDiscardPile
 	call MoveDiscardPileCardToHand
