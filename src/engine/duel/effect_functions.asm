@@ -4375,16 +4375,17 @@ DiscardAllAttachedEnergiesOnTurnHolderSideEffect:
 .next_card_loop
 	ld a, [hl]
 	and c
-	jr z, .skip_card ; jump if not in play area
+	jr z, .skip_card  ; not in Play Area
 	ld a, l
 	call LoadCardDataToBuffer2_FromDeckIndex
 	ld a, [wLoadedCard2Type]
 	and 1 << TYPE_ENERGY_F
-	jr z, .skip_card ; jump if Pokemon or trainer card
-	ld a, l
-	ld [de], a ; add to wDuelTempList
+	jr z, .skip_card  ; not an Energy card
+	ld a, l     ; deck index
+	ld [de], a  ; add to wDuelTempList
 	inc de
 	inc b
+	call PutCardInDiscardPile  ; preserves af, hl, bc, de
 .skip_card
 	inc l
 	ld a, l
