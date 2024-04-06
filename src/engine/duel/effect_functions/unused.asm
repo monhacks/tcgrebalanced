@@ -16,11 +16,165 @@
 
 
 
+ChainLightningEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ChainLightningEffect
+	db  $00
+
+;
+
+ChainLightningEffect: ; 2e595 (b:6595)
+	ld a, 10
+	call SetDefiniteDamage
+	call SwapTurn
+	call GetArenaCardColor
+	call SwapTurn
+	ldh [hCurSelectionItem], a
+	cp COLORLESS
+	ret z ; don't damage if colorless
+
+; opponent's Bench
+	call SwapTurn
+	call .DamageSameColorBench
+	call SwapTurn
+
+; own Bench
+	ld a, $01
+	ld [wIsDamageToSelf], a
+	; fallthrough
+
+.DamageSameColorBench
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	ld e, a
+	ld d, PLAY_AREA_ARENA
+	jr .next_bench
+
+.check_damage
+	ld a, d
+	call GetPlayAreaCardColor
+	ld c, a
+	ldh a, [hCurSelectionItem]
+	cp c
+	jr nz, .next_bench ; skip if not same color
+; apply damage to this Bench card
+	push de
+	ld b, d
+	ld de, 10
+	call DealDamageToPlayAreaPokemon_RegularAnim
+	pop de
+
+.next_bench
+	inc d
+	dec e
+	jr nz, .check_damage
+	ret
+
+
 ZapdosThunderstormEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ThunderstormEffect
 	db  $00
 
+;
 
+ThunderstormEffect: ; 2e429 (b:6429)
+	ld a, 1
+	ldh [hCurSelectionItem], a
+
+	call SwapTurn
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	ld c, a
+	ld b, 0
+	ld e, b
+	jr .next_pkmn
+
+.check_damage
+	push de
+	push bc
+	call .DisplayText
+	ld de, $0
+	call SwapTurn
+	call TossCoin_BankB
+	call SwapTurn
+	push af
+	call GetNextPositionInTempList
+	pop af
+	ld [hl], a ; store result in list
+	pop bc
+	pop de
+	jr c, .next_pkmn
+	inc b ; increase number of tails
+
+.next_pkmn
+	inc e
+	dec c
+	jr nz, .check_damage
+
+; all coins were tossed for each Benched Pokemon
+	call GetNextPositionInTempList
+	ld [hl], $ff
+	ld a, b
+	ldh [hTemp_ffa0], a
+	call Func_3b21
+	call SwapTurn
+
+; tally recoil damage
+	ldh a, [hTemp_ffa0]
+	or a
+	jr z, .skip_recoil
+	; deal number of tails times 10 to self
+	call ATimes10
+	call DealRecoilDamageToSelf
+.skip_recoil
+
+; deal damage for Bench Pokemon that got heads
+	call SwapTurn
+	ld hl, hTempPlayAreaLocation_ffa1
+	ld b, PLAY_AREA_BENCH_1
+.loop_bench
+	ld a, [hli]
+	cp $ff
+	jr z, .done
+	or a
+	jr z, .skip_damage ; skip if tails
+	ld de, 20
+	call DealDamageToPlayAreaPokemon_RegularAnim
+.skip_damage
+	inc b
+	jr .loop_bench
+
+.done
+	call SwapTurn
+	ret
+
+; displays text for current Bench Pokemon,
+; printing its Bench number and name.
+.DisplayText ; 2e491 (b:6491)
+	ld b, e
+	ldtx hl, BenchText
+	ld de, wDefaultText
+	call CopyText
+	ld a, $30 ; 0 FW character
+	add b
+	ld [de], a
+	inc de
+	ld a, $20 ; space FW character
+	ld [de], a
+	inc de
+
+	ld a, DUELVARS_ARENA_CARD
+	add b
+	call GetTurnDuelistVariable
+	call LoadCardDataToBuffer2_FromDeckIndex
+	ld hl, wLoadedCard2Name
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call CopyText
+
+	xor a
+	ld [wDuelDisplayedScreen], a
+	ret
 
 
 ; IceCycloneName:

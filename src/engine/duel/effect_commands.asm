@@ -1240,10 +1240,6 @@ GrowlEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, GrowlEffect
 	db  $00
 
-ChainLightningEffectCommands:
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ChainLightningEffect
-	db  $00
-
 DamageUpTo2Benched10EffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectUpTo2Benched_BenchDamageEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, SelectUpTo2Benched_PlayerSelectEffect
