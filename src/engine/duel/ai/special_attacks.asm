@@ -33,7 +33,7 @@ HandleSpecialAIAttacks:
 	jp z, .BigThunder
 	cp GROWLITHE
 	jp z, .Collect
-	cp MEOWTH_LV14
+	cp MEOWTH_LV15
 	jp z, .Collect
 	cp PIDGEY
 	jp z, .Collect
@@ -41,8 +41,6 @@ HandleSpecialAIAttacks:
 	jp z, .Earthquake
 	cp RHYDON
 	jp z, .Earthquake
-	cp MAGNEMITE_LV13
-	jp z, .MagneticCharge
 	cp ELECTRODE_LV35
 	jp z, .EnergySpike
 	cp DRAGONITE_LV45

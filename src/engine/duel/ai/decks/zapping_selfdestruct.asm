@@ -35,12 +35,12 @@ AIActionTable_ZappingSelfdestruct:
 	db KANGASKHAN
 	db ELECTABUZZ_LV35
 	db TAUROS
-	db MAGNEMITE_LV13
+	db MAGNEMITE_LV15
 	db VOLTORB
 	db $00
 
 .list_bench
-	db MAGNEMITE_LV13
+	db MAGNEMITE_LV15
 	db VOLTORB
 	db ELECTABUZZ_LV35
 	db TAUROS
@@ -52,7 +52,7 @@ AIActionTable_ZappingSelfdestruct:
 	db $00
 
 .list_energy
-	ai_energy MAGNEMITE_LV13,  3, +1
+	ai_energy MAGNEMITE_LV15,  3, +1
 	ai_energy MAGNETON_LV28,   4, +0
 	ai_energy VOLTORB,         3, +1
 	ai_energy ELECTRODE_LV35,  3, +0

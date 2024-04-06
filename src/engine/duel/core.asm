@@ -7226,28 +7226,13 @@ HandleOnRetreatEffects:
 HandleEndOfTurnEvents:
 ; reset end of turn variables
 	xor a
-	ld [wLuckyTailsCardsToDraw], a
 	ld [wDreamEaterDamageToHeal], a
 
 ; return if Pokémon Powers are disabled
 	call ArePokemonPowersDisabled
 	ret c
 
-; check for Meowth's Lucky Tails Power
-	ld a, MEOWTH_LV14
-	call CountPokemonIDInPlayArea
-	jr nc, .dream_eater
-	ld c, a
-
-	ld a, DUELVARS_MISC_TURN_FLAGS
-	call GetTurnDuelistVariable
-	bit TURN_FLAG_TOSSED_TAILS_F, a
-	jr z, .dream_eater
-	ld a, c
-	ld [wLuckyTailsCardsToDraw], a
-
 ; check for Hypno's Dream Eater Power
-.dream_eater
 	; ld a, HYPNO
 	; call CountPokemonIDInPlayArea
 	; jr nc, .done
@@ -7267,9 +7252,6 @@ HandleBetweenTurnsEvents:
 	jr c, .something_to_handle
 	cp PARALYZED
 	jr z, .something_to_handle
-	ld a, [wLuckyTailsCardsToDraw]
-	or a
-	jr nz, .something_to_handle
 	ld a, [wDreamEaterDamageToHeal]
 	or a
 	jr nz, .something_to_handle
@@ -7302,17 +7284,7 @@ HandleBetweenTurnsEvents:
 	ldtx hl, BetweenTurnsText
 	call DrawWideTextBox_WaitForInput
 
-; handle Meowth's Lucky Tails
-	ld a, [wLuckyTailsCardsToDraw]
-	or a
-	jr z, .dream_eater
-	ldtx hl, DrawLuckyTailsCardsText
-	call DrawWideTextBox_WaitForInput
-	ld a, [wLuckyTailsCardsToDraw]
-	farcall DrawNCards_NoCardDetails
-
 ; handle Hypno's Dream Eater
-.dream_eater
 	farcall DreamEater_HealEffect
 	farcall Affliction_DamageEffect
 

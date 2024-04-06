@@ -1878,9 +1878,9 @@ PikachuLv16CardGfx::
 	INCBIN "gfx/cards/pikachu5.2bpp"
 	INCBIN "gfx/cards/pikachu5.pal"
 
-PikachuAltLv16CardGfx::
-	INCBIN "gfx/cards/pikachu4.2bpp"
-	INCBIN "gfx/cards/pikachu4.pal"
+; PikachuAltLv16CardGfx::
+; 	INCBIN "gfx/cards/pikachu4.2bpp"
+; 	INCBIN "gfx/cards/pikachu4.pal"
 
 FlyingPikachuCardGfx::
 	INCBIN "gfx/cards/flyingpikachu.2bpp"
@@ -1909,9 +1909,9 @@ PokemonNurseCardGfx::
 
 SECTION "Card Gfx 6", ROMX
 
-MagnemiteLv13CardGfx::
-	INCBIN "gfx/cards/magnemite1.2bpp"
-	INCBIN "gfx/cards/magnemite1.pal"
+WigglytuffLv28CardGfx::
+	INCBIN "gfx/cards/wigglytuff2.2bpp"
+	INCBIN "gfx/cards/wigglytuff2.pal"
 
 MagnemiteLv15CardGfx::
 	INCBIN "gfx/cards/magnemite2.2bpp"
@@ -2073,12 +2073,12 @@ AlakazamCardGfx::
 	INCBIN "gfx/cards/alakazam.pal"
 
 SlowpokeLv9CardGfx::
-	INCBIN "gfx/cards/slowpoke1.2bpp"
-	INCBIN "gfx/cards/slowpoke1.pal"
-
-SlowpokeLv18CardGfx::
 	INCBIN "gfx/cards/slowpoke2.2bpp"
 	INCBIN "gfx/cards/slowpoke2.pal"
+
+; SlowpokeLv18CardGfx::
+; 	INCBIN "gfx/cards/slowpoke1.2bpp"
+; 	INCBIN "gfx/cards/slowpoke1.pal"
 
 
 SECTION "Card Gfx 8", ROMX
@@ -2202,7 +2202,7 @@ JigglypuffLv14CardGfx::
 	INCBIN "gfx/cards/jigglypuff3.2bpp"
 	INCBIN "gfx/cards/jigglypuff3.pal"
 
-WigglytuffCardGfx::
+WigglytuffLv36CardGfx::
 	INCBIN "gfx/cards/wigglytuff.2bpp"
 	INCBIN "gfx/cards/wigglytuff.pal"
 

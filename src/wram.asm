@@ -1122,18 +1122,15 @@ ENDU
 
 ; End of Turn Pokémon Power variables
 wEndOfTurnPowerVariables::
-wLuckyTailsCardsToDraw:: ; cdc0
+wGarbageEaterDamageToHeal:: ; cdc0
+wDreamEaterDamageToHeal:: ; cdc0
 	ds $1
 
-wGarbageEaterDamageToHeal:: ; cdc1
-wDreamEaterDamageToHeal:: ; cdc1
-	ds $1
-
-wAfflictionAffectedPlayArea:: ; cdc2
+wAfflictionAffectedPlayArea:: ; cdc1
 	ds $1
 
 ; unused free space
-	ds $7
+	ds $8
 
 ; information about the defending Pokémon and
 ; the prize card count on both sides for AI:

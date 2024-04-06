@@ -342,13 +342,13 @@ GetAIScoreOfAttack:
 	call GetTurnDuelistVariable
 	call GetCardIDFromDeckIndex
 	ld a, e
-	cp MAGNEMITE_LV13
-	jr z, .magnemite1
+	cp VOLTORB
+	jr z, .voltorb
 	ld b, 10 ; bench damage
-.magnemite1
+.voltorb
 	ld a, 10
 	add b
-	ld b, a ; 20 bench damage if not MagnemiteLv13
+	ld b, a ; 20 bench damage if not Voltorb
 
 ; if this attack causes player to win the duel by
 ; knocking out own Pokémon, dismiss attack.
@@ -381,7 +381,7 @@ GetAIScoreOfAttack:
 	call GetTurnDuelistVariable
 	call GetCardIDFromDeckIndex
 	ld a, e
-	cp MAGNEMITE_LV13
+	cp VOLTORB
 	jr z, .magnemite1_or_weezing
 	cp WEEZING
 	jr z, .magnemite1_or_weezing

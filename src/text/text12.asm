@@ -892,21 +892,6 @@ DrainPunchName:
 ; 	line "to this Pokémon."
 ; 	done
 
-LuckyTailsName:
-	text "Lucky Tails"
-	done
-
-LuckyTailsDescription:
-	text "If, during your turn, you tossed a"
-	line "Tails, draw a card at the end of"
-	line "your turn for each Lucky Tails."
-	done
-
-DrawLuckyTailsCardsText:
-	text "Draw cards from the Deck,"
-	line "due to Lucky Tails."
-	done
-
 PesterName:
 	text "Pester"
 	done

@@ -4375,7 +4375,7 @@ AIDecide_ClefairyDollOrMysteriousFossil:
 	call GetTurnDuelistVariable
 	call GetCardIDFromDeckIndex
 	ld a, e
-	cp WIGGLYTUFF
+	cp WIGGLYTUFF_LV36
 	jr z, .set_carry
 
 ; if number of Play Area Pokemon >= 4, return no carry
@@ -4498,14 +4498,14 @@ AIDecide_Pokeball:
 	ld a, PIKACHU_LV12
 	call LookForCardIDInHandList_Bank8
 	jr c, .fighting
-	ld a, MAGNEMITE_LV13
+	ld a, MAGNEMITE_LV15
 	call LookForCardIDInHandList_Bank8
 	jr c, .fighting
 	ld e, PIKACHU_LV12
 	ld a, CARD_LOCATION_DECK
 	call LookForCardIDInLocation
 	ret c
-	ld e, MAGNEMITE_LV13
+	ld e, MAGNEMITE_LV15
 	ld a, CARD_LOCATION_DECK
 	call LookForCardIDInLocation
 	ret c
@@ -5087,16 +5087,8 @@ AIDecide_PokemonTrader_PowerGenerator:
 	ld b, ELECTRODE_LV35
 	call LookForCardIDInDeck_GivenCardIDInHand
 	jr c, .find_duplicates
-	ld b, MAGNEMITE_LV13
-	ld a, MAGNETON_LV35
-	call LookForCardIDInDeck_GivenCardIDInHandAndPlayArea
-	jr c, .find_duplicates
 	ld b, MAGNEMITE_LV15
 	ld a, MAGNETON_LV35
-	call LookForCardIDInDeck_GivenCardIDInHandAndPlayArea
-	jr c, .find_duplicates
-	ld b, MAGNEMITE_LV13
-	ld a, MAGNETON_LV28
 	call LookForCardIDInDeck_GivenCardIDInHandAndPlayArea
 	jr c, .find_duplicates
 	ld b, MAGNEMITE_LV15
@@ -5107,15 +5099,7 @@ AIDecide_PokemonTrader_PowerGenerator:
 	ld b, MAGNETON_LV35
 	call LookForCardIDInDeck_GivenCardIDInHand
 	jr c, .find_duplicates
-	ld a, MAGNEMITE_LV13
-	ld b, MAGNETON_LV35
-	call LookForCardIDInDeck_GivenCardIDInHand
-	jr c, .find_duplicates
 	ld a, MAGNEMITE_LV15
-	ld b, MAGNETON_LV28
-	call LookForCardIDInDeck_GivenCardIDInHand
-	jr c, .find_duplicates
-	ld a, MAGNEMITE_LV13
 	ld b, MAGNETON_LV28
 	call LookForCardIDInDeck_GivenCardIDInHand
 	jr c, .find_duplicates

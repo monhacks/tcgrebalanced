@@ -1,6 +1,163 @@
 ;
 
 
+
+; engine/duel/core.asm
+
+
+; apply and/or refresh status conditions and other events that trigger between turns
+HandleBetweenTurnsEvents:
+	call IsArenaPokemonPoisoned
+	jr c, .something_to_handle
+	cp PARALYZED
+	jr z, .something_to_handle
+	ld a, [wLuckyTailsCardsToDraw]
+	or a
+	jr nz, .something_to_handle
+	ld a, [wDreamEaterDamageToHeal]
+	or a
+	jr nz, .something_to_handle
+	ld a, [wAfflictionAffectedPlayArea]
+	or a
+	jr nz, .something_to_handle
+;	call PreprocessHealingNectar
+;	jr c, .something_to_handle
+; OATS poison only ticks for the turn holder
+; OATS sleep checks are no longer done between turns
+	; call SwapTurn
+	; call IsArenaPokemonPoisoned
+	; call SwapTurn
+	; jr c, .something_to_handle
+;.nothing_to_handle
+	call ClearParalysisFromBenchedPokemon
+	call DiscardAttachedPluspowers
+	call SwapTurn
+	call DiscardAttachedDefenders
+	jp SwapTurn
+
+.something_to_handle
+; turn holder's arena Pokemon is paralyzed, poisoned or double poisoned
+; or there are End of Turn Pokémon Powers to trigger
+	call Func_3b21
+	call ZeroObjectPositionsAndToggleOAMCopy
+	call EmptyScreen
+	ld a, BOXMSG_BETWEEN_TURNS
+	call DrawDuelBoxMessage
+	ldtx hl, BetweenTurnsText
+	call DrawWideTextBox_WaitForInput
+
+; handle Meowth's Lucky Tails
+	ld a, [wLuckyTailsCardsToDraw]
+	or a
+	jr z, .dream_eater
+	ldtx hl, DrawLuckyTailsCardsText
+	call DrawWideTextBox_WaitForInput
+	ld a, [wLuckyTailsCardsToDraw]
+	farcall DrawNCards_NoCardDetails
+
+; handle Hypno's Dream Eater
+.dream_eater
+	farcall DreamEater_HealEffect
+	farcall Affliction_DamageEffect
+
+; handle status conditions
+.status_conditions
+	ld a, DUELVARS_ARENA_CARD
+	call GetTurnDuelistVariable
+	call GetCardIDFromDeckIndex
+	ld a, e
+	ld [wTempNonTurnDuelistCardID], a
+; handle Gloom's Healing Nectar
+;	call HandleHealingNectar
+; handle status
+	ld l, DUELVARS_ARENA_CARD_STATUS
+	ld a, [hl]
+	or a
+	jr z, .discard_pluspower
+	; has status condition
+	call HandlePoisonDamage
+	jr c, .discard_pluspower
+; OATS sleep check is no longer between turns
+	; call HandleSleepCheck
+	ld a, [hl]
+	and CNF_SLP_PRZ
+	cp PARALYZED
+	jr nz, .discard_pluspower
+	; heal paralysis
+	ld a, DOUBLE_POISONED
+	and [hl]
+	ld [hl], a
+	call Func_6c7e
+	ldtx hl, IsCuredOfParalysisText
+	call PrintNonTurnDuelistCardIDText
+	ld a, DUEL_ANIM_HEAL
+	call Func_6cab
+	call WaitForWideTextBoxInput
+
+.discard_pluspower
+	call ClearParalysisFromBenchedPokemon
+	call DiscardAttachedPluspowers
+	call SwapTurn
+	ld a, DUELVARS_ARENA_CARD
+	call GetTurnDuelistVariable
+	call GetCardIDFromDeckIndex
+	ld a, e
+	ld [wTempNonTurnDuelistCardID], a
+; OATS poison damage only for the turn holder
+	; ld l, DUELVARS_ARENA_CARD_STATUS
+	; ld a, [hl]
+	; or a
+	; jr z, .asm_6c3a
+	; call HandlePoisonDamage
+; OATS sleep check is no longer handled between turns
+	; jr c, .asm_6c3a
+	; call HandleSleepCheck
+.asm_6c3a
+	call DiscardAttachedDefenders
+	call SwapTurn
+	jp ClearKnockedOutPokemon_TakePrizes_CheckGameOutcome
+
+
+HandleEndOfTurnEvents:
+	; reset end of turn variables
+		xor a
+		ld [wLuckyTailsCardsToDraw], a
+		ld [wDreamEaterDamageToHeal], a
+	
+	; return if Pokémon Powers are disabled
+		call ArePokemonPowersDisabled
+		ret c
+	
+	; check for Meowth's Lucky Tails Power
+		ld a, MEOWTH_LV14
+		call CountPokemonIDInPlayArea
+		jr nc, .dream_eater
+		ld c, a
+	
+		ld a, DUELVARS_MISC_TURN_FLAGS
+		call GetTurnDuelistVariable
+		bit TURN_FLAG_TOSSED_TAILS_F, a
+		jr z, .dream_eater
+		ld a, c
+		ld [wLuckyTailsCardsToDraw], a
+	
+	; check for Hypno's Dream Eater Power
+	.dream_eater
+		; ld a, HYPNO
+		; call CountPokemonIDInPlayArea
+		; jr nc, .done
+		farcall DreamEater_CountPokemonAndSetHealingAmount
+	
+		; ld a, HAUNTER_LV22
+		; call CountPokemonIDInPlayArea
+		; jr nc, .done
+		farcall Affliction_CountPokemonAndSetVariable
+	.done
+		ret	
+
+
+
+
 ; debug print lodaded card name
 ; push hl
 ; push de

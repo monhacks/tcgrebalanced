@@ -2963,9 +2963,6 @@ TextOffsets:: ; 34000 (d:4000)
 	; textpointer AquaPunchName
 	; textpointer AquaPunchDescription
 	textpointer DrainPunchName
-	textpointer LuckyTailsName
-	textpointer LuckyTailsDescription
-	textpointer DrawLuckyTailsCardsText
 	textpointer PesterName
 	textpointer PesterDescription
 	textpointer MimicName

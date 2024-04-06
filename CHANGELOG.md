@@ -4,6 +4,11 @@
 
 ### Removed Cards
 - Pikachu Lv14
+- Pikachu Lv16 (Alternative Art)
+- Magnemite Lv13
+- Meowth Lv14
+- Jigglypuff Lv14
+- Slowpoke Lv18
 
 ### New Cards
 
@@ -13,6 +18,13 @@
 - Retreat Cost: 1.
 - Pokémon Power: **Lightning Haste**: once per turn, attach (L) from the discard pile to the Active Pokémon and deal 10 damage to it.
 - Attack: **Discharge** (L): discard any number of attached (L); 20 damage for each discarded energy; inflicts Paralysis if 2 or more were discarded.
+
+#### Wigglytuff Lv28
+- Stage 1, 80 HP, Psychic Pokémon, evolves from Jigglypuff.
+- Weakness: Darkness.
+- Retreat Cost: 1.
+- Attack 1: **Lullaby** (C): inflicts Sleep.
+- Attack 2: **Pester** (PP): 30 damage; double damage if opponent if affected with Status.
 
 #### Pokémon Nurse
 - Supporter Trainer card.
@@ -155,14 +167,6 @@
 - New attack: **Swift** (CC): 30 damage; unaffected by Weakness, Resistance, Pokémon Powers or effects on the Defending Pokémon.
 - New attack: **Thunderbolt** (LLC): 100 damage; discard all attached energies.
 
-#### Magnemite Lv13
-- Increased HP from 40 to 50.
-- Added Resistance to **Grass**.
-- **Sonicboom**: removed.
-- **Thunder Wave**: removed.
-- New attack: **Magnetic Charge** (C): attach a Basic Energy from discard to a Benched Pokémon.
-- New attack: **Thunder Shock** (LC): 20 damage; coin flip; inflict Paralysis if heads.
-
 #### Magnemite Lv15
 - Increased HP from 40 to 50.
 - Added Resistance to **Grass**.
@@ -243,6 +247,12 @@
 - New attack: **Primal Thunder** (LLC): 70 damage; 30 damage to all friendly Pokémon if the user has taken more Prizes.
 
 ### Psychic Changes
+
+#### Slowpoke Lv9
+- **Amnesia**: removed.
+- **Confusion Wave**: removed.
+- New attack: **Rest** (C): heal 30 damage and status from self; falls asleep.
+- New attack: **Fishing Tail** (C): put a Pokémon or Basic Energy from discard pile into hand.
 
 #### Slowbro
 - **Spiral Drain**: reduced healing from 30 to 20.
