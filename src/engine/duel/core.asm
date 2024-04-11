@@ -779,11 +779,11 @@ PlayPokemonCard:
 	ret
 
 .try_evolve
+	ldh a, [hTempCardIndex_ff98]
+	ld d, a
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetTurnDuelistVariable
 	ld c, a
-	ldh a, [hTempCardIndex_ff98]
-	ld d, a
 	ld e, PLAY_AREA_ARENA
 	push de
 	push bc
