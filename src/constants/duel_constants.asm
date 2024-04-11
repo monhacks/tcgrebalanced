@@ -323,7 +323,7 @@ DEF PRIZES_6    EQU $06
 	const_def
  	const CARDTEST_POKEMON                      ; $00
  	const CARDTEST_BASIC_POKEMON                ; $01
- 	const CARDTEST_EVOLVED_POKEMON              ; $02
+ 	const CARDTEST_EVOLUTION_POKEMON            ; $02
  	const CARDTEST_BASIC_ENERGY                 ; $03
  	const CARDTEST_ENERGIZED_POKEMON            ; $04
  	const CARDTEST_NON_ENERGIZED_POKEMON        ; $05

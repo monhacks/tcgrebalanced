@@ -334,6 +334,24 @@ HandlePlayerSelectionBasicPokemonFromDeckList:
 	jr HandlePlayerSelectionFromDeckList
 
 
+HandlePlayerSelectionEvolutionPokemonFromDeck:
+; create the list of cards in deck
+	call CreateDeckCardList
+	; fallthrough
+
+; input:
+;   wDuelTempList: list of deck cards to search
+; output:
+;   a: deck index of the selected card | $ff
+;   [hTempCardIndex_ff98]: deck index of the selected card
+;   carry: set if there are no Pokémon or the Player cancelled the selection
+;   nz: set if there are no Pokémon in the deck
+HandlePlayerSelectionEvolutionPokemonFromDeckList:
+	ld a, CARDTEST_EVOLUTION_POKEMON
+	ldtx hl, ChoosePokemonCardText
+	jr HandlePlayerSelectionFromDeckList
+
+
 HandlePlayerSelectionPokemonFromDeck:
 ; create the list of cards in deck
 	call CreateDeckCardList
@@ -516,7 +534,7 @@ PlayerSelectAndStoreOpponentPokemonInBench:
 DevolvePlayAreaPokemon_PlayerSelectEffect:
 	ldtx hl, ChooseEvolvedPokemonInPlayAreaText
 	call DrawWideTextBox_WaitForInput
-	ld a, CARDTEST_EVOLVED_POKEMON
+	ld a, CARDTEST_EVOLUTION_POKEMON
 	call HandlePlayerSelectionMatchingPokemonInPlayArea_AllowCancel
 	; a: PLAY_AREA_* of the selected card | $ff
 	ldh [hTempPlayAreaLocation_ffa1], a

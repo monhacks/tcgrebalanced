@@ -307,7 +307,7 @@ CheckPokemonHasNoToolsAttached:
 ; return carry if Turn Duelist has no Evolution cards in Play Area
 ; Evolution cards played as Basic Pokémon count for this check
 ; CheckSomeEvolutionPokemonCardsInPlayArea:
-; 	ld a, CARDTEST_EVOLVED_POKEMON
+; 	ld a, CARDTEST_EVOLUTION_POKEMON
 ; 	call CheckSomeMatchingPokemonInPlayArea
 ; ; carry set if there is no evolved Pokémon
 ; 	ldtx hl, ThereAreNoEvolvedPokemonInPlayAreaText
@@ -789,7 +789,7 @@ DynamicCardTypeTest:
 CardTypeTest_FunctionTable:
 	dw CardTypeTest_Pokemon                ; CARDTEST_POKEMON
 	dw CardTypeTest_BasicPokemon           ; CARDTEST_BASIC_POKEMON
-	dw CardTypeTest_EvolvedPokemon         ; CARDTEST_EVOLVED_POKEMON
+	dw CardTypeTest_EvolutionPokemon       ; CARDTEST_EVOLUTION_POKEMON
 	dw CardTypeTest_BasicEnergy            ; CARDTEST_BASIC_ENERGY
 	dw CardTypeTest_IsEnergizedPokemon     ; CARDTEST_ENERGIZED_POKEMON
 	dw CardTypeTest_IsNonEnergizedPokemon  ; CARDTEST_NON_ENERGIZED_POKEMON
@@ -836,7 +836,7 @@ IsBasicPokemonCard:
 	ret
 
 
-CardTypeTest_EvolvedPokemon:
+CardTypeTest_EvolutionPokemon:
 	ld a, [wDynamicFunctionArgument]
 	; fallthrough
 
