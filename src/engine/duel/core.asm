@@ -780,44 +780,15 @@ PlayPokemonCard:
 
 .try_evolve
 	ldh a, [hTempCardIndex_ff98]
-	ld d, a
-	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	call GetTurnDuelistVariable
-	ld c, a
-	ld e, PLAY_AREA_ARENA
-	push de
-	push bc
-.next_play_area_pkmn
-	push de
-	call CheckIfCanEvolveInto
-	pop de
+	call CheckEvolutionCardCanBePlayed
 	jr nc, .can_evolve
-	inc e
-	dec c
-	jr nz, .next_play_area_pkmn
-	pop bc
-	pop de
-.find_cant_evolve_reason_loop
-	push de
-	call CheckIfCanEvolveInto
-	pop de
-	ldtx hl, CantEvolvePokemonInSameTurnItsPlacedText
-	jr nz, .cant_same_turn
-	inc e
-	dec c
-	jr nz, .find_cant_evolve_reason_loop
-	ldtx hl, NoPokemonCapableOfEvolvingText
-.cant_same_turn
-	; don't bother opening the selection screen if there are no pokemon capable of evolving
+; cannot evolve
+; don't bother opening the selection screen if there are no pokemon capable of evolving
 	call DrawWideTextBox_WaitForInput
 	scf
 	ret
 
 .can_evolve
-	pop bc
-	pop de
-	call IsPrehistoricPowerActive
-	jr c, .prehistoric_power
 	call HasAlivePokemonInPlayArea
 .try_evolve_loop
 	call OpenPlayAreaScreenForSelection
@@ -838,10 +809,50 @@ PlayPokemonCard:
 	or a
 	ret
 
-.prehistoric_power
-	call DrawWideTextBox_WaitForInput
+
+; input:
+;   a: deck index of the Evolution card
+; output:
+;   carry: set if the card cannot be played
+;   hl: text pointer with the reason (if unable to evolve)
+CheckEvolutionCardCanBePlayed:
+	ld d, a
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	ld c, a
+	ld e, PLAY_AREA_ARENA
+	push de
+	push bc
+.next_play_area_pkmn
+	push de
+	call CheckIfCanEvolveInto
+	pop de
+	jr c, .failed_check
+; can evolve
+	pop bc
+	pop de
+	jp IsPrehistoricPowerActive
+
+.failed_check
+	inc e
+	dec c
+	jr nz, .next_play_area_pkmn
+	pop bc
+	pop de
+.find_cant_evolve_reason_loop
+	push de
+	call CheckIfCanEvolveInto
+	pop de
+	ldtx hl, CantEvolvePokemonInSameTurnItsPlacedText
+	jr nz, .cant_evolve
+	inc e
+	dec c
+	jr nz, .find_cant_evolve_reason_loop
+	ldtx hl, NoPokemonCapableOfEvolvingText
+.cant_evolve
 	scf
 	ret
+
 
 ; triggered by selecting the "Check" item in the duel menu
 DuelMenu_Check:
