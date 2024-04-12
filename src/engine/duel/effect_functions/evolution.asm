@@ -44,6 +44,45 @@ PokemonBreeder_Deck_PlayerSelectEffect:
 	jr EvolutionFromDeck_PlayerSelectEffect
 
 
+LunarPower_PlayerSelectEffect__2:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
+	call IsPrehistoricPowerActive
+	ret c
+
+; select an Evolution card from the deck
+	call CreateDeckCardList
+.loop_deck
+	call HandlePlayerSelectionEvolutionPokemonFromDeckList
+	ret c  ; no Pokémon | Player cancelled
+	; [hTempCardIndex_ff98]: deck index of the Evolution card
+	ld a, CARDTEST_EVOLVES_INTO
+	call CheckSomeMatchingPokemonInPlayArea
+	jr c, .loop_deck  ; invalid Evolution card
+
+; store the selected Evolution card
+	ldh a, [hTempCardIndex_ff98]
+	ldh [hTemp_ffa0], a
+
+; choose a Pokémon in the play area to evolve
+.loop_play_area
+	call HandlePlayerSelectionPokemonInPlayArea  ; forced
+	ldh [hTempPlayAreaLocation_ffa1], a
+	ld e, a  ; PLAY_AREA_* of the Pokemon trying to evolve
+	ldh a, [hTemp_ffa0]
+	ld d, a  ; deck index of the Evolution card
+	call CheckIfCanEvolveInto
+	jr nc, .can_evolve
+	jr nz, .can_evolve  ; ignore first turn evolution
+	call PlaySFX_InvalidChoice
+	jr .loop_play_area  ; not a valid Pokémon
+
+.can_evolve
+	or a
+	ret
+
+
 LunarPower_PlayerSelectEffect:
 	call HandlePlayerSelectionPokemonInPlayArea  ; forced
 	jr EvolutionFromDeck_PlayerSelectEffect
