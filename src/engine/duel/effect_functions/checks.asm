@@ -797,6 +797,7 @@ CardTypeTest_FunctionTable:
 	dw CardTypeTest_IsEnergizedMagmar      ; CARDTEST_ENERGIZED_MAGMAR
 	dw CardTypeTest_IsElectabuzz           ; CARDTEST_ELECTABUZZ
 	dw CardTypeTest_IsEnergizedElectabuzz  ; CARDTEST_ENERGIZED_ELECTABUZZ
+	dw CardTypeTest_EvolvesIntoStoredCard  ; CARDTEST_EVOLVES_INTO
 
 
 CardTypeTest_Pokemon:
@@ -1008,6 +1009,29 @@ CardTypeTest_IsEnergizedElectabuzz:
 	call IsEnergizedPokemon  ; preserves hl, bc
 	pop de
 	ret
+
+
+; input:
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
+;   [hTempCardIndex_ff98]: deck index of the desired Evolution Pokémon
+; output:
+;   carry: set if the given Pokémon can evolve into the stored Pokémon card
+; preserves: hl, bc, de
+CardTypeTest_EvolvesIntoStoredCard:
+	push hl
+	push de
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ld e, a
+	ldh a, [hTempCardIndex_ff98]
+	ld d, a
+	call CheckIfCanEvolveInto
+	pop de
+	pop hl
+	ccf
+	ret c  ; compatible evolution
+	ret z  ; incompatible evolution
+	scf
+	ret    ; was unable to evolve, but only due to being played this turn
 
 
 ; ------------------------------------------------------------------------------
