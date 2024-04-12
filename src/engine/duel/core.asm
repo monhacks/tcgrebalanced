@@ -781,14 +781,10 @@ PlayPokemonCard:
 .try_evolve
 	ldh a, [hTempCardIndex_ff98]
 	call CheckEvolutionCardCanBePlayed
-	jr nc, .can_evolve
-; cannot evolve
 ; don't bother opening the selection screen if there are no pokemon capable of evolving
-	call DrawWideTextBox_WaitForInput
-	scf
-	ret
+	ret c
 
-.can_evolve
+; can evolve
 	call HasAlivePokemonInPlayArea
 .try_evolve_loop
 	call OpenPlayAreaScreenForSelection
@@ -850,6 +846,7 @@ CheckEvolutionCardCanBePlayed:
 	jr nz, .find_cant_evolve_reason_loop
 	ldtx hl, NoPokemonCapableOfEvolvingText
 .cant_evolve
+	call DrawWideTextBox_WaitForInput
 	scf
 	ret
 
