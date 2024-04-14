@@ -65,9 +65,12 @@ LunarPower_PlayerSelectEffect__2:
 	; [hTempCardIndex_ff98]: deck index of the Evolution card
 	ld a, CARDTEST_EVOLVES_INTO
 	call CheckSomeMatchingPokemonInPlayArea
-	jr c, .loop_deck  ; invalid Evolution card
+	jr nc, .got_valid_card
+	call PlaySFX_InvalidChoice
+	jr .loop_deck
 
 ; store the selected Evolution card
+.got_valid_card
 	ldh a, [hTempCardIndex_ff98]
 	ldh [hTemp_ffa0], a
 
