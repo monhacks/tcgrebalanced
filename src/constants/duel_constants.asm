@@ -333,6 +333,7 @@ DEF PRIZES_6    EQU $06
  	const CARDTEST_ELECTABUZZ                   ; $08
  	const CARDTEST_ENERGIZED_ELECTABUZZ         ; $09
  	const CARDTEST_EVOLVES_INTO                 ; $0a
+	const CARDTEST_EVOLUTION_OF_PLAY_AREA       ; $0b
 
 ; [wAIAttackLogicFlags] constants
 DEF AI_LOGIC_MIN_DAMAGE_CAN_KO_F     EQU 0

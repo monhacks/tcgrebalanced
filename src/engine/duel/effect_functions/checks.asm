@@ -798,6 +798,7 @@ CardTypeTest_FunctionTable:
 	dw CardTypeTest_IsElectabuzz           ; CARDTEST_ELECTABUZZ
 	dw CardTypeTest_IsEnergizedElectabuzz  ; CARDTEST_ENERGIZED_ELECTABUZZ
 	dw CardTypeTest_EvolvesIntoStoredCard  ; CARDTEST_EVOLVES_INTO
+	dw CardTypeTest_IsEvolutionOfPlayArea  ; CARDTEST_EVOLUTION_OF_PLAY_AREA
 
 
 CardTypeTest_Pokemon:
@@ -1031,7 +1032,30 @@ CardTypeTest_EvolvesIntoStoredCard:
 	ret c  ; compatible evolution
 	ret z  ; incompatible evolution
 	scf
-	ret    ; was unable to evolve, but only due to being played this turn
+	ret    ; unable to evolve, but only due to being played this turn
+
+
+; input:
+;   [wDynamicFunctionArgument]: deck index of the Evolution card to check
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the evolving Pokémon
+; output:
+;   carry: set if the given card is an evolution of the stored Play Area Pokémon
+; preserves: hl, bc, de
+CardTypeTest_IsEvolutionOfPlayArea:
+	push hl
+	push de
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ld e, a
+	ldh a, [wDynamicFunctionArgument]
+	ld d, a
+	call CheckIfCanEvolveInto
+	pop de
+	pop hl
+	ccf
+	ret c  ; compatible evolution
+	ret z  ; incompatible evolution
+	scf
+	ret    ; unable to evolve, but only due to being played this turn
 
 
 ; ------------------------------------------------------------------------------
