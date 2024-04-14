@@ -99,6 +99,7 @@ CardSearch_FunctionTable:
 	dw .SearchDuelTempListForCardType
 	dw .SearchDuelTempListForGrassCard
 	dw .SearchDuelTempListForEvolutionOfPlayAreaLocation
+	dw .SearchDuelTempListMatchingCardPattern
 
 .set_carry
 	scf
@@ -233,6 +234,24 @@ CardSearch_FunctionTable:
 	or a
 	ret
 
+
+; returns carry if no card matching the pattern is found
+; otherwise, returns deck index of the first matching card
+; input:
+;   e: CARDTEST_* constant to test each card
+.SearchDuelTempListMatchingCardPattern
+	ld a, e
+	ld [wDataTableIndex], a
+	ld hl, wDuelTempList
+.loop_list_pattern_match
+	ld a, [hl]
+	cp $ff
+	jr z, .set_carry
+	call DynamicCardTypeTest
+	ld a, [hli]
+	jr nc, .loop_list_pattern_match
+	or a
+	ret
 
 
 
