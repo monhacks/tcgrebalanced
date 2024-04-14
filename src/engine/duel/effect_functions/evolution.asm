@@ -98,6 +98,14 @@ _EvolutionFromDeck_Preamble:
 
 
 
+EvolvePlayAreaPokemonFromDeck_PlayerSelectEffect:
+	call _EvolutionFromDeck_Preamble
+	ret c  ; none in deck or unable to evolve
+
+	; FIXME rest of the code
+
+
+
 LunarPower_PlayerSelectEffect:
 	call HandlePlayerSelectionPokemonInPlayArea  ; forced
 	jr EvolutionFromDeck_PlayerSelectEffect
