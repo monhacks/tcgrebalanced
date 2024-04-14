@@ -51,6 +51,12 @@ LunarPower_PlayerSelectEffect__2:
 	call IsPrehistoricPowerActive
 	ret c
 
+; search for an Evolution card in the deck
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_EVOLUTION_POKEMON
+	call LookForCardsInDeck
+	ret c  ; none in deck, Player refused to look
+
 ; select an Evolution card from the deck
 	call CreateDeckCardList
 .loop_deck
