@@ -1330,7 +1330,7 @@ LunarPowerEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PokemonBreeder_PreconditionCheck
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PokemonBreeder_EvolveEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, LunarPower_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, EvolutionFromDeck_AISelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, LunarPower_AISelectEffect
 	db  $00
 
 GaleEffectCommands:

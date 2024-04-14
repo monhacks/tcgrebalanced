@@ -182,6 +182,14 @@ EvolutionFromDeck_PlayerSelectEffect:
 	ret
 
 
+; FIXME
+LunarPower_AISelectEffect:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
+	ret
+
+
 Ascension_AISelectEffect:
 Hatch_AISelectEffect:
 PoisonEvolution_AISelectEffect:
