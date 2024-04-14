@@ -45,17 +45,8 @@ PokemonBreeder_Deck_PlayerSelectEffect:
 
 
 LunarPower_PlayerSelectEffect__2:
-	ld a, $ff
-	ldh [hTemp_ffa0], a
-	ldh [hTempPlayAreaLocation_ffa1], a
-	call IsPrehistoricPowerActive
-	ret c
-
-; search for an Evolution card in the deck
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_EVOLUTION_POKEMON
-	call LookForCardsInDeck
-	ret c  ; none in deck, Player refused to look
+	call _EvolutionFromDeck_Preamble
+	ret c  ; none in deck or unable to evolve
 
 ; select an Evolution card from the deck
 	call CreateDeckCardList
@@ -90,6 +81,21 @@ LunarPower_PlayerSelectEffect__2:
 .can_evolve
 	or a
 	ret
+
+
+; carry if unable to evolve
+_EvolutionFromDeck_Preamble:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
+	call IsPrehistoricPowerActive
+	ret c
+; search for an Evolution card in the deck
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_EVOLUTION_POKEMON
+	call LookForCardsInDeck
+	ret  ; carry if none in deck, Player refused to look
+
 
 
 LunarPower_PlayerSelectEffect:
