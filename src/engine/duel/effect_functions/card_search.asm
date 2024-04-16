@@ -51,45 +51,6 @@ LookForCardsInDeck:
 	ret
 
 
-; searches through the Discard Pile in wDuelTempList looking for
-; a certain card or cards, and prints text depending
-; on whether at least one was found.
-; if none were found, returns carry.
-; uses SEARCHEFFECT_* as input which determines what to search for:
-;	SEARCHEFFECT_CARD_ID = search for card ID in e
-;	SEARCHEFFECT_POKEMON_OR_BASIC_ENERGY = search for either a Pokémon or a Basic Energy
-;	SEARCHEFFECT_BASIC_POKEMON = search for any Basic Pokemon
-;	SEARCHEFFECT_BASIC_ENERGY = search for any Basic Energy
-;	SEARCHEFFECT_POKEMON = search for any Pokemon card
-;	SEARCHEFFECT_GRASS_CARD = search for any Grass card
-; input:
-;	  d = SEARCHEFFECT_* constant
-;	  e = (optional) card ID or Type to search for
-;	  hl = text to print if Discard Pile has card(s)
-; output:
-;	  carry set if there are no eligible cards
-LookForCardsInDiscardPile:
-	push hl
-	ld a, [wDuelTempList]
-	cp $ff
-	jr z, .none_in_deck
-	ld a, d
-	ld hl, CardSearch_FunctionTable
-	call JumpToFunctionInTable
-	jr c, .none_in_deck
-	pop hl
-	call DrawWideTextBox_WaitForInput
-	or a
-	ret
-
-.none_in_deck
-	pop hl
-	ldtx hl, ThereAreNoEligibleCardsInTheDiscardPileText
-	call DrawWideTextBox_WaitForInput
-	scf
-	ret
-
-
 CardSearch_FunctionTable:
 	dw .SearchDuelTempListForCardID
 	dw .SearchDuelTempListForPokemonOrBasicEnergy
@@ -98,7 +59,6 @@ CardSearch_FunctionTable:
 	dw .SearchDuelTempListForPokemon
 	dw .SearchDuelTempListForCardType
 	dw .SearchDuelTempListForGrassCard
-	dw .SearchDuelTempListForEvolutionOfPlayAreaLocation
 	dw .SearchDuelTempListMatchingCardPattern
 
 .set_carry
@@ -210,27 +170,6 @@ CardSearch_FunctionTable:
 	cp TYPE_PKMN_GRASS
 	jr nz, .loop_list_grass
 .found_grass_card
-	or a
-	ret
-
-; returns carry if no card that evolves from e is found
-; e: PLAY_AREA_* of the Pokemon trying to evolve
-; returns in d the deck index of the evolution card found if any
-.SearchDuelTempListForEvolutionOfPlayAreaLocation
-	ld hl, wDuelTempList
-.loop_list_evolution_e
-	ld a, [hli]
-; d: deck index (0-59) of the card selected to be the evolution target
-	ld d, a
-	cp $ff
-	jp z, .set_carry
-	push hl
-	call CheckIfCanEvolveInto
-	pop hl
-	jr nc, .can_evolve
-	jr nz, .can_evolve  ; ignore "card was played this turn"
-	jr .loop_list_evolution_e
-.can_evolve
 	or a
 	ret
 
