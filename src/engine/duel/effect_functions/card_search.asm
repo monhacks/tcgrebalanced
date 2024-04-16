@@ -9,7 +9,6 @@
 ; in the Deck anyway, and returns carry if No is selected.
 ; uses SEARCHEFFECT_* as input which determines what to search for:
 ;	SEARCHEFFECT_POKEMON_OR_BASIC_ENERGY = search for either a Pokémon or a Basic Energy
-;	SEARCHEFFECT_GRASS_CARD = search for any Grass card
 ; input:
 ;	  d = SEARCHEFFECT_* constant
 ;	  e = (optional) card ID, play area location or other search parameters
@@ -50,7 +49,6 @@ LookForCardsInDeck:
 CardSearch_FunctionTable:
 	dw .SearchDuelTempListForPokemonOrBasicEnergy
 	dw .SearchDuelTempListForCardType
-	dw .SearchDuelTempListForGrassCard
 	dw .SearchDuelTempListMatchingCardPattern
 
 .set_carry
@@ -85,23 +83,6 @@ CardSearch_FunctionTable:
 	pop de
 	cp e
 	jr nz, .loop_list_card_type
-	or a
-	ret
-
-; returns carry if no Grass cards are found
-.SearchDuelTempListForGrassCard
-	ld hl, wDuelTempList
-.loop_list_grass
-	ld a, [hli]
-	cp $ff
-	jp z, .set_carry
-	call GetCardIDFromDeckIndex
-	call GetCardType
-	cp TYPE_ENERGY_GRASS
-	jr z, .found_grass_card
-	cp TYPE_PKMN_GRASS
-	jr nz, .loop_list_grass
-.found_grass_card
 	or a
 	ret
 

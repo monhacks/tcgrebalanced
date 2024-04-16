@@ -1340,7 +1340,8 @@ Sprout_PlayerSelectEffect:
 	call CreateDeckCardList
 	ldtx hl, ChooseGrassCardFromDeckText
 	ldtx bc, GrassCardText
-	lb de, SEARCHEFFECT_GRASS_CARD, $00
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_GRASS_CARD
 	call LookForCardsInDeck
 	ret c
 

@@ -312,8 +312,7 @@ DEF PRIZES_6    EQU $06
 	const_def
  	const SEARCHEFFECT_POKEMON_OR_BASIC_ENERGY  ; $00
  	const SEARCHEFFECT_CARD_TYPE                ; $01
- 	const SEARCHEFFECT_GRASS_CARD               ; $02
- 	const SEARCHEFFECT_MATCHING_CARD_PATTERN    ; $03
+ 	const SEARCHEFFECT_MATCHING_CARD_PATTERN    ; $02
 
 ; constant offsets for CardTypeTest_FunctionTable
 	const_def
