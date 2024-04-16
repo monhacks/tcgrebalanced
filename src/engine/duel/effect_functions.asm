@@ -4658,7 +4658,8 @@ EnergySpike_PlayerSelectEffect:
 	call CreateDeckCardList
 	ldtx hl, Choose1BasicEnergyCardFromDeckText
 	ldtx bc, BasicEnergyText
-	lb de, SEARCHEFFECT_BASIC_ENERGY, 0
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_BASIC_ENERGY
 	call LookForCardsInDeck
 	ret c  ; no cards, the Player refuses to search the deck
 
@@ -6470,8 +6471,9 @@ EnergySearch_PlayerSelection:
 	ldh [hTemp_ffa0], a
 	call CreateDeckCardList
 	ldtx hl, Choose1BasicEnergyCardFromDeckText
-	lb de, SEARCHEFFECT_BASIC_ENERGY, 0
 	ldtx bc, BasicEnergyText
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_BASIC_ENERGY
 	call LookForCardsInDeck
 	ret c ; skip showing deck
 
