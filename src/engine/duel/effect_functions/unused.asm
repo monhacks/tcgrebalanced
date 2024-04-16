@@ -1,6 +1,144 @@
 ;
 
 
+; returns carry if no card that evolves from e is found
+; e: PLAY_AREA_* of the Pokemon trying to evolve
+; returns in d the deck index of the evolution card found if any
+.SearchDuelTempListForEvolutionOfPlayAreaLocation
+	ld hl, wDuelTempList
+.loop_list_evolution_e
+	ld a, [hli]
+; d: deck index (0-59) of the card selected to be the evolution target
+	ld d, a
+	cp $ff
+	jp z, .set_carry
+	push hl
+	call CheckIfCanEvolveInto
+	pop hl
+	jr nc, .can_evolve
+	jr nz, .can_evolve  ; ignore "card was played this turn"
+	jr .loop_list_evolution_e
+.can_evolve
+	or a
+	ret
+
+
+Ascension_PlayerSelectEffect:
+	Hatch_PlayerSelectEffect:
+	PoisonEvolution_PlayerSelectEffect:
+		xor a  ; PLAY_AREA_ARENA
+		; fallthrough
+	
+	; Allows the Player to select an evolution card in the deck.
+	; input:
+	;   a: PLAY_AREA_* of the card to evolve
+	EvolutionFromDeck_PlayerSelectEffect:
+	; temporary storage for card location
+		ldh [hTempPlayAreaLocation_ffa1], a
+	
+		call IsPrehistoricPowerActive
+		; ldtx hl, UnableToEvolveDueToPrehistoricPowerText
+		jr c, .none_in_deck
+	
+	; search cards in Deck
+		call CreateDeckCardList
+		ldtx hl, ChooseEvolvedPokemonFromDeckText
+		ldtx bc, EvolvedPokemonText
+		ldh a, [hTempPlayAreaLocation_ffa1]
+		; ld d, SEARCHEFFECT_CARD_ID
+		ld d, SEARCHEFFECT_EVOLUTION_OF_PLAY_AREA
+		ld e, a
+		call LookForCardsInDeck
+		jr c, .none_in_deck
+	
+		bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
+		ldtx hl, ChooseEvolvedPokemonText
+		ldtx de, DuelistDeckText
+		bank1call SetCardListHeaderText
+	
+	.select_card
+		bank1call DisplayCardList
+		jr c, .try_cancel
+		ldh [hTemp_ffa0], a
+	; d: deck index (0-59) of the card selected to be the evolution target
+		ld d, a
+		ldh a, [hTempPlayAreaLocation_ffa1]
+		ld e, a
+		call CheckIfCanEvolveInto
+		jr nc, .got_card
+		jr nz, .got_card  ; ignore first turn evolution
+		jr .select_card ; not a valid Evolution card
+	
+	; Evolution card selected
+	.got_card
+		or a
+		ret
+	
+	.play_sfx
+		call PlaySFX_InvalidChoice
+		jr .select_card
+	
+	.try_cancel
+	; Player tried exiting screen, if there are
+	; any Beedrill cards, Player is forced to select them.
+	; otherwise, they can safely exit.
+		ld a, DUELVARS_CARD_LOCATIONS
+		call GetTurnDuelistVariable
+		ldh a, [hTempPlayAreaLocation_ffa1]
+		ld e, a
+	.loop_deck
+		ld a, [hl]
+		cp CARD_LOCATION_DECK
+		jr nz, .next_card
+		ld a, l
+	; d: deck index (0-59) of the card selected to be the evolution target
+		ld d, a
+		push hl
+		call CheckIfCanEvolveInto
+		pop hl
+		jr nc, .play_sfx
+		jr nz, .play_sfx
+	.next_card
+		inc l
+		ld a, l
+		cp DECK_SIZE
+		jr c, .loop_deck
+		; can exit
+	.none_in_deck
+		ld a, $ff
+		ldh [hTemp_ffa0], a
+		or a
+		ret
+	
+
+
+PokemonBreederEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PokemonBreeder_PreconditionCheck
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, PokemonBreeder_PlayArea_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EvolutionFromDeck_EvolveEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokemonBreeder_Deck_PlayerSelectEffect
+	; dbw EFFECTCMDTYPE_AI_SELECTION, PokemonBreeder_AISelectEffect
+	db  $00
+
+
+PokemonBreeder_PreconditionCheck:
+	call CheckDeckIsNotEmpty
+	ret c
+	jp IsPrehistoricPowerActive
+
+
+; cancellable
+PokemonBreeder_PlayArea_PlayerSelectEffect:
+	call HandlePlayerSelectionPokemonInPlayArea_AllowCancel
+	ldh [hTempPlayAreaLocation_ffa1], a
+	ret  ; carry if cancelled
+
+; deck search is not cancellable
+PokemonBreeder_Deck_PlayerSelectEffect:
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	jr EvolutionFromDeck_PlayerSelectEffect
+
+
 
 ; engine/duel/core.asm
 
