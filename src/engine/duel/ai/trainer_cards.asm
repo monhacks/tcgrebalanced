@@ -1656,8 +1656,8 @@ AIPlay_PokemonBreeder:
 	ret
 
 AIDecide_PokemonBreeder:
-	call IsPrehistoricPowerActive
-	jr c, .no_carry
+	; call IsPrehistoricPowerActive
+	; jr c, .no_carry
 
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetTurnDuelistVariable
@@ -1667,6 +1667,7 @@ AIDecide_PokemonBreeder:
 .loop_play_area
 	xor a  ; PLAY_AREA_ARENA
 	add c
+	ldh [hTempPlayAreaLocation_ffa1], a
 	push bc
 	farcall EvolutionFromDeck_AISelectEffect
 	pop bc
