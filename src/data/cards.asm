@@ -2618,7 +2618,7 @@ VulpixCard:
 	; dw NONE ; description (cont)
 	; db 20 ; damage
 	; db DAMAGE_NORMAL ; category
-	; dw SmallCombustionEffectCommands ; effect commands
+	; dw Discard1CardFromOpponentsDeckEffectCommands ; effect commands
 	; db NONE ; flags 1
 	; db NONE ; flags 2
 	; db NONE ; flags 3
@@ -2706,7 +2706,7 @@ NinetalesLv35Card:
 	dw NONE ; description (cont)
 	db 20 ; damage
 	db DAMAGE_NORMAL ; category
-	dw CombustionEffectCommands ; effect commands
+	dw Discard2CardsFromOpponentsDeckEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
@@ -4105,13 +4105,13 @@ KinglerCard:
 	db ATK_ANIM_TEAR ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 2 ; energies
+	energy WATER, 2, COLORLESS, 1 ; energies
 	tx CrabhammerName ; name
-	tx CrabhammerDescription ; description
+	tx Discard2CardsFromOpponentsDeckDescription ; description
 	dw NONE ; description (cont)
 	db 40 ; damage
-	db DAMAGE_PLUS ; category
-	dw CrabhammerEffectCommands ; effect commands
+	db DAMAGE_NORMAL ; category
+	dw Discard2CardsFromOpponentsDeckEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3

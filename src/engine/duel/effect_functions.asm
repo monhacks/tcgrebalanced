@@ -363,12 +363,12 @@ Wildfire_DiscardDeckEffect:
 	jp DiscardFromOpponentsDeckEffect
 
 
-Combustion_DiscardDeckEffect:
+Discard2CardsFromOpponentsDeckEffect:
 	ld a, 2
 	jp DiscardFromOpponentsDeckEffect
 
 
-SmallCombustion_DiscardDeckEffect:
+Discard1CardFromOpponentsDeckEffect:
 	ld a, 1
 	jp DiscardFromOpponentsDeckEffect
 

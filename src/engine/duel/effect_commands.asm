@@ -1307,12 +1307,12 @@ FuryAttackEffectCommands:
 	dbw EFFECTCMDTYPE_AI, IfOpponentPlayedSupporter20BonusDamage_AIEffect
 	db  $00
 
-SmallCombustionEffectCommands:
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SmallCombustion_DiscardDeckEffect
+Discard1CardFromOpponentsDeckEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Discard1CardFromOpponentsDeckEffect
 	db  $00
 
-CombustionEffectCommands:
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Combustion_DiscardDeckEffect
+Discard2CardsFromOpponentsDeckEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Discard2CardsFromOpponentsDeckEffect
 	db  $00
 
 LandslideEffectCommands:

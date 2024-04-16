@@ -1,5 +1,23 @@
 ;
 
+CrabhammerEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Crabhammer_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AI, Crabhammer_AIEffect
+	db  $00
+
+; +40 damage versus Basic Pokémon
+Crabhammer_DamageBoostEffect:
+	ld a, DUELVARS_ARENA_CARD_STAGE
+	call GetNonTurnDuelistVariable
+	and a
+	ret nz  ; not a BASIC Pokémon
+	ld a, 40
+	jp AddToDamage
+
+Crabhammer_AIEffect:
+  call Crabhammer_DamageBoostEffect
+  jp SetDefiniteAIDamage
+
 
 ; returns carry if no card that evolves from e is found
 ; e: PLAY_AREA_* of the Pokemon trying to evolve

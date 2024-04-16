@@ -12,7 +12,9 @@
 
 #### Kingler
 - **Rend**: removed.
+- **Crabhammer**: reworked.
 - New attack: **Guillotine** (CC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
+- New attack: **Crabhammer** (WWC): 40 damage; discard the top 2 cards of the opponent's deck.
 
 
 ## Version 0.8.0

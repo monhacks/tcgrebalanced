@@ -2509,8 +2509,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer RiverCrabName                                      ; 0x096a
 	textpointer FlailName                                          ; 0x096d
 	textpointer FlailDescription                                   ; 0x096e
-	textpointer CrabhammerName                                     ; 0x096f
-	textpointer CrabhammerDescription
+	textpointer CrabhammerName
+	; textpointer CrabhammerDescription
 	textpointer PincerName                                         ; 0x0970
 	textpointer OpponentAttackMayDoNothingDescription              ; 0x0973
 	textpointer DragonName                                         ; 0x0974
