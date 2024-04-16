@@ -101,8 +101,8 @@ ShowDiscardedDeckCardDetails:
 ; and moves it to the discard pile
 ; return carry if there are no cards to discard
 ; shows details of the card if it is not the Player's turn
-Discard1RandomCardFromOpponentsHand:
-  call Discard1RandomCardFromOpponentsHandEffect
+Discard1RandomCardFromOpponentsHandEffect:
+  call Discard1RandomCardFromOpponentsHand
   ret c  ; unable to discard
   ; fallthrough
 
@@ -146,7 +146,7 @@ Get1RandomCardFromOpponentsHand:
 ; and moves it to the discard pile
 ; return carry if there are no cards to discard
 ; returns deck index of discarded card in a
-Discard1RandomCardFromOpponentsHandEffect:
+Discard1RandomCardFromOpponentsHand:
   call Get1RandomCardFromOpponentsHand
 ; could use MoveHandCardToDiscardPile here, but the check to avoid
 ; anything other than CARD_LOCATION_HAND is redundant;

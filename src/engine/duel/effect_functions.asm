@@ -1204,7 +1204,7 @@ ShadowClawEffect:
 	ldh a, [hTemp_ffa0]
 	cp $ff
 	ret z  ; no card was chosen to discard
-	jp Discard1RandomCardFromOpponentsHand
+	jp Discard1RandomCardFromOpponentsHandEffect
 
 ; OptionalDiscardEnergy:
 ; 	ldh a, [hTemp_ffa0]
@@ -1223,7 +1223,7 @@ OverwhelmEffect:
 	call GetNonTurnDuelistVariable
 	cp 6
 	ret c  ; less than 7 cards
-	call Discard1RandomCardFromOpponentsHand
+	call Discard1RandomCardFromOpponentsHandEffect
 	jp ParalysisEffect
 
 
