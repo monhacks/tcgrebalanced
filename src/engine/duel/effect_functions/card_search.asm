@@ -10,7 +10,6 @@
 ; uses SEARCHEFFECT_* as input which determines what to search for:
 ;	SEARCHEFFECT_CARD_ID = search for card ID in e
 ;	SEARCHEFFECT_POKEMON_OR_BASIC_ENERGY = search for either a Pokémon or a Basic Energy
-;	SEARCHEFFECT_POKEMON = search for any Pokemon card
 ;	SEARCHEFFECT_GRASS_CARD = search for any Grass card
 ; input:
 ;	  d = SEARCHEFFECT_* constant
@@ -52,7 +51,6 @@ LookForCardsInDeck:
 CardSearch_FunctionTable:
 	dw .SearchDuelTempListForCardID
 	dw .SearchDuelTempListForPokemonOrBasicEnergy
-	dw .SearchDuelTempListForPokemon
 	dw .SearchDuelTempListForCardType
 	dw .SearchDuelTempListForGrassCard
 	dw .SearchDuelTempListMatchingCardPattern
@@ -89,21 +87,6 @@ CardSearch_FunctionTable:
 	cp TYPE_ENERGY_DOUBLE_COLORLESS
 	jr .loop_list_pkmn_or_basic_energy
 .found_pkmn_or_basic_energy
-	or a
-	ret
-
-
-; returns carry if no Pokemon cards are found
-.SearchDuelTempListForPokemon
-	ld hl, wDuelTempList
-.loop_list_pkmn
-	ld a, [hli]
-	cp $ff
-	jr z, .set_carry
-	call GetCardIDFromDeckIndex
-	call GetCardType
-	cp TYPE_ENERGY
-	jr nc, .loop_list_pkmn
 	or a
 	ret
 

@@ -5754,7 +5754,8 @@ _LookForPokemonInDeck:
 	call CreateDeckCardList
 	ldtx hl, ChooseAnyPokemonFromDeckText
 	ldtx bc, AnyPokemonDeckText
-	ld d, SEARCHEFFECT_POKEMON
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_POKEMON
 	jp LookForCardsInDeck
 
 
