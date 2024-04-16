@@ -4040,32 +4040,32 @@ KrabbyCard:
 	dw NONE ; pre-evo name
 
 	; attack 1
-	energy WATER, 1 ; energies
-	tx BubbleName ; name
-	tx MayInflictParalysisDescription ; description
+	energy COLORLESS, 1 ; energies
+	tx FlailName ; name
+	tx FlailDescription ; description
 	dw NONE ; description (cont)
 	db 10 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Paralysis50PercentEffectCommands ; effect commands
-	db INFLICT_PARALYSIS ; flags 1
+	db DAMAGE_X ; category
+	dw FlailEffectCommands ; effect commands
+	db NONE ; flags 1
 	db NONE ; flags 2
-	db NONE ; flags 3
+	db BOOST_IF_TAKEN_DAMAGE ; flags 3
 	db 0
-	db ATK_ANIM_BUBBLES ; animation
+	db ATK_ANIM_HIT ; animation
 
 	; attack 2
 	energy COLORLESS, 2 ; energies
-	tx ScratchName ; name
-	dw NONE ; description
+	tx RendName ; name
+	tx Bonus20IfOpponentIsDamagedDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
-	db DAMAGE_NORMAL ; category
-	dw NONE ; effect commands
+	db 10 ; damage
+	db DAMAGE_PLUS ; category
+	dw RendEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_TEAR ; animation
+	db ATK_ANIM_HIT ; animation
 
 	db 0 ; retreat cost
 	db WR_LIGHTNING ; weakness

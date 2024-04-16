@@ -10,6 +10,12 @@
 
 ### Water Changes
 
+#### Krabby
+- **Bubble**: removed.
+- **Guillotine**: removed.
+- New attack: **Flail** (C): 10 damage per damage counter on the user.
+- New attack: **Rend** (CC): 10 damage; +20 damage if the Defending Pokémon is damaged.
+
 #### Kingler
 - **Rend**: removed.
 - **Crabhammer**: reworked.
