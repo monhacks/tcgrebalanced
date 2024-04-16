@@ -308,10 +308,6 @@ DEF PRIZES_4    EQU $04
 DEF PRIZES_5    EQU $05
 DEF PRIZES_6    EQU $06
 
-; constants to use as input to LookForCardInDeck
-	const_def
- 	const SEARCHEFFECT_MATCHING_CARD_PATTERN    ; $00
-
 ; constant offsets for CardTypeTest_FunctionTable
 	const_def
  	const CARDTEST_POKEMON                      ; $00
