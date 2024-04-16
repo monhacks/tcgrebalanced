@@ -8,7 +8,6 @@
 ; if none were found, asks the Player whether to look
 ; in the Deck anyway, and returns carry if No is selected.
 ; uses SEARCHEFFECT_* as input which determines what to search for:
-;	SEARCHEFFECT_POKEMON_OR_BASIC_ENERGY = search for either a Pokémon or a Basic Energy
 ; input:
 ;	  d = SEARCHEFFECT_* constant
 ;	  e = (optional) card ID, play area location or other search parameters
@@ -47,27 +46,11 @@ LookForCardsInDeck:
 
 
 CardSearch_FunctionTable:
-	dw .SearchDuelTempListForPokemonOrBasicEnergy
 	dw .SearchDuelTempListForCardType
 	dw .SearchDuelTempListMatchingCardPattern
 
 .set_carry
 	scf
-	ret
-
-; returns carry if no Pokémon or Basic Energy card is found
-.SearchDuelTempListForPokemonOrBasicEnergy
-	ld hl, wDuelTempList
-.loop_list_pkmn_or_basic_energy
-	ld a, [hli]
-	cp $ff
-	jr z, .set_carry
-	call GetCardIDFromDeckIndex
-	call GetCardType
-	cp TYPE_ENERGY_DOUBLE_COLORLESS
-	jr .loop_list_pkmn_or_basic_energy
-.found_pkmn_or_basic_energy
-	or a
 	ret
 
 ; returns carry if no Trainer Item cards are found
