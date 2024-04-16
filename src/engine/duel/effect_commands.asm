@@ -250,6 +250,11 @@ ChopDownEffectCommands:
 	dbw EFFECTCMDTYPE_AI, ChopDown_AIEffect
 	db  $00
 
+Guillotine50EffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDefendingPokemonHas50HpOrLess
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, KnockOutDefendingPokemonEffect
+	db  $00
+
 CrabhammerEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Crabhammer_DamageBoostEffect
 	dbw EFFECTCMDTYPE_AI, Crabhammer_AIEffect

@@ -2434,7 +2434,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer NextTurnDoubleDamageDescription
 	textpointer MantisName                                         ; 0x08cc
 	textpointer IronGripName                                       ; 0x08cf
-	textpointer GuillotineName                                     ; 0x08d0
+	textpointer GuillotineName
+	textpointer Guillotine50Description
 	textpointer StagbeetleName                                     ; 0x08d1
 	textpointer EmberName                                          ; 0x08d4
 	textpointer OptionalDiscard1Energy10BonusDamageDescription

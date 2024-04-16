@@ -4055,7 +4055,7 @@ KrabbyCard:
 
 	; attack 2
 	energy COLORLESS, 2 ; energies
-	tx GuillotineName ; name
+	tx ScratchName ; name
 	dw NONE ; description
 	dw NONE ; description (cont)
 	db 20 ; damage
@@ -4092,17 +4092,17 @@ KinglerCard:
 
 	; attack 1
 	energy COLORLESS, 2 ; energies
-	tx RendName ; name
-	tx Bonus20IfOpponentIsDamagedDescription ; description
+	tx GuillotineName ; name
+	tx Guillotine50Description ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
-	db DAMAGE_PLUS ; category
-	dw RendEffectCommands ; effect commands
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw Guillotine50EffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
-	db NONE ; flags 3
+	db SPECIAL_AI_HANDLING ; flags 3
 	db 0
-	db ATK_ANIM_HIT ; animation
+	db ATK_ANIM_TEAR ; animation
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 2 ; energies

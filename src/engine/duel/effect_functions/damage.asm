@@ -378,3 +378,29 @@ SpikesDamageEffect:
 	; call LoadCardNameAndLevelFromVarToRam2
 	; ldtx hl, Received10DamageDueToSpikesText
 	; jp DrawWideTextBox_WaitForInput
+
+
+; ------------------------------------------------------------------------------
+; Other Forms of Damage
+; ------------------------------------------------------------------------------
+
+KnockOutDefendingPokemonEffect:
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetNonTurnDuelistVariable
+	or a
+	ret z
+	ld [hl], 0
+	; push hl
+	; call DrawDuelMainScene
+	; call DrawDuelHUDs
+	; pop hl
+	ld l, DUELVARS_ARENA_CARD
+	ld a, [hl]
+	call LoadCardDataToBuffer2_FromDeckIndex
+	ld hl, wLoadedCard2Name
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call LoadTxRam2
+	ldtx hl, KnockedOutDueToDestinyBondText
+	jp DrawWideTextBox_WaitForInput

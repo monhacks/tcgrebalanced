@@ -554,6 +554,16 @@ GetMad_CheckDamage:
 	jr StrangeBehavior_CheckDamage.check_damage
 
 
+; output:
+;   carry: set if the Defending Pokémon has more than 50 HP remaining
+CheckDefendingPokemonHas50HpOrLess:
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetNonTurnDuelistVariable
+	cp 51
+	ccf
+	ret
+
+
 ; ------------------------------------------------------------------------------
 ; Status and Effects
 ; ------------------------------------------------------------------------------

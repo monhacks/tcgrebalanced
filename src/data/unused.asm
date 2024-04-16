@@ -1,5 +1,69 @@
 
 
+KinglerCard:
+	db TYPE_PKMN_WATER ; type
+	gfx KinglerCardGfx ; gfx
+	tx KinglerName ; name
+	db DIAMOND ; rarity
+	db EVOLUTION | FOSSIL ; sets
+	db KINGLER
+	db 80 ; hp
+	db STAGE1 ; stage
+	tx KrabbyName ; pre-evo name
+
+	; attack 1
+	energy COLORLESS, 2 ; energies
+	tx RendName ; name
+	tx Bonus20IfOpponentIsDamagedDescription ; description
+	dw NONE ; description (cont)
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw RendEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_HIT ; animation
+	energy COLORLESS, 2 ; energies
+	tx RendName ; name
+	tx Bonus20IfOpponentIsDamagedDescription ; description
+	dw NONE ; description (cont)
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw RendEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_HIT ; animation
+
+	; attack 2
+	energy WATER, 1, COLORLESS, 2 ; energies
+	tx CrabhammerName ; name
+	tx CrabhammerDescription ; description
+	dw NONE ; description (cont)
+	db 40 ; damage
+	db DAMAGE_PLUS ; category
+	dw CrabhammerEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_HIT ; animation
+
+	db 1 ; retreat cost
+	db WR_LIGHTNING ; weakness
+	db NONE ; resistance
+	tx PincerName ; category
+	db 99 ; Pokedex number
+	db 0
+	db 27 ; level
+	db 4, 3 ; length
+	dw 132 * 10 ; weight
+	tx KinglerDescription ; description
+	db 0
+
+
 
 SlowpokeLv9Card:
 	db TYPE_PKMN_PSYCHIC ; type

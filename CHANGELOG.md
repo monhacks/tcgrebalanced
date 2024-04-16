@@ -1,5 +1,14 @@
 # Pokémon TCG Rebalanced
 
+## Version 0.9.0
+
+### Water Changes
+
+#### Kingler
+- **Rend**: removed.
+- New attack: **Guillotine** (CC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
+
+
 ## Version 0.8.0
 
 ### Removed Cards

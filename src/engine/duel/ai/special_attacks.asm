@@ -95,6 +95,8 @@ HandleSpecialAIAttacks:
 	jp z, .Prank
 	cp PRIMEAPE
 	jp z, .GetMad
+	cp KINGLER
+	jp z, .Guillotine
 
 ; return zero score.
 .zero_score
@@ -438,6 +440,12 @@ HandleSpecialAIAttacks:
 	dec d
 	jr nz, .get_mad_loop
 	jp .zero_score  ; no Benched Pokémon with at least 40 damage
+
+; always encourage; the initial check prevents use in invalid scenarios
+.Guillotine:
+	ld a, $83
+	or a
+	ret
 
 
 ; called when second attack is determined by AI to have

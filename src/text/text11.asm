@@ -259,8 +259,14 @@ IronGripName: ; 59d7d (16:5d7d)
 	text "Irongrip"
 	done
 
-GuillotineName: ; 59d87 (16:5d87)
+GuillotineName:
 	text "Guillotine"
+	done
+
+Guillotine50Description:
+	text "If the Defending Pokémon has"
+	line "50 HP or less remaining,"
+	line "it is Knocked Out."
 	done
 
 StagbeetleName: ; 59d93 (16:5d93)
