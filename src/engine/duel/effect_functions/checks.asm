@@ -1047,7 +1047,7 @@ CardTypeTest_IsEvolutionOfPlayArea:
 	push de
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	ld e, a
-	ldh a, [wDynamicFunctionArgument]
+	ld a, [wDynamicFunctionArgument]
 	ld d, a
 	call CheckIfCanEvolveInto
 	pop de

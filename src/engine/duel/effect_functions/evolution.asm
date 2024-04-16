@@ -87,7 +87,7 @@ EvolutionFromDeck_PlayerSelectEffect:
 	call HandlePlayerSelectionEvolutionPokemonFromDeckList
 	ret c  ; no Pokémon | Player cancelled
 	; [hTempCardIndex_ff98]: deck index of the Evolution card
-	ldh [wDynamicFunctionArgument], a
+	ld [wDynamicFunctionArgument], a
 	call CardTypeTest_IsEvolutionOfPlayArea
 	jr c, .got_valid_card
 	call PlaySFX_InvalidChoice

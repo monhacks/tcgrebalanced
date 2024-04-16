@@ -4248,7 +4248,8 @@ CallForFamily_AISelectEffect:
 
 ; handle selection of the first card
 	call CreateDeckCardList
-	call CardSearch_FunctionTable.SearchDuelTempListForBasicPokemon
+	ld a, CARDTEST_BASIC_POKEMON
+	call SearchDuelTempListForMatchingCard
 	ret c  ; none in deck
 	ldh [hTempList], a
 
@@ -4265,7 +4266,8 @@ CallForFamily_AISelectEffect:
 	ret nc  ; only has space for one
 
 ; handle selection of the second card
-	call CardSearch_FunctionTable.SearchDuelTempListForBasicPokemon
+	ld a, CARDTEST_BASIC_POKEMON
+	call SearchDuelTempListForMatchingCard
 	ldh [hTempList + 1], a
 	ret
 
@@ -7256,7 +7258,8 @@ Pokedex_PlayerSelection:
 	ldh [hTempList + 6], a  ; placeholder for chosen Pokémon
 
 ; check if there are any Pokémon
-	call CardSearch_FunctionTable.SearchDuelTempListForPokemon
+	ld a, CARDTEST_POKEMON
+	call SearchDuelTempListForMatchingCard
 	jr c, .no_pokemon
 
 ; print text box
