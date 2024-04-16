@@ -15,16 +15,8 @@ PokemonBreeder_PlayerSelectEffect:
 	; fallthrough
 
 LunarPower_PlayerSelectEffect:
-	ld a, $ff
-	ldh [hTemp_ffa0], a
-	ldh [hTempPlayAreaLocation_ffa1], a
-; Prehistoric Power should be handled in a precondition
-	; call IsPrehistoricPowerActive
-	; ret c
-; search for an Evolution card in the deck
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
 	ld e, CARDTEST_EVOLUTION_POKEMON
-	call LookForCardsInDeck
+	call PlayerSelectEvolutionFromDeck_Preamble
 	ret c  ; none in deck, Player refused to look
 
 ; select an Evolution card from the deck
@@ -85,16 +77,8 @@ EvolveArenaPokemonFromDeck_PlayerSelectEffect:
 ;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the evolving Pokémon
 ;   carry: set if the Player did not choose a valid Evolution card
 EvolutionFromDeck_PlayerSelectEffect:
-	ld a, $ff
-	ldh [hTemp_ffa0], a
-	; ldh [hTempPlayAreaLocation_ffa1], a
-; Prehistoric Power should be handled in a precondition
-	; call IsPrehistoricPowerActive
-	; ret c
-; search for an Evolution card in the deck
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
 	ld e, CARDTEST_EVOLUTION_OF_PLAY_AREA
-	call LookForCardsInDeck
+	call PlayerSelectEvolutionFromDeck_Preamble
 	ret c  ; none in deck, Player refused to look
 
 ; select an Evolution card from the deck
@@ -117,6 +101,22 @@ EvolutionFromDeck_PlayerSelectEffect:
 	ldh [hTemp_ffa0], a
 	or a
 	ret
+
+
+; input:
+;   e: CARDTEST_* pattern of the intended card
+; output:
+;   carry: set if none in deck and Player refused to look
+PlayerSelectEvolutionFromDeck_Preamble:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
+; search for an Evolution card in the deck
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ldtx hl, ChooseEvolvedPokemonFromDeckText
+	ldtx bc, EvolvedPokemonText
+	call LookForCardsInDeck
+	ret  ; carry: none in deck, Player refused to look
 
 
 ; FIXME
