@@ -714,6 +714,10 @@ TradeEffectCommands:
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Trade_PlayerHandCardSelection
 	db  $00
 
+KnockOffEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Discard1RandomCardFromOpponentsHandEffect
+	db  $00
+
 ShadowClawEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, OptionalDiscard_PlayerHandCardSelection
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, SelectedCards_Discard1FromHand
