@@ -124,24 +124,24 @@ LeechLifeEffectCommands:
 
 AscensionEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Ascension_EvolveEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Ascension_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, Ascension_AISelectEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, EvolutionFromDeck_EvolveEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EvolveArenaPokemonFromDeck_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, EvolveArenaPokemonFromDeck_AISelectEffect
 	db  $00
 
 HatchEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Hatch_EvolveEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Hatch_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, Hatch_AISelectEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EvolveArenaPokemonFromDeck_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, EvolveArenaPokemonFromDeck_AISelectEffect
 	db  $00
 
 PoisonEvolutionEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PoisonEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, PoisonEvolution_EvolveEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PoisonEvolution_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, PoisonEvolution_AISelectEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, EvolutionFromDeck_EvolveEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EvolveArenaPokemonFromDeck_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, EvolveArenaPokemonFromDeck_AISelectEffect
 	db  $00
 
 FoulGasEffectCommands:
@@ -1327,8 +1327,9 @@ MetronomeEffectCommands:
 	db  $00
 
 LunarPowerEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PokemonBreeder_PreconditionCheck
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PokemonBreeder_EvolveEffect
+	; dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PokemonBreeder_PreconditionCheck
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EvolutionFromDeck_EvolveEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, LunarPower_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, LunarPower_AISelectEffect
 	db  $00
@@ -1682,10 +1683,10 @@ PokemonFluteEffectCommands:
 	db  $00
 
 PokemonBreederEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PokemonBreeder_PreconditionCheck
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, PokemonBreeder_PlayArea_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PokemonBreeder_EvolveEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokemonBreeder_Deck_PlayerSelectEffect
+	; dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PokemonBreeder_PreconditionCheck
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EvolutionFromDeck_EvolveEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokemonBreeder_PlayerSelectEffect
 	; dbw EFFECTCMDTYPE_AI_SELECTION, PokemonBreeder_AISelectEffect
 	db  $00
 

@@ -9,44 +9,23 @@ AdaptiveEvolution_AllowEvolutionEffect:
 	set CAN_EVOLVE_THIS_TURN_F, [hl]
 	ret
 
-; PoisonEvolution_PreconditionsCheck:
-	; call CheckDeckIsNotEmpty
-	; ret
-	; ld a, DUELVARS_ARENA_CARD_FLAGS
-	; call GetTurnDuelistVariable
-	; ldtx hl, CannotBeUsedInTurnWhichWasPlayedText
-	; and CAN_EVOLVE_THIS_TURN
-	; scf
-	; ret z ; return if was played this turn
-
-; Ascension_PlayerSelectEffect:
-; 	ld a, GYARADOS
-; 	jr EvolutionFromDeck_PlayerSelectEffect
-;
-; Hatch_PlayerSelectEffect:
-; 	ld a, BUTTERFREE
-; 	jr EvolutionFromDeck_PlayerSelectEffect
-;
-; PoisonEvolution_PlayerSelectEffect:
-; 	ld a, BEEDRILL
-; 	; jr EvolutionFromDeck_PlayerSelectEffect
-; 	; fallthrough
-
-; cancellable
-PokemonBreeder_PlayArea_PlayerSelectEffect:
-	call HandlePlayerSelectionPokemonInPlayArea_AllowCancel
-	ldh [hTempPlayAreaLocation_ffa1], a
-	ret  ; carry if cancelled
 
 ; deck search is not cancellable
-PokemonBreeder_Deck_PlayerSelectEffect:
-	ldh a, [hTempPlayAreaLocation_ffa1]
-	jr EvolutionFromDeck_PlayerSelectEffect
+PokemonBreeder_PlayerSelectEffect:
+	; fallthrough
 
-
-LunarPower_PlayerSelectEffect__2:
-	call _EvolutionFromDeck_Preamble
-	ret c  ; none in deck or unable to evolve
+LunarPower_PlayerSelectEffect:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
+; Prehistoric Power should be handled in a precondition
+	; call IsPrehistoricPowerActive
+	; ret c
+; search for an Evolution card in the deck
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_EVOLUTION_POKEMON
+	call LookForCardsInDeck
+	ret c  ; none in deck, Player refused to look
 
 ; select an Evolution card from the deck
 	call CreateDeckCardList
@@ -67,133 +46,74 @@ LunarPower_PlayerSelectEffect__2:
 
 ; choose a Pokémon in the play area to evolve
 .loop_play_area
-	call HandlePlayerSelectionPokemonInPlayArea  ; forced
-	ldh [hTempPlayAreaLocation_ffa1], a
-	ld e, a  ; PLAY_AREA_* of the Pokemon trying to evolve
-	ldh a, [hTemp_ffa0]
-	ld d, a  ; deck index of the Evolution card
-	call CheckIfCanEvolveInto
+	; ldh a, [hTemp_ffa0]
+	; ldh [hTempCardIndex_ff98], a
+	ld a, CARDTEST_EVOLVES_INTO
+	call HandlePlayerSelectionMatchingPokemonInPlayArea_AllowCancel
 	jr nc, .can_evolve
-	jr nz, .can_evolve  ; ignore first turn evolution
 	call PlaySFX_InvalidChoice
+	ldtx hl, ChoosePokemonToEvolveText
+	call DrawWideTextBox_WaitForInput
 	jr .loop_play_area  ; not a valid Pokémon
 
 .can_evolve
+	ldh [hTempPlayAreaLocation_ffa1], a
 	or a
 	ret
-
-
-; carry if unable to evolve
-_EvolutionFromDeck_Preamble:
-	ld a, $ff
-	ldh [hTemp_ffa0], a
-	ldh [hTempPlayAreaLocation_ffa1], a
-	call IsPrehistoricPowerActive
-	ret c
-; search for an Evolution card in the deck
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_EVOLUTION_POKEMON
-	call LookForCardsInDeck
-	ret  ; carry if none in deck, Player refused to look
 
 
 
 EvolvePlayAreaPokemonFromDeck_PlayerSelectEffect:
-	call _EvolutionFromDeck_Preamble
-	ret c  ; none in deck or unable to evolve
-
-	; FIXME rest of the code
-
-
-
-LunarPower_PlayerSelectEffect:
+	ldtx hl, ChoosePokemonToEvolveText
+	call DrawWideTextBox_WaitForInput
 	call HandlePlayerSelectionPokemonInPlayArea  ; forced
+	; [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the selected Pokémon
 	jr EvolutionFromDeck_PlayerSelectEffect
 
 
-Ascension_PlayerSelectEffect:
-Hatch_PlayerSelectEffect:
-PoisonEvolution_PlayerSelectEffect:
+EvolveArenaPokemonFromDeck_PlayerSelectEffect:
 	xor a  ; PLAY_AREA_ARENA
+	ldh [hTempPlayAreaLocation_ff9d], a
+	; jr EvolutionFromDeck_PlayerSelectEffect
 	; fallthrough
 
-; Allows the Player to select an evolution card in the deck.
 ; input:
-;   a: PLAY_AREA_* of the card to evolve
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the evolving Pokémon
+; output:
+;   a: deck index of the selected Evolution card (if valid)
+;   [hTemp_ffa0]: deck index of the selected Evolution card | $ff
+;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the evolving Pokémon
+;   carry: set if the Player did not choose a valid Evolution card
 EvolutionFromDeck_PlayerSelectEffect:
-; temporary storage for card location
-	ldh [hTempPlayAreaLocation_ffa1], a
-
-	call IsPrehistoricPowerActive
-	; ldtx hl, UnableToEvolveDueToPrehistoricPowerText
-	jr c, .none_in_deck
-
-; search cards in Deck
-	call CreateDeckCardList
-	ldtx hl, ChooseEvolvedPokemonFromDeckText
-	ldtx bc, EvolvedPokemonText
-	ldh a, [hTempPlayAreaLocation_ffa1]
-	; ld d, SEARCHEFFECT_CARD_ID
-	ld d, SEARCHEFFECT_EVOLUTION_OF_PLAY_AREA
-	ld e, a
-	call LookForCardsInDeck
-	jr c, .none_in_deck
-
-	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
-	ldtx hl, ChooseEvolvedPokemonText
-	ldtx de, DuelistDeckText
-	bank1call SetCardListHeaderText
-
-.select_card
-	bank1call DisplayCardList
-	jr c, .try_cancel
-	ldh [hTemp_ffa0], a
-; d: deck index (0-59) of the card selected to be the evolution target
-	ld d, a
-	ldh a, [hTempPlayAreaLocation_ffa1]
-	ld e, a
-	call CheckIfCanEvolveInto
-	jr nc, .got_card
-	jr nz, .got_card  ; ignore first turn evolution
-	jr .select_card ; not a valid Evolution card
-
-; Evolution card selected
-.got_card
-	or a
-	ret
-
-.play_sfx
-	call PlaySFX_InvalidChoice
-	jr .select_card
-
-.try_cancel
-; Player tried exiting screen, if there are
-; any Beedrill cards, Player is forced to select them.
-; otherwise, they can safely exit.
-	ld a, DUELVARS_CARD_LOCATIONS
-	call GetTurnDuelistVariable
-	ldh a, [hTempPlayAreaLocation_ffa1]
-	ld e, a
-.loop_deck
-	ld a, [hl]
-	cp CARD_LOCATION_DECK
-	jr nz, .next_card
-	ld a, l
-; d: deck index (0-59) of the card selected to be the evolution target
-	ld d, a
-	push hl
-	call CheckIfCanEvolveInto
-	pop hl
-	jr nc, .play_sfx
-	jr nz, .play_sfx
-.next_card
-	inc l
-	ld a, l
-	cp DECK_SIZE
-	jr c, .loop_deck
-	; can exit
-.none_in_deck
 	ld a, $ff
+	ldh [hTemp_ffa0], a
+	; ldh [hTempPlayAreaLocation_ffa1], a
+; Prehistoric Power should be handled in a precondition
+	; call IsPrehistoricPowerActive
+	; ret c
+; search for an Evolution card in the deck
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_EVOLUTION_OF_PLAY_AREA
+	call LookForCardsInDeck
+	ret c  ; none in deck, Player refused to look
+
+; select an Evolution card from the deck
+	call CreateDeckCardList
+.loop_deck
+	call HandlePlayerSelectionEvolutionPokemonFromDeckList
+	ret c  ; no Pokémon | Player cancelled
+	; [hTempCardIndex_ff98]: deck index of the Evolution card
+	ldh [wDynamicFunctionArgument], a
+	call CardTypeTest_IsEvolutionOfPlayArea
+	jr c, .got_valid_card
+	call PlaySFX_InvalidChoice
+	jr .loop_deck
+
+; store the selected Evolution card
+.got_valid_card
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ldh [hTempPlayAreaLocation_ffa1], a
+	ldh a, [hTempCardIndex_ff98]
 	ldh [hTemp_ffa0], a
 	or a
 	ret
@@ -207,26 +127,23 @@ LunarPower_AISelectEffect:
 	ret
 
 
-Ascension_AISelectEffect:
-Hatch_AISelectEffect:
-PoisonEvolution_AISelectEffect:
+EvolveArenaPokemonFromDeck_AISelectEffect:
 	xor a  ; PLAY_AREA_ARENA
+	ldh [hTempPlayAreaLocation_ffa1], a
 	; jr EvolutionFromDeck_AISelectEffect
 	; fallthrough
 
 ; selects the first suitable card in the Deck
 ; input:
-;  a: PLAY_AREA_* of the card to evolve
+;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the card to evolve
 EvolutionFromDeck_AISelectEffect:
-; temporary storage of card location
-	ldh [hTempPlayAreaLocation_ffa1], a
-
-	call IsPrehistoricPowerActive
-	jr nc, .search
+	; call IsPrehistoricPowerActive
+	; jr nc, .search
 	ld a, $ff
 	ldh [hTemp_ffa0], a
-	ret
+	; ret
 
+; TODO optimize with dynamic tests
 .search
 	call CreateDeckCardList
 	ld hl, wDuelTempList
@@ -255,15 +172,11 @@ EvolutionFromDeck_AISelectEffect:
 Hatch_EvolveEffect:
 	ld e, 30
 	call HealUserHP_NoAnimation
-	; fallthrough
-
-PokemonBreeder_EvolveEffect:
-Ascension_EvolveEffect:
-PoisonEvolution_EvolveEffect:
+	call ClearStatusFromTarget_NoAnim
 	; fallthrough
 
 ; Adds the selected card to the turn holder's Hand (temporarily)
-; and then evolves the Active Pokémon using the selected card.
+; and then evolves the selected Pokémon using the selected card.
 EvolutionFromDeck_EvolveEffect:
 ; check if a card was chosen from the deck
 	ldh a, [hTemp_ffa0]
@@ -381,7 +294,7 @@ DevolutionBeam_DevolveEffect:
 	ld a, ATK_ANIM_DEVOLUTION_BEAM
 	bank1call PlayAdhocAnimationOnDuelScene_NoEffectiveness
 	; jr TryDevolveSelectedPokemonEffect
-	; falllthrough
+	; fallthrough
 
 
 TryDevolveSelectedPokemonEffect:
