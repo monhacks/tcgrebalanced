@@ -799,6 +799,7 @@ CardTypeTest_FunctionTable:
 	dw CardTypeTest_IsEnergizedElectabuzz  ; CARDTEST_ENERGIZED_ELECTABUZZ
 	dw CardTypeTest_EvolvesIntoStoredCard  ; CARDTEST_EVOLVES_INTO
 	dw CardTypeTest_IsEvolutionOfPlayArea  ; CARDTEST_EVOLUTION_OF_PLAY_AREA
+	dw CardTypeTest_IsGrassCard            ; CARDTEST_GRASS_CARD
 
 
 CardTypeTest_Pokemon:
@@ -1056,6 +1057,30 @@ CardTypeTest_IsEvolutionOfPlayArea:
 	ret z  ; incompatible evolution
 	scf
 	ret    ; unable to evolve, but only due to being played this turn
+
+
+CardTypeTest_IsGrassCard:
+	ld a, [wDynamicFunctionArgument]
+	; fallthrough
+
+; input:
+;   a: deck index of the card
+; output:
+;   a: TYPE_* of the given card
+;   carry: set if the given card is a Grass Pokémon or Energy
+; preserves: hl, bc, de
+IsGrassCard:
+	call LoadCardDataToBuffer2_FromDeckIndex  ; preserves hl, bc, de
+	ld a, [wLoadedCard2Type]
+	cp TYPE_PKMN_GRASS
+	jr z, .match
+	cp TYPE_ENERGY_GRASS
+	jr z, .match
+	or a  ; reset carry
+	ret   ; not a Grass card
+.match
+	scf
+	ret
 
 
 ; ------------------------------------------------------------------------------
