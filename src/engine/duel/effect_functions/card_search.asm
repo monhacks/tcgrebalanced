@@ -46,29 +46,7 @@ LookForCardsInDeck:
 
 
 CardSearch_FunctionTable:
-	dw .SearchDuelTempListForCardType
 	dw .SearchDuelTempListMatchingCardPattern
-
-.set_carry
-	scf
-	ret
-
-; returns carry if no Trainer Item cards are found
-.SearchDuelTempListForCardType
-	ld hl, wDuelTempList
-.loop_list_card_type
-	ld a, [hli]
-	cp $ff
-	jr z, .set_carry
-	push de
-	call GetCardIDFromDeckIndex
-	call GetCardType
-	pop de
-	cp e
-	jr nz, .loop_list_card_type
-	or a
-	ret
-
 
 ; returns carry if no card matching the pattern is found
 ; otherwise, returns deck index of the first matching card
@@ -86,6 +64,10 @@ CardSearch_FunctionTable:
 	ld a, [hli]
 	jr nc, .loop_list_pattern_match
 	or a
+	ret
+
+.set_carry
+	scf
 	ret
 
 
