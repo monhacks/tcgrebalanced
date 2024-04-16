@@ -142,28 +142,13 @@ EvolutionFromDeck_AISelectEffect:
 	ld a, $ff
 	ldh [hTemp_ffa0], a
 	; ret
-
-; TODO optimize with dynamic tests
 .search
 	call CreateDeckCardList
-	ld hl, wDuelTempList
 	ldh a, [hTempPlayAreaLocation_ffa1]
-	ld e, a
-.loop_deck
-	ld a, [hli]
+	ldh [hTempPlayAreaLocation_ff9d], a
+	ld a, CARDTEST_EVOLUTION_OF_PLAY_AREA
+	call SearchDuelTempListForMatchingCard
 	ldh [hTemp_ffa0], a
-	cp $ff
-	ret z ; none found
-; d: deck index (0-59) of the card selected to be the evolution target
-	ld d, a
-	push hl
-	call CheckIfCanEvolveInto
-	pop hl
-	jr nc, .got_card
-	jr nz, .got_card  ; ignore first turn evolution
-	jr .loop_deck ; not a valid Evolution card
-.got_card
-	ldh a, [hTemp_ffa0]
 	or a
 	ret
 
