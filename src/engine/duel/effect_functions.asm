@@ -4214,7 +4214,8 @@ CallForFamily_PlayerSelectEffect:
 	call CreateDeckCardList
 	ldtx hl, ChooseBasicPokemonFromDeckText
 	ldtx bc, BasicPokemonDeckText
-	lb de, SEARCHEFFECT_BASIC_POKEMON, $00
+	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_BASIC_POKEMON
 	call LookForCardsInDeck
 	ret c  ; none in deck, refused to look
 
@@ -7563,7 +7564,8 @@ PokeBall_PlayerSelection:
 	; ldtx hl, ChooseBasicOrEvolutionPokemonCardFromDeckText
 	ldtx hl, ChooseBasicPokemonFromDeckText
 	ldtx bc, BasicPokemonDeckText
-	lb de, SEARCHEFFECT_BASIC_POKEMON, 0
+	lb de, SEARCHEFFECT_MATCHING_CARD_PATTERN
+	ld e, CARDTEST_BASIC_POKEMON
 	call LookForCardsInDeck
 	jr c, .no_pkmn ; return if Player chose not to check deck
 

@@ -15,12 +15,12 @@ PokemonBreeder_PlayerSelectEffect:
 	; fallthrough
 
 LunarPower_PlayerSelectEffect:
+	call CreateDeckCardList
 	ld e, CARDTEST_EVOLUTION_POKEMON
 	call PlayerSelectEvolutionFromDeck_Preamble
 	ret c  ; none in deck, Player refused to look
 
 ; select an Evolution card from the deck
-	call CreateDeckCardList
 .loop_deck
 	call HandlePlayerSelectionEvolutionPokemonFromDeckList
 	ret c  ; no Pokémon | Player cancelled
@@ -77,12 +77,12 @@ EvolveArenaPokemonFromDeck_PlayerSelectEffect:
 ;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the evolving Pokémon
 ;   carry: set if the Player did not choose a valid Evolution card
 EvolutionFromDeck_PlayerSelectEffect:
+	call CreateDeckCardList
 	ld e, CARDTEST_EVOLUTION_OF_PLAY_AREA
 	call PlayerSelectEvolutionFromDeck_Preamble
 	ret c  ; none in deck, Player refused to look
 
 ; select an Evolution card from the deck
-	call CreateDeckCardList
 .loop_deck
 	call HandlePlayerSelectionEvolutionPokemonFromDeckList
 	ret c  ; no Pokémon | Player cancelled
