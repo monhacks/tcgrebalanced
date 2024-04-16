@@ -1340,9 +1340,8 @@ Sprout_PlayerSelectEffect:
 	call CreateDeckCardList
 	ldtx hl, ChooseGrassCardFromDeckText
 	ldtx bc, GrassCardText
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_GRASS_CARD
-	call LookForCardsInDeck
+	ld a, CARDTEST_GRASS_CARD
+	call LookForCardsInDeckList
 	ret c
 
 ; draw Deck list interface and print text
@@ -4215,9 +4214,8 @@ CallForFamily_PlayerSelectEffect:
 	call CreateDeckCardList
 	ldtx hl, ChooseBasicPokemonFromDeckText
 	ldtx bc, BasicPokemonDeckText
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_BASIC_POKEMON
-	call LookForCardsInDeck
+	ld a, CARDTEST_BASIC_POKEMON
+	call LookForCardsInDeckList
 	ret c  ; none in deck, refused to look
 
 ; handle selection of the first card
@@ -4659,9 +4657,8 @@ EnergySpike_PlayerSelectEffect:
 	call CreateDeckCardList
 	ldtx hl, Choose1BasicEnergyCardFromDeckText
 	ldtx bc, BasicEnergyText
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_BASIC_ENERGY
-	call LookForCardsInDeck
+	ld a, CARDTEST_BASIC_ENERGY
+	call LookForCardsInDeckList
 	ret c  ; no cards, the Player refuses to search the deck
 
 ; choose a card from the deck
@@ -5755,9 +5752,8 @@ _LookForPokemonInDeck:
 	call CreateDeckCardList
 	ldtx hl, ChooseAnyPokemonFromDeckText
 	ldtx bc, AnyPokemonDeckText
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_POKEMON
-	jp LookForCardsInDeck
+	ld a, CARDTEST_POKEMON
+	jp LookForCardsInDeckList
 
 
 ; store deck index of selected card or $ff in [hTemp_ffa0]
@@ -6474,9 +6470,8 @@ EnergySearch_PlayerSelection:
 	call CreateDeckCardList
 	ldtx hl, Choose1BasicEnergyCardFromDeckText
 	ldtx bc, BasicEnergyText
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_BASIC_ENERGY
-	call LookForCardsInDeck
+	ld a, CARDTEST_BASIC_ENERGY
+	call LookForCardsInDeckList
 	ret c ; skip showing deck
 
 	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
@@ -7568,9 +7563,8 @@ PokeBall_PlayerSelection:
 	; ldtx hl, ChooseBasicOrEvolutionPokemonCardFromDeckText
 	ldtx hl, ChooseBasicPokemonFromDeckText
 	ldtx bc, BasicPokemonDeckText
-	lb de, SEARCHEFFECT_MATCHING_CARD_PATTERN
-	ld e, CARDTEST_BASIC_POKEMON
-	call LookForCardsInDeck
+	ld a, CARDTEST_BASIC_POKEMON
+	call LookForCardsInDeckList
 	jr c, .no_pkmn ; return if Player chose not to check deck
 
 ; handle input

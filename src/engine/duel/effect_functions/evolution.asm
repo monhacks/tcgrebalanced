@@ -112,10 +112,10 @@ PlayerSelectEvolutionFromDeck_Preamble:
 	ldh [hTemp_ffa0], a
 	ldh [hTempPlayAreaLocation_ffa1], a
 ; search for an Evolution card in the deck
-	ld d, SEARCHEFFECT_MATCHING_CARD_PATTERN
 	ldtx hl, ChooseEvolvedPokemonFromDeckText
 	ldtx bc, EvolvedPokemonText
-	call LookForCardsInDeck
+	ld a, e
+	call LookForCardsInDeckList
 	ret  ; carry: none in deck, Player refused to look
 
 

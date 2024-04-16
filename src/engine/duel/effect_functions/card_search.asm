@@ -2,34 +2,52 @@
 ; Card Search
 ; ------------------------------------------------------------------------------
 
-; searches through Deck in wDuelTempList looking for
-; a certain card or cards, and prints text depending
-; on whether at least one was found.
-; if none were found, asks the Player whether to look
+; Searches through all Deck cards looking for a certain card or cards.
+; Prints text depending on whether at least one was found.
+; If none were found, asks the Player whether to look
 ; in the Deck anyway, and returns carry if No is selected.
-; uses SEARCHEFFECT_* as input which determines what to search for:
 ; input:
-;	  d = SEARCHEFFECT_* constant
-;	  e = (optional) card ID, play area location or other search parameters
-;	  hl = text to print if Deck has card(s)
-;	  bc = variable text to fill <RAMTEXT> in hl
+;   a: CARDTEST_* constant of the card pattern to search for
+;	  hl: text to print if Deck has card(s)
+;	  bc: variable text to fill <RAMTEXT> in hl
 ; output:
-;   a: TRUE if cards were found; FALSE otherwise
-;	  carry set if refused to look at deck
-LookForCardsInDeck:
+;   a: deck index of the first matching card | $ff
+;	  carry: set if no matching cards and refused to look at deck
+
+; LookForCardsInDeck:
+; 	ld [wDataTableIndex], a
+; 	push hl
+; 	push bc
+; 	call CreateDeckCardList
+; 	pop bc
+; 	pop hl
+; 	jr LookForCardsInDeckList.search
+
+
+; Searches through wDuelTempList looking for a certain card or cards.
+; Prints text depending on whether at least one was found.
+; If none were found, asks the Player whether to look
+; in the Deck anyway, and returns carry if No is selected.
+; input:
+;   a: CARDTEST_* constant of the card pattern to search for
+;	  hl: text to print if Deck has card(s)
+;	  bc: variable text to fill <RAMTEXT> in hl
+;   [wDuelTempList]: list of cards to search
+; output:
+;   a: deck index of the first matching card | $ff
+;	  carry: set if no matching cards and refused to look at deck
+LookForCardsInDeckList:
+	ld [wDataTableIndex], a
+.search
 	push hl
 	push bc
-	ld a, [wDuelTempList]
-	cp $ff
-	jr z, .none_in_deck
-	ld a, d
-	ld hl, CardSearch_FunctionTable
-	call JumpToFunctionInTable
+	call SearchDuelTempListForMatchingCard.search
 	jr c, .none_in_deck
 	pop bc
 	pop hl
+	push af
 	call DrawWideTextBox_WaitForInput
-	ld a, TRUE
+	pop af
 	or a
 	ret
 
@@ -41,47 +59,31 @@ LookForCardsInDeck:
 	call DrawWideTextBox_WaitForInput
 	ldtx hl, WouldYouLikeToCheckTheDeckText
 	call YesOrNoMenuWithText_SetCursorToYes
-	ld a, FALSE
+	ld a, $ff
 	ret
 
 
-CardSearch_FunctionTable:
-	dw .SearchDuelTempListMatchingCardPattern
-
-; returns carry if no card matching the pattern is found
+; returns carry 
 ; otherwise, returns deck index of the first matching card
 ; input:
-;   e: CARDTEST_* constant to test each card
-.SearchDuelTempListMatchingCardPattern
-	ld a, e
+;   a: CARDTEST_* constant of the card pattern to search for
+;   [wDuelTempList]: list of cards to search
+; output:
+;   a: deck index of the first matching card | $ff
+;   carry: set if no card matching the pattern is found
+SearchDuelTempListForMatchingCard:
 	ld [wDataTableIndex], a
+.search
 	ld hl, wDuelTempList
-.loop_list_pattern_match
+.loop
 	ld a, [hl]
 	cp $ff
 	jr z, .set_carry
 	call DynamicCardTypeTest
 	ld a, [hli]
-	jr nc, .loop_list_pattern_match
+	jr nc, .loop
 	or a
 	ret
-
 .set_carry
 	scf
 	ret
-
-
-
-; Displays a list of all cards currently in the Player's deck.
-; Expects the Player to choose one card.
-; Meant to be called right after LookForCardsInDeck.
-; input:
-;   hl: pointer to a "Choose X card text"
-; example:
-;   ldtx hl, ChooseBasicEnergyCardText
-; DisplayPlayerDeckForSearch:
-; 	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
-; 	ldtx hl, ChooseBasicEnergyCardText
-; 	ldtx de, DuelistDeckText
-; 	bank1call SetCardListHeaderText
-; 	ret
