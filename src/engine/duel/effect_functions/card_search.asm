@@ -8,7 +8,6 @@
 ; if none were found, asks the Player whether to look
 ; in the Deck anyway, and returns carry if No is selected.
 ; uses SEARCHEFFECT_* as input which determines what to search for:
-;	SEARCHEFFECT_CARD_ID = search for card ID in e
 ;	SEARCHEFFECT_POKEMON_OR_BASIC_ENERGY = search for either a Pokémon or a Basic Energy
 ;	SEARCHEFFECT_GRASS_CARD = search for any Grass card
 ; input:
@@ -49,7 +48,6 @@ LookForCardsInDeck:
 
 
 CardSearch_FunctionTable:
-	dw .SearchDuelTempListForCardID
 	dw .SearchDuelTempListForPokemonOrBasicEnergy
 	dw .SearchDuelTempListForCardType
 	dw .SearchDuelTempListForGrassCard
@@ -57,22 +55,6 @@ CardSearch_FunctionTable:
 
 .set_carry
 	scf
-	ret
-
-; returns carry if no card with same card ID as e is found
-.SearchDuelTempListForCardID
-	ld hl, wDuelTempList
-.loop_list_e
-	ld a, [hli]
-	cp $ff
-	jr z, .set_carry
-	push de
-	call GetCardIDFromDeckIndex
-	ld a, e
-	pop de
-	cp e
-	jr nz, .loop_list_e
-	or a
 	ret
 
 ; returns carry if no Pokémon or Basic Energy card is found
