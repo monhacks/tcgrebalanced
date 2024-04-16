@@ -1247,9 +1247,9 @@ PrehistoricPowerName:
 	done
 
 PrehistoricPowerDescription:
-	text "No more Evolution cards can be"
-	line "played while this Pokémon is in"
-	line "the Active Spot."
+	text "While this is your Active Pokémon,"
+	line "no more Evolution cards can be"
+	line "played from either player's hand."
 	done
 
 ; PrimalClawName:

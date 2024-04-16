@@ -338,7 +338,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Text0159                                           ; 0x0159
 	textpointer ChoosePokemonToReturnToTheDeckText                 ; 0x015a
 	textpointer ChoosePokemonToPlaceInPlayText                     ; 0x015b
-	textpointer ChooseBasicPokemonToEvolveText                     ; 0x015c
+	textpointer ChoosePokemonToEvolveText
 	textpointer ChoosePokemonToScoopUpText                         ; 0x015d
 	textpointer ChooseCardFromYourHandToSwitchText                 ; 0x015e
 	textpointer ChooseCardFromYourHandToAttachText                 ; 0x015e
@@ -373,7 +373,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PokemonDevolvedToText                              ; 0x017a
 	textpointer ThereWasNoFireEnergyText                           ; 0x017b
 	textpointer YouCanSelectMoreCardsQuitText                      ; 0x017c
-	textpointer AreYouDoneSelectingCardsText ; unreferenced
 	textpointer ThereWasNoEffectText                               ; 0x017d
 	textpointer ThereWasNoEffectFromToxicText                      ; 0x017e
 	textpointer ThereWasNoEffectFromPoisonText                     ; 0x017f

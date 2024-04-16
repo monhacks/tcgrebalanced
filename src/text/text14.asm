@@ -93,20 +93,11 @@ PokemonBreederName:
 	text "Pokémon Breeder"
 	done
 
-; TODO
-; PokemonBreederDescription:
-; 	text "Search your deck for a card that"
-; 	line "evolves from 1 of your Pokémon and"
-; 	line "put it on that Pokémon. (This"
-; 	line "counts as evolving that Pokémon.)"
-; 	line "Then, shuffle your deck."
-; 	done
-
 PokemonBreederDescription:
-	text "Choose 1 of your Pokémon in play."
-	line "Search your deck for a card that"
-	line "evolves from that Pokémon and put"
-	line "it onto that Pokémon to evolve it."
+	text "Search your deck for a card that"
+	line "evolves from 1 of your Pokémon and"
+	line "put it on that Pokémon. (This"
+	line "counts as evolving that Pokémon.)"
 	line "Then, shuffle your deck."
 	done
 

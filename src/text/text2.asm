@@ -583,8 +583,8 @@ ChoosePokemonToPlaceInPlayText: ; 3970f (e:570f)
 	line "place in play."
 	done
 
-ChooseBasicPokemonToEvolveText: ; 39733 (e:5733)
-	text "Choose a Basic Pokémon"
+ChoosePokemonToEvolveText:
+	text "Choose a Pokémon"
 	line "to Evolve."
 	done
 
@@ -750,10 +750,6 @@ ThereWasNoFireEnergyText: ; 39b58 (e:5b58)
 
 YouCanSelectMoreCardsQuitText: ; 39b73 (e:5b73)
 	text "You can select <RAMNUM> more cards. Quit?"
-	done
-
-AreYouDoneSelectingCardsText:
-	text "Are you done selecting cards?"
 	done
 
 ThereWasNoEffectText: ; 39b97 (e:5b97)
