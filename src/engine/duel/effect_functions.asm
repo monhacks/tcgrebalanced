@@ -57,12 +57,6 @@ Serial_TossCoinATimes:
 INCLUDE "engine/duel/effect_functions/evolution.asm"
 
 
-PokemonBreeder_PreconditionCheck:
-	call CheckDeckIsNotEmpty
-	ret c
-	jp IsPrehistoricPowerActive
-
-
 RareCandy_HandPlayAreaCheck:
 	call CreatePlayableStage2PokemonCardListFromHand
 	jr c, .cannot_evolve
@@ -86,7 +80,7 @@ RareCandy_PlayerSelection:
 
 	ldh a, [hTempCardIndex_ff98]
 	ldh [hTemp_ffa0], a
-	ldtx hl, ChooseBasicPokemonToEvolveText
+	ldtx hl, ChoosePokemonToEvolveText
 	call DrawWideTextBox_WaitForInput
 
 ; handle Player selection of Basic card to evolve
