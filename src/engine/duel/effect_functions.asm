@@ -257,6 +257,13 @@ SyncShuffleDeck:
 	jp ShuffleDeck
 
 
+StoreDefendingPokemonHPEffect:
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetNonTurnDuelistVariable
+	ldh [hTemp_ffa0], a
+	ret
+
+
 ; ------------------------------------------------------------------------------
 ; Checks and Tests
 ; ------------------------------------------------------------------------------
@@ -1114,15 +1121,6 @@ MendEffect:
 Constrict_TrapDamageBoostEffect:
 	call IncreaseRetreatCostEffect
 	jp Constrict_DamageBoostEffect
-
-
-; damage to bench target and reset color to whatever it was
-Steamroller_DamageAndColorEffect:
-	ld a, DUELVARS_ARENA_CARD_CHANGED_TYPE
-	call GetTurnDuelistVariable
-	ldh a, [hTemp_ffa0]
-	ld [hl], a
-	jp Deal20DamageToTarget_DamageEffect
 
 
 ; Deal damage to selected Pokémon and apply defense boost to self.
@@ -2578,18 +2576,6 @@ SetUsedPokemonPowerThisTurn:
 	add DUELVARS_ARENA_CARD_FLAGS
 	call GetTurnDuelistVariable
 	set USED_PKMN_POWER_THIS_TURN_F, [hl]
-	ret
-
-
-Steamroller_ChangeColorEffect:
-; store current card color
-	ld a, DUELVARS_ARENA_CARD_CHANGED_TYPE
-	call GetTurnDuelistVariable
-	ldh [hTemp_ffa0], a
-; temporarily change color to Fighting
-	ld a, FIGHTING
-	or HAS_CHANGED_COLOR | IS_PERMANENT_COLOR
-	ld [hl], a
 	ret
 
 

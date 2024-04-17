@@ -3682,17 +3682,17 @@ PoliwrathCard:
 	tx PoliwhirlName ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 2 ; energies
+	energy COLORLESS, 3 ; energies
 	tx SteamrollerName ; name
 	tx SteamrollerDescription ; description
 	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
-	db 20 ; damage
-	db DAMAGE_NORMAL ; category
+	db 40 ; damage
+	db DAMAGE_PLUS ; category
 	dw SteamrollerEffectCommands ; effect commands
 	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
-	db NONE ; flags 2
+	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db 20
+	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
 	db ATK_ANIM_HIT ; animation
 
 	; attack 2

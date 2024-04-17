@@ -1250,10 +1250,12 @@ Damage1FriendlyBenchedPokemon30EffectCommands:
 	db  $00
 
 SteamrollerEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Steamroller_ChangeColorEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Steamroller_DamageAndColorEffect
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, StoreDefendingPokemonHPEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Steamroller_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, TrampleEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DamageTargetBenchedPokemonIfAny_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, DamageTargetBenchedPokemonIfAny_AISelectEffect
+	dbw EFFECTCMDTYPE_AI, Steamroller_AIEffect
 	db  $00
 
 GrowlEffectCommands:

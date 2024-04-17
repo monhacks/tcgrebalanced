@@ -1107,11 +1107,20 @@ SteamrollerName:
 	done
 
 SteamrollerDescription:
-	text "This attack does <FIGHTING> damage to the"
-	line "Defending Pokémon. In addition,"
-	line "this attack does 20 damage to 1 of"
-	line "your opponent's Benched Pokémon."
+	text "This attack does 10 more damage for"
+	line "each <WATER> or <FIGHTING> energy attached"
+	line "to this Pokémon. If this attack"
+	line "Knocks Out the Defending Pokémon,"
+	line "do the excess damage to 1 of the"
+	line "opponent's Benched Pokémon."
 	done
+
+; SteamrollerDescription:
+; 	text "This attack does <FIGHTING> damage to the"
+; 	line "Defending Pokémon. In addition,"
+; 	line "this attack does 20 damage to 1 of"
+; 	line "your opponent's Benched Pokémon."
+; 	done
 
 ConstrictName:
 	text "Constrict"

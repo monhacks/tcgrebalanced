@@ -215,6 +215,27 @@ DealDamageToTargetA_DE_DamageEffect:
 	jp SwapTurn
 
 
+;
+TrampleEffect:
+DealExcessDamageToTarget_DamageEffect:
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetNonTurnDuelistVariable
+	or a
+	ret nz
+; the Defending Pokémon was Knocked Out
+	ldh a, [hTemp_ffa0]
+	ld e, a  ; previous HP
+	ld a, [wDealtDamage]
+	or a
+	ret z  ; no damage was dealt
+	sub e
+	ret c  ; no excess damage (unlikely)
+	ret z  ; no excess damage (exact)
+	ld d, 0
+	ld e, a  ; excess damage
+	jr DealDamageToTarget_DE_DamageEffect
+
+
 Deal10DamageToFriendlyTarget_DamageEffect:
 	ld de, 10
 	jr DealDamageToFriendlyTarget_DE_DamageEffect

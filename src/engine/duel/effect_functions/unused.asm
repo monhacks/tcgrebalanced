@@ -1,5 +1,39 @@
 ;
 
+
+SteamrollerEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Steamroller_ChangeColorEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Steamroller_DamageAndColorEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DamageTargetBenchedPokemonIfAny_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, DamageTargetBenchedPokemonIfAny_AISelectEffect
+	db  $00
+
+
+; damage to bench target and reset color to whatever it was
+Steamroller_DamageAndColorEffect:
+	ld a, DUELVARS_ARENA_CARD_CHANGED_TYPE
+	call GetTurnDuelistVariable
+	ldh a, [hTemp_ffa0]
+	ld [hl], a
+	jp Deal20DamageToTarget_DamageEffect
+
+
+
+Steamroller_ChangeColorEffect:
+	; store current card color
+		ld a, DUELVARS_ARENA_CARD_CHANGED_TYPE
+		call GetTurnDuelistVariable
+		ldh [hTemp_ffa0], a
+	; temporarily change color to Fighting
+		ld a, FIGHTING
+		or HAS_CHANGED_COLOR | IS_PERMANENT_COLOR
+		ld [hl], a
+		ret
+
+
+
+
+
 CrabhammerEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Crabhammer_DamageBoostEffect
 	dbw EFFECTCMDTYPE_AI, Crabhammer_AIEffect

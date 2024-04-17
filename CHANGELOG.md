@@ -10,6 +10,10 @@
 
 ### Water Changes
 
+#### Poliwrath
+- **Steamroller**: reworked.
+- New attack: **Steamroller** (CCC): 40 damage; +10 damage for each attached Water or Fighting Energy; excess damage goes to 1 Benched Pokémon.
+
 #### Krabby
 - **Bubble**: removed.
 - **Guillotine**: removed.
