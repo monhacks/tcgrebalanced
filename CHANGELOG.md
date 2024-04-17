@@ -22,6 +22,12 @@
 - New attack: **Guillotine** (CC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
 - New attack: **Crabhammer** (WWC): 40 damage; discard the top 2 cards of the opponent's deck.
 
+#### Magikarp
+- Increased HP from 30 to 40.
+
+#### Gyarados
+- Reduced HP from 100 to 90.
+
 ### Lightning Changes
 
 #### Surfing Pikachu

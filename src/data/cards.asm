@@ -4457,7 +4457,7 @@ MagikarpCard:
 	db DIAMOND ; rarity
 	db COLOSSEUM | NONE ; sets
 	db MAGIKARP
-	db 30 ; hp
+	db 40 ; hp
 	db BASIC ; stage
 	dw NONE ; pre-evo name
 
@@ -4508,7 +4508,7 @@ GyaradosCard:
 	db STAR ; rarity
 	db COLOSSEUM | NONE ; sets
 	db GYARADOS
-	db 100 ; hp
+	db 90 ; hp
 	db STAGE1 ; stage
 	tx MagikarpName ; pre-evo name
 
