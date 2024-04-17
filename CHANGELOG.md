@@ -34,6 +34,13 @@
 - **Surf**: removed.
 - New attack: **Do the Wave** (CCC): 10 damage; +10 damage for each of the user's Benched Pokémon.
 
+### Fighting Changes
+
+#### Kabuto
+- Increased HP from 60 to 80.
+- **Kabuto Armor**: removed.
+- New Pokémon Power: **Fossil Energy**: until end of turn, changes all energies to Fighting energy.
+
 ### Psychic Changes
 
 #### Clefairy

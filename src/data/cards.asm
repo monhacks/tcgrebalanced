@@ -7145,14 +7145,9 @@ KabutoCard:
 	db CIRCLE ; rarity
 	db MYSTERY | FOSSIL ; sets
 	db KABUTO
-	db 60 ; hp
+	db 80 ; hp
 	db STAGE1 ; stage
 	tx MysteriousFossilName ; pre-evo name
-
-	; Pokémon Power: Ancient Guidance
-	; Once during your turn (before your attack), you may flip a coin.
-	; If heads, search your deck for Mysterious Fossil and put it onto your Bench.
-	; Shuffle your deck afterward. This power can't be used if Kabuto is affected by a Special Condition.
 
 	; Pokémon Power: Fossilization
 	; Once during your turn (before your attack), you may flip a coin.
@@ -7171,14 +7166,13 @@ KabutoCard:
 	; Treat the new Benched Pokémon as Basic Pokémon.
 
 	; attack 1
-	; depends: HandleDefenderDamageReductionEffects
 	energy 0 ; energies
-	tx KabutoArmorName ; name
-	tx KabutoArmorDescription ; description
+	tx FossilEnergyName ; name
+	tx FossilEnergyDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
 	db POKEMON_POWER ; category
-	dw PassivePowerEffectCommands ; effect commands
+	dw FossilEnergyEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3

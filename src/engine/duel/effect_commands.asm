@@ -345,6 +345,11 @@ EnergyBurnEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EnergyBurn_ChangeColorEffect
 	db  $00
 
+FossilEnergyEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, CheckPokemonPowerCanBeUsed
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, FossilEnergy_ChangeColorEffect
+	db  $00
+
 ShiftEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, Shift_OncePerTurnCheck
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Shift_ChangeColorEffect

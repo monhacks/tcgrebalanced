@@ -2633,8 +2633,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer SpikeName                                          ; 0x0a64
 	textpointer RamName                                            ; 0x0a67
 	textpointer RamDescription
-	textpointer KabutoArmorName                                    ; 0x0a6c
-	textpointer KabutoArmorDescription                             ; 0x0a6d
+	textpointer FossilEnergyName
+	textpointer FossilEnergyDescription
 	textpointer PrimalHuntName
 	textpointer PrimalHuntDescription
 	textpointer SharpSickleName                                    ; 0x0a71

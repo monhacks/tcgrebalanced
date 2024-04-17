@@ -2522,6 +2522,11 @@ EnergyBurn_ChangeColorEffect:
 	ld [wEnergyColorOverride], a
 	jp SetUsedPokemonPowerThisTurn
 
+FossilEnergy_ChangeColorEffect:
+	ld a, FIGHTING
+	ld [wEnergyColorOverride], a
+	jp SetUsedPokemonPowerThisTurn
+
 
 Shift_PlayerSelectEffect: ; 2cd21 (b:4d21)
 	ldtx hl, ChoosePokemonWishToColorChangeText

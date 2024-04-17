@@ -1223,15 +1223,14 @@ RamDescription:
 	line "Benched Pokémon."
 	done
 
-KabutoArmorName: ; 5fa55 (17:7a55)
-	text "Kabuto Armor"
+FossilEnergyName:
+	text "Fossil Energy"
 	done
 
-KabutoArmorDescription:
-	text "This Pokémon takes only half"
-	line "damage from attacks (rounded down"
-	line "to the nearest 10, after applying"
-	line "Weakness and Resistance)."
+FossilEnergyDescription:
+	text "Once during your turn, you may use"
+	line "this Power. All Energies attached to"
+	line "your Pokémon count as <FIGHTING> Energy."
 	done
 
 PrimalHuntName:
