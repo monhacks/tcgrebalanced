@@ -28,6 +28,12 @@
 - **Surf**: removed.
 - New attack: **Do the Wave** (CCC): 10 damage; +10 damage for each of the user's Benched Pokémon.
 
+### Psychic Changes
+
+#### Wigglytuff Lv36
+- **Do the Wave**: removed.
+- New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
+
 
 ## Version 0.8.0
 

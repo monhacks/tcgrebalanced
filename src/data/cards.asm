@@ -9168,18 +9168,18 @@ WigglytuffLv36Card:
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
-	energy COLORLESS, 3 ; energies
-	tx DoTheWaveName ; name
-	tx DoTheWaveDescription ; description
+	energy COLORLESS, 2 ; energies
+	tx FriendTackleName ; name
+	tx Bonus20IfPlayedSupporterDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_X ; category
-	dw DoTheWaveEffectCommands ; effect commands
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw FriendTackleEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
-	db 0
-	db ATK_ANIM_HIT ; animation
+	db 20
+	db ATK_ANIM_BOYFRIENDS ; animation
 
 	db 1 ; retreat cost
 	db WR_DARKNESS ; weakness
