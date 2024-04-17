@@ -6,7 +6,7 @@
 
 #### Pinsir
 - **Guillotine**: reworked.
-- New attack: **Guillotine** (CCC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
+- New attack: **Guillotine** (GGC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
 
 ### Water Changes
 

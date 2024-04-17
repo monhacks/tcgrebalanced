@@ -2395,7 +2395,7 @@ PinsirCard:
 	db ATK_ANIM_HIT_EFFECT ; animation
 
 	; attack 2
-	energy COLORLESS, 3 ; energies
+	energy GRASS, 2, COLORLESS, 1 ; energies
 	tx GuillotineName ; name
 	tx Guillotine50Description ; description
 	dw NONE ; description (cont)
