@@ -8781,46 +8781,33 @@ ClefairyCard:
 	db BASIC ; stage
 	dw NONE ; pre-evo name
 
-	; energy COLORLESS, 1 ; energies
-	; tx MimicName ; name
-	; tx MimicDescription ; description
-	; dw NONE ; description (cont)
-	; db 0 ; damage
-	; db RESIDUAL ; category
-	; dw MimicEffectCommands ; effect commands
-	; db DRAW_CARD ; flags 1
-	; db NONE ; flags 2
-	; db SPECIAL_AI_HANDLING ; flags 3
-	; db 0
-	; db ATK_ANIM_GLOW_EFFECT ; animation
-
 	; attack 1
 	energy COLORLESS, 1 ; energies
-	tx LeadName ; name
-	tx LeadDescription ; description
+	tx CallForFamilyName ; name
+	tx CallForFamilyDescription ; description
 	dw NONE ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw LeadEffectCommands ; effect commands
-	db DRAW_CARD ; flags 1
-	db NONE ; flags 2
-	db NONE ; flags 3
-	db 0
-	db ATK_ANIM_LURE ; animation
-
-	; attack 2
-	energy COLORLESS, 2 ; energies
-	tx FriendTackleName ; name
-	tx Bonus20IfPlayedSupporterDescription ; description
-	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_PLUS ; category
-	dw FriendTackleEffectCommands ; effect commands
+	dw CallForFamilyEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
-	db NONE ; flags 3
-	db 10
-	db ATK_ANIM_BOYFRIENDS ; animation
+	db SPECIAL_AI_HANDLING ; flags 3
+	db 0
+	db ATK_ANIM_GLOW_EFFECT ; animation
+
+	; attack 2
+	energy COLORLESS, 1 ; energies
+	tx MimicName ; name
+	tx MimicDescription ; description
+	dw NONE ; description (cont)
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw MimicEffectCommands ; effect commands
+	db DRAW_CARD ; flags 1
+	db NONE ; flags 2
+	db SPECIAL_AI_HANDLING ; flags 3
+	db 0
+	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	db 0 ; retreat cost
 	db WR_DARKNESS ; weakness
@@ -9031,17 +9018,17 @@ JigglypuffLv13Card:
 
 	; attack 1
 	energy COLORLESS, 1 ; energies
-	tx CallForFamilyName ; name
-	tx CallForFamilyDescription ; description
+	tx LeadName ; name
+	tx LeadDescription ; description
 	dw NONE ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw CallForFamilyEffectCommands ; effect commands
-	db NONE ; flags 1
+	dw LeadEffectCommands ; effect commands
+	db DRAW_CARD ; flags 1
 	db NONE ; flags 2
-	db SPECIAL_AI_HANDLING ; flags 3
+	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_GLOW_EFFECT ; animation
+	db ATK_ANIM_LURE ; animation
 
 	; attack 2
 	energy PSYCHIC, 1 ; energies

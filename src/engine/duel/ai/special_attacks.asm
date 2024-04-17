@@ -65,8 +65,8 @@ HandleSpecialAIAttacks:
 	jr z, .CallForFamily
 	cp KANGASKHAN
 	jr z, .CallForFamily
-	cp JIGGLYPUFF_LV13
-	jr z, .CallForFamily
+	cp CLEFAIRY
+	jr z, .Clefairy
 	cp ODDISH
 	jr z, .Sprout
 	cp ARTICUNO_LV35
@@ -76,8 +76,6 @@ HandleSpecialAIAttacks:
 	cp ZAPDOS_LV64
 	jp z, .Energize
 	cp JYNX
-	jr z, .Mimic
-	cp CLEFAIRY
 	jr z, .Mimic
 	cp CLEFABLE
 	jr z, .LunarPower
@@ -134,6 +132,12 @@ HandleSpecialAIAttacks:
 	or a
 	jp z, .Collect
 	jr .Teleport
+
+.Clefairy
+	ld a, [wSelectedAttack]
+	or a
+	jr z, .CallForFamily
+	jr .Mimic
 
 ; if any basic cards are found in deck,
 ; return a score of $80 + slots available in bench.

@@ -30,6 +30,16 @@
 
 ### Psychic Changes
 
+#### Clefairy
+- **Lead**: removed.
+- **Friend Tackle**: removed.
+- New attack: **Call For Family** (C): put up to 2 Basic Pokémon from deck onto Bench.
+- New attack: **Mimic** (C): shuffle hand into deck; draw as many cards as the opponent has in hand.
+
+#### Jigglypuff Lv13
+- **Call for Family**: removed.
+- New attack: **Lead** (C): add a Supporter from the deck to the hand.
+
 #### Wigglytuff Lv36
 - **Do the Wave**: removed.
 - New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
