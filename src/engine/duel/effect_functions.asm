@@ -1607,7 +1607,7 @@ GetNumAttachedWaterEnergy:
 	; ld e, a
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + WATER]
 	ret
 
@@ -1870,7 +1870,7 @@ AIPickAttackForAmnesia: ; 2c532 (b:4532)
 	call SwapTurn
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, DUELVARS_ARENA_CARD
 	call GetTurnDuelistVariable
 	ld d, a
@@ -2937,7 +2937,7 @@ Cowardice_RemoveFromPlayAreaEffect:
 CheckArenaPokemonHasEnergy_Lightning:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ldtx hl, NotEnoughLightningEnergyText
 	ld a, [wAttachedEnergies + LIGHTNING]
 	cp 1
@@ -2948,7 +2948,7 @@ CheckArenaPokemonHasEnergy_Lightning:
 CheckArenaPokemonHasEnergy_Fire:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ldtx hl, NotEnoughFireEnergyText
 	ld a, [wAttachedEnergies + FIRE]
 	cp 1
@@ -2959,7 +2959,7 @@ CheckArenaPokemonHasEnergy_Fire:
 CheckArenaPokemonHasEnergy_Water:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ldtx hl, NotEnoughWaterEnergyText
 	ld a, [wAttachedEnergies + WATER]
 	cp 1

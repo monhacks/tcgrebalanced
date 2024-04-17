@@ -1394,7 +1394,7 @@ CheckIfEnoughEnergiesToAttack:
 	push bc
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ldh a, [hCurMenuItem]
 	add a
 	ld e, a
@@ -5888,7 +5888,7 @@ CheckPrintCnfSlpPrz:
 PrintPlayAreaCardAttachedEnergies:
 	push bc
 	call GetPlayAreaCardAttachedEnergies
-	; call HandleEnergyBurn
+	; call HandleEnergyColorOverride
 	ld hl, wDefaultText
 	push hl
 	ld c, NUM_TYPES
@@ -7400,7 +7400,7 @@ HandleBetweenTurnsEvents:
 ;.loop_play_area
 ;; check its attached energies
 ;	call GetPlayAreaCardAttachedEnergies
-; call HandleEnergyBurn
+; call HandleEnergyColorOverride
 ;	ld a, [wAttachedEnergies + GRASS]
 ;	or a
 ;	jr z, .next_pkmn ; no Grass energy, skip Pokemon

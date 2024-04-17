@@ -221,7 +221,7 @@ DragonRage_DamageBoostEffect:
 	xor a  ; PLAY_AREA_ARENA
 	ld e, a
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 
 ; count how many types of Energy there are (colorless does not count)
 	ld b, 0
@@ -454,7 +454,7 @@ Discharge_MultiplierEffect:
 
 Discharge_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + LIGHTNING]
 	add a  ; x2
 	call ATimes10
@@ -467,7 +467,7 @@ Discharge_AIEffect:
 
 SheerCold_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + WATER]
 	call ATimes10
 	; ld d, 0
@@ -479,7 +479,7 @@ SheerCold_AIEffect:
 
 Wildfire_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + FIRE]
 	call ATimes10
 	; ld d, 0
@@ -491,7 +491,7 @@ Wildfire_AIEffect:
 
 ScorchingColumn_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + FIRE]
 	add a  ; x2
 	call ATimes10
@@ -504,7 +504,7 @@ ScorchingColumn_AIEffect:
 
 Thunderstorm_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + LIGHTNING]
 	call ATimes10
 	; ld d, 0

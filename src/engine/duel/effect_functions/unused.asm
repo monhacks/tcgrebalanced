@@ -525,7 +525,7 @@ IceCyclone_MultiplierEffect:
 
 IceCyclone_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + WATER]
 	call ATimes10
 	; ld d, 0
@@ -4094,7 +4094,7 @@ FlamesOfRage_PlayerSelectEffect:
 FlamesOfRage_CheckEnergy:
 	ld e, PLAY_AREA_ARENA
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + FIRE]
 	ldtx hl, NotEnoughFireEnergyText
 	cp 2
@@ -5089,7 +5089,7 @@ ApplyExtraWaterEnergyDamageBonus: ; 2cec8 (b:4ec8)
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	ld e, a
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	pop bc
 
 	ld hl, wAttachedEnergies + WATER

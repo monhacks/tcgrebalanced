@@ -702,7 +702,7 @@ GetNumAttachedEnergiesAtMostA:
 ; CheckArenaPokemonHasEnergiesOfType:
 ; 	ld e, PLAY_AREA_ARENA
 ; 	call GetPlayAreaCardAttachedEnergies  ; preserves hl, bc, de
-; 	call HandleEnergyBurn  ; preserves de
+; 	call HandleEnergyColorOverride  ; preserves de
 ; 	; ldtx hl, NotEnoughFireEnergyText
 ; 	ld e, d
 ; 	ld d, 0

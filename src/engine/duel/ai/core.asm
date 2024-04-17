@@ -401,7 +401,7 @@ CheckEnergyNeededForAttack:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	ld e, a
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	jp CheckIfEnoughAttachedEnergyAllBasicTypes
 
 
@@ -921,7 +921,7 @@ CheckEnergyNeededForAttackAfterDiscard:
 	dec [hl]
 
 .asm_1570c
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	jp CheckIfEnoughAttachedEnergyAllBasicTypes
 
 ; zeroes a bytes starting at hl
@@ -2238,7 +2238,7 @@ CheckIfNoSurplusEnergyForAttack:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	ld e, a
 	call GetPlayAreaCardAttachedEnergies
-	call HandleEnergyBurn
+	call HandleEnergyColorOverride
 	xor a
 	ld [wTempLoadedAttackEnergyCost], a
 	ld [wTempLoadedAttackEnergyNeededAmount], a
