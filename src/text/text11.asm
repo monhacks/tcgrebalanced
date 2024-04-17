@@ -1879,3 +1879,12 @@ ThatPokemonAlreadyHasAttachedEnergiesText:
 	text "That Pokémon already has Energy"
 	line "cards attached to it."
 	done
+
+AquaReturnName:
+	text "Aqua Return"
+	done
+
+ReturnToDeckDescription:
+	text "Shuffle this Pokémon and any cards"
+	line "attached to it into your deck."
+	done

@@ -170,6 +170,12 @@ TeleportEffectCommands:
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Teleport_PlayerSelectEffect
 	db  $00
 
+AquaReturnEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ReturnArenaPokemonToDeckEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Teleport_PlayerSelectEffect
+	db  $00
+
 StealthPoisonEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PoisonEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SwitchUser_SwitchEffect

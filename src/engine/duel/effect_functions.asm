@@ -6825,6 +6825,14 @@ MrFuji_ReturnToDeckAndDrawEffect:
 	jp Draw2CardsEffect
 
 
+; Return the Arena Pokémon and all cards
+; attached to it to the turn holder's deck.
+ReturnArenaPokemonToDeckEffect:
+	xor a  ; PLAY_AREA_ARENA
+	; jr ReturnPlayAreaPokemonToDeckEffect
+	; fallthrough
+
+
 ; Return the Pokémon in the location given in a
 ; and all cards attached to it to the turn holder's deck.
 ReturnPlayAreaPokemonToDeckEffect:

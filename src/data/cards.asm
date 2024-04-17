@@ -4294,6 +4294,20 @@ SeakingCard:
 	db STAGE1 ; stage
 	tx GoldeenName ; pre-evo name
 
+	; attack X
+	; energy WATER, 2, COLORLESS, 1 ; energies
+	; tx AquaReturnName ; name
+	; tx ReturnToDeckDescription ; description
+	; dw NONE ; description (cont)
+	; db 90 ; damage
+	; db DAMAGE_NORMAL ; category
+	; dw AquaReturnEffectCommands ; effect commands
+	; db NONE ; flags 1
+	; db NONE ; flags 2
+	; db NONE ; flags 3
+	; db 0
+	; db ATK_ANIM_WATER_JETS ; animation
+
 	; attack 1
 	energy COLORLESS, 2 ; energies
 	tx RendName ; name

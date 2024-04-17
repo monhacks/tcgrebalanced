@@ -2765,6 +2765,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer MoveThisPokemonToTheActiveSpotText
 	textpointer DrawCardsUntil3CardsInHandText
 	textpointer ThatPokemonAlreadyHasAttachedEnergiesText
+	textpointer AquaReturnName
+	textpointer ReturnToDeckDescription
 
 ; ------------------------------------------------------------------------------
 ; text12.asm
