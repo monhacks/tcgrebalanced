@@ -478,15 +478,13 @@ LullabyName: ; 6213c (18:613c)
 	text "Lullaby"
 	done
 
-DoTheWaveName: ; 621b8 (18:61b8)
+DoTheWaveName:
 	text "Do the Wave"
 	done
 
-DoTheWaveDescription: ; 621c5 (18:61c5)
-	;text "Does 10 damage plus 10 more damage"
-	;line "for each of your Benched Pokémon."
-	text "Does 10 damage for each of your"
-	line "Benched Pokémon."
+DoTheWaveDescription:
+	text "This attack does 10 more damage"
+	line "for each of your Benched Pokémon."
 	done
 
 ScratchCatName: ; 62359 (18:6359)

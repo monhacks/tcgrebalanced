@@ -5172,13 +5172,13 @@ SurfingPikachuLv13Card:
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
-	energy COLORLESS, 1 ; energies
-	tx SurfName ; name
-	tx DoubleDamageIfAttachedEnergyDescription ; description
+	energy COLORLESS, 3 ; energies
+	tx DoTheWaveName ; name
+	tx DoTheWaveDescription ; description
 	dw NONE ; description (cont)
 	db 10 ; damage
 	db DAMAGE_PLUS ; category
-	dw DoubleDamageIfAttachedEnergyEffectCommands ; effect commands
+	dw DoTheWaveEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
@@ -9143,17 +9143,9 @@ WigglytuffLv36Card:
 	; Collect (C)
 	; Draw 3 cards.
 
-	; Pester (CC) 30+
-	; If the Defending Pokémon is affected by a Special Condition,
-	; this attack does 30 damage plus 20 more damage.
-
 	; Dark Song (CC)
 	; Flip a coin. If heads, the Defending Pokémon is now Asleep.
 	; If tails, the Defending Pokémon is now Confused.
-
-	; Slap Awake (CCC) 20+
-	; If the Defending Pokémon is Asleep or Confused, this attack does +20 damage.
-	; Then, the Defending Pokémon is no longer Asleep or Confused.
 
 	; Orb Polish (C)
 	; Put 3 Energy from your discard pile into your hand.

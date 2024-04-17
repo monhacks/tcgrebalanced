@@ -22,6 +22,12 @@
 - New attack: **Guillotine** (CC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
 - New attack: **Crabhammer** (WWC): 40 damage; discard the top 2 cards of the opponent's deck.
 
+### Lightning Changes
+
+#### Surfing Pikachu
+- **Surf**: removed.
+- New attack: **Do the Wave** (CCC): 10 damage; +10 damage for each of the user's Benched Pokémon.
+
 
 ## Version 0.8.0
 
