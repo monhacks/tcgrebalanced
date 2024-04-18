@@ -11,6 +11,7 @@
 ### Water Changes
 
 #### Poliwrath
+- Increased HP from 100 to 110.
 - **Drain Punch**: removed.
 - **Steamroller**: reworked.
 - New Pokémon Power: **Step In**: if Benched, move all Energy from the Active Pokémon to this, then switch in.
