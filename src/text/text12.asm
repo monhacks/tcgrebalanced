@@ -1094,11 +1094,11 @@ AquaLauncherName:
 	done
 
 AquaLauncherDescription:
-	text "This attack does 30 damage to 1"
+	text "This attack does 50 damage to 1"
 	line "of your opponent's Pokémon."
 	line "All damage done to this Pokémon"
 	line "during your opponent's next turn"
-	line "is reduced by 10 (after applying"
+	line "is reduced by 20 (after applying"
 	line "Weakness and Resistance)."
 	done
 

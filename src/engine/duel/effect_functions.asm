@@ -1147,8 +1147,8 @@ Constrict_TrapDamageBoostEffect:
 
 ; Deal damage to selected Pokémon and apply defense boost to self.
 AquaLauncherEffect:
-	call Deal30DamageToTarget_DamageEffect
-	jp ReduceDamageTakenBy10Effect
+	call Deal50DamageToTarget_DamageEffect
+	jp ReduceDamageTakenBy20Effect
 
 
 PanicVine_ConfusionTrapEffect:

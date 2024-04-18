@@ -198,9 +198,10 @@ FurySwipes_MultiplierEffect:
 ; ------------------------------------------------------------------------------
 
 
-; 10 extra damage for each Water Energy
+; 20 extra damage for each Water Energy
 HydroPumpEffect:
   call GetNumAttachedWaterEnergy
+	add a  ; x2
 	call ATimes10
 	call AddToDamage ; add 10 * a to damage
 ; set attack damage

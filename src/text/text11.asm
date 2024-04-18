@@ -502,8 +502,9 @@ HydroPumpName:
 	done
 
 HydroPumpDescription:
-	text "Does 10 additional damage for each"
-	line "<WATER> Energy attached to this Pokémon."
+	text "This attack does 20 more damage"
+	line "for each <WATER> Energy attached to"
+	line "this Pokémon."
 	done
 
 ShellfishName: ; 5b322 (16:7322)

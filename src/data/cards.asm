@@ -3422,12 +3422,26 @@ BlastoiseCard:
 	db STAR ; rarity
 	db EVOLUTION | NONE ; sets
 	db BLASTOISE
-	db 120 ; hp
+	db 110 ; hp
 	db STAGE2 ; stage
 	tx WartortleName ; pre-evo name
 
 	; attack 1
-	energy WATER, 1, COLORLESS, 1 ; energies
+	energy COLORLESS, 1 ; energies
+	tx HydroPumpName ; name
+	tx HydroPumpDescription ; description
+	dw NONE ; description (cont)
+	db 10 ; damage
+	db DAMAGE_PLUS ; category
+	dw HydroPumpEffectCommands ; effect commands
+	db NONE ; flags 1
+	db ATTACHED_ENERGY_BOOST ; flags 2
+	db NONE ; flags 3
+	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db ATK_ANIM_HYDRO_PUMP ; animation
+
+	; attack 2
+	energy WATER, 2, COLORLESS, 1 ; energies
 	tx AquaLauncherName ; name
 	tx AquaLauncherDescription ; description
 	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
@@ -3439,20 +3453,6 @@ BlastoiseCard:
 	db NONE ; flags 3
 	db 3
 	db ATK_ANIM_PROTECT ; animation
-
-	; attack 2
-	energy COLORLESS, 3 ; energies
-	tx HydroPumpName ; name
-	tx HydroPumpDescription ; description
-	dw NONE ; description (cont)
-	db 40 ; damage
-	db DAMAGE_PLUS ; category
-	dw HydroPumpEffectCommands ; effect commands
-	db NONE ; flags 1
-	db ATTACHED_ENERGY_BOOST ; flags 2
-	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
-	db ATK_ANIM_HYDRO_PUMP ; animation
 
 	db 2 ; retreat cost
 	db WR_LIGHTNING ; weakness

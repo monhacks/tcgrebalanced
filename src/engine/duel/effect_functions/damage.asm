@@ -192,6 +192,10 @@ Deal40DamageToTarget_DamageEffect:
 	ld de, 40
 	jr DealDamageToTarget_DE_DamageEffect
 
+Deal50DamageToTarget_DamageEffect:
+	ld de, 50
+	jr DealDamageToTarget_DE_DamageEffect
+
 Deal30DamageToTarget_DamageEffect:
 	ld de, 30
 	; jr DealDamageToTarget_DE_DamageEffect

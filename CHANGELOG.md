@@ -10,6 +10,11 @@
 
 ### Water Changes
 
+#### Blastoise
+- Reduced HP from 120 to 110.
+- **Hydro Pump**: reduced cost from (CCC) to (C); reduced base damage from 40 to 10; increased bonus damage from 10 per Water Energy to 20 per Water Energy.
+- **Aqua Launcher**: increased cost from (WC) to (WWC); increased damage from 30 to 50; increased damage reduction from 10 to 20.
+
 #### Poliwrath
 - Increased HP from 100 to 110.
 - **Drain Punch**: removed.
