@@ -358,6 +358,14 @@ StressPheromones_PreconditionCheck:
 	jp CheckPokemonPowerCanBeUsed
 
 
+StepIn_PreconditionCheck:
+	call CheckTriggeringPokemonIsOnTheBench
+	ret c
+	; ldh a, [hTempPlayAreaLocation_ff9d]
+	ldh [hTemp_ffa0], a
+	jp CheckPokemonPowerCanBeUsed
+
+
 ; ------------------------------------------------------------------------------
 ; Discard Cards
 ; ------------------------------------------------------------------------------
@@ -677,6 +685,20 @@ INCLUDE "engine/duel/effect_functions/damage_modifiers.asm"
 ; ------------------------------------------------------------------------------
 ; Pokémon Powers
 ; ------------------------------------------------------------------------------
+
+
+StepIn_SwitchEffect:
+	xor a  ; PLAY_AREA_ARENA
+	ldh [hTempPlayAreaLocation_ff9d], a  ; source PLAY_AREA_*
+	ldh a, [hTemp_ffa0]
+	ldh [hTempPlayAreaLocation_ffa1], a  ; target PLAY_AREA_*
+	call MoveAllAttachedEnergiesToAnotherPokemonEffect
+	ldh a, [hTemp_ffa0]
+	ld e, a
+	call SwapArenaWithBenchPokemon
+	; xor a  ; PLAY_AREA_ARENA
+	; ldh [hTempPlayAreaLocation_ff9d], a
+	jp SetUsedPokemonPowerThisTurn
 
 
 EvolutionaryFlame_DamageBurnEffect:
@@ -2497,6 +2519,58 @@ EnergyTrans_AIEffect: ; 2cbfb (b:4bfb)
 	call AddCardToHand
 	call PutHandCardInPlayArea
 	bank1call PrintPlayAreaCardList_EnableLCD
+	ret
+
+
+; similar to CreateArenaOrBenchEnergyCardList
+; fill wDuelTempList with the turn holder's energy cards
+; in the arena or in a bench slot (their 0-59 deck indexes).
+; the cards are also moved to another Play Area location
+; input:
+;   [hTempPlayAreaLocation_ff9d]: source PLAY_AREA_*
+;   [hTempPlayAreaLocation_ffa1]: target PLAY_AREA_*
+; output:
+;   a: total number of energy cards found
+;   carry: set if no energy cards were found
+;   [wDuelTempList]: $ff-terminated list of energy cards
+MoveAllAttachedEnergiesToAnotherPokemonEffect:
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	or CARD_LOCATION_PLAY_AREA
+	ld c, a
+	ld b, 0  ; counter
+	ld de, wDuelTempList
+	ld a, DUELVARS_CARD_LOCATIONS
+	call GetTurnDuelistVariable
+.next_card_loop
+	ld a, [hl]
+	cp c
+	jr nz, .skip_card  ; not in source Play Area
+	ld a, l
+	call LoadCardDataToBuffer2_FromDeckIndex
+	ld a, [wLoadedCard2Type]
+	and 1 << TYPE_ENERGY_F
+	jr z, .skip_card  ; not an Energy card
+	ld a, l     ; deck index
+	ld [de], a  ; add to wDuelTempList
+	inc de
+	inc b
+; move card to target location
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	or CARD_LOCATION_PLAY_AREA
+	ld [hl], a
+.skip_card
+	inc l
+	ld a, l
+	cp DECK_SIZE
+	jr c, .next_card_loop
+; all cards checked
+	ld a, $ff
+	ld [de], a
+	ld a, b  ; load total number of cards
+	or a
+	ret nz  ; found some
+; no energies found
+	scf
 	ret
 
 

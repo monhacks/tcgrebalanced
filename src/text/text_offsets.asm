@@ -2767,6 +2767,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ThatPokemonAlreadyHasAttachedEnergiesText
 	textpointer AquaReturnName
 	textpointer ReturnToDeckDescription
+	textpointer StepInName
+	textpointer StepInDescription
 
 ; ------------------------------------------------------------------------------
 ; text12.asm

@@ -3677,11 +3677,25 @@ PoliwrathCard:
 	db STAR ; rarity
 	db LABORATORY | NONE ; sets
 	db POLIWRATH
-	db 100 ; hp
+	db 110 ; hp
 	db STAGE2 ; stage
 	tx PoliwhirlName ; pre-evo name
 
 	; attack 1
+	energy 0 ; energies
+	tx StepInName ; name
+	tx StepInDescription ; description
+	tx PokemonPowerDescriptionCont ; description (cont)
+	db 0 ; damage
+	db POKEMON_POWER ; category
+	dw StepInEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_PKMN_POWER_1 ; animation
+
+	; attack 2
 	energy COLORLESS, 3 ; energies
 	tx SteamrollerName ; name
 	tx SteamrollerDescription ; description
@@ -3694,20 +3708,6 @@ PoliwrathCard:
 	db NONE ; flags 3
 	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
 	db ATK_ANIM_HIT ; animation
-
-	; attack 2
-	energy COLORLESS, 4 ; energies
-	tx DrainPunchName ; name
-	tx Heal20DamageDescription ; description
-	dw NONE ; description (cont)
-	db 70 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Leech20DamageEffectCommands ; effect commands
-	db NONE ; flags 1
-	db HEAL_USER ; flags 2
-	db NONE ; flags 3
-	db 2
-	db ATK_ANIM_PUNCH ; animation
 
 	db 2 ; retreat cost
 	db WR_LIGHTNING ; weakness

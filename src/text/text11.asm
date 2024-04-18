@@ -1887,3 +1887,16 @@ ReturnToDeckDescription:
 	text "Shuffle this Pokémon and any cards"
 	line "attached to it into your deck."
 	done
+
+StepInName:
+	text "Step In"
+	done
+
+StepInDescription:
+	text "Once during your turn, if this"
+	line "Pokémon is on your Bench, you may"
+	line "move all Energy cards attached to"
+	line "your Active Pokémon to this Pokémon."
+	line "Then, switch this Pokémon with"
+	line "your Active Pokémon."
+	done

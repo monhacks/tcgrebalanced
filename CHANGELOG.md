@@ -11,7 +11,9 @@
 ### Water Changes
 
 #### Poliwrath
+- **Drain Punch**: removed.
 - **Steamroller**: reworked.
+- New Pokémon Power: **Step In**: if Benched, move all Energy from the Active Pokémon to this, then switch in.
 - New attack: **Steamroller** (CCC): 40 damage; +10 damage for each attached Water or Fighting Energy; excess damage goes to 1 Benched Pokémon.
 
 #### Krabby

@@ -1249,6 +1249,11 @@ Damage1FriendlyBenchedPokemon30EffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, DamageFriendlyBenchedPokemonIfAny_AISelectEffect
 	db  $00
 
+StepInEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, StepIn_PreconditionCheck
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, StepIn_SwitchEffect
+	db  $00
+
 SteamrollerEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, StoreDefendingPokemonHPEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Steamroller_DamageBoostEffect
