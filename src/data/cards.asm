@@ -3390,11 +3390,11 @@ WartortleCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 2 ; energies
+	energy WATER, 1, COLORLESS, 1 ; energies
 	tx RocketShellName ; name
 	tx RocketShellDescription ; description
 	tx ReduceDamageTakenBy10Description ; description (cont)
-	db 30 ; damage
+	db 20 ; damage
 	db DAMAGE_NORMAL ; category
 	dw RocketShellEffectCommands ; effect commands
 	db NONE ; flags 1

@@ -10,6 +10,9 @@
 
 ### Water Changes
 
+#### Wartortle
+- **Rocket Shell**: reduced cost from (WCC) to (WC); reduced base damage from 30 to 20.
+
 #### Blastoise
 - Reduced HP from 120 to 110.
 - **Hydro Pump**: reduced cost from (CCC) to (C); reduced base damage from 40 to 10; increased bonus damage from 10 per Water Energy to 20 per Water Energy.
