@@ -289,22 +289,6 @@ AssassinFlight_CheckBenchAndStatus:
 	jp CheckOpponentBenchIsNotEmpty
 
 
-AbsorbWater_PreconditionCheck:
-	call CheckPokemonPowerCanBeUsed
-	ret c
-	jp CreateEnergyCardListFromDiscardPile_OnlyWater
-	; ldtx hl, ThereAreNoEnergyCardsInDiscardPileText
-	; ret
-
-
-MudSport_PreconditionCheck:
-	call CheckPokemonPowerCanBeUsed
-	ret c
-	jp CreateEnergyCardListFromDiscardPile_WaterFighting
-	; ldtx hl, ThereAreNoEnergyCardsInDiscardPileText
-	; ret
-
-
 PrimordialDream_PreconditionCheck:
 	call CheckPokemonPowerCanBeUsed
 	ret c
@@ -685,6 +669,47 @@ INCLUDE "engine/duel/effect_functions/damage_modifiers.asm"
 ; ------------------------------------------------------------------------------
 ; Pokémon Powers
 ; ------------------------------------------------------------------------------
+
+
+; Choose a Pokémon to deal damage to.
+SplashingAttacks_DamageEffect:
+	ld a, [wDealtDamage]
+	or a
+	ret z  ; no damage to the Defending Pokémon
+	bank1call HasAlivePokemonInBench
+	ret nc  ; no Bench to target
+
+	ld a, DUELVARS_DUELIST_TYPE
+	call GetTurnDuelistVariable
+	cp DUELIST_TYPE_LINK_OPP
+	jr z, .link_opp
+	and DUELIST_TYPE_AI_OPP
+	jr nz, .ai_opp
+
+; player
+	ldtx hl, ChoosePokemonInTheBenchToGiveDamageText
+	call DrawWideTextBox_WaitForInput
+	call HandlePlayerSelectionOpponentPokemonInBench
+	ldh [hTempPlayAreaLocation_ffa1], a
+	call SerialSendByte
+	jr .done
+
+.link_opp
+	call SerialRecvByte
+	ldh [hTempPlayAreaLocation_ffa1], a
+	jr .done
+
+.ai_opp
+; AI selects the lowest HP remaining
+	call GetOpponentBenchPokemonWithLowestHP
+	; ld a, PLAY_AREA_BENCH_1
+	ldh [hTempPlayAreaLocation_ffa1], a
+	; fallthrough
+
+.done
+	cp $ff
+	ret z
+	jp Deal10DamageToTarget_DamageEffect
 
 
 StepIn_SwitchEffect:
@@ -4475,7 +4500,7 @@ SelectUpTo2Benched_PlayerSelectEffect:
 	ret
 
 .has_bench
-	ldtx hl, ChooseUpTo2PkmnOnBenchToGiveDamageText
+	ldtx hl, ChooseUpTo2PokemonOnBenchToGiveDamageText
 	call DrawWideTextBox_WaitForInput
 
 ; init number of items in list and cursor position
@@ -6135,16 +6160,6 @@ Synthesis_AddToHandEffect:
 
 
 ; Pokémon Powers should not use [hTemp_ffa0]
-; adds a card in [hEnergyTransEnergyCard] from the discard pile to the hand
-; Note: Pokémon Power no longer needs to preserve [hTemp_ffa0] at this point
-MudSport_AddToHandEffect:
-	call SetUsedPokemonPowerThisTurn
-	ldh a, [hEnergyTransEnergyCard]
-	ldh [hTemp_ffa0], a
-	jp SelectedCard_AddToHandFromDiscardPile
-
-
-; Pokémon Powers should not use [hTemp_ffa0]
 ; adds a card in [hAIPkmnPowerEffectParam] from the deck to the hand
 ; Note: Pokémon Power no longer needs to preserve [hTemp_ffa0] at this point
 StressPheromones_AddToHandEffect:
@@ -6293,16 +6308,6 @@ SelectedCardList_AddToHandFromDiscardPileEffect:
 	ret c
 	bank1call DisplayCardListDetails
 	ret
-
-
-AbsorbWater_AddToHandEffect:
-	call CreateEnergyCardListFromDiscardPile_OnlyWater
-; choose the first energy in the list
-	ld a, [wDuelTempList]
-	ldh [hTempList], a
-	ld a, $ff
-	ldh [hTempList + 1], a
-	jr SelectedCard_AddToHandFromDiscardPile
 
 
 Maintenance_DiscardAndAddToHandEffect:
@@ -6509,21 +6514,6 @@ Synthesis_PlayerSelection:
 	; push af
 	call EnergySearch_PlayerSelection
 	ldh a, [hTemp_ffa0]
-	ldh [hEnergyTransEnergyCard], a
-	; pop af
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
-	ret
-
-
-MudSport_PlayerSelection:
-; Pokémon Powers must preserve [hTemp_ffa0]
-	; ldh a, [hTemp_ffa0]
-	; push af
-	ldtx hl, Choose1BasicEnergyCardFromDiscardPileText
-	call DrawWideTextBox_WaitForInput
-	call HandlePlayerSelectionFromDiscardPile_BasicEnergy
-	ret c
 	ldh [hEnergyTransEnergyCard], a
 	; pop af
 	ldh a, [hTempPlayAreaLocation_ff9d]

@@ -1632,6 +1632,7 @@ UseAttackOrPokemonPower:
 	ld a, [wLoadedAttackCategory]
 	cp POKEMON_POWER
 	jp z, UsePokemonPower
+
 	call Func_16f6
 	ld a, EFFECTCMDTYPE_INITIAL_EFFECT_1
 	call TryExecuteEffectCommandFunction
@@ -1716,6 +1717,9 @@ PlayAttackAnimation_DealAttackDamage:
 	push af
 	ld a, EFFECTCMDTYPE_AFTER_DAMAGE
 	call TryExecuteEffectCommandFunction
+; OATS introduce "on attack" triggered effects
+	bank1call HandleOnAttackEffects
+; --------------------------------------------
 	pop af
 	ld [wTempNonTurnDuelistCardID], a
 	call HandleStrikeBack_AfterDirectAttack

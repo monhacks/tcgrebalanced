@@ -7157,6 +7157,13 @@ Func_6ba2:
 	jp WaitForWideTextBoxInput
 
 
+HandleOnAttackEffects:
+	ld a, POLIWHIRL  ; Splashing Attacks
+	call GetFirstPokemonWithAvailablePower
+	ret nc  ; no Pkmn Power-capable Pokémon was found
+	farcall SplashingAttacks_DamageEffect
+	ret
+
 
 HandleOnUsePokemonPowerEffects:
 	ret

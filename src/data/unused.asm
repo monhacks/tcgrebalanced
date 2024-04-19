@@ -1,5 +1,59 @@
 
 
+PoliwhirlCard:
+	db TYPE_PKMN_WATER ; type
+	gfx PoliwhirlCardGfx ; gfx
+	tx PoliwhirlName ; name
+	db DIAMOND ; rarity
+	db LABORATORY | NONE ; sets
+	db POLIWHIRL
+	db 70 ; hp
+	db STAGE1 ; stage
+	tx PoliwagName ; pre-evo name
+
+	; attack 1
+	energy 0 ; energies
+	tx MudSportName ; name
+	tx Retrieve1WaterOrFightingEnergyFromDiscardDescription ; description
+	tx PokemonPowerDescriptionCont ; description (cont)
+	db 0 ; damage
+	db POKEMON_POWER ; category
+	dw MudSportEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_PKMN_POWER_1 ; animation
+
+	; attack 2
+	energy COLORLESS, 2 ; energies
+	tx RainSplashName ; name
+	tx DoubleDamageIfAttachedEnergyDescription ; description
+	dw NONE ; description (cont)
+	db 20 ; damage
+	db DAMAGE_PLUS ; category
+	dw DoubleDamageIfAttachedEnergyEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_WATER_GUN ; animation
+
+	db 1 ; retreat cost
+	db WR_LIGHTNING ; weakness
+	db NONE ; resistance
+	tx TadpoleName ; category
+	db 61 ; Pokedex number
+	db 0
+	db 28 ; level
+	db 3, 4 ; length
+	dw 44 * 10 ; weight
+	tx PoliwhirlDescription ; description
+	db 16
+
+
+
+
 KinglerCard:
 	db TYPE_PKMN_WATER ; type
 	gfx KinglerCardGfx ; gfx

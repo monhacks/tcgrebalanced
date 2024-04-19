@@ -449,19 +449,9 @@ HandleAIPkmnPowers:
 	jr .next_1
 .check_shift
 	cp PORYGON
-	jr nz, .check_mud_sport
+	jr nz, .check_prophecy
 	call HandleAIShift
 	jr .next_1
-.check_mud_sport
-	cp POLIWHIRL
-	jr nz, .check_dual_type_fighting
-	call HandleAIMudSport
-	jr .next_1
-.check_dual_type_fighting
-; 	cp POLIWRATH
-; 	jr nz, .check_prophecy
-; 	call HandleAIDualTypeFighting
-; 	jr .next_1
 .check_prophecy
 	cp KADABRA
 	jr nz, .check_trade
@@ -704,22 +694,6 @@ HandleAISynthesis:
 	ld a, CARD_LOCATION_DECK
 	call FindBasicEnergyCardsInLocation
 	ret c  ; no energy cards in deck
-
-; if any of the energy cards in deck is useful store it and use power
-	call AIDecide_EnergySearch.CheckForUsefulEnergyCards
-	ldh [hEnergyTransEnergyCard], a
-	jp nc, HandleAIDecideToUsePokemonPower
-
-; otherwise pick the first energy in the list
-	ld a, [wDuelTempList]
-	ldh [hEnergyTransEnergyCard], a
-	jp HandleAIDecideToUsePokemonPower
-
-
-
-HandleAIMudSport:
-	farcall CreateEnergyCardListFromDiscardPile_WaterFighting
-	ret c  ; no energy cards
 
 ; if any of the energy cards in deck is useful store it and use power
 	call AIDecide_EnergySearch.CheckForUsefulEnergyCards
@@ -1020,12 +994,6 @@ HandleAITrade:
 	cp TYPE_ENERGY_DOUBLE_COLORLESS
 	jr nc, .loop_hand  ; skip Special Energy and Trainer cards
 ; use power
-	jp HandleAIDecideToUsePokemonPower
-
-
-; EFFECTCMDTYPE_INITIAL_EFFECT_2 has already been executed, so the AI knows
-; that there are Water Energies to retrieve.
-HandleAIAbsorbWater:
 	jp HandleAIDecideToUsePokemonPower
 
 

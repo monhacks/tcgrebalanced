@@ -980,21 +980,10 @@ PlasmaEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, AccelerateFromDiscard_AttachToPokemonEffect
 	db  $00
 
-AbsorbWaterEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, AbsorbWater_PreconditionCheck
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, AbsorbWater_AddToHandEffect
-	db  $00
-
 PrimordialDreamEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, PrimordialDream_PreconditionCheck
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PrimordialDream_MorphAndAddToHandEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PrimordialDream_PlayerSelectEffect
-	db  $00
-
-MudSportEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, MudSport_PreconditionCheck
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, MudSport_AddToHandEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, MudSport_PlayerSelection
 	db  $00
 
 MagneticChargeEffectCommands:

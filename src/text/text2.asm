@@ -211,17 +211,17 @@ CannotDrawCardBecauseNoCardsInDeckText: ; 3872d (e:472d)
 	line "there are no cards in the Deck."
 	done
 
-ChoosePkmnToGiveDamageText: ; 38769 (e:4769)
+ChoosePokemonToGiveDamageText:
 	text "Choose a Pokémon to give"
 	line "damage to."
 	done
 
-ChoosePkmnInTheBenchToGiveDamageText: ; 38769 (e:4769)
+ChoosePokemonInTheBenchToGiveDamageText:
 	text "Choose a Pokémon on the Bench"
 	line "to give damage to."
 	done
 
-ChooseUpTo2PkmnOnBenchToGiveDamageText: ; 3879b (e:479b)
+ChooseUpTo2PokemonOnBenchToGiveDamageText:
 	text "Choose up to 2 Pokémon on the"
 	line "Bench to give damage to."
 	done

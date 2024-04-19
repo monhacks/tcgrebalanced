@@ -1,6 +1,95 @@
 ;
 
 
+AbsorbWaterEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, AbsorbWater_PreconditionCheck
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, AbsorbWater_AddToHandEffect
+	db  $00
+
+
+AbsorbWater_PreconditionCheck:
+	call CheckPokemonPowerCanBeUsed
+	ret c
+	jp CreateEnergyCardListFromDiscardPile_OnlyWater
+	; ldtx hl, ThereAreNoEnergyCardsInDiscardPileText
+	; ret
+
+AbsorbWater_AddToHandEffect:
+	call CreateEnergyCardListFromDiscardPile_OnlyWater
+; choose the first energy in the list
+	ld a, [wDuelTempList]
+	ldh [hTempList], a
+	ld a, $ff
+	ldh [hTempList + 1], a
+	jr SelectedCard_AddToHandFromDiscardPile
+
+
+; EFFECTCMDTYPE_INITIAL_EFFECT_2 has already been executed, so the AI knows
+; that there are Water Energies to retrieve.
+HandleAIAbsorbWater:
+	jp HandleAIDecideToUsePokemonPower
+
+
+
+
+
+MudSportEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, MudSport_PreconditionCheck
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, MudSport_AddToHandEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, MudSport_PlayerSelection
+	db  $00
+
+
+MudSport_PreconditionCheck:
+	call CheckPokemonPowerCanBeUsed
+	ret c
+	jp CreateEnergyCardListFromDiscardPile_WaterFighting
+	; ldtx hl, ThereAreNoEnergyCardsInDiscardPileText
+	; ret
+
+MudSport_PlayerSelection:
+; Pokémon Powers must preserve [hTemp_ffa0]
+	; ldh a, [hTemp_ffa0]
+	; push af
+	ldtx hl, Choose1BasicEnergyCardFromDiscardPileText
+	call DrawWideTextBox_WaitForInput
+	call HandlePlayerSelectionFromDiscardPile_BasicEnergy
+	ret c
+	ldh [hEnergyTransEnergyCard], a
+	; pop af
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ldh [hTemp_ffa0], a
+	ret
+
+; Pokémon Powers should not use [hTemp_ffa0]
+; adds a card in [hEnergyTransEnergyCard] from the discard pile to the hand
+; Note: Pokémon Power no longer needs to preserve [hTemp_ffa0] at this point
+MudSport_AddToHandEffect:
+	call SetUsedPokemonPowerThisTurn
+	ldh a, [hEnergyTransEnergyCard]
+	ldh [hTemp_ffa0], a
+	jp SelectedCard_AddToHandFromDiscardPile
+
+
+;
+HandleAIMudSport:
+	farcall CreateEnergyCardListFromDiscardPile_WaterFighting
+	ret c  ; no energy cards
+
+; if any of the energy cards in deck is useful store it and use power
+	call AIDecide_EnergySearch.CheckForUsefulEnergyCards
+	ldh [hEnergyTransEnergyCard], a
+	jp nc, HandleAIDecideToUsePokemonPower
+
+; otherwise pick the first energy in the list
+	ld a, [wDuelTempList]
+	ldh [hEnergyTransEnergyCard], a
+	jp HandleAIDecideToUsePokemonPower
+
+
+
+
+
 SteamrollerEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Steamroller_ChangeColorEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Steamroller_DamageAndColorEffect

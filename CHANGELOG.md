@@ -18,6 +18,11 @@
 - **Hydro Pump**: reduced cost from (CCC) to (C); reduced base damage from 40 to 10; increased bonus damage from 10 per Water Energy to 20 per Water Energy.
 - **Aqua Launcher**: increased cost from (WC) to (WWC); increased damage from 30 to 50; increased damage reduction from 10 to 20.
 
+#### Poliwhirl
+- Increased HP from 70 to 80.
+- **Mud Sport**: removed.
+- New Pokémon Power: **Splashing Attacks**: if the Active Pokémon has Water Energy, its attacks also do 10 damage to 1 Benched target.
+
 #### Poliwrath
 - Increased HP from 100 to 110.
 - **Drain Punch**: removed.

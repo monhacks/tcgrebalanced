@@ -3626,18 +3626,18 @@ PoliwhirlCard:
 	db DIAMOND ; rarity
 	db LABORATORY | NONE ; sets
 	db POLIWHIRL
-	db 70 ; hp
+	db 80 ; hp
 	db STAGE1 ; stage
 	tx PoliwagName ; pre-evo name
 
 	; attack 1
 	energy 0 ; energies
-	tx MudSportName ; name
-	tx Retrieve1WaterOrFightingEnergyFromDiscardDescription ; description
+	tx SplashingAttacksName ; name
+	tx SplashingAttacksDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
 	db POKEMON_POWER ; category
-	dw MudSportEffectCommands ; effect commands
+	dw PassivePowerEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3

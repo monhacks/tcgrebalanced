@@ -276,7 +276,7 @@ DamageTargetPokemon_PlayerSelectEffect:
 	cp 2
 	jr c, .done ; has no Bench Pokemon
 
-	ldtx hl, ChoosePkmnToGiveDamageText
+	ldtx hl, ChoosePokemonToGiveDamageText
 	call DrawWideTextBox_WaitForInput
 	call SwapTurn
 	bank1call HasAlivePokemonInPlayArea
@@ -296,7 +296,7 @@ DamageTargetBenchedPokemonIfAny_PlayerSelectEffect:
 	; fallthrough
 
 DamageTargetBenchedPokemon_PlayerSelectEffect:
-	ldtx hl, ChoosePkmnInTheBenchToGiveDamageText
+	ldtx hl, ChoosePokemonInTheBenchToGiveDamageText
 	call DrawWideTextBox_WaitForInput
 	call SwapTurn
 	bank1call HasAlivePokemonInBench

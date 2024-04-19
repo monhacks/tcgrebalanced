@@ -845,9 +845,9 @@ Attach1WaterEnergyFromDiscardDescription:
 	line "discard pile to this Pokémon."
 	done
 
-AbsorbWaterName:
-	text "Absorb Water"
-	done
+; AbsorbWaterName:
+; 	text "Absorb Water"
+; 	done
 
 Retrieve1WaterEnergyFromDiscardDescription:
 	text "Once during your turn, you may put"
@@ -855,15 +855,27 @@ Retrieve1WaterEnergyFromDiscardDescription:
 	line "into your hand."
 	done
 
-MudSportName:
-	text "Mud Sport"
+SplashingAttacksName:
+	text "Splashing Attacks"
 	done
 
-Retrieve1WaterOrFightingEnergyFromDiscardDescription:
-	text "Once during your turn, you may put"
-	line "a <WATER> or <FIGHTING> Energy from your"
-	line "discard pile into your hand."
+SplashingAttacksDescription:
+	text "If your Active Pokémon has any"
+	line "attached <WATER> Energy, its attacks"
+	line "that do damage to the Defending"
+	line "Pokémon also do 10 damage to 1 of"
+	line "the opponent's Benched Pokémon."
 	done
+
+; MudSportName:
+; 	text "Mud Sport"
+; 	done
+
+; Retrieve1WaterOrFightingEnergyFromDiscardDescription:
+; 	text "Once during your turn, you may put"
+; 	line "a <WATER> or <FIGHTING> Energy from your"
+; 	line "discard pile into your hand."
+; 	done
 
 ; DualTypeFightingName:
 ; 	text "Fighting Type"

@@ -274,9 +274,9 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Draw3CardsFromTheDeckText
 	textpointer DrawCardsFromTheDeckText                           ; 0x0118
 	textpointer CannotDrawCardBecauseNoCardsInDeckText             ; 0x0119
-	textpointer ChoosePkmnToGiveDamageText                         ; 0x011a
-	textpointer ChoosePkmnInTheBenchToGiveDamageText               ; 0x011a
-	textpointer ChooseUpTo2PkmnOnBenchToGiveDamageText             ; 0x011b
+	textpointer ChoosePokemonToGiveDamageText
+	textpointer ChoosePokemonInTheBenchToGiveDamageText
+	textpointer ChooseUpTo2PokemonOnBenchToGiveDamageText
 	textpointer Choose1BasicEnergyCardFromDeckText                 ; 0x011c
 	textpointer ChoosePokemonToAttachEnergyCardText                ; 0x011d
 	textpointer Choose1BasicEnergyCardFromDiscardPileText
@@ -2958,10 +2958,12 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer NaturalRemedyDescription
 	textpointer Attach1FireEnergyFromDiscardDescription
 	textpointer Attach1WaterEnergyFromDiscardDescription
-	textpointer AbsorbWaterName
+	; textpointer AbsorbWaterName
 	textpointer Retrieve1WaterEnergyFromDiscardDescription
-	textpointer MudSportName
-	textpointer Retrieve1WaterOrFightingEnergyFromDiscardDescription
+	textpointer SplashingAttacksName
+	textpointer SplashingAttacksDescription
+	; textpointer MudSportName
+	; textpointer Retrieve1WaterOrFightingEnergyFromDiscardDescription
 	; textpointer DualTypeFightingName
 	; textpointer DualTypeFightingDescription
 	; textpointer AquaPunchName
