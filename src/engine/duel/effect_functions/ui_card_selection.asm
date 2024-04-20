@@ -420,6 +420,12 @@ HandlePlayerSelectionFromDeckList:
 	ret
 
 
+ForcePlayerSelectionFromDeckList:
+	call HandlePlayerSelectionFromDeckList.read_input
+	jr c, ForcePlayerSelectionFromDeckList
+	ret
+
+
 ; ------------------------------------------------------------------------------
 ; Choose Pokémon In Play Area
 ; ------------------------------------------------------------------------------
