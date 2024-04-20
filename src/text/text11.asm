@@ -1162,6 +1162,18 @@ CallForFamilyDescription:
 	line "Bench. Then, shuffle your deck."
 	done
 
+StampedeName:
+	text "Stampede"
+	done
+
+StampedeDescription:
+	text "Search your deck for 1 Basic"
+	line "Pokémon and put it onto your Bench"
+	line "with 2 damage counters."
+	line "Then, shuffle your deck."
+	line "Otherwise, this attack does nothing."
+	done
+
 BonekeeperName: ; 5f3e9 (17:73e9)
 	text "Bonekeeper"
 	done

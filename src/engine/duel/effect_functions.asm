@@ -4426,6 +4426,26 @@ CallForFamily_PutInPlayAreaEffect:
 	pop hl
 	ret
 
+
+Stampede_PutInPlayAreaEffect:
+	ld hl, hTemp_ffa0
+	ldh a, [hTemp_ffa0]
+	cp $ff
+	jr nz, .got_pokemon
+	xor a
+	call SetDefiniteDamage
+	jp SyncShuffleDeck
+
+.got_pokemon
+	call CallForFamily_PutInPlayAreaEffect.PutInPlayArea
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	dec a
+	ld e, a  ; zero-based PLAY_AREA_* offset
+	call Put2DamageCountersOnTarget
+	jp SyncShuffleDeck
+
+
 ; ------------------------------------------------------------------------------
 
 LightScreenEffect:

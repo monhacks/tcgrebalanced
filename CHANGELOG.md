@@ -104,6 +104,12 @@
 - **Do the Wave**: removed.
 - New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
 
+### Colorless Changes
+
+#### Tauros
+- **Take Down**: removed.
+- New attack: **Stampede** (C): 30 damage; put 1 Basic Pokémon from deck onto play with 2 damage counters; otherwise, the attack fails.
+
 
 ## Version 0.8.0
 

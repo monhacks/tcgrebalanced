@@ -2619,6 +2619,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer BonemerangName                                     ; 0x0a4c
 	textpointer CallForFamilyName
 	textpointer CallForFamilyDescription
+	textpointer StampedeName
+	textpointer StampedeDescription
 	textpointer BonekeeperName                                     ; 0x0a4f
 	textpointer VengeanceName                                      ; 0x0a53
 	textpointer VengeanceDescription                               ; 0x0a54

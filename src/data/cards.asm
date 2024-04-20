@@ -9661,17 +9661,17 @@ TaurosCard:
 
 	; attack 1
 	energy COLORLESS, 1 ; energies
-	tx TakeDownName ; name
-	tx Recoil10Description ; description
+	tx StampedeName ; name
+	tx StampedeDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
+	db 30 ; damage
 	db DAMAGE_NORMAL ; category
-	dw Recoil10EffectCommands ; effect commands
-	db LOW_RECOIL ; flags 1
+	dw StampedeEffectCommands ; effect commands
+	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
-	db 10
-	db ATK_ANIM_HIT_RECOIL ; animation
+	db 0
+	db ATK_ANIM_HIT ; animation
 
 	; attack 2
 	energy COLORLESS, 3 ; energies

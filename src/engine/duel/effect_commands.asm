@@ -1070,6 +1070,13 @@ PrimalScytheEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, PrimalScythe_AISelectEffect
 	db  $00
 
+StampedeEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Stampede_PutInPlayAreaEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokeBall_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Stampede_AISelectEffect
+	db  $00
+
 CallForFamilyEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, CallForFamily_PutInPlayAreaEffect
@@ -1751,7 +1758,7 @@ MaintenanceEffectCommands:
 PokeBallEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SelectedCard_AddToHandFromDeckEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokeBall_PlayerSelection
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokeBall_PlayerSelectEffect
 	db  $00
 
 RecycleEffectCommands:
