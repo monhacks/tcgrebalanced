@@ -501,7 +501,7 @@ MetapodCard:
 	; depends: HandleDefenderDamageReductionEffects
 	energy 0 ; energies
 	tx ExoskeletonName ; name
-	tx BattleArmorDescription ; description
+	tx ExoskeletonDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
 	db POKEMON_POWER ; category
@@ -657,7 +657,7 @@ KakunaCard:
 	; depends: HandleDefenderDamageReductionEffects
 	energy 0 ; energies
 	tx ExoskeletonName ; name
-	tx BattleArmorDescription ; description
+	tx ExoskeletonDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
 	db POKEMON_POWER ; category
@@ -3991,7 +3991,7 @@ CloysterCard:
 	; depends: HandleDefenderDamageReductionEffects
 	energy 0 ; energies
 	tx ExoskeletonName ; name
-	tx BattleArmorDescription ; description
+	tx ExoskeletonDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
 	db POKEMON_POWER ; category

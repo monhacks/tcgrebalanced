@@ -1138,7 +1138,7 @@ LonelyName: ; 5f2c6 (17:72c6)
 	text "Lonely"
 	done
 
-BattleArmorName: ; 5fa55 (17:7a55)
+BattleArmorName:
 	text "Battle Armor"
 	done
 

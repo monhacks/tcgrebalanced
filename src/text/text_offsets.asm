@@ -2852,6 +2852,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PoisonEvolutionName
 	textpointer PoisonEvolutionDescription
 	textpointer ExoskeletonName
+	textpointer ExoskeletonDescription
 	textpointer RatName                                            ; 0x0ae8
 	textpointer FinishingBiteName
 	textpointer FinishingBiteDescription

@@ -382,6 +382,12 @@ ExoskeletonName:
 	text "Exoskeleton"
 	done
 
+ExoskeletonDescription:
+	text "This Pokémon takes 20 less damage"
+	line "from attacks (after applying"
+	line "Weakness and Resistance)."
+	done
+
 RatName: ; 618ce (18:58ce)
 	text "Rat"
 	done
