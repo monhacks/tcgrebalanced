@@ -58,6 +58,8 @@ HandleDefenderDamageReduction_PokemonPowers:
 	jr z, .prevent_30_or_more_damage ; invisible wall
 	cp MAROWAK_LV26
 	jp z, ReduceDamageBy20_DE ; Battle Armor
+	cp METAPOD
+	jp z, ReduceDamageBy20_DE ; Exoskeleton
 	cp KAKUNA
 	jp z, ReduceDamageBy20_DE ; Exoskeleton
 	cp CLOYSTER

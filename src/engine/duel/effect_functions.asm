@@ -4410,11 +4410,6 @@ CallForFamily_PutInPlayAreaEffect:
 
 ; ------------------------------------------------------------------------------
 
-HardenEffect: ; 2e1f6 (b:61f6)
-	ld a, SUBSTATUS1_HARDEN
-	jp ApplySubstatus1ToAttackingCard
-
-
 LightScreenEffect:
 	ld a, SUBSTATUS1_HALVE_DAMAGE
 	jp ApplySubstatus1ToAttackingCard

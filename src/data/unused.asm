@@ -1,4 +1,17 @@
 
+energy COLORLESS, 1 ; energies
+	tx HardenName ; name
+	tx HardenDescription ; description
+	dw NONE ; description (cont)
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw HardenEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NULLIFY_OR_WEAKEN_ATTACK ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_PROTECT ; animation
+
 
 ; attack 1
 energy COLORLESS, 1 ; energies

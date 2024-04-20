@@ -1082,10 +1082,6 @@ KarateChopEffectCommands:
 	dbw EFFECTCMDTYPE_AI, KarateChop_AIEffect
 	db  $00
 
-HardenEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, HardenEffect
-	db  $00
-
 CloseCombatEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, IncreaseDamageTakenBy40Effect
 	db  $00

@@ -1,6 +1,16 @@
 ;
 
 
+HardenEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, HardenEffect
+	db  $00
+
+HardenEffect: ; 2e1f6 (b:61f6)
+	ld a, SUBSTATUS1_HARDEN
+	jp ApplySubstatus1ToAttackingCard
+
+
+
 DefensiveStanceEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Heal20DamageEffect_PreserveAttackAnimation

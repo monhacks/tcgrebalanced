@@ -4,6 +4,12 @@
 
 ### Grass Changes
 
+#### Metapod
+- Reduced HP from 70 to 60.
+- Reduced Retreat Cost from 2 to 1.
+- **Harden**: removed.
+- New Pokémon Power: **Exoskeleton**: reduces damage taken by 20.
+
 #### Kakuna
 - Reduced HP from 70 to 60.
 - Reduced Retreat Cost from 2 to 1.

@@ -493,23 +493,24 @@ MetapodCard:
 	db CIRCLE ; rarity
 	db EVOLUTION | NONE ; sets
 	db METAPOD
-	db 70 ; hp
+	db 60 ; hp
 	db STAGE1 ; stage
 	tx CaterpieName ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
-	tx HardenName ; name
-	tx HardenDescription ; description
-	dw NONE ; description (cont)
+	; depends: HandleDefenderDamageReductionEffects
+	energy 0 ; energies
+	tx ExoskeletonName ; name
+	tx BattleArmorDescription ; description
+	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
-	db RESIDUAL ; category
-	dw HardenEffectCommands ; effect commands
+	db POKEMON_POWER ; category
+	dw PassivePowerEffectCommands ; effect commands
 	db NONE ; flags 1
-	db NULLIFY_OR_WEAKEN_ATTACK ; flags 2
+	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_PROTECT ; animation
+	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
 	energy GRASS, 1, COLORLESS, 1 ; energies
@@ -525,8 +526,7 @@ MetapodCard:
 	db 0
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
-
-	db 2 ; retreat cost
+	db 1 ; retreat cost
 	db WR_FIRE ; weakness
 	db NONE ; resistance
 	tx CocoonName ; category

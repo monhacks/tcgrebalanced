@@ -2791,8 +2791,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer StringShotName                                     ; 0x0821
 	textpointer MayInflictParalysisDescription                     ; 0x0822
 	textpointer WormName                                           ; 0x0823
-	textpointer HardenName                                         ; 0x0826
-	textpointer HardenDescription                                  ; 0x0827
 	textpointer StunSporeName                                      ; 0x0828
 	textpointer CocoonName                                         ; 0x0829
 	textpointer WhirlwindName                                      ; 0x082c

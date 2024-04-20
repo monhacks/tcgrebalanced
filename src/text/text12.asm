@@ -86,17 +86,17 @@ WormName: ; 57b10 (15:7b10)
 	text "Worm"
 	done
 
-HardenName: ; 5ee18 (17:6e18)
-	text "Harden"
-	done
+; HardenName:
+; 	text "Harden"
+; 	done
 
-HardenDescription: ; 5ee20 (17:6e20)
-	text "During your opponent's next turn,"
-	line "whenever 30 or less damage is done"
-	line "to this Pokémon (after applying"
-	line "Weakness and Resistance), prevent"
-	line "that damage."
-	done
+; HardenDescription:
+; 	text "During your opponent's next turn,"
+; 	line "whenever 30 or less damage is done"
+; 	line "to this Pokémon (after applying"
+; 	line "Weakness and Resistance), prevent"
+; 	line "that damage."
+; 	done
 
 StunSporeName: ; 57c14 (15:7c14)
 	text "Stun Spore"
