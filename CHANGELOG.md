@@ -62,6 +62,10 @@
 - New attack: **Bulk Up** (C): add a Fighting Energy from deck to hand; reduce damage taken by 10.
 - New attack: **Karate Chop** (FC): 40 damage; -10 damage for each damage counter on the user.
 
+#### Machoke
+- **Karate Chop**: removed.
+- New attack: **Chop Down** (FC): 30 damage; double damage if the user has less HP than the Defending Pokémon.
+
 #### Kabuto
 - Increased HP from 60 to 80.
 - **Kabuto Armor**: removed.

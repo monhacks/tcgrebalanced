@@ -6467,15 +6467,15 @@ MachokeCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy FIGHTING, 1, COLORLESS, 1 ; energies
-	tx KarateChopName ; name
-	tx KarateChopDescription ; description
+	energy FIGHTING, 2 ; energies
+	tx ChopDownName ; name
+	tx ChopDownDescription ; description
 	dw NONE ; description (cont)
-	db 50 ; damage
-	db DAMAGE_MINUS ; category
-	dw KarateChopEffectCommands ; effect commands
+	db 30 ; damage
+	db DAMAGE_PLUS ; category
+	dw ChopDownEffectCommands ; effect commands
 	db NONE ; flags 1
-	db FLAG_2_BIT_7 ; flags 2
+	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_HIT ; animation
