@@ -15,6 +15,21 @@ db 2
 db ATK_ANIM_PROTECT ; animation
 
 
+; attack 2
+energy FIGHTING, 1, COLORLESS, 1 ; energies
+tx LowKickName ; name
+tx ConstrictDescription ; description
+dw NONE ; description (cont)
+db 10 ; damage
+db DAMAGE_PLUS ; category
+dw ConstrictEffectCommands ; effect commands
+db NONE ; flags 1
+db FLAG_2_BIT_6 ; flags 2
+db NONE ; flags 3
+db 1
+db ATK_ANIM_HIT ; animation
+
+
 
 
 PoliwhirlCard:

@@ -58,7 +58,9 @@
 
 #### Machop
 - **Defensive Stance**: removed.
-- New attack: **Strength Training** (C): add up to 2 Fighting Energy from deck to hand.
+- **Low Kick**: removed.
+- New attack: **Bulk Up** (C): add a Fighting Energy from deck to hand; reduce damage taken by 10.
+- New attack: **Karate Chop** (FC): 40 damage; -10 damage for each damage counter on the user.
 
 #### Kabuto
 - Increased HP from 60 to 80.

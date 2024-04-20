@@ -1026,10 +1026,6 @@ TantrumDescription: ; 5e976 (17:6976)
 	line "(after doing damage)."
 	done
 
-LowKickName: ; 5ea2f (17:6a2f)
-	text "Low Kick"
-	done
-
 SuperpowerName: ; 5ea39 (17:6a39)
 	text "Superpower"
 	done

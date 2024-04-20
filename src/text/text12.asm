@@ -1448,15 +1448,17 @@ RapidChargeDescription:
 	line "Then, shuffle your deck."
 	done
 
-StrengthTrainingName:
-	text "Strength Training"
+BulkUpName:
+	text "Bulk Up"
 	done
 
-StrengthTrainingDescription:
-	text "Search your deck for up to 2"
-	line "<FIGHTING> Energy, reveal them, and put"
-	line "them in your hand."
-	line "Then, shuffle your deck."
+BulkUpDescription:
+	text "Search your deck for a <FIGHTING> Energy"
+	line "and add it to your hand. Then,"
+	line "shuffle your deck. All damage done"
+	line "to this Pokémon during your"
+	line "opponent's next turn is reduced by"
+	line "10 (after Weakness and Resistance)."
 	done
 
 SearchingMagnetName:

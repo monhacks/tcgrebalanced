@@ -2591,7 +2591,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PigMonkeyName                                      ; 0x0a1c
 	textpointer TantrumName                                        ; 0x0a1f
 	textpointer TantrumDescription                                 ; 0x0a20
-	textpointer LowKickName                                        ; 0x0a23
 	textpointer SuperpowerName                                     ; 0x0a24
 	textpointer KarateChopName                                     ; 0x0a27
 	textpointer KarateChopDescription                              ; 0x0a28
@@ -3070,8 +3069,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer EnergyGeneratorDescription
 	textpointer RapidChargeName
 	textpointer RapidChargeDescription
-	textpointer StrengthTrainingName
-	textpointer StrengthTrainingDescription
+	textpointer BulkUpName
+	textpointer BulkUpDescription
 	textpointer SearchingMagnetName
 	textpointer SearchingMagnetDescription
 	textpointer MagneticChargeName

@@ -794,11 +794,12 @@ RapidChargeEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, RapidCharge_AISelectEffect
 	db  $00
 
-StrengthTrainingEffectCommands:
+BulkUpEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDeckEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, StrengthTraining_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, StrengthTraining_AISelectEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, ReduceDamageTakenBy10Effect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCard_AddToHandFromDeckEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, TutorFightingEnergy_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, TutorFightingEnergy_AISelectEffect
 	db  $00
 
 RocketShellEffectCommands:

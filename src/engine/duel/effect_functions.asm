@@ -1528,6 +1528,13 @@ TutorWaterEnergy_PlayerSelectEffect:
 	ldh [hTempList], a
 	ret
 
+TutorFightingEnergy_PlayerSelectEffect:
+	call CreateDeckCardList
+	ld a, TYPE_ENERGY_FIGHTING
+	call HandlePlayerSelectionCardTypeFromDeckListToHand
+	ldh [hTempList], a
+	ret
+
 
 RocketShell_AISelectEffect:
 	ld a, $ff
@@ -1549,10 +1556,13 @@ TutorWaterEnergy_AISelectEffect:
 	ldh [hTempList], a
 	ret
 
+TutorFightingEnergy_AISelectEffect:
+	call CreateDeckCardList
+	ld b, TYPE_ENERGY_FIGHTING
+	call ChooseCardOfGivenType_AISelectEffect
+	ldh [hTempList], a
+	ret
 
-StrengthTraining_PlayerSelectEffect:
-	ld a, TYPE_ENERGY_FIGHTING
-	jr Tutor2OfCardType_PlayerSelectEffect
 
 RapidCharge_PlayerSelectEffect:
 	ld a, TYPE_ENERGY_LIGHTNING
@@ -1588,10 +1598,6 @@ Tutor2OfCardType_PlayerSelectEffect:
 	ldh [hTempList + 2], a  ; terminator
 	ret
 
-
-StrengthTraining_AISelectEffect:
-	ld b, TYPE_ENERGY_FIGHTING
-	jr Tutor2OfCardType_AISelectEffect
 
 RapidCharge_AISelectEffect:
 	ld b, TYPE_ENERGY_LIGHTNING
