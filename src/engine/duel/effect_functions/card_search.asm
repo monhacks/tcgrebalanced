@@ -87,3 +87,21 @@ SearchDuelTempListForMatchingCard:
 .set_carry
 	scf
 	ret
+
+
+; output:
+;   a: deck index of the first matching card | $ff
+;   carry: set if no card matching the pattern is found
+SearchDeck_BasicPokemon:
+	call CreateDeckCardList
+	; jr SearchDuelTempList_BasicPokemon
+	; fallthrough
+
+; input:
+;   [wDuelTempList]: list of cards to search
+; output:
+;   a: deck index of the first matching card | $ff
+;   carry: set if no card matching the pattern is found
+SearchDuelTempList_BasicPokemon:
+	ld a, CARDTEST_BASIC_POKEMON
+	jr SearchDuelTempListForMatchingCard

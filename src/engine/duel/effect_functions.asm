@@ -4296,6 +4296,31 @@ DiscardOpponentEnergy_DiscardEffect:
 ; ------------------------------------------------------------------------------
 
 
+; output:
+;   a: deck index of the selected card | $ff
+;   [hTempCardIndex_ff98]: deck index of the selected card
+;   carry: set if there are no Pokémon or the Player cancelled the selection
+ChooseBasicPokemonFromDeck_PlayerSelectEffect:
+	call CreateDeckCardList
+	ldtx hl, ChooseBasicPokemonFromDeckText
+	ldtx bc, BasicPokemonDeckText
+	ld a, CARDTEST_BASIC_POKEMON
+	call LookForCardsInDeckList
+	ld a, $ff
+	ret c  ; none in deck, refused to look
+	jp HandlePlayerSelectionBasicPokemonFromDeckList
+
+
+; output:
+;   a: deck index of the first matching card | $ff
+;   carry: set if no card matching the pattern is found
+Stampede_AISelectEffect:
+	call SearchDeck_BasicPokemon
+	ldh [hTemp_ffa0], a
+	ret
+
+
+
 ; returns carry if can't add Pokemon from deck
 CallForFamily_CheckDeckAndPlayArea:
 	call CheckDeckIsNotEmpty
@@ -4314,17 +4339,10 @@ CallForFamily_PlayerSelectEffect:
 	ldh [hTempList + 1], a
 	ldh [hTempList + 2], a  ; terminator
 
-	call CreateDeckCardList
-	ldtx hl, ChooseBasicPokemonFromDeckText
-	ldtx bc, BasicPokemonDeckText
-	ld a, CARDTEST_BASIC_POKEMON
-	call LookForCardsInDeckList
-	ret c  ; none in deck, refused to look
-
 ; handle selection of the first card
-	call HandlePlayerSelectionBasicPokemonFromDeckList
+	call ChooseBasicPokemonFromDeck_PlayerSelectEffect
+	ret c  ; none in deck or cancelled
 	ldh [hTempList], a
-	ret c  ; cancelled selection
 ; remove the first card from the list
 	call RemoveCardFromDuelTempList
 	ld a, [wDuelTempList]
@@ -7624,71 +7642,11 @@ DrawNCards_NoCardDetails:
 
 
 
-PokeBall_PlayerSelection:
-; OATS skip coin toss
-; re-enabling coin requires changing [hTemp_ffa0] to [hTempList + 1] below
-	; ld de, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	; call Serial_TossCoin
-	; ldh [hTempList], a ; store coin result
-	; ret nc
-
-; create list of all Pokemon cards in deck to search for
-	call CreateDeckCardList
-	; ldtx hl, ChooseBasicOrEvolutionPokemonCardFromDeckText
-	ldtx hl, ChooseBasicPokemonFromDeckText
-	ldtx bc, BasicPokemonDeckText
-	ld a, CARDTEST_BASIC_POKEMON
-	call LookForCardsInDeckList
-	jr c, .no_pkmn ; return if Player chose not to check deck
-
-; handle input
-	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
-	ldtx hl, ChoosePokemonCardText
-	ldtx de, DuelistDeckText
-	bank1call SetCardListHeaderText
-.read_input
-	bank1call DisplayCardList
-	jr c, .try_exit ; B was pressed, check if Player can cancel operation
-	ldh a, [hTempCardIndex_ff98]
-	call LoadCardDataToBuffer2_FromDeckIndex
-	ld a, [wLoadedCard2Type]
-	cp TYPE_ENERGY
-	jr nc, .play_sfx ; can't select non-Pokemon card
-	ld a, [wLoadedCard2Stage]
-	and a  ; cp BASIC
-	jr nz, .play_sfx ; can't select non-Basic Pokemon card
-	ldh a, [hTempCardIndex_ff98]
-	; ldh [hTempList + 1], a
+PokeBall_PlayerSelectEffect:
+	call ChooseBasicPokemonFromDeck_PlayerSelectEffect
+	call c, ForcePlayerSelectionFromDeckList
 	ldh [hTemp_ffa0], a
-	or a
 	ret
-
-.no_pkmn
-	ld a, $ff
-	; ldh [hTempList + 1], a
-	ldh [hTemp_ffa0], a
-	or a
-	ret
-
-.play_sfx
-	call PlaySFX_InvalidChoice
-	jr .read_input
-
-.try_exit
-; Player can only exit screen if there are no cards to choose
-	ld hl, wDuelTempList
-.loop
-	ld a, [hli]
-	cp $ff
-	jr z, .no_pkmn
-	call LoadCardDataToBuffer2_FromDeckIndex
-	ld a, [wLoadedCard2Type]
-	cp TYPE_ENERGY
-	jr nc, .loop  ; not a Pokémon
-	ld a, [wLoadedCard2Stage]
-	and a
-	jr nz, .loop  ; not Basic
-	jr .read_input
 
 
 ; return carry if no eligible cards in the Discard Pile
