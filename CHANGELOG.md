@@ -70,6 +70,9 @@
 - **Chop Down**: removed.
 - New attack: **Strong-Arm Lariat** (FFC): 60 damage; can optionally do double damage and become unable to attack next turn.
 
+#### Hitmonlee
+- **Stretch Kick**: reduced cost from (CC) to (F).
+
 #### Kabuto
 - Increased HP from 60 to 80.
 - **Kabuto Armor**: removed.
