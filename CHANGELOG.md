@@ -4,6 +4,10 @@
 
 ### Grass Changes
 
+#### Kakuna
+- Reduced HP from 70 to 60.
+- Reduced Retreat Cost from 2 to 1.
+
 #### Pinsir
 - **Guillotine**: reworked.
 - New attack: **Guillotine** (GGC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.

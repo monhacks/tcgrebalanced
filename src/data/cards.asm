@@ -649,7 +649,7 @@ KakunaCard:
 	db DIAMOND ; rarity
 	db EVOLUTION | NONE ; sets
 	db KAKUNA
-	db 70 ; hp
+	db 60 ; hp
 	db STAGE1 ; stage
 	tx WeedleName ; pre-evo name
 
@@ -682,7 +682,7 @@ KakunaCard:
 	db 0
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
-	db 2 ; retreat cost
+	db 1 ; retreat cost
 	db WR_FIRE ; weakness
 	db NONE ; resistance
 	tx CocoonName ; category
