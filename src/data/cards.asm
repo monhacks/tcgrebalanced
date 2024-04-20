@@ -6519,31 +6519,17 @@ MachampCard:
 
 	; attack 2
 	energy FIGHTING, 2, COLORLESS, 1 ; energies
-	tx ChopDownName ; name
-	tx ChopDownDescription ; description
+	tx StrongArmLariatName ; name
+	tx StrongArmLariatDescription ; description
 	dw NONE ; description (cont)
-	db 50 ; damage
+	db 60 ; damage
 	db DAMAGE_PLUS ; category
-	dw ChopDownEffectCommands ; effect commands
+	dw OptionalDoubleDamageEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_HIT ; animation
-
-	; strong-arm lariat
-	; energy FIGHTING, 2, COLORLESS, 1 ; energies
-	; tx StrongArmLariatName ; name
-	; tx StrongArmLariatDescription ; description
-	; dw NONE ; description (cont)
-	; db 50 ; damage
-	; db DAMAGE_PLUS ; category
-	; dw OptionalDoubleDamageEffectCommands ; effect commands
-	; db NONE ; flags 1
-	; db NONE ; flags 2
-	; db NONE ; flags 3
-	; db 0
-	; db ATK_ANIM_HIT ; animation
 
 	db 2 ; retreat cost
 	db WR_PSYCHIC ; weakness

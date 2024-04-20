@@ -64,7 +64,11 @@
 
 #### Machoke
 - **Karate Chop**: removed.
-- New attack: **Chop Down** (FC): 30 damage; double damage if the user has less HP than the Defending Pokémon.
+- New attack: **Chop Down** (FF): 30 damage; double damage if the user has less HP than the Defending Pokémon.
+
+#### Machamp
+- **Chop Down**: removed.
+- New attack: **Strong-Arm Lariat** (FFC): 60 damage; can optionally do double damage and become unable to attack next turn.
 
 #### Kabuto
 - Increased HP from 60 to 80.
