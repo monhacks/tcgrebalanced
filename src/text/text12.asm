@@ -1448,6 +1448,17 @@ RapidChargeDescription:
 	line "Then, shuffle your deck."
 	done
 
+StrengthTrainingName:
+	text "Strength Training"
+	done
+
+StrengthTrainingDescription:
+	text "Search your deck for up to 2"
+	line "<FIGHTING> Energy, reveal them, and put"
+	line "them in your hand."
+	line "Then, shuffle your deck."
+	done
+
 SearchingMagnetName:
 	text "Searching Magnet"
 	done

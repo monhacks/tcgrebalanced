@@ -1550,10 +1550,13 @@ TutorWaterEnergy_AISelectEffect:
 	ret
 
 
+StrengthTraining_PlayerSelectEffect:
+	ld a, TYPE_ENERGY_FIGHTING
+	jr Tutor2OfCardType_PlayerSelectEffect
+
 RapidCharge_PlayerSelectEffect:
 	ld a, TYPE_ENERGY_LIGHTNING
 	jr Tutor2OfCardType_PlayerSelectEffect
-
 
 WaterReserve_PlayerSelectEffect:
 	ld a, TYPE_ENERGY_WATER
@@ -1585,6 +1588,10 @@ Tutor2OfCardType_PlayerSelectEffect:
 	ldh [hTempList + 2], a  ; terminator
 	ret
 
+
+StrengthTraining_AISelectEffect:
+	ld b, TYPE_ENERGY_FIGHTING
+	jr Tutor2OfCardType_AISelectEffect
 
 RapidCharge_AISelectEffect:
 	ld b, TYPE_ENERGY_LIGHTNING

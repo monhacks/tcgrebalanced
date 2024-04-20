@@ -35,13 +35,13 @@ Heal20DamageEffect:
 
 
 ; to be used in effects that happen BEFORE_DAMAGE
-Heal20DamageEffect_PreserveAttackAnimation:
-	ld a, [wLoadedAttackAnimation]
-	push af
-	call Heal20DamageEffect
-	pop af
-	ld [wLoadedAttackAnimation], a
-	ret
+; Heal20DamageEffect_PreserveAttackAnimation:
+; 	ld a, [wLoadedAttackAnimation]
+; 	push af
+; 	call Heal20DamageEffect
+; 	pop af
+; 	ld [wLoadedAttackAnimation], a
+; 	ret
 
 
 Leech30DamageEffect:

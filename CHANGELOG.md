@@ -56,6 +56,10 @@
 
 ### Fighting Changes
 
+#### Machop
+- **Defensive Stance**: removed.
+- New attack: **Strength Training** (C): add up to 2 Fighting Energy from deck to hand.
+
 #### Kabuto
 - Increased HP from 60 to 80.
 - **Kabuto Armor**: removed.

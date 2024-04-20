@@ -1,5 +1,22 @@
 
 
+; attack 1
+energy COLORLESS, 1 ; energies
+tx DefensiveStanceName ; name
+tx DefensiveStanceDescription ; description
+dw NONE ; description (cont)
+db 0 ; damage
+db RESIDUAL ; category
+dw DefensiveStanceEffectCommands ; effect commands
+db NONE ; flags 1
+db HEAL_USER ; flags 2
+db SPECIAL_AI_HANDLING ; flags 3
+db 2
+db ATK_ANIM_PROTECT ; animation
+
+
+
+
 PoliwhirlCard:
 	db TYPE_PKMN_WATER ; type
 	gfx PoliwhirlCardGfx ; gfx

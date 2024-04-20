@@ -148,14 +148,6 @@ FoulGasEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, FoulGas_PoisonOrConfusionEffect
 	db  $00
 
-DefensiveStanceEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Heal20DamageEffect_PreserveAttackAnimation
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SwitchUser_SwitchEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, SwitchUser_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, SwitchUser_AISelectEffect
-	db  $00
-
 DeepDiveEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Heal30DamageEffect_PreserveAttackAnimation
@@ -800,6 +792,13 @@ RapidChargeEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDeckEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, RapidCharge_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, RapidCharge_AISelectEffect
+	db  $00
+
+StrengthTrainingEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDeckEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, StrengthTraining_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, StrengthTraining_AISelectEffect
 	db  $00
 
 RocketShellEffectCommands:

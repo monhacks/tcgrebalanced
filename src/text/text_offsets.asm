@@ -2742,8 +2742,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer RiptideDescription
 	textpointer DeepDiveName
 	textpointer DeepDiveDescription
-	textpointer DefensiveStanceName
-	textpointer DefensiveStanceDescription
+	; textpointer DefensiveStanceName
+	; textpointer DefensiveStanceDescription
 	textpointer ColdCrushName
 	textpointer Discard1EnergyFromBothActiveDescription
 	textpointer PluckName
@@ -3070,6 +3070,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer EnergyGeneratorDescription
 	textpointer RapidChargeName
 	textpointer RapidChargeDescription
+	textpointer StrengthTrainingName
+	textpointer StrengthTrainingDescription
 	textpointer SearchingMagnetName
 	textpointer SearchingMagnetDescription
 	textpointer MagneticChargeName

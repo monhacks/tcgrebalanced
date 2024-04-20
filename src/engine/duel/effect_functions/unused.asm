@@ -1,6 +1,15 @@
 ;
 
 
+DefensiveStanceEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Heal20DamageEffect_PreserveAttackAnimation
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SwitchUser_SwitchEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, SwitchUser_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, SwitchUser_AISelectEffect
+	db  $00
+
+
 AbsorbWaterEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, AbsorbWater_PreconditionCheck
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, AbsorbWater_AddToHandEffect

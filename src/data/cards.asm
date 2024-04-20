@@ -6403,17 +6403,17 @@ MachopCard:
 
 	; attack 1
 	energy COLORLESS, 1 ; energies
-	tx DefensiveStanceName ; name
-	tx DefensiveStanceDescription ; description
+	tx StrengthTrainingName ; name
+	tx StrengthTrainingDescription ; description
 	dw NONE ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw DefensiveStanceEffectCommands ; effect commands
-	db NONE ; flags 1
-	db HEAL_USER ; flags 2
-	db SPECIAL_AI_HANDLING ; flags 3
-	db 2
-	db ATK_ANIM_PROTECT ; animation
+	dw StrengthTrainingEffectCommands ; effect commands
+	db DRAW_CARD ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3 | SPECIAL_AI_HANDLING
+	db 0
+	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
 	energy FIGHTING, 1, COLORLESS, 1 ; energies
