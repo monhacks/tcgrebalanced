@@ -4717,7 +4717,7 @@ OmanyteCard:
 	db CIRCLE ; rarity
 	db MYSTERY | FOSSIL ; sets
 	db OMANYTE
-	db 70 ; hp
+	db 80 ; hp
 	db STAGE1 ; stage
 	tx MysteriousFossilName ; pre-evo name
 
@@ -4781,7 +4781,7 @@ OmastarCard:
 	db DIAMOND ; rarity
 	db MYSTERY | FOSSIL ; sets
 	db OMASTAR
-	db 100 ; hp
+	db 110 ; hp
 	db STAGE2 ; stage
 	tx OmanyteName ; pre-evo name
 

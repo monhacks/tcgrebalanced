@@ -62,8 +62,12 @@
 - **Icy Wind**: reduced cost from (WCC) to (WC).
 
 #### Omanyte
+- Increased HP from 70 to 80.
 - **Constrict**: removed.
 - New attack: **Ancient Call** (WC): 20 damage; add a Pokémon card from the deck to hand.
+
+#### Omanstar
+- Increased HP from 100 to 110.
 
 ### Lightning Changes
 
