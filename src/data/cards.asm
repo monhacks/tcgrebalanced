@@ -9674,7 +9674,7 @@ TaurosCard:
 	db ATK_ANIM_HIT ; animation
 
 	; attack 2
-	energy COLORLESS, 3 ; energies
+	energy COLORLESS, 2 ; energies
 	tx RampageName ; name
 	tx RampageDescription ; description
 	dw NONE ; description (cont)
