@@ -315,6 +315,15 @@ DamageFriendlyBenchedPokemonIfAny_PlayerSelectEffect:
 	jp SwapTurn
 
 
+SurpriseBite_PlayerSelectEffect:
+	ldtx hl, ChoosePokemonInTheBenchToGiveDamageText
+	call DrawWideTextBox_WaitForInput
+	call SwapTurn
+	ld a, CARDTEST_FULL_HP_POKEMON
+	call HandlePlayerSelectionMatchingPokemonInBench_AllowCancel
+	jp SwapTurn
+
+
 ; ------------------------------------------------------------------------------
 ; Targeted Damage - AI Selection
 ; ------------------------------------------------------------------------------

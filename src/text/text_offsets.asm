@@ -2665,8 +2665,10 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer NightmareName                                      ; 0x0aa1
 	textpointer DreamEaterName
 	textpointer DreamEaterDescription
-	textpointer CurseName                                          ; 0x0aa6
-	textpointer CurseDescription                                   ; 0x0aa7
+	textpointer SurpriseBiteName
+	textpointer SurpriseBiteDescription
+	textpointer CurseName
+	textpointer CurseDescription
 	textpointer PainAmplifierName                                  ; 0x0aa6
 	textpointer PainAmplifierDescription                           ; 0x0aa7
 	textpointer DarkMindName                                       ; 0x0aa8

@@ -107,7 +107,9 @@
 ### Darkness Changes
 
 #### Zubat
+- **Supersonic**: removed.
 - **Pester**: removed.
+- New Pokémon Power: **Surprise Bite**: 10 damage to 1 of the opponent's Benched Pokémon that has no damage counters.
 - New attack: **Swarm** (D): 10 damage; put 1 Basic Pokémon from deck onto play; if the Bench was full, +10 damage.
 
 ### Colorless Changes

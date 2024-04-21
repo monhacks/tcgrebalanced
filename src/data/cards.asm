@@ -1166,17 +1166,17 @@ ZubatCard:
 
 	; attack 1
 	energy COLORLESS, 1 ; energies
-	tx SupersonicName ; name
-	tx InflictConfusionDescription ; description
-	dw NONE ; description (cont)
+	tx SurpriseBiteName ; name
+	tx SurpriseBiteDescription ; description
+	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
-	db RESIDUAL ; category
-	dw InflictConfusionEffectCommands ; effect commands
-	db INFLICT_CONFUSION ; flags 1
+	db POKEMON_POWER ; category
+	dw SurpriseBiteEffectCommands ; effect commands
+	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_SUPERSONIC ; animation
+	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
 	energy DARKNESS, 1 ; energies

@@ -489,8 +489,14 @@ HandleAIPkmnPowers:
 	jr .next_1
 .check_energy_generator
 	cp ELECTRODE_LV42
-	jr nz, .check_curse
+	jr nz, .check_surprise_bite
 	call HandleAIEnergyGenerator
+	jr .next_1
+	jr .next_1
+.check_surprise_bite
+	cp ZUBAT
+	jr nz, .check_curse
+	call HandleAISurpriseBite
 	jr .next_1
 .check_curse
 	cp HAUNTER_LV17
@@ -952,6 +958,30 @@ HandleAIShift:
 	ret
 
 
+HandleAISurpriseBite:
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetNonTurnDuelistVariable
+	dec a  ; do not count Arena
+	or a
+	ret z  ; no Bench Pokemon
+	ld d, a
+	call SwapTurn
+	ld e, PLAY_AREA_BENCH_1
+.loop_bench
+	call GetCardDamageAndMaxHP  ; preserves de
+	cp 1
+	jr c, .found
+	inc e  ; next PLAY_AREA_*
+	dec d  ; decrement counter
+	ret z  ; no valid target
+	jr .loop_bench
+.found
+	ld a, e
+	ldh [hTempPlayAreaLocation_ffa1], a
+	call SwapTurn
+	jp HandleAIDecideToUsePokemonPower
+
+
 ; checks whether AI uses Curse.
 HandleAICurse:
 	farcall DamageTargetPokemon_AISelectEffect
@@ -994,44 +1024,6 @@ HandleAITrade:
 	cp TYPE_ENERGY_DOUBLE_COLORLESS
 	jr nc, .loop_hand  ; skip Special Energy and Trainer cards
 ; use power
-	jp HandleAIDecideToUsePokemonPower
-
-
-HandleAIDualTypeFighting:
-	ld a, c
-	or a
-	ret nz ; return if this is not Arena card
-
-	ldh [hTemp_ffa0], a
-	call GetArenaCardColor
-	call TranslateColorToWR
-	ld b, a
-	call SwapTurn
-	call GetArenaCardWeakness
-	ld [wAIDefendingPokemonWeakness], a
-	call SwapTurn
-	or a
-	ret z ; return if Defending Pokemon has no weakness
-	and b
-	ret nz ; return if this is already Defending card's weakness type
-
-	ld a, b
-	cp WR_FIGHTING
-	jr nz, .other_color
-
-; already fighting type
-	call SwapTurn
-	call GetArenaCardResistance
-	call SwapTurn
-	cp WR_FIGHTING
-	ret nz
-	jp HandleAIDecideToUsePokemonPower  ; change type if resistant to Fighting
-
-.other_color
-	ld a, [wAIDefendingPokemonWeakness]
-	cp WR_FIGHTING
-	ret nz
-; change type if weak to Fighting
 	jp HandleAIDecideToUsePokemonPower
 
 
