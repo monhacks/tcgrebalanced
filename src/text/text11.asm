@@ -1381,17 +1381,6 @@ DreamEaterDescription:
 	line "for each Pokémon that is Asleep."
 	done
 
-SurpriseBiteName:
-	text "Surprise Bite"
-	done
-
-SurpriseBiteDescription:
-	text "Once during your turn, you may"
-	line "put 1 damage counter on 1 of"
-	line "your opponent's Benched Pokémon"
-	line "that has no damage counters."
-	done
-
 CurseName:
 	text "Curse"
 	done

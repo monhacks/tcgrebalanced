@@ -2665,8 +2665,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer NightmareName                                      ; 0x0aa1
 	textpointer DreamEaterName
 	textpointer DreamEaterDescription
-	textpointer SurpriseBiteName
-	textpointer SurpriseBiteDescription
 	textpointer CurseName
 	textpointer CurseDescription
 	textpointer PainAmplifierName                                  ; 0x0aa6
@@ -3110,6 +3108,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer LightningHasteDescription
 	textpointer VoltSwitchName
 	textpointer VoltSwitchDescription
+	textpointer SurpriseBiteName
+	textpointer SurpriseBiteDescription
 
 ; ------------------------------------------------------------------------------
 ; text13.asm
