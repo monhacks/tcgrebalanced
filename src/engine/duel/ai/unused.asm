@@ -4,6 +4,47 @@
 
 
 
+
+HandleAIDualTypeFighting:
+	ld a, c
+	or a
+	ret nz ; return if this is not Arena card
+
+	ldh [hTemp_ffa0], a
+	call GetArenaCardColor
+	call TranslateColorToWR
+	ld b, a
+	call SwapTurn
+	call GetArenaCardWeakness
+	ld [wAIDefendingPokemonWeakness], a
+	call SwapTurn
+	or a
+	ret z ; return if Defending Pokemon has no weakness
+	and b
+	ret nz ; return if this is already Defending card's weakness type
+
+	ld a, b
+	cp WR_FIGHTING
+	jr nz, .other_color
+
+; already fighting type
+	call SwapTurn
+	call GetArenaCardResistance
+	call SwapTurn
+	cp WR_FIGHTING
+	ret nz
+	jp HandleAIDecideToUsePokemonPower  ; change type if resistant to Fighting
+
+.other_color
+	ld a, [wAIDefendingPokemonWeakness]
+	cp WR_FIGHTING
+	ret nz
+; change type if weak to Fighting
+	jp HandleAIDecideToUsePokemonPower
+
+
+
+
 ; checks whether AI uses Peek.
 ; input:
 ;	c = Play Area location (PLAY_AREA_*) of Mankey.
