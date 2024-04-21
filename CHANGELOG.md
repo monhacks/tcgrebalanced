@@ -58,6 +58,9 @@
 #### Gyarados
 - Reduced HP from 100 to 90.
 
+#### Lapras
+- **Icy Wind**: reduced cost from (WCC) to (WC).
+
 ### Lightning Changes
 
 #### Surfing Pikachu
