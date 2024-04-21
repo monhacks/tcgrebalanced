@@ -2636,6 +2636,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer RamDescription
 	textpointer FossilEnergyName
 	textpointer FossilEnergyDescription
+	textpointer AncientCallName
+	textpointer AncientCallDescription
 	textpointer PrimalHuntName
 	textpointer PrimalHuntDescription
 	textpointer SharpSickleName                                    ; 0x0a71

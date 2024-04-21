@@ -61,6 +61,10 @@
 #### Lapras
 - **Icy Wind**: reduced cost from (WCC) to (WC).
 
+#### Omanyte
+- **Constrict**: removed.
+- New attack: **Ancient Call** (WC): 20 damage; add a Pokémon card from the deck to hand.
+
 ### Lightning Changes
 
 #### Surfing Pikachu

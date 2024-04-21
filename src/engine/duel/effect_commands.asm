@@ -62,6 +62,7 @@ StressPheromonesEffectCommands:
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, StressPheromones_PlayerSelectEffect
 	db  $00
 
+AncientCallEffectCommands:
 PrimalHuntEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCard_AddToHandFromDeckEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, ChoosePokemonFromDeck_PlayerSelectEffect
