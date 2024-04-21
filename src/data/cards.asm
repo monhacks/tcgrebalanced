@@ -9827,7 +9827,7 @@ PorygonCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy COLORLESS, 3 ; energies
+	energy COLORLESS, 2 ; energies
 	tx ConversionBeamName ; name
 	tx ConversionBeamDescription ; description
 	dw NONE ; description (cont)
