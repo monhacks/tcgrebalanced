@@ -820,6 +820,7 @@ CardTypeTest_FunctionTable:
 	dw CardTypeTest_EvolvesIntoStoredCard  ; CARDTEST_EVOLVES_INTO
 	dw CardTypeTest_IsEvolutionOfPlayArea  ; CARDTEST_EVOLUTION_OF_PLAY_AREA
 	dw CardTypeTest_IsGrassCard            ; CARDTEST_GRASS_CARD
+	dw CardTypeTest_FullHPPokemon          ; CARDTEST_FULL_HP_POKEMON
 
 
 CardTypeTest_Pokemon:
@@ -905,7 +906,7 @@ IsBasicEnergyCard:
 CardTypeTest_IsEnergizedPokemon:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	push de
-	jp IsEnergizedPokemon  ; preserves hl, bc
+	call IsEnergizedPokemon  ; preserves hl, bc
 	pop de
 	ret
 
@@ -928,7 +929,7 @@ IsEnergizedPokemon:
 CardTypeTest_IsNonEnergizedPokemon:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	push de
-	jp IsNonEnergizedPokemon  ; preserves hl, bc
+	call IsNonEnergizedPokemon  ; preserves hl, bc
 	pop de
 	ret
 
@@ -1101,6 +1102,30 @@ IsGrassCard:
 .match
 	scf
 	ret
+
+
+; input:
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon to check
+; output:
+;   carry: set if the Pokémon at the given location is at full HP
+; preserves: hl, bc, de
+CardTypeTest_FullHPPokemon:
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	push de
+	call IsFullHPPokemon  ; preserves hl, bc
+	pop de
+	ret
+
+; input:
+;   a: PLAY_AREA_* of the Pokémon to check
+; output:
+;   carry: set if the Pokémon at the given location is at full HP
+; preserves: hl, bc
+IsFullHPPokemon:
+	ld e, a
+	call GetCardDamageAndMaxHP
+	cp 1
+	ret  ; carry if no damage
 
 
 ; ------------------------------------------------------------------------------
