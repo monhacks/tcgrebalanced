@@ -4311,10 +4311,21 @@ ChooseBasicPokemonFromDeck_PlayerSelectEffect:
 	jp HandlePlayerSelectionBasicPokemonFromDeckList
 
 
-; output:
-;   a: deck index of the first matching card | $ff
-;   carry: set if no card matching the pattern is found
-Stampede_AISelectEffect:
+Swarm_PlayerSelectEffect:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	call CallForFamily_CheckDeckAndPlayArea
+	ret c
+	call ChooseBasicPokemonFromDeck_PlayerSelectEffect
+	ldh [hTemp_ffa0], a
+	ret
+
+
+Swarm_AISelectEffect:
+	ld a, $ff
+	ldh [hTemp_ffa0], a
+	call CallForFamily_CheckDeckAndPlayArea
+	ret c
 	call SearchDeck_BasicPokemon
 	ldh [hTemp_ffa0], a
 	ret
@@ -4325,12 +4336,7 @@ Stampede_AISelectEffect:
 CallForFamily_CheckDeckAndPlayArea:
 	call CheckDeckIsNotEmpty
 	ret c ; no cards in deck
-	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	call GetTurnDuelistVariable
-	ldtx hl, NoSpaceOnTheBenchText
-	cp MAX_PLAY_AREA_POKEMON
-	ccf
-	ret
+	jp CheckBenchIsNotFull
 
 
 CallForFamily_PlayerSelectEffect:
@@ -4427,22 +4433,12 @@ CallForFamily_PutInPlayAreaEffect:
 	ret
 
 
-Stampede_PutInPlayAreaEffect:
+Swarm_PutInPlayAreaEffect:
 	ld hl, hTemp_ffa0
 	ldh a, [hTemp_ffa0]
 	cp $ff
-	jr nz, .got_pokemon
-	xor a
-	call SetDefiniteDamage
-	jp SyncShuffleDeck
-
-.got_pokemon
+	jp z, SyncShuffleDeck
 	call CallForFamily_PutInPlayAreaEffect.PutInPlayArea
-	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	call GetTurnDuelistVariable
-	dec a
-	ld e, a  ; zero-based PLAY_AREA_* offset
-	call Put2DamageCountersOnTarget
 	jp SyncShuffleDeck
 
 

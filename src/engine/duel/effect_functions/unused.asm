@@ -1,5 +1,41 @@
 ;
 
+StampedeEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Stampede_PutInPlayAreaEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokeBall_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Stampede_AISelectEffect
+	db  $00
+
+; output:
+;   a: deck index of the first matching card | $ff
+;   carry: set if no card matching the pattern is found
+Stampede_AISelectEffect:
+	call SearchDeck_BasicPokemon
+	ldh [hTemp_ffa0], a
+	ret
+
+
+Stampede_PutInPlayAreaEffect:
+	ld hl, hTemp_ffa0
+	ldh a, [hTemp_ffa0]
+	cp $ff
+	jr nz, .got_pokemon
+	xor a
+	call SetDefiniteDamage
+	jp SyncShuffleDeck
+
+.got_pokemon
+	call CallForFamily_PutInPlayAreaEffect.PutInPlayArea
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	dec a
+	ld e, a  ; zero-based PLAY_AREA_* offset
+	call Put2DamageCountersOnTarget
+	jp SyncShuffleDeck
+
+
+
 
 HardenEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, HardenEffect

@@ -1166,13 +1166,13 @@ StampedeName:
 	text "Stampede"
 	done
 
-StampedeDescription:
-	text "Search your deck for 1 Basic"
-	line "Pokémon and put it onto your Bench"
-	line "with 2 damage counters."
-	line "Then, shuffle your deck."
-	line "Otherwise, this attack does nothing."
-	done
+; StampedeDescription:
+; 	text "Search your deck for 1 Basic"
+; 	line "Pokémon and put it onto your Bench"
+; 	line "with 2 damage counters."
+; 	line "Then, shuffle your deck."
+; 	line "Otherwise, this attack does nothing."
+; 	done
 
 BonekeeperName: ; 5f3e9 (17:73e9)
 	text "Bonekeeper"
@@ -1634,8 +1634,11 @@ SwarmName:
 	done
 
 SwarmDescription:
-	text "This attack does 20 more damage if"
-	line "you have at least 4 Benched Pokémon."
+	text "Search your deck for 1 Basic"
+	line "Pokémon and put it onto your Bench."
+	line "Then, shuffle your deck."
+	line "If your Bench was already full,"
+	line "this attack does 10 more damage."
 	done
 
 StressPheromonesName:

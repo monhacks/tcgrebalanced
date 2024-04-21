@@ -262,6 +262,16 @@ CheckOpponentBenchIsNotEmpty:
 	ret
 
 
+; return carry if the Bench is full
+CheckBenchIsNotFull:
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	ldtx hl, NoSpaceOnTheBenchText
+	cp MAX_PLAY_AREA_POKEMON
+	ccf
+	ret
+
+
 ; return carry if there are two Pokémon of the same color in the Play Area
 CheckNoDuplicateColorsInPlayArea:
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA

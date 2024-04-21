@@ -1180,12 +1180,12 @@ ZubatCard:
 
 	; attack 2
 	energy DARKNESS, 1 ; energies
-	tx PesterName ; name
-	tx PesterDescription ; description
+	tx SwarmName ; name
+	tx SwarmDescription ; description
 	dw NONE ; description (cont)
 	db 10 ; damage
 	db DAMAGE_PLUS ; category
-	dw PesterEffectCommands ; effect commands
+	dw SwarmEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
@@ -9662,11 +9662,11 @@ TaurosCard:
 	; attack 1
 	energy COLORLESS, 1 ; energies
 	tx StampedeName ; name
-	tx StampedeDescription ; description
+	tx Damage1FriendlyBenchedPokemon10Description ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 20 ; damage
 	db DAMAGE_NORMAL ; category
-	dw StampedeEffectCommands ; effect commands
+	dw Damage1FriendlyBenchedPokemon10EffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3

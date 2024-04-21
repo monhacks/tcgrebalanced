@@ -1070,20 +1070,6 @@ PrimalScytheEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, PrimalScythe_AISelectEffect
 	db  $00
 
-StampedeEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Stampede_PutInPlayAreaEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PokeBall_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, Stampede_AISelectEffect
-	db  $00
-
-CallForFamilyEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, CallForFamily_PutInPlayAreaEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, CallForFamily_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, CallForFamily_AISelectEffect
-	db  $00
-
 KarateChopEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, KarateChop_DamageSubtractionEffect
 	dbw EFFECTCMDTYPE_AI, KarateChop_AIEffect
@@ -1366,6 +1352,13 @@ AvalancheEffectCommands:
 	dbw EFFECTCMDTYPE_AI, Avalanche_AIEffect
 	db  $00
 
+CallForFamilyEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, CallForFamily_PutInPlayAreaEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, CallForFamily_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, CallForFamily_AISelectEffect
+	db  $00
+
 DoTheWaveEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DoTheWave_DamageBoostEffect
 	dbw EFFECTCMDTYPE_AI, DoTheWave_AIEffect
@@ -1373,6 +1366,9 @@ DoTheWaveEffectCommands:
 
 SwarmEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Swarm_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Swarm_PutInPlayAreaEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Swarm_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Swarm_AISelectEffect
 	dbw EFFECTCMDTYPE_AI, Swarm_AIEffect
 	db  $00
 

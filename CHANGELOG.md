@@ -104,11 +104,17 @@
 - **Do the Wave**: removed.
 - New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
 
+### Darkness Changes
+
+#### Zubat
+- **Pester**: removed.
+- New attack: **Swarm** (D): 10 damage; put 1 Basic Pokémon from deck onto play; if the Bench was full, +10 damage.
+
 ### Colorless Changes
 
 #### Tauros
 - **Take Down**: removed.
-- New attack: **Stampede** (C): 30 damage; put 1 Basic Pokémon from deck onto play with 2 damage counters; otherwise, the attack fails.
+- New attack: **Stampede** (C): 20 damage; 10 damage to 1 of the user's Benched Pokémon.
 
 
 ## Version 0.8.0
