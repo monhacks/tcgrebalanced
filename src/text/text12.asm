@@ -749,10 +749,6 @@ AscensionDescription:
 	line "attach it to this Pokémon."
 	done
 
-RagingStormName:
-	text "Raging Storm"
-	done
-
 DoubleDamageIfMorePrizesDescription:
 	text "This attack does double damage if"
 	line "you have more Prize cards remaining"

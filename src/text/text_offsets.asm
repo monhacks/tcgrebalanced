@@ -2940,7 +2940,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer OutrageDescription
 	textpointer AscensionName
 	textpointer AscensionDescription
-	textpointer RagingStormName
 	textpointer DoubleDamageIfMorePrizesDescription
 	textpointer NutritionSupportName
 	textpointer NutritionSupportDescription
@@ -3132,6 +3131,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer EnergySwirlDescription
 	textpointer BurnOutName
 	textpointer BurnOutDescription
+	textpointer RagingStormName
+	textpointer RagingStormDescription
 
 	; unused
 	; textpointer VaporEssenceName

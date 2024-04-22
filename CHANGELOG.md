@@ -57,6 +57,7 @@
 
 #### Gyarados
 - Reduced HP from 100 to 90.
+- **Raging Storm**: replaced extra damage vs the Defending Pokémon with 20 damage to all of the opponent's Benched Pokémon.
 
 #### Lapras
 - **Icy Wind**: reduced cost from (WCC) to (WC).

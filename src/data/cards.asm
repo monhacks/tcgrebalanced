@@ -4533,11 +4533,11 @@ GyaradosCard:
 	; attack 2
 	energy WATER, 2, COLORLESS, 2 ; energies
 	tx RagingStormName ; name
-	tx DoubleDamageIfMorePrizesDescription ; description
+	tx RagingStormDescription ; description
 	dw NONE ; description (cont)
 	db 50 ; damage
-	db DAMAGE_PLUS ; category
-	dw DoubleDamageIfMorePrizesEffectCommands ; effect commands
+	db DAMAGE_NORMAL ; category
+	dw RagingStormEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3

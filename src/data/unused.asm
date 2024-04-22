@@ -1,4 +1,21 @@
 
+
+; attack 2
+energy WATER, 2, COLORLESS, 2 ; energies
+tx RagingStormName ; name
+tx DoubleDamageIfMorePrizesDescription ; description
+dw NONE ; description (cont)
+db 50 ; damage
+db DAMAGE_PLUS ; category
+dw DoubleDamageIfMorePrizesEffectCommands ; effect commands
+db NONE ; flags 1
+db NONE ; flags 2
+db NONE ; flags 3
+db 0
+db ATK_ANIM_THUNDERSTORM ; animation
+; db ATK_ANIM_WHIRLPOOL ; alt animation
+
+
 energy COLORLESS, 1 ; energies
 	tx HardenName ; name
 	tx HardenDescription ; description
