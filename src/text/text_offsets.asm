@@ -2036,20 +2036,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ChallengeMachineFightingIconText                   ; 0x07f9
 	textpointer ChallengeMachinePsychicIconText                    ; 0x07fa
 	textpointer ChallengeMachineGrassIconText                      ; 0x07fb
-	textpointer GrassEnergyName                                    ; 0x07fc
-	textpointer GrassEnergyDescription                             ; 0x07fd
-	textpointer FireEnergyName                                     ; 0x07fe
-	textpointer FireEnergyDescription                              ; 0x07ff
-	textpointer WaterEnergyName                                    ; 0x0800
-	textpointer WaterEnergyDescription                             ; 0x0801
-	textpointer LightningEnergyName                                ; 0x0802
-	textpointer LightningEnergyDescription                         ; 0x0803
-	textpointer FightingEnergyName                                 ; 0x0804
-	textpointer FightingEnergyDescription                          ; 0x0805
-	textpointer PsychicEnergyName                                  ; 0x0806
-	textpointer PsychicEnergyDescription                           ; 0x0807
-	textpointer DoubleColorlessEnergyName                          ; 0x0808
-	textpointer DoubleColorlessEnergyDescription                   ; 0x0809
 	textpointer PokemonPowerDescriptionCont
 	textpointer UniquePokemonPowerDescriptionCont
 	textpointer ThereAreNoTrainerCardsInDeckText
@@ -3159,6 +3145,20 @@ TextOffsets:: ; 34000 (d:4000)
 ; text14.asm
 ; ------------------------------------------------------------------------------
 
+	textpointer GrassEnergyName
+	textpointer GrassEnergyDescription
+	textpointer FireEnergyName
+	textpointer FireEnergyDescription
+	textpointer WaterEnergyName
+	textpointer WaterEnergyDescription
+	textpointer LightningEnergyName
+	textpointer LightningEnergyDescription
+	textpointer FightingEnergyName
+	textpointer FightingEnergyDescription
+	textpointer PsychicEnergyName
+	textpointer PsychicEnergyDescription
+	textpointer DoubleColorlessEnergyName
+	textpointer DoubleColorlessEnergyDescription
 	textpointer ProfessorOakName                                   ; 0x0b68
 	textpointer ProfessorOakDescription                            ; 0x0b69
 	textpointer ImposterProfessorOakName                           ; 0x0b6a

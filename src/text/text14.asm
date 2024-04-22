@@ -1,4 +1,75 @@
 ; ------------------------------------------------------------------------------
+; Energy Cards
+; ------------------------------------------------------------------------------
+
+GrassEnergyName:
+	text "Grass Energy"
+	done
+
+GrassEnergyDescription:
+	text "Provides 1 <GRASS> Energy."
+	done
+
+FireEnergyName:
+	text "Fire Energy"
+	done
+
+FireEnergyDescription:
+	text "Provides 1 <FIRE> Energy."
+	done
+
+WaterEnergyName:
+	text "Water Energy"
+	done
+
+WaterEnergyDescription:
+	text "Provides 1 <WATER> Energy."
+	done
+
+LightningEnergyName:
+	text "Lightning Energy"
+	done
+
+LightningEnergyDescription:
+	text "Provides 1 <LIGHTNING> Energy."
+	done
+
+FightingEnergyName:
+	text "Fighting Energy"
+	done
+
+FightingEnergyDescription:
+	text "Provides 1 <FIGHTING> Energy."
+	done
+
+PsychicEnergyName:
+	text "Psychic Energy"
+	done
+
+PsychicEnergyDescription:
+	text "Provides 1 <PSYCHIC> Energy."
+	done
+
+DarknessEnergyName:
+	text "Darkness Energy"
+	done
+
+DarknessEnergyDescription:
+	text "Provides 1 <DARKNESS> Energy."
+	done
+
+DoubleColorlessEnergyName:
+	text "Double Colorless Energy"
+	done
+
+DoubleColorlessEnergyDescription:
+	text "Provides <COLORLESS><COLORLESS> Energy."
+	line "(Special Energy card)"
+	line "Colorless Energy can't be used to"
+	line "pay colored Energy costs."
+	done
+
+; ------------------------------------------------------------------------------
 ; Trainer Cards
 ; ------------------------------------------------------------------------------
 
