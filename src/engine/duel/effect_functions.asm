@@ -3400,6 +3400,12 @@ Retrieve2BasicEnergy_AISelectEffect:
 	jp PickFirstNCardsFromList_SelectEffect
 
 
+Recover4Energy_AISelectEffect:
+	call CreateEnergyCardListFromDiscardPile_AllEnergy
+	ld a, 4
+	jp PickFirstNCardsFromList_SelectEffect
+
+
 ; returns carry if neither the Turn Duelist or
 ; the non-Turn Duelist have any deck cards.
 Prophecy_CheckDeck:
@@ -7796,6 +7802,12 @@ ChooseUpTo3Cards_PlayerDiscardPileSelection:
 	ld [wCardListNumberOfCardsToChoose], a
 	jr ChooseUpToNCards_PlayerDiscardPileSelection
 
+
+Riptide_PlayerSelectEffect:
+	call CreateEnergyCardListFromDiscardPile_AllEnergy
+	; jr ChooseUpTo4Cards_PlayerDiscardPileSelection
+	; fallthrough
+
 ; input:
 ;  [wDuelTempList]: list of cards to choose from
 ChooseUpTo4Cards_PlayerDiscardPileSelection:
@@ -7852,8 +7864,8 @@ ChooseUpToNCards_PlayerDiscardPileSelection:
 	or a
 	ret
 
+
 SelectedDiscardPileCards_ShuffleIntoDeckEffect:
-EnergyRecycler_ReturnToDeckEffect:
 ; return selected cards to the deck
 	ld hl, hTempList
 	ld de, wDuelTempList

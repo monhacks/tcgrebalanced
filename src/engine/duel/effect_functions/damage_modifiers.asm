@@ -407,30 +407,20 @@ DamagePerEnergyAttachedToBothActive_AIEffect:
 	jp SetDefiniteAIDamage
 
 
-; +20 for each selected energy to retrieve from discard
+; +10 for each selected energy to recover from discard
 Riptide_DamageBoostEffect:
-	ld c, 0
-	ld hl, hTempList
-.loop_cards
-	ld a, [hli]
-	cp $ff
-	jr z, .done
-	ld a, 20
-	add c
-	ld c, a
-	jr .loop_cards
-.done
-	ld a, c
+	call TempListLength
 	or a
 	ret z
+	call ATimes10
 	jp AddToDamage
 
 Riptide_AIEffect:
-	call CreateEnergyCardListFromDiscardPile_OnlyBasic
+	call CreateEnergyCardListFromDiscardPile_AllEnergy
 	call CountCardsInDuelTempList
-	cp 2
+	cp 4
 	jr c, .cap
-	ld a, 2
+	ld a, 4
 .cap
 	call ATimes10
 	call AddToDamage

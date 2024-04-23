@@ -1510,9 +1510,9 @@ RiptideName:
 	done
 
 RiptideDescription:
-	text "Put up to 2 Basic Energy cards from"
-	line "your discard pile into your hand."
-	line "This attack does 20 more damage for"
+	text "Shuffle up to 4 Energy cards from"
+	line "your discard pile into your deck."
+	line "This attack does 10 more damage for"
 	line "each Energy card returned this way."
 	done
 

@@ -687,6 +687,24 @@ KeepOnlyCardTypeInCardList:
 ; hTempList Manipulation
 ; ------------------------------------------------------------------------------
 
+
+; return the number of cards in hTempList in a
+TempListLength:
+	push hl
+	push bc
+	ld hl, hTempList
+	ld b, -1
+.loop
+	inc b
+	ld a, [hli]
+	cp $ff
+	jr nz, .loop
+	ld a, b
+	pop bc
+	pop hl
+	ret
+
+
 ClearTempList:
 	xor a
 	ldh [hCurSelectionItem], a

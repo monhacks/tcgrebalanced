@@ -790,9 +790,9 @@ EnergyConversionEffectCommands:
 
 RiptideEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Riptide_DamageBoostEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDiscardPileEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Retrieve2BasicEnergy_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, Retrieve2BasicEnergy_AISelectEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedDiscardPileCards_ShuffleIntoDeckEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Riptide_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Recover4Energy_AISelectEffect
 	dbw EFFECTCMDTYPE_AI, Riptide_AIEffect
 	db  $00
 
@@ -1424,7 +1424,6 @@ MoveOpponentEnergyToBenchEffectCommands:
 	db  $00
 
 WhirlwindEffectCommands:
-WaterfallEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Whirlwind_SwitchEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Whirlwind_SelectEffect
 	dbw EFFECTCMDTYPE_AI_SWITCH_DEFENDING_PKMN, Whirlwind_SelectEffect
@@ -1807,7 +1806,7 @@ EnergySwitchEffectCommands:
 
 EnergyRecyclerEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDiscardPileHasBasicEnergyCards
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EnergyRecycler_ReturnToDeckEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SelectedDiscardPileCards_ShuffleIntoDeckEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, ChooseUpTo4Cards_PlayerDiscardPileSelection
 	db  $00
 

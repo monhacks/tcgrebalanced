@@ -4323,18 +4323,18 @@ SeakingCard:
 	db ATK_ANIM_HIT ; animation
 
 	; attack 2
-	energy COLORLESS, 3 ; energies
-	tx WaterfallName ; name
-	tx OpponentSwitchesPokemonDescription ; description
+	energy WATER, 1, COLORLESS, 1 ; energies
+	tx RiptideName ; name
+	tx RiptideDescription ; description
 	dw NONE ; description (cont)
-	db 40 ; damage
-	db DAMAGE_NORMAL ; category
-	dw WhirlwindEffectCommands ; effect commands
+	db 10 ; damage
+	db DAMAGE_PLUS ; category
+	dw RiptideEffectCommands ; effect commands
 	db NONE ; flags 1
-	db SWITCH_OPPONENT_POKEMON ; flags 2
+	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_WATER_JETS ; animation
+	db ATK_ANIM_WHIRLPOOL ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness
