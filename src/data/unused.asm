@@ -1,6 +1,21 @@
 
 
 ; attack 2
+energy WATER, 1, COLORLESS, 1 ; energies
+tx AquaBurstName ; name
+tx OptionalDiscard1Energy10BonusDamageDescription ; description
+dw NONE ; description (cont)
+db 20 ; damage
+db DAMAGE_PLUS ; category
+dw IfDiscardedEnergy10BonusDamageEffectCommands ; effect commands
+db NONE ; flags 1
+db DISCARD_ENERGY ; flags 2
+db NONE ; flags 3
+db 3
+db ATK_ANIM_WATER_GUN ; animatio
+
+
+; attack 2
 energy WATER, 2, COLORLESS, 2 ; energies
 tx RagingStormName ; name
 tx DoubleDamageIfMorePrizesDescription ; description

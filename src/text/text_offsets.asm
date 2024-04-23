@@ -2539,7 +2539,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer SheerColdDescription
 	textpointer ThunderstormName
 	textpointer ThunderstormDescription
-	textpointer BubbleName                                         ; 0x0925
+	textpointer WaterGunName
+	textpointer WaterGunDescription
 	textpointer WithdrawName                                       ; 0x0926
 	textpointer RainDanceName                                      ; 0x092f
 	textpointer RainDanceDescription                               ; 0x0930
@@ -2558,7 +2559,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer JellyfishStingName                                 ; 0x0954
 	textpointer HeadbuttName                                       ; 0x0957
 	textpointer ClampName                                          ; 0x0964
-	textpointer AquaBurstName
 	textpointer FlailName                                          ; 0x096d
 	textpointer FlailDescription                                   ; 0x096e
 	textpointer CrabhammerName

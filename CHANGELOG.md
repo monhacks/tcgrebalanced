@@ -52,6 +52,10 @@
 - New attack: **Guillotine** (CC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
 - New attack: **Crabhammer** (WWC): 40 damage; discard the top 2 cards of the opponent's deck.
 
+#### Horsea
+- **Aqua Burst**: removed.
+- New attack: **Water Gun** (W): 10 damage for each attached Water energy.
+
 #### Magikarp
 - Increased HP from 30 to 40.
 

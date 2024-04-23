@@ -385,8 +385,13 @@ ThunderstormDescription:
 	line "of your opponent's Benched Pokémon."
 	done
 
-BubbleName: ; 5af39 (16:6f39)
-	text "Bubble"
+WaterGunName:
+	text "Water Gun"
+	done
+
+WaterGunDescription:
+	text "This attack does 10 damage for each"
+	line "<WATER> Energy attached to this Pokémon."
 	done
 
 WithdrawName: ; 5af41 (16:6f41)
@@ -481,10 +486,6 @@ HeadbuttName: ; 5ba7d (16:7a7d)
 
 ClampName: ; 5bc7e (16:7c7e)
 	text "Clamp"
-	done
-
-AquaBurstName:
-	text "Aqua Burst"
 	done
 
 FlailName: ; 5be7c (16:7e7c)

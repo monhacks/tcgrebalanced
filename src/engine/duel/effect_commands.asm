@@ -415,6 +415,11 @@ HydroPumpEffectCommands:
 	dbw EFFECTCMDTYPE_AI, HydroPumpEffect
 	db  $00
 
+WaterGunEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, WaterGunEffect
+	dbw EFFECTCMDTYPE_AI, WaterGunEffect
+	db  $00
+
 FlailEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Flail_HPCheck
 	dbw EFFECTCMDTYPE_AI, Flail_AIEffect

@@ -4156,17 +4156,17 @@ HorseaCard:
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 1 ; energies
-	tx AquaBurstName ; name
-	tx OptionalDiscard1Energy10BonusDamageDescription ; description
+	energy WATER, 1 ; energies
+	tx WaterGunName ; name
+	tx WaterGunDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
-	db DAMAGE_PLUS ; category
-	dw IfDiscardedEnergy10BonusDamageEffectCommands ; effect commands
+	db 10 ; damage
+	db DAMAGE_X ; category
+	dw WaterGunEffectCommands ; effect commands
 	db NONE ; flags 1
-	db DISCARD_ENERGY ; flags 2
+	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db 3
+	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
 	db ATK_ANIM_WATER_GUN ; animation
 
 	db 0 ; retreat cost
