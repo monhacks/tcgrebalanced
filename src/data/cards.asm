@@ -4208,17 +4208,17 @@ SeadraCard:
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
-	tx RiptideName ; name
-	tx RiptideDescription ; description
+	tx WaterfallName ; name
+	tx MoveOpponentEnergyToBenchDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_PLUS ; category
-	dw RiptideEffectCommands ; effect commands
+	db 30 ; damage
+	db DAMAGE_NORMAL ; category
+	dw MoveOpponentEnergyToBenchEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_WHIRLPOOL ; animation
+	db ATK_ANIM_WATER_JETS ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness

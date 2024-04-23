@@ -546,16 +546,16 @@ Bonus20IfOpponentIsDamagedDescription:
 	line "damage counters on it."
 	done
 
-WaterfallName:
-	text "Waterfall"
-	done
+; WaterfallName:
+; 	text "Waterfall"
+; 	done
 
-WaterfallDescription:
-	text "Put up to 2 Basic Energy cards from"
-	line "your discard pile into your hand."
-	line "This attack does 20 more damage for"
-	line "each Energy card returned this way."
-	done
+; WaterfallDescription:
+; 	text "Put up to 2 Basic Energy cards from"
+; 	line "your discard pile into your hand."
+; 	line "This attack does 20 more damage for"
+; 	line "each Energy card returned this way."
+; 	done
 
 CoreRegenerationName:
 	text "Core Regeneration"
