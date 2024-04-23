@@ -2035,7 +2035,7 @@ ExeggcuteCard:
 	db NONE ; flags 1
 	db ATTACHED_ENERGY_BOOST | HEAL_USER ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_LIMITED
+	db 0
 	db ATK_ANIM_HIT ; animation
 
 	db 0 ; retreat cost
@@ -2086,7 +2086,7 @@ ExeggutorCard:
 	db NONE ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db 0
 	db ATK_ANIM_BIG_HIT ; animation
 
 	; energy GRASS, 2 ; energies
@@ -3437,7 +3437,7 @@ BlastoiseCard:
 	db NONE ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db 0
 	db ATK_ANIM_HYDRO_PUMP ; animation
 
 	; attack 2
@@ -3706,7 +3706,7 @@ PoliwrathCard:
 	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db 0
 	db ATK_ANIM_HIT ; animation
 
 	db 2 ; retreat cost
@@ -4166,7 +4166,7 @@ HorseaCard:
 	db NONE ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db 0
 	db ATK_ANIM_WATER_GUN ; animation
 
 	db 0 ; retreat cost
@@ -4435,7 +4435,7 @@ StarmieCard:
 	db NONE ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db 0
 	db ATK_ANIM_BEAM ; animation
 
 	db 1 ; retreat cost
@@ -4695,7 +4695,7 @@ VaporeonLv42Card:
 	db NONE ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
-	db MAX_ENERGY_BOOST_IS_NOT_LIMITED
+	db 0
 	db ATK_ANIM_HYDRO_PUMP ; animation
 
 	db 1 ; retreat cost

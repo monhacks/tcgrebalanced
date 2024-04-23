@@ -248,9 +248,3 @@ DEF UNABLE_RETREAT EQU $64
 ; attack index constants
 DEF FIRST_ATTACK_OR_PKMN_POWER EQU $0
 DEF SECOND_ATTACK              EQU $1
-
-; whether attack with the ATTACHED_ENERGY_BOOST flag
-; has limit on attached energy cards boost.
-DEF MAX_ENERGY_BOOST_IS_LIMITED     EQU $2
-DEF MAX_ENERGY_BOOST_IS_NOT_LIMITED EQU $3
-DEF ENERGY_BOOST_DARKNESS           EQU $10
