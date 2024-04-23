@@ -6,10 +6,6 @@ Heal10DamageDescription:
 	text "Heal 10 damage from this Pokémon."
 	done
 
-SeedName: ; 575cb (15:75cb)
-	text "Seed"
-	done
-
 VineWhipName: ; 57644 (15:7644)
 	text "Vine Whip"
 	done
@@ -82,10 +78,6 @@ MayInflictParalysisDescription: ; 57ad0 (15:7ad0)
 	line "Pokémon is now Paralyzed."
 	done
 
-WormName: ; 57b10 (15:7b10)
-	text "Worm"
-	done
-
 ; HardenName:
 ; 	text "Harden"
 ; 	done
@@ -102,10 +94,6 @@ StunSporeName: ; 57c14 (15:7c14)
 	text "Stun Spore"
 	done
 
-CocoonName:
-	text "Cocoon"
-	done
-
 WhirlwindName: ; 57c8e (15:7c8e)
 	text "Whirlwind"
 	done
@@ -114,10 +102,6 @@ OpponentSwitchesPokemonDescription: ; 57c99 (15:7c99)
 	text "Your opponent switches their"
 	line "Active Pokémon with one of their"
 	line "Benched Pokémon."
-	done
-
-ButterflyName: ; 57e36 (15:7e36)
-	text "Butterfly"
 	done
 
 PoisonStingName: ; 57ea1 (15:7ea1)
@@ -129,16 +113,8 @@ MayInflictPoisonDescription: ; 57eaf (15:7eaf)
 	line "Pokémon is now Poisoned."
 	done
 
-HairyBugName: ; 57eee (15:7eee)
-	text "Hairy Bug"
-	done
-
 TwineedleName: ; 58070 (16:4070)
 	text "Twineedle"
-	done
-
-PoisonBeeName: ; 580c0 (16:40c0)
-	text "Poison Bee"
 	done
 
 SpitPoisonName: ; 58131 (16:4131)
@@ -149,10 +125,6 @@ WrapName: ; 5813e (16:413e)
 	text "Wrap"
 	done
 
-SnakeName: ; 58144 (16:4144)
-	text "Snake"
-	done
-
 TerrorStrikeName: ; 581ad (16:41ad)
 	text "Terror Strike"
 	done
@@ -161,16 +133,8 @@ PoisonFangName: ; 58277 (16:4277)
 	text "Poison Fang"
 	done
 
-CobraName: ; 58284 (16:4284)
-	text "Cobra"
-	done
-
 FurySwipesName: ; 582ef (16:42ef)
 	text "Fury Swipes"
-	done
-
-PoisonPinName: ; 583ff (16:43ff)
-	text "Poison Pin"
 	done
 
 SwiftName:
@@ -247,10 +211,6 @@ PowerLariatDescription:
 	line "each Evolved Pokémon on your Bench."
 	done
 
-DrillName: ; 58590 (16:4590)
-	text "Drill"
-	done
-
 RetaliateName:
 	text "Retaliate"
 	done
@@ -295,10 +255,6 @@ LeechLifeDescription: ; 588b3 (16:48b3)
 	line "Defending Pokémon."
 	done
 
-BatName: ; 58980 (16:4980)
-	text "Bat"
-	done
-
 GrowthName:
 	text "Growth"
 	done
@@ -316,10 +272,6 @@ SproutDescription:
 	text "Search your Deck for a <GRASS> Energy"
 	line "or a <GRASS> Pokémon and add it to"
 	line "your hand."
-	done
-
-WeedName: ; 58be1 (16:4be1)
-	text "Weed"
 	done
 
 AromatherapyName:
@@ -388,10 +340,6 @@ ExoskeletonDescription:
 	line "Weakness and Resistance)."
 	done
 
-RatName: ; 618ce (18:58ce)
-	text "Rat"
-	done
-
 FinishingBiteName:
 	text "Finishing Bite"
 	done
@@ -436,10 +384,6 @@ DrillPeckName: ; 61b72 (18:5b72)
 	text "Drill Peck"
 	done
 
-BeakName: ; 61b7e (18:5b7e)
-	text "Beak"
-	done
-
 MetronomeName:
 	text "Metronome"
 	done
@@ -453,16 +397,8 @@ MetronomeDescription:
 	line "attacks and use it as this attack."
 	done
 
-FairyName: ; 61cb9 (18:5cb9)
-	text "Fairy"
-	done
-
 DoubleEdgeName: ; 61f05 (18:5f05)
 	text "Double-edge"
-	done
-
-BalloonName: ; 61f38 (18:5f38)
-	text "Balloon"
 	done
 
 FriendshipSongName: ; 61fa8 (18:5fa8)
@@ -493,10 +429,6 @@ DoTheWaveDescription:
 	line "for each of your Benched Pokémon."
 	done
 
-ScratchCatName: ; 62359 (18:6359)
-	text "Scratch Cat"
-	done
-
 PayDayName: ; 623d3 (18:63d3)
 	text "Pay Day"
 	done
@@ -513,10 +445,6 @@ ReduceAttackBy10Description: ; 62475 (18:6475)
 	line "Resistance)."
 	done
 
-ClassyCatName: ; 62552 (18:6552)
-	text "Classy Cat"
-	done
-
 LeekSlapName:
 	text "Leek Slap"
 	done
@@ -524,10 +452,6 @@ LeekSlapName:
 NextTurnUnableToAttackDescription:
 	text "This Pokémon is unable to attack"
 	line "during your next turn."
-	done
-
-WildDuckName: ; 626a8 (18:66a8)
-	text "Wild Duck"
 	done
 
 FuryAttackName:
@@ -540,10 +464,6 @@ Bonus20IfOpponentPlayedSupporterDescription:
 	line "card during their last turn."
 	done
 
-TwinBirdName: ; 62726 (18:6726)
-	text "Twin Bird"
-	done
-
 RetreatAidName:
 	text "Retreat Aid"
 	done
@@ -554,16 +474,8 @@ RetreatAidDescription:
 	line "Active Pokémon."
 	done
 
-TriplebirdName: ; 62835 (18:6835)
-	text "Triplebird"
-	done
-
 TongueStretchName: ; 628aa (18:68aa)
 	text "Tongue Stretch"
-	done
-
-LickingName: ; 628b7 (18:68b7)
-	text "Licking"
 	done
 
 FetchName: ; 62a4e (18:6a4e)
@@ -582,10 +494,6 @@ CometPunchName: ; 62a63 (18:6a63)
 	text "Comet Punch"
 	done
 
-ParentName: ; 62a70 (18:6a70)
-	text "Parent"
-	done
-
 RampageName: ; 62ade (18:6ade)
 	text "Rampage"
 	done
@@ -595,10 +503,6 @@ RampageDescription:
 	line "each damage counter on this Pokémon."
 	line "This Pokémon is now Confused"
 	line "(after doing damage)."
-	done
-
-WildBullName: ; 62b72 (18:6b72)
-	text "Wild Bull"
 	done
 
 CopyName:
@@ -617,14 +521,6 @@ MorphDescription:
 	line "Pokémon from your Discard Pile."
 	done
 
-TransformName:
-	text "Transform"
-	done
-
-EvolutionName: ; 62e2f (18:6e2f)
-	text "Evolution"
-	done
-
 ConversionBeamName:
 	text "Conversion Beam"
 	done
@@ -633,10 +529,6 @@ ConversionBeamDescription:
 	text "Change the Defending Pokémon's"
 	line "Weakness to the current type of this"
 	line "Pokémon, unless it is Colorless."
-	done
-
-VirtualName: ; 62f79 (18:6f79)
-	text "Virtual"
 	done
 
 ThickSkinnedName:
@@ -653,10 +545,6 @@ ThickSkinnedDescription:
 
 BodySlamName: ; 63088 (18:7088)
 	text "Body Slam"
-	done
-
-SleepingName: ; 63093 (18:7093)
-	text "Sleeping"
 	done
 
 HealingWindName: ; 631e4 (18:71e4)
@@ -1244,10 +1132,6 @@ GetMadDescription:
 	line "If you moved at least 4, prevent all"
 	line "damage done to this Pokémon during"
 	line "your opponent's next turn."
-	done
-
-SpikesName:
-	text "Spikes"
 	done
 
 SpikesDescription:

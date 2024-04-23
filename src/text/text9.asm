@@ -1170,3 +1170,383 @@ ThereAreNoTrainerCardsInDeckText:
 	text "There are no Trainer cards in"
 	line "the deck."
 	done
+
+SeedName:
+	text "Seed"
+	done
+
+LizardName:
+	text "Lizard"
+	done
+
+FlameName:
+	text "Flame"
+	done
+
+TinyTurtleName:
+	text "Tiny Turtle"
+	done
+
+TurtleName:
+	text "Turtle"
+	done
+
+WormName:
+	text "Worm"
+	done
+
+CocoonName:
+	text "Cocoon"
+	done
+
+ButterflyName:
+	text "Butterfly"
+	done
+
+HairyBugName:
+	text "Hairy Bug"
+	done
+
+PoisonBeeName:
+	text "Poison Bee"
+	done
+
+TinyBirdName:
+	text "Tiny Bird"
+	done
+
+BirdName:
+	text "Bird"
+	done
+
+RatName:
+	text "Rat"
+	done
+
+BeakName:
+	text "Beak"
+	done
+
+SnakeName:
+	text "Snake"
+	done
+
+CobraName:
+	text "Cobra"
+	done
+
+MouseName:
+	text "Mouse"
+	done
+
+PoisonPinName:
+	text "Poison Pin"
+	done
+
+DrillName:
+	text "Drill"
+	done
+
+FairyName:
+	text "Fairy"
+	done
+
+FoxName:
+	text "Fox"
+	done
+
+BalloonName:
+	text "Balloon"
+	done
+
+BatName:
+	text "Bat"
+	done
+
+WeedName:
+	text "Weed"
+	done
+
+FlowerName:
+	text "Flower"
+	done
+
+MushroomName:
+	text "Mushroom"
+	done
+
+InsectName:
+	text "Insect"
+	done
+
+PoisonmothName:
+	text "Poisonmoth"
+	done
+
+MoleName:
+	text "Mole"
+	done
+
+ScratchCatName:
+	text "Scratch Cat"
+	done
+
+ClassyCatName:
+	text "Classy Cat"
+	done
+
+DuckName:
+	text "Duck"
+	done
+
+PigMonkeyName:
+	text "Pig Monkey"
+	done
+
+PuppyName:
+	text "Puppy"
+	done
+
+LegendaryName:
+	text "Legendary"
+	done
+
+TadpoleName:
+	text "Tadpole"
+	done
+
+PsiName:
+	text "Psi"
+	done
+
+SuperpowerName:
+	text "Superpower"
+	done
+
+FlycatcherName:
+	text "Flycatcher"
+	done
+
+JellyfishName:
+	text "Jellyfish"
+	done
+
+RockName:
+	text "Rock"
+	done
+
+MegatonName:
+	text "Megaton"
+	done
+
+FireHorseName:
+	text "Fire Horse"
+	done
+
+DopeyName:
+	text "Dopey"
+	done
+
+HermitcrabName:
+	text "Hermitcrab"
+	done
+
+MagnetName:
+	text "Magnet"
+	done
+
+WildDuckName:
+	text "Wild Duck"
+	done
+
+TwinBirdName:
+	text "Twin Bird"
+	done
+
+TriplebirdName:
+	text "Triplebird"
+	done
+
+SeaLionName:
+	text "Sea Lion"
+	done
+
+SludgeName:
+	text "Sludge"
+	done
+
+BivalveName:
+	text "Bivalve"
+	done
+
+GasName:
+	text "Gas"
+	done
+
+RockSnakeName:
+	text "Rock Snake"
+	done
+
+HypnosisName:
+	text "Hypnosis"
+	done
+
+RiverCrabName:
+	text "River Crab"
+	done
+
+PincerName:
+	text "Pincer"
+	done
+
+BallName:
+	text "Ball"
+	done
+
+EggName:
+	text "Egg"
+	done
+
+CoconutName:
+	text "Coconut"
+	done
+
+LonelyName:
+	text "Lonely"
+	done
+
+BonekeeperName:
+	text "Bonekeeper"
+	done
+
+KickingName:
+	text "Kicking"
+	done
+
+PunchingName:
+	text "Punching"
+	done
+
+LickingName:
+	text "Licking"
+	done
+
+PoisonGasName:
+	text "Poison Gas"
+	done
+
+SpikesName:
+	text "Spikes"
+	done
+
+VineName:
+	text "Vine"
+	done
+
+ParentName:
+	text "Parent"
+	done
+
+DragonName:
+	text "Dragon"
+	done
+
+GoldfishName:
+	text "Goldfish"
+	done
+
+StarshapeName:
+	text "Starshape"
+	done
+
+MysteriousName:
+	text "Mysterious"
+	done
+
+BarrierName:
+	text "Barrier"
+	done
+
+MantisName:
+	text "Mantis"
+	done
+
+HumanShapeName:
+	text "Human Shape"
+	done
+
+ElectricName:
+	text "Electric"
+	done
+
+SpitfireName:
+	text "Spitfire"
+	done
+
+StagbeetleName:
+	text "Stagbeetle"
+	done
+
+WildBullName:
+	text "Wild Bull"
+	done
+
+FishName:
+	text "Fish"
+	done
+
+AtrociousName:
+	text "Atrocious"
+	done
+
+TransportName:
+	text "Transport"
+	done
+
+TransformName:
+	text "Transform"
+	done
+
+EvolutionName:
+	text "Evolution"
+	done
+
+BubbleJetName:
+	text "Bubble Jet"
+	done
+
+LightningName:
+	text "Lightning"
+	done
+
+VirtualName:
+	text "Virtual"
+	done
+
+SpiralName:
+	text "Spiral"
+	done
+
+ShellfishName:
+	text "Shellfish"
+	done
+
+FossilName:
+	text "Fossil"
+	done
+
+SleepingName:
+	text "Sleeping"
+	done
+
+FreezeName:
+	text "Freeze"
+	done
+
+GeneticName:
+	text "Genetic"
+	done
+
+NewSpeciesName:
+	text "New Species"
+	done

@@ -10,10 +10,6 @@ InflictSleepDescription: ; 58ee9 (16:4ee9)
 	text "The Defending Pokémon is now Asleep."
 	done
 
-MushroomName: ; 58f0f (16:4f0f)
-	text "Mushroom"
-	done
-
 SlashName: ; 58f87 (16:4f87)
 	text "Slash"
 	done
@@ -40,10 +36,6 @@ FungalGrowthDescription:
 	line "Pokémon is now Asleep."
 	done
 
-InsectName: ; 590cf (16:50cf)
-	text "Insect"
-	done
-
 ShiftName:
 	text "Shift"
 	done
@@ -64,16 +56,8 @@ VenomPowderDescription:
 	line "Confused and Poisoned."
 	done
 
-PoisonmothName: ; 59278 (16:5278)
-	text "Poisonmoth"
-	done
-
 RazorLeafName: ; 59403 (16:5403)
 	text "Razor Leaf"
-	done
-
-FlycatcherName: ; 5940f (16:540f)
-	text "Flycatcher"
 	done
 
 LureName:
@@ -128,10 +112,6 @@ ReduceDamageTakenBy20Description:
 	line "applying Weakness and Resistance)."
 	done
 
-SludgeName: ; 5965e (16:565e)
-	text "Sludge"
-	done
-
 ToxicGasName:
 	text "Toxic Gas"
 	done
@@ -142,16 +122,8 @@ ToxicGasDescription:
 	line "other than Toxic Gases."
 	done
 
-HypnosisName: ; 597bc (16:57bc)
-	text "Hypnosis"
-	done
-
 HypnoblastName:
 	text "Hypnoblast"
-	done
-
-EggName: ; 59828 (16:5828)
-	text "Egg"
 	done
 
 TeleportBlastName: ; 5988c (16:588c)
@@ -185,10 +157,6 @@ DamagePerEnergyAttachedToBothActiveDescription:
 	line "to the Defending Pokémon."
 	done
 
-CoconutName: ; 5995c (16:595c)
-	text "Coconut"
-	done
-
 FoulGasName: ; 599d5 (16:59d5)
 	text "Foul Gas"
 	done
@@ -197,10 +165,6 @@ FoulGasDescription: ; 599df (16:59df)
 	text "Flip a coin. If heads, the Defending"
 	line "Pokémon is now Poisoned; if tails,"
 	line "it is now Confused."
-	done
-
-PoisonGasName: ; 59a3c (16:5a3c)
-	text "Poison Gas"
 	done
 
 SmogName:
@@ -233,10 +197,6 @@ BindName:
 	text "Bind"
 	done
 
-VineName: ; 59bcd (16:5bcd)
-	text "Vine"
-	done
-
 PoisonWhipName: ; 59c3a (16:5c3a)
 	text "Poison Whip"
 	done
@@ -251,10 +211,6 @@ NextTurnDoubleDamageDescription:
 	line "is doubled."
 	done
 
-MantisName: ; 59d0b (16:5d0b)
-	text "Mantis"
-	done
-
 IronGripName: ; 59d7d (16:5d7d)
 	text "Irongrip"
 	done
@@ -267,10 +223,6 @@ Guillotine50Description:
 	text "If the Defending Pokémon has"
 	line "50 HP or less remaining,"
 	line "it is Knocked Out."
-	done
-
-StagbeetleName: ; 59d93 (16:5d93)
-	text "Stagbeetle"
 	done
 
 EmberName: ; 59e0e (16:5e0e)
@@ -288,10 +240,6 @@ Discard1EnergyDescription:
 	line "this Pokémon."
 	done
 
-LizardName: ; 59e63 (16:5e63)
-	text "Lizard"
-	done
-
 FlamethrowerName: ; 59ee6 (16:5ee6)
 	text "Flamethrower"
 	done
@@ -304,10 +252,6 @@ FirestarterDescription:
 	text "Once during your turn, you may"
 	line "attach a <FIRE> Energy from your Discard"
 	line "Pile to 1 of your Benched Pokémon."
-	done
-
-FlameName: ; 59f42 (16:5f42)
-	text "Flame"
 	done
 
 EnergyLoopName:
@@ -332,10 +276,6 @@ ConfuseRayName: ; 5a151 (16:6151)
 	text "Confuse Ray"
 	done
 
-FoxName: ; 5a15e (16:615e)
-	text "Fox"
-	done
-
 FireBlastName: ; 5a231 (16:6231)
 	text "Fire Blast"
 	done
@@ -346,10 +286,6 @@ FireFangName: ; 5a2ec (16:62ec)
 
 FlareName: ; 5a4e8 (16:64e8)
 	text "Flare"
-	done
-
-PuppyName: ; 5a4ef (16:64ef)
-	text "Puppy"
 	done
 
 QuickAttackName: ; 5a55c (16:655c)
@@ -378,10 +314,6 @@ FlamesOfRageDescription: ; 5a5e8 (16:65e8)
 	line "on this Pokémon."
 	done
 
-LegendaryName: ; 5a689 (16:6689)
-	text "Legendary"
-	done
-
 TakeDownName: ; 5a739 (16:6739)
 	text "Take Down"
 	done
@@ -394,20 +326,12 @@ FlameTailName: ; 5a7d6 (16:67d6)
 	text "Flame Tail"
 	done
 
-FireHorseName: ; 5a7e2 (16:67e2)
-	text "Fire Horse"
-	done
-
 AgilityName:
 	text "Agility"
 	done
 
 FirePunchName: ; 5a9b3 (16:69b3)
 	text "Fire Punch"
-	done
-
-SpitfireName: ; 5aa09 (16:6a09)
-	text "Spitfire"
 	done
 
 SmokescreenName: ; 5aa6e (16:6a6e)
@@ -469,14 +393,6 @@ WithdrawName: ; 5af41 (16:6f41)
 	text "Withdraw"
 	done
 
-TinyTurtleName: ; 5afd6 (16:6fd6)
-	text "Tiny Turtle"
-	done
-
-TurtleName: ; 5b0dc (16:70dc)
-	text "Turtle"
-	done
-
 RainDanceName:
 	text "Rain Dance"
 	done
@@ -507,10 +423,6 @@ HydroPumpDescription:
 	line "this Pokémon."
 	done
 
-ShellfishName: ; 5b322 (16:7322)
-	text "Shellfish"
-	done
-
 HeadacheName:
 	text "Headache"
 	done
@@ -519,10 +431,6 @@ HeadacheDescription:
 	text "Your opponent cannot play"
 	line "non-Supporter Trainer cards"
 	line "during their next turn."
-	done
-
-DuckName: ; 5b3e7 (16:73e7)
-	text "Duck"
 	done
 
 SpiralDrainName:
@@ -536,10 +444,6 @@ HyperBeamName: ; 5b462 (16:7462)
 Discard1EnergyFromTargetDescription:
 	text "Discard an Energy card from the"
 	line "Defending Pokémon."
-	done
-
-TadpoleName: ; 5b5f4 (16:75f4)
-	text "Tadpole"
 	done
 
 AmnesiaName: ; 5b66b (16:766b)
@@ -567,10 +471,6 @@ CowardiceDescription: ; 5b890 (16:7890)
 	line "Asleep, Confused, or Paralyzed."
 	done
 
-JellyfishName: ; 5b987 (16:7987)
-	text "Jellyfish"
-	done
-
 JellyfishStingName: ; 5ba02 (16:7a02)
 	text "Jellyfish Sting"
 	done
@@ -579,24 +479,12 @@ HeadbuttName: ; 5ba7d (16:7a7d)
 	text "Headbutt"
 	done
 
-SeaLionName: ; 5ba87 (16:7a87)
-	text "Sea Lion"
-	done
-
-BivalveName: ; 5bc12 (16:7c12)
-	text "Bivalve"
-	done
-
 ClampName: ; 5bc7e (16:7c7e)
 	text "Clamp"
 	done
 
 AquaBurstName:
 	text "Aqua Burst"
-	done
-
-RiverCrabName: ; 5be0a (16:7e0a)
-	text "River Crab"
 	done
 
 FlailName: ; 5be7c (16:7e7c)
@@ -617,19 +505,11 @@ CrabhammerName: ; 5bec3 (16:7ec3)
 ; 	line "the Defending Pokémon is Basic."
 ; 	done
 
-PincerName: ; 5becf (16:7ecf)
-	text "Pincer"
-	done
-
 OpponentAttackMayDoNothingDescription: ; 5bf4b (16:7f4b)
 	text "If the Defending Pokémon tries to"
 	line "attack during your opponent's next"
 	line "turn, your opponent flips a coin."
 	line "If tails, that attack does nothing."
-	done
-
-DragonName: ; 5bfd7 (16:7fd7)
-	text "Dragon"
 	done
 
 RestName:
@@ -655,10 +535,6 @@ HornAttackName: ; 5c1f5 (17:41f5)
 	text "Horn Attack"
 	done
 
-GoldfishName: ; 5c202 (17:4202)
-	text "Goldfish"
-	done
-
 RendName:
 	text "Rend"
 	done
@@ -682,10 +558,6 @@ CoreRegenerationDescription:
 	line "Draw a card."
 	done
 
-StarshapeName: ; 5c2e5 (17:42e5)
-	text "Starshape"
-	done
-
 RecoverName:
 	text "Recover"
 	done
@@ -699,36 +571,16 @@ EnergySpiralName:
 	text "Energy Spiral"
 	done
 
-MysteriousName: ; 5c3dc (17:43dc)
-	text "Mysterious"
-	done
-
 TackleName: ; 5c456 (17:4456)
 	text "Tackle"
-	done
-
-FishName: ; 5c49f (17:449f)
-	text "Fish"
 	done
 
 ShellPressName:
 	text "Shell Press"
 	done
 
-AtrociousName: ; 5c523 (17:4523)
-	text "Atrocious"
-	done
-
-TransportName: ; 5c643 (17:4643)
-	text "Transport"
-	done
-
 FocusEnergyName: ; 5c6b4 (17:46b4)
 	text "Focus Energy"
-	done
-
-BubbleJetName: ; 5c70b (17:470b)
-	text "Bubble Jet"
 	done
 
 MysteriousFossilName: ; 5c894 (17:4894)
@@ -744,10 +596,6 @@ ClairvoyanceDescription:
 	line "hand face up."
 	done
 
-SpiralName: ; 5c9df (17:49df)
-	text "Spiral"
-	done
-
 BlizzardName: ; 5cb6d (17:4b6d)
 	text "Blizzard"
 	done
@@ -755,10 +603,6 @@ BlizzardName: ; 5cb6d (17:4b6d)
 DamageOpponentBench10Description:
 	text "This attack does 10 damage to each"
 	line "of your opponent's Benched Pokémon."
-	done
-
-FreezeName: ; 5cc5b (17:4c5b)
-	text "Freeze"
 	done
 
 OnlyWorksOnEvolvedPokemonText:
@@ -842,14 +686,6 @@ PetalDanceDescription:
 	line "Confused."
 	done
 
-FlowerName: ; 58e64 (16:4e64)
-	text "Flower"
-	done
-
-MouseName: ; 5ceeb (17:4eeb)
-	text "Mouse"
-	done
-
 SparkName: ; 5cf47 (17:4f47)
 	text "Spark"
 	done
@@ -903,10 +739,6 @@ ThunderWaveName: ; 5d591 (17:5591)
 	text "Thunder Wave"
 	done
 
-MagnetName: ; 5d636 (17:5636)
-	text "Magnet"
-	done
-
 SonicboomName: ; 5d86b (17:586b)
 	text "Sonicboom"
 	done
@@ -914,10 +746,6 @@ SonicboomName: ; 5d86b (17:586b)
 SonicboomDescription:
 	text "Don't apply Weakness and Resistance"
 	line "for this attack."
-	done
-
-BallName: ; 5da05 (17:5a05)
-	text "Ball"
 	done
 
 EnergySpikeName: ; 5da72 (17:5a72)
@@ -935,10 +763,6 @@ OtherEffectsStillHappenDescriptionCont:
 	line "happen.)"
 	done
 
-ElectricName: ; 5ddec (17:5dec)
-	text "Electric"
-	done
-
 ThunderpunchName:
 	text "Thunderpunch"
 	done
@@ -946,10 +770,6 @@ ThunderpunchName:
 Damage1FriendlyBenchedPokemon10Description:
 	text "This attack does 10 damage to 1 of"
 	line "your Benched Pokémon."
-	done
-
-LightningName: ; 5dfaf (17:5faf)
-	text "Lightning"
 	done
 
 ThunderboltName: ; 5e290 (17:6290)
@@ -1000,10 +820,6 @@ DigUnderName:
 	text "Dig Under"
 	done
 
-MoleName: ; 5e697 (17:6697)
-	text "Mole"
-	done
-
 EarthquakeName: ; 5e70d (17:670d)
 	text "Earthquake"
 	done
@@ -1013,10 +829,6 @@ EarthquakeDescription:
 	line "player's Benched Pokémon."
 	done
 
-PigMonkeyName: ; 5e8ff (17:68ff)
-	text "Pig Monkey"
-	done
-
 TantrumName: ; 5e96d (17:696d)
 	text "Tantrum"
 	done
@@ -1024,10 +836,6 @@ TantrumName: ; 5e96d (17:696d)
 TantrumDescription: ; 5e976 (17:6976)
 	text "This Pokémon is now Confused"
 	line "(after doing damage)."
-	done
-
-SuperpowerName: ; 5ea39 (17:6a39)
-	text "Superpower"
 	done
 
 KarateChopName: ; 5eaac (17:6aac)
@@ -1083,10 +891,6 @@ FlipUntilTails10xDescription:
 	line "the number of heads."
 	done
 
-RockName: ; 5eda8 (17:6da8)
-	text "Rock"
-	done
-
 RockThrowName: ; 5eede (17:6ede)
 	text "Rock Throw"
 	done
@@ -1108,16 +912,8 @@ ExplosionDescription:
 	; line "equal to its maximum HP."
 	done
 
-MegatonName: ; 5eff2 (17:6ff2)
-	text "Megaton"
-	done
-
 RockHeadName: ; 5ee18 (17:6e18)
 	text "Rock Head"
-	done
-
-RockSnakeName: ; 5f11d (17:711d)
-	text "Rock Snake"
 	done
 
 ReduceDamageBy20Description:
@@ -1132,10 +928,6 @@ ReduceDamageBy20Description:
 RageDescription: ; 5f27f (17:727f)
 	text "Does 10 additional damage for each"
 	line "damage counter on this Pokémon."
-	done
-
-LonelyName: ; 5f2c6 (17:72c6)
-	text "Lonely"
 	done
 
 BattleArmorName:
@@ -1174,10 +966,6 @@ StampedeName:
 ; 	line "Otherwise, this attack does nothing."
 ; 	done
 
-BonekeeperName: ; 5f3e9 (17:73e9)
-	text "Bonekeeper"
-	done
-
 VengeanceName:
 	text "Vengeance"
 	done
@@ -1201,20 +989,12 @@ HighJumpKickName: ; 5f6d0 (17:76d0)
 	text "High Jump Kick"
 	done
 
-KickingName: ; 5f6e0 (17:76e0)
-	text "Kicking"
-	done
-
 SkyUppercutName:
 	text "Sky Uppercut"
 	done
 
 CloseCombatName:
 	text "Close Combat"
-	done
-
-PunchingName: ; 5f76e (17:776e)
-	text "Punching"
 	done
 
 SpikeName: ; 5f889 (17:7889)
@@ -1286,14 +1066,6 @@ PrehistoricPowerDescription:
 ; 	line "counter on that Pokémon."
 ; 	done
 
-FossilName: ; 5fe00 (17:7e00)
-	text "Fossil"
-	done
-
-PsiName: ; 5fe72 (17:7e72)
-	text "Psi"
-	done
-
 InflictConfusionDescription:
 	text "The Defending Pokémon is now"
 	line "Confused."
@@ -1321,10 +1093,6 @@ DamageSwapDescription: ; 60000 (18:4000)
 	line "don't Knock Out that Pokémon."
 	done
 
-DopeyName: ; 601c8 (18:41c8)
-	text "Dopey"
-	done
-
 ScavengeName:
 	text "Scavenge"
 	done
@@ -1333,10 +1101,6 @@ ScavengeDescription:
 	text "Put a non-Supporter Trainer card"
 	line "from your discard pile into"
 	line "your hand."
-	done
-
-HermitcrabName: ; 6044c (18:444c)
-	text "Hermitcrab"
 	done
 
 SleepingGasName: ; 604c3 (18:44c3)
@@ -1358,10 +1122,6 @@ DestinyBondDescription: ; 6051c (18:451c)
 	line "Out this Pokémon during your"
 	line "opponent's next turn,"
 	line "Knock Out that Pokémon."
-	done
-
-GasName: ; 605bf (18:45bf)
-	text "Gas"
 	done
 
 LickName: ; 60623 (18:4623)
@@ -1461,14 +1221,6 @@ PainBurstDescription:
 	line "Defending Pokémon."
 	done
 
-BarrierName: ; 60d81 (18:4d81)
-	text "Barrier"
-	done
-
-HumanShapeName: ; 60e7d (18:4e7d)
-	text "Human Shape"
-	done
-
 PsychicName: ; 60ee0 (18:4ee0)
 	text "Psychic"
 	done
@@ -1484,10 +1236,6 @@ BarrierDescription:
 	line "your opponent's next turn, prevent"
 	line "all effects of attacks, including"
 	line "damage, done to this Pokémon."
-	done
-
-GeneticName: ; 60ff3 (18:4ff3)
-	text "Genetic"
 	done
 
 EnergyAbsorptionName: ; 61065 (18:5065)
@@ -1515,10 +1263,6 @@ NeutralizingShieldDescription:
 	line "Evolved Pokémon."
 	done
 
-NewSpeciesName: ; 611fa (18:51fa)
-	text "New Species"
-	done
-
 PsywaveName: ; 6134c (18:534c)
 	text "Psywave"
 	done
@@ -1538,14 +1282,6 @@ DevolutionBeamDescription:
 	line "Return the highest stage evolution"
 	line "card on that Pokémon to the"
 	line "respective owner's hand."
-	done
-
-TinyBirdName: ; 6144a (18:544a)
-	text "Tiny Bird"
-	done
-
-BirdName: ; 61540 (18:5540)
-	text "Bird"
 	done
 
 SlicingWindName: ; 615ad (18:55ad)

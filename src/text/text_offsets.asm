@@ -2039,6 +2039,101 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PokemonPowerDescriptionCont
 	textpointer UniquePokemonPowerDescriptionCont
 	textpointer ThereAreNoTrainerCardsInDeckText
+	textpointer SeedName
+	textpointer LizardName
+	textpointer FlameName
+	textpointer TinyTurtleName
+	textpointer TurtleName
+	textpointer WormName
+	textpointer CocoonName
+	textpointer ButterflyName
+	textpointer HairyBugName
+	textpointer PoisonBeeName
+	textpointer TinyBirdName
+	textpointer BirdName
+	textpointer RatName
+	textpointer BeakName
+	textpointer SnakeName
+	textpointer CobraName
+	textpointer MouseName
+	textpointer PoisonPinName
+	textpointer DrillName
+	textpointer FairyName
+	textpointer FoxName
+	textpointer BalloonName
+	textpointer BatName
+	textpointer WeedName
+	textpointer FlowerName
+	textpointer MushroomName
+	textpointer InsectName
+	textpointer PoisonmothName
+	textpointer MoleName
+	textpointer ScratchCatName
+	textpointer ClassyCatName
+	textpointer DuckName
+	textpointer PigMonkeyName
+	textpointer PuppyName
+	textpointer LegendaryName
+	textpointer TadpoleName
+	textpointer PsiName
+	textpointer SuperpowerName
+	textpointer FlycatcherName
+	textpointer JellyfishName
+	textpointer RockName
+	textpointer MegatonName
+	textpointer FireHorseName
+	textpointer DopeyName
+	textpointer HermitcrabName
+	textpointer MagnetName
+	textpointer WildDuckName
+	textpointer TwinBirdName
+	textpointer TriplebirdName
+	textpointer SeaLionName
+	textpointer SludgeName
+	textpointer BivalveName
+	textpointer GasName
+	textpointer RockSnakeName
+	textpointer HypnosisName
+	textpointer RiverCrabName
+	textpointer PincerName
+	textpointer BallName
+	textpointer EggName
+	textpointer CoconutName
+	textpointer LonelyName
+	textpointer BonekeeperName
+	textpointer KickingName
+	textpointer PunchingName
+	textpointer LickingName
+	textpointer PoisonGasName
+	textpointer SpikesName
+	textpointer VineName
+	textpointer ParentName
+	textpointer DragonName
+	textpointer GoldfishName
+	textpointer StarshapeName
+	textpointer MysteriousName
+	textpointer BarrierName
+	textpointer MantisName
+	textpointer HumanShapeName
+	textpointer ElectricName
+	textpointer SpitfireName
+	textpointer StagbeetleName
+	textpointer WildBullName
+	textpointer FishName
+	textpointer AtrociousName
+	textpointer TransportName
+	textpointer TransformName
+	textpointer EvolutionName
+	textpointer BubbleJetName
+	textpointer LightningName
+	textpointer VirtualName
+	textpointer SpiralName
+	textpointer ShellfishName
+	textpointer FossilName
+	textpointer SleepingName
+	textpointer FreezeName
+	textpointer GeneticName
+	textpointer NewSpeciesName
 
 ; ------------------------------------------------------------------------------
 ; text10.asm
@@ -2364,24 +2459,19 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer AllergicPollenName
 	textpointer PetalDanceName                                     ; 0x087e
 	textpointer PetalDanceDescription                              ; 0x087f
-	textpointer FlowerName                                         ; 0x0880
 	textpointer ScratchName                                        ; 0x0883
 	textpointer SporeName                                          ; 0x0884
 	textpointer InflictSleepDescription                            ; 0x0885
-	textpointer MushroomName                                       ; 0x0886
 	textpointer SlashName                                          ; 0x0889
 	textpointer EnergySporesName
 	textpointer Attach2EnergyFromDiscardToAnyPkmnDescription
 	textpointer FungalGrowthName
 	textpointer FungalGrowthDescription
-	textpointer InsectName                                         ; 0x088d
 	textpointer ShiftName                                          ; 0x0890
 	textpointer ShiftDescription                                   ; 0x0891
 	textpointer VenomPowderName                                    ; 0x0892
 	textpointer VenomPowderDescription                             ; 0x0893
-	textpointer PoisonmothName                                     ; 0x0894
 	textpointer RazorLeafName                                      ; 0x089a
-	textpointer FlycatcherName                                     ; 0x089b
 	textpointer LureName                                           ; 0x089e
 	textpointer LureDescription                                    ; 0x089f
 	textpointer PoisonLureName
@@ -2392,69 +2482,54 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer FlytrapName
 	textpointer FlytrapDescription
 	textpointer ReduceDamageTakenBy20Description
-	textpointer SludgeName                                         ; 0x08a7
 	textpointer ToxicGasName                                       ; 0x08aa
 	textpointer ToxicGasDescription                                ; 0x08ab
-	textpointer HypnosisName                                       ; 0x08ae
 	textpointer HypnoblastName                                     ; 0x08ae
-	textpointer EggName                                            ; 0x08b0
 	textpointer TeleportBlastName                                  ; 0x08b3
 	textpointer SwitchThisPokemonDescription
 	textpointer EggsplosionName
 	textpointer EggsplosionDescription
 	textpointer BigEggsplosionName
 	textpointer DamagePerEnergyAttachedToBothActiveDescription
-	textpointer CoconutName                                        ; 0x08b7
 	textpointer FoulGasName                                        ; 0x08ba
 	textpointer FoulGasDescription                                 ; 0x08bb
-	textpointer PoisonGasName                                      ; 0x08bc
 	textpointer SmogName
 	textpointer SmogDescription
 	textpointer SelfdestructName                                   ; 0x08c0
 	; textpointer Selfdestruct40Description
 	textpointer Selfdestruct50Description
 	textpointer BindName                                           ; 0x08c4
-	textpointer VineName                                           ; 0x08c5
 	textpointer PoisonWhipName                                     ; 0x08c7
 	textpointer SwordsDanceName                                    ; 0x08ca
 	textpointer NextTurnDoubleDamageDescription
-	textpointer MantisName                                         ; 0x08cc
 	textpointer IronGripName                                       ; 0x08cf
 	textpointer GuillotineName
 	textpointer Guillotine50Description
-	textpointer StagbeetleName                                     ; 0x08d1
 	textpointer EmberName                                          ; 0x08d4
 	textpointer OptionalDiscard1Energy10BonusDamageDescription
 	textpointer Discard1EnergyDescription
-	textpointer LizardName                                         ; 0x08d6
 	textpointer FlamethrowerName                                   ; 0x08d9
 	textpointer FirestarterName
 	textpointer FirestarterDescription
-	textpointer FlameName                                          ; 0x08db
 	textpointer EnergyLoopName
 	textpointer Bounce1EnergyDescription
 	textpointer FireSpinName                                       ; 0x08e0
 	textpointer Discard2EnergiesDescription
 	textpointer ConfuseRayName                                     ; 0x08e4
-	textpointer FoxName                                            ; 0x08e5
 	textpointer FireBlastName                                      ; 0x08e9
 	textpointer FireFangName                                       ; 0x08ec
 	textpointer FlareName                                          ; 0x08f3
-	textpointer PuppyName                                          ; 0x08f4
 	textpointer QuickAttackName                                    ; 0x08f7
 	textpointer Heads10BonusDamageDescription
 	textpointer IfActiveThisTurn10BonusDamageDescription
 	textpointer FlamesOfRageName                                   ; 0x08f9
 	textpointer FlamesOfRageDescription                            ; 0x08fa
-	textpointer LegendaryName                                      ; 0x08fb
 	textpointer TakeDownName                                       ; 0x08fe
 	textpointer SmashKickName                                      ; 0x0902
 	textpointer FlameTailName                                      ; 0x0903
-	textpointer FireHorseName                                      ; 0x0904
 	; textpointer StompName
 	textpointer AgilityName                                        ; 0x0909
 	textpointer FirePunchName                                      ; 0x090d
-	textpointer SpitfireName                                       ; 0x090f
 	textpointer SmokescreenName                                    ; unused
 	textpointer BiteName                                           ; 0x0916
 	textpointer RageName                                           ; 0x0917
@@ -2466,70 +2541,50 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ThunderstormDescription
 	textpointer BubbleName                                         ; 0x0925
 	textpointer WithdrawName                                       ; 0x0926
-	textpointer TinyTurtleName                                     ; 0x0928
-	textpointer TurtleName                                         ; 0x092c
 	textpointer RainDanceName                                      ; 0x092f
 	textpointer RainDanceDescription                               ; 0x0930
 	textpointer IcyWindName
 	textpointer HydroPumpName                                      ; 0x0932
 	textpointer HydroPumpDescription                               ; 0x0933
-	textpointer ShellfishName                                      ; 0x0934
 	textpointer HeadacheName                                       ; 0x0937
 	textpointer HeadacheDescription                                ; 0x0938
-	textpointer DuckName                                           ; 0x0939
 	textpointer SpiralDrainName                                    ; 0x093c
 	textpointer HyperBeamName                                      ; 0x093d
 	textpointer Discard1EnergyFromTargetDescription
-	textpointer TadpoleName                                        ; 0x0943
 	textpointer AmnesiaName                                        ; 0x0946
 	textpointer AmnesiaDescription                                 ; 0x0947
 	textpointer CowardiceName                                      ; 0x094f
 	textpointer CowardiceDescription                               ; 0x0950
-	textpointer JellyfishName                                      ; 0x0951
 	textpointer JellyfishStingName                                 ; 0x0954
 	textpointer HeadbuttName                                       ; 0x0957
-	textpointer SeaLionName                                        ; 0x0958
-	textpointer BivalveName                                        ; 0x0961
 	textpointer ClampName                                          ; 0x0964
 	textpointer AquaBurstName
-	textpointer RiverCrabName                                      ; 0x096a
 	textpointer FlailName                                          ; 0x096d
 	textpointer FlailDescription                                   ; 0x096e
 	textpointer CrabhammerName
 	; textpointer CrabhammerDescription
-	textpointer PincerName                                         ; 0x0970
 	textpointer OpponentAttackMayDoNothingDescription              ; 0x0973
-	textpointer DragonName                                         ; 0x0974
 	textpointer RestName                                           ; 0x0974
 	textpointer RestDescription                                    ; 0x0974
 	textpointer ConfusionWaveName                                  ; 0x0974
 	textpointer ConfusionWaveDescription                           ; 0x0974
 	textpointer HornAttackName                                     ; 0x097b
-	textpointer GoldfishName                                       ; 0x097c
 	textpointer RendName
 	textpointer Bonus20IfOpponentIsDamagedDescription
 	textpointer WaterfallName                                      ; 0x097f
 	textpointer CoreRegenerationName
 	textpointer CoreRegenerationDescription
-	textpointer StarshapeName                                      ; 0x0983
 	textpointer RecoverName                                        ; 0x0986
 	textpointer RecoverDescription                                 ; 0x0987
 	textpointer EnergySpiralName
-	textpointer MysteriousName                                     ; 0x0989
 	textpointer TackleName                                         ; 0x098c
-	textpointer FishName                                           ; 0x098e
 	textpointer ShellPressName
-	textpointer AtrociousName                                      ; 0x0993
-	textpointer TransportName                                      ; 0x0997
 	textpointer FocusEnergyName                                    ; 0x099a
-	textpointer BubbleJetName                                      ; 0x099c
 	textpointer MysteriousFossilName                               ; 0x09a1
 	textpointer ClairvoyanceName                                   ; 0x09a2
 	textpointer ClairvoyanceDescription                            ; 0x09a3
-	textpointer SpiralName                                         ; 0x09a5
 	textpointer BlizzardName                                       ; 0x09ac
 	textpointer DamageOpponentBench10Description                   ; 0x09ad
-	textpointer FreezeName                                         ; 0x09ae
 	textpointer OnlyWorksOnEvolvedPokemonText
 	; textpointer GnawName
 	textpointer SkillDiveName
@@ -2538,7 +2593,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer DamagePerPokemonPowerDescription
 	textpointer Damage1BenchedPokemon20Description
 	textpointer NoPokemonWithoutDamageCountersText
-	textpointer MouseName                                          ; 0x09b9
 	textpointer SparkName                                          ; 0x09bb
 	textpointer Damage1BenchedPokemon10Description                 ; 0x09bc
 	textpointer GrowlName                                          ; 0x09be
@@ -2550,17 +2604,13 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ThunderName                                        ; 0x09cb
 	textpointer DamageUpTo2BenchedDescription                      ; 0x09cf
 	textpointer ThunderWaveName                                    ; 0x09d2
-	textpointer MagnetName                                         ; 0x09d4
 	textpointer SonicboomName                                      ; 0x09dc
 	textpointer SonicboomDescription                               ; 0x09dd
-	textpointer BallName                                           ; 0x09e1
 	textpointer EnergySpikeName                                    ; 0x09e4
 	textpointer EnergySpikeDescription                             ; 0x09e5
 	textpointer OtherEffectsStillHappenDescriptionCont
-	textpointer ElectricName                                       ; 0x09ef
 	textpointer ThunderpunchName
 	textpointer Damage1FriendlyBenchedPokemon10Description
-	textpointer LightningName                                      ; 0x09f7
 	textpointer ThunderboltName                                    ; 0x0a01
 	textpointer ThunderboltDescription                             ; 0x0a02
 	textpointer PrimalColdName
@@ -2571,13 +2621,10 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PrimalThunderDescription
 	textpointer SandAttackName                                     ; 0x0a0a
 	textpointer DigUnderName
-	textpointer MoleName                                           ; 0x0a12
 	textpointer EarthquakeName                                     ; 0x0a15
 	textpointer EarthquakeDescription                              ; 0x0a16
-	textpointer PigMonkeyName                                      ; 0x0a1c
 	textpointer TantrumName                                        ; 0x0a1f
 	textpointer TantrumDescription                                 ; 0x0a20
-	textpointer SuperpowerName                                     ; 0x0a24
 	textpointer KarateChopName                                     ; 0x0a27
 	textpointer KarateChopDescription                              ; 0x0a28
 	textpointer ChopDownName
@@ -2589,17 +2636,13 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer StrikeBackDescription
 	textpointer StoneBarrageName                                   ; 0x0a33
 	textpointer FlipUntilTails10xDescription
-	textpointer RockName                                           ; 0x0a35
 	textpointer RockThrowName                                      ; 0x0a3a
 	textpointer RockSlideName                                      ; 0x0a3d
 	textpointer ExplosionName
 	textpointer ExplosionDescription
-	textpointer MegatonName                                        ; 0x0a3f
 	textpointer RockHeadName                                       ; 0x0a41
-	textpointer RockSnakeName                                      ; 0x0a43
 	textpointer ReduceDamageBy20Description
 	textpointer RageDescription                                    ; 0x0a48
-	textpointer LonelyName                                         ; 0x0a49
 	textpointer BattleArmorName                                    ; 0x0a6c
 	textpointer BattleArmorDescription                             ; 0x0a4c
 	textpointer BonemerangName                                     ; 0x0a4c
@@ -2607,16 +2650,13 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer CallForFamilyDescription
 	textpointer StampedeName
 	; textpointer StampedeDescription
-	textpointer BonekeeperName                                     ; 0x0a4f
 	textpointer VengeanceName                                      ; 0x0a53
 	textpointer VengeanceDescription                               ; 0x0a54
 	textpointer StretchKickName
 	textpointer Deal20ToBenchDescription                           ; 0x0a58
 	textpointer HighJumpKickName                                   ; 0x0a59
-	textpointer KickingName                                        ; 0x0a5a
 	textpointer SkyUppercutName
 	textpointer CloseCombatName
-	textpointer PunchingName                                       ; 0x0a5f
 	textpointer SpikeName                                          ; 0x0a64
 	textpointer RamName                                            ; 0x0a67
 	textpointer RamDescription
@@ -2631,21 +2671,16 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PrehistoricPowerDescription
 	; textpointer PrimalClawName
 	; textpointer PrimalClawDescription
-	textpointer FossilName                                         ; 0x0a79
-	textpointer PsiName                                            ; 0x0a7c
 	textpointer InflictConfusionDescription                        ; 0x0a7f
 	textpointer InvadeMindName
 	textpointer InvadeMindDescription
 	textpointer DamageSwapName                                     ; 0x0a83
 	textpointer DamageSwapDescription                              ; 0x0a84
-	textpointer DopeyName                                          ; 0x0a88
 	textpointer ScavengeName                                       ; 0x0a8c
 	textpointer ScavengeDescription                                ; 0x0a8d
-	textpointer HermitcrabName                                     ; 0x0a91
 	textpointer SleepingGasName                                    ; 0x0a94
 	textpointer MayInflictSleepDescription                         ; 0x0a95
 	textpointer DestinyBondName                                    ; 0x0a96
-	textpointer GasName                                            ; 0x0a98
 	textpointer DestinyBondDescription                             ; 0x0a97
 	textpointer LickName                                           ; 0x0a9a
 	textpointer EnergyConversionName                               ; 0x0a9b
@@ -2667,24 +2702,18 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer MeditateDescription
 	textpointer PainBurstName
 	textpointer PainBurstDescription
-	textpointer BarrierName                                        ; 0x0ab9
-	textpointer HumanShapeName                                     ; 0x0abe
 	textpointer PsychicName                                        ; 0x0ac1
 	textpointer PsychicDescription                                 ; 0x0ac2
 	textpointer BarrierDescription                                 ; 0x0ac3
-	textpointer GeneticName                                        ; 0x0ac4
 	textpointer EnergyAbsorptionName                               ; 0x0ac6
 	textpointer EnergyAbsorptionDescription                        ; 0x0ac7
 	textpointer PsyburnName                                        ; 0x0ac8
 	textpointer NeutralizingShieldName                             ; 0x0acb
 	textpointer NeutralizingShieldDescription                      ; 0x0acc
-	textpointer NewSpeciesName                                     ; 0x0acd
 	textpointer PsywaveName                                        ; 0x0ad2
 	textpointer PsywaveDescription                                 ; 0x0ad3
 	textpointer DevolutionBeamName                                 ; 0x0ad4
 	textpointer DevolutionBeamDescription                          ; 0x0ad5
-	textpointer TinyBirdName                                       ; 0x0ad7
-	textpointer BirdName                                           ; 0x0adc
 	textpointer SlicingWindName                                    ; 0x0adf
 	textpointer Discard1EnergyDeal30ToAnyPokemonDescription
 	textpointer Deal30ToAnyPokemonDescription
@@ -2765,7 +2794,6 @@ TextOffsets:: ; 34000 (d:4000)
 
 	textpointer LeechSeedName                                      ; 0x080b
 	textpointer Heal10DamageDescription                            ; 0x080c
-	textpointer SeedName                                           ; 0x080d
 	textpointer VineWhipName                                       ; 0x0810
 	textpointer PoisonPowderName                                   ; 0x0811
 	textpointer InflictPoisonDescription                           ; 0x0812
@@ -2780,25 +2808,17 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer SolarBeamName                                      ; 0x081e
 	textpointer StringShotName                                     ; 0x0821
 	textpointer MayInflictParalysisDescription                     ; 0x0822
-	textpointer WormName                                           ; 0x0823
 	textpointer StunSporeName                                      ; 0x0828
-	textpointer CocoonName                                         ; 0x0829
 	textpointer WhirlwindName                                      ; 0x082c
 	textpointer OpponentSwitchesPokemonDescription                 ; 0x082d
-	textpointer ButterflyName                                      ; 0x0830
 	textpointer PoisonStingName                                    ; 0x0833
 	textpointer MayInflictPoisonDescription                        ; 0x0834
-	textpointer HairyBugName                                       ; 0x0835
 	textpointer TwineedleName                                      ; 0x083b
-	textpointer PoisonBeeName                                      ; 0x083d
 	textpointer SpitPoisonName                                     ; 0x0840
 	textpointer WrapName                                           ; 0x0841
-	textpointer SnakeName                                          ; 0x0842
 	textpointer TerrorStrikeName                                   ; 0x0845
 	textpointer PoisonFangName                                     ; 0x0847
-	textpointer CobraName                                          ; 0x0848
 	textpointer FurySwipesName                                     ; 0x084b
-	textpointer PoisonPinName                                      ; 0x084f
 	textpointer SwiftName
 	textpointer RapidSpinName
 	textpointer BothPlayersSwitchDescription
@@ -2815,7 +2835,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer AdaptiveEvolutionDescription
 	textpointer PowerLariatName
 	textpointer PowerLariatDescription
-	textpointer DrillName                                          ; 0x085a
 	textpointer RetaliateName
 	textpointer RetaliateDescription
 	textpointer HornDrillName                                      ; 0x0861
@@ -2825,12 +2844,10 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ToxicDescription                                   ; 0x0867
 	textpointer LeechLifeName                                      ; 0x086a
 	textpointer LeechLifeDescription                               ; 0x086b
-	textpointer BatName                                            ; 0x086c
 	textpointer GrowthName
 	textpointer GrowthDescription
 	textpointer SproutName
 	textpointer SproutDescription
-	textpointer WeedName                                           ; 0x0875
 	textpointer AromatherapyName
 	textpointer Heal20DamageFromAllDescription
 	; textpointer HealingNectarName                                ; unreferenced
@@ -2843,7 +2860,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PoisonEvolutionDescription
 	textpointer ExoskeletonName
 	textpointer ExoskeletonDescription
-	textpointer RatName                                            ; 0x0ae8
 	textpointer FinishingBiteName
 	textpointer FinishingBiteDescription
 	; textpointer SuperFangName
@@ -2855,59 +2871,44 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer DevastatingWindName
 	textpointer DevastatingWindDescription
 	textpointer DrillPeckName                                      ; 0x0af4
-	textpointer BeakName                                           ; 0x0af5
 	textpointer MetronomeName
 	textpointer MoonblastName
 	textpointer MetronomeDescription
-	textpointer FairyName                                          ; 0x0afb
 	textpointer DoubleEdgeName                                     ; 0x0b04
-	textpointer BalloonName                                        ; 0x0b06
 	textpointer FriendshipSongName                                 ; 0x0b08
 	textpointer ExpandName                                         ; 0x0b0a
 	textpointer ReduceDamageTakenBy10Description                   ; 0x0b0b
 	textpointer LullabyName                                        ; 0x0b0d
 	textpointer DoTheWaveName                                      ; 0x0b10
 	textpointer DoTheWaveDescription                               ; 0x0b11
-	textpointer ScratchCatName                                     ; 0x0b16
 	textpointer PayDayName                                         ; 0x0b18
 	textpointer PounceName                                         ; 0x0b1c
 	textpointer ReduceAttackBy10Description                        ; 0x0b1d
-	textpointer ClassyCatName                                      ; 0x0b1e
 	textpointer LeekSlapName
 	textpointer NextTurnUnableToAttackDescription
-	textpointer WildDuckName                                       ; 0x0b24
 	textpointer FuryAttackName
 	textpointer Bonus20IfOpponentPlayedSupporterDescription
-	textpointer TwinBirdName                                       ; 0x0b28
 	textpointer RetreatAidName                                     ; 0x0b2b
 	textpointer RetreatAidDescription                              ; 0x0b2c
-	textpointer TriplebirdName                                     ; 0x0b2e
 	textpointer TongueStretchName                                  ; 0x0b31
-	textpointer LickingName                                        ; 0x0b32
 	textpointer FetchName                                          ; 0x0b3a
 	textpointer Draw1CardDescription                               ; 0x0b3b
 	textpointer Draw2CardsDescription
 	textpointer CometPunchName                                     ; 0x0b3c
-	textpointer ParentName                                         ; 0x0b3d
 	textpointer RampageName                                        ; 0x0b40
 	textpointer RampageDescription                                 ; 0x0b41
-	textpointer WildBullName                                       ; 0x0b42
 	textpointer CopyName
 	textpointer MorphName                                          ; 0x0b45
 	textpointer MorphDescription                                   ; 0x0b46
-	textpointer TransformName                                      ; 0x0b48
-	textpointer EvolutionName                                      ; 0x0b4c
 	; textpointer Conversion1Name
 	; textpointer Conversion1Description
 	; textpointer Conversion2Name
 	; textpointer Conversion2Description
 	textpointer ConversionBeamName
 	textpointer ConversionBeamDescription
-	textpointer VirtualName                                        ; 0x0b53
 	textpointer ThickSkinnedName                                   ; 0x0b56
 	textpointer ThickSkinnedDescription                            ; 0x0b57
 	textpointer BodySlamName                                       ; 0x0b58
-	textpointer SleepingName                                       ; 0x0b59
 	textpointer HealingWindName                                    ; 0x0b61
 	textpointer HelpingHandName
 	textpointer HelpingHandDescription
@@ -3018,7 +3019,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer RainbowTeamDescription
 	textpointer GetMadName
 	textpointer GetMadDescription
-	textpointer SpikesName
 	textpointer SpikesDescription
 	textpointer RototillerName
 	textpointer RototillerDescription
