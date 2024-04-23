@@ -4208,17 +4208,17 @@ SeadraCard:
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
-	tx WaterfallName ; name
-	tx MoveOpponentEnergyToBenchDescription ; description
+	tx ScaldName ; name
+	tx ScaldDescription ; description
 	dw NONE ; description (cont)
 	db 30 ; damage
 	db DAMAGE_NORMAL ; category
-	dw MoveOpponentEnergyToBenchEffectCommands ; effect commands
+	dw ScaldEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_WATER_JETS ; animation
+	db ATK_ANIM_WATER_GUN ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness

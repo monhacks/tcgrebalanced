@@ -557,6 +557,16 @@ Bonus20IfOpponentIsDamagedDescription:
 ; 	line "each Energy card returned this way."
 ; 	done
 
+ScaldName:
+	text "Scald"
+	done
+
+ScaldDescription:
+	text "Discard an Energy attached to this"
+	line "Pokémon. The Defending Pokémon is"
+	line "now Burned."
+	done
+
 CoreRegenerationName:
 	text "Core Regeneration"
 	done

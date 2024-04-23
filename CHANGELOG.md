@@ -56,6 +56,10 @@
 - **Aqua Burst**: removed.
 - New attack: **Water Gun** (W): 10 damage for each attached Water energy.
 
+#### Seadra
+- **Riptide**: removed.
+- New attack: **Scald** (WC): 30 damage; discard 1 energy; inflicts Burn.
+
 #### Seaking
 - **Waterfall**: removed.
 - New attack: **Riptide** (WC): 10 damage; shuffle 4 Energy cards from discard pile into deck; +10 damage for each returned Energy.
