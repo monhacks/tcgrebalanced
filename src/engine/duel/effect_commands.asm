@@ -784,16 +784,24 @@ GastlyDestinyBondEffectCommands:
 EnergyConversionEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDiscardPileHasBasicEnergyCards
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDiscardPileEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EnergyConversion_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, EnergyConversion_AISelectEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Retrieve2BasicEnergy_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Retrieve2BasicEnergy_AISelectEffect
 	db  $00
 
 RiptideEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Riptide_DamageBoostEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDiscardPileEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EnergyConversion_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, EnergyConversion_AISelectEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Retrieve2BasicEnergy_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Retrieve2BasicEnergy_AISelectEffect
 	dbw EFFECTCMDTYPE_AI, Riptide_AIEffect
+	db  $00
+
+WaterfallEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Waterfall_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDiscardPileEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Retrieve2BasicEnergy_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Retrieve2BasicEnergy_AISelectEffect
+	dbw EFFECTCMDTYPE_AI, Waterfall_AIEffect
 	db  $00
 
 WaterReserveEffectCommands:

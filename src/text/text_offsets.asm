@@ -2571,7 +2571,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer HornAttackName                                     ; 0x097b
 	textpointer RendName
 	textpointer Bonus20IfOpponentIsDamagedDescription
-	textpointer WaterfallName                                      ; 0x097f
+	textpointer WaterfallName
+	textpointer WaterfallDescription
 	textpointer CoreRegenerationName
 	textpointer CoreRegenerationDescription
 	textpointer RecoverName                                        ; 0x0986
