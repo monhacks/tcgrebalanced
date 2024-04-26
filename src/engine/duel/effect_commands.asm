@@ -1512,11 +1512,11 @@ Deal20ToAnyPokemonEffectCommands:
 
 ; TryExecuteEffectCommandFunction runs the first matching command, so the
 ; EFFECTCMDTYPE_AI_SELECTION here takes over the one in the fallthrough.
-Discard1EnergyDeal30ToAnyPokemonEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DiscardEnergy_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, DiscardEnergy_DamageTargetPokemon_AISelectEffect
+; Discard1EnergyDeal30ToAnyPokemonEffectCommands:
+; 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
+; 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DiscardEnergy_PlayerSelectEffect
+; 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
+; 	dbw EFFECTCMDTYPE_AI_SELECTION, DiscardEnergy_DamageTargetPokemon_AISelectEffect
 	; fallthrough
 
 Deal30ToAnyPokemonEffectCommands:

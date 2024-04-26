@@ -1306,12 +1306,12 @@ SlicingWindName: ; 615ad (18:55ad)
 	text "Slicing Wind"
 	done
 
-Discard1EnergyDeal30ToAnyPokemonDescription:
-	text "Discard an Energy card attached"
-	line "to this Pokémon."
-	line "This attack does 30 damage to 1"
-	line "of your opponent's Pokémon."
-	done
+; Discard1EnergyDeal30ToAnyPokemonDescription:
+; 	text "Discard an Energy card attached"
+; 	line "to this Pokémon."
+; 	line "This attack does 30 damage to 1"
+; 	line "of your opponent's Pokémon."
+; 	done
 
 Deal30ToAnyPokemonDescription:
 	text "This attack does 30 damage to 1"

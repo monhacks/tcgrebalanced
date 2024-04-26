@@ -2718,7 +2718,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer DevolutionBeamName                                 ; 0x0ad4
 	textpointer DevolutionBeamDescription                          ; 0x0ad5
 	textpointer SlicingWindName                                    ; 0x0adf
-	textpointer Discard1EnergyDeal30ToAnyPokemonDescription
+	; textpointer Discard1EnergyDeal30ToAnyPokemonDescription
 	textpointer Deal30ToAnyPokemonDescription
 	textpointer Deal40ToAnyPokemonDescription
 	textpointer GaleName                                           ; 0x0ae1

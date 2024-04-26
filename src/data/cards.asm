@@ -4194,24 +4194,10 @@ SeadraCard:
 
 	; attack 1
 	energy WATER, 1 ; energies
-	tx SharpshooterName ; name
-	tx Discard1EnergyDeal30ToAnyPokemonDescription ; description
-	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
-	dw Discard1EnergyDeal30ToAnyPokemonEffectCommands ; effect commands
-	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
-	db DISCARD_ENERGY | FLAG_2_BIT_6 ; flags 2
-	db NONE ; flags 3
-	db 2
-	db ATK_ANIM_GLOW_EFFECT ; animation
-
-	; attack 2
-	energy WATER, 1, COLORLESS, 1 ; energies
 	tx ScaldName ; name
 	tx ScaldDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 20 ; damage
 	db DAMAGE_NORMAL ; category
 	dw ScaldEffectCommands ; effect commands
 	db NONE ; flags 1
@@ -4219,6 +4205,20 @@ SeadraCard:
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_WATER_GUN ; animation
+
+	; attack 2
+	energy WATER, 1, COLORLESS, 1 ; energies
+	tx SharpshooterName ; name
+	tx Deal30ToAnyPokemonDescription ; description
+	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw Deal30ToAnyPokemonEffectCommands ; effect commands
+	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
+	db FLAG_2_BIT_6 ; flags 2
+	db NONE ; flags 3
+	db 2
+	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness

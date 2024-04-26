@@ -58,7 +58,8 @@
 
 #### Seadra
 - **Riptide**: removed.
-- New attack: **Scald** (WC): 30 damage; discard 1 energy; inflicts Burn.
+- **Sharpshooter**: cost increased from (W) to (WC); no longer discards an energy.
+- New attack: **Scald** (W): 20 damage; discard 1 energy; inflicts Burn.
 
 #### Seaking
 - **Waterfall**: removed.
