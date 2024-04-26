@@ -1,5 +1,19 @@
 ;
 
+DiscardEnergy_PlayerSelectEffect:
+	xor a ; PLAY_AREA_ARENA
+	call CreateArenaOrBenchEnergyCardList
+.got_energy_list
+	xor a ; PLAY_AREA_ARENA
+	bank1call DisplayEnergyDiscardScreen
+	bank1call HandleEnergyDiscardMenuInput
+	ret c ; exit if B was pressed
+	ldh a, [hTempCardIndex_ff98]
+	ldh [hTemp_ffa0], a ; store card chosen
+	ret
+
+
+
 StampedeEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CallForFamily_CheckDeckAndPlayArea
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Stampede_PutInPlayAreaEffect

@@ -1008,6 +1008,32 @@ DisplayRetreatScreen:
 	or a
 	ret
 
+
+HandleDiscardArenaEnergy:
+	xor a ; PLAY_AREA_ARENA
+	; jr HandleDiscardPlayAreaEnergy
+	; fallthrough
+
+; input:
+;   a: PLAY_AREA_* of the Pokémon to discard from
+HandleDiscardPlayAreaEnergy:
+	push af
+	call CreateArenaOrBenchEnergyCardList
+	pop af
+	; jr HandlePlayAreaEnergyMenu
+	; fallthrough
+
+; input:
+;   a: PLAY_AREA_* of the Pokémon to discard from
+HandlePlayAreaEnergyDiscardMenu:
+	call DisplayEnergyDiscardScreen
+	call HandleEnergyDiscardMenuInput
+	ret c ; exit if B was pressed
+	ldh a, [hTempCardIndex_ff98]
+	ldh [hTemp_ffa0], a ; store card chosen
+	ret
+
+
 ; display the screen that prompts the player to select energy cards to discard
 ; in order to retreat a Pokemon card or use an attack like Ember. includes the
 ; card's information and a menu to select the attached energy cards to discard.

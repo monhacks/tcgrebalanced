@@ -3971,15 +3971,7 @@ Recover_CheckEnergyHP:
 ; ------------------------------------------------------------------------------
 
 DiscardEnergy_PlayerSelectEffect:
-	xor a ; PLAY_AREA_ARENA
-	call CreateArenaOrBenchEnergyCardList
-.got_energy_list
-	xor a ; PLAY_AREA_ARENA
-	bank1call DisplayEnergyDiscardScreen
-	bank1call HandleEnergyDiscardMenuInput
-	ret c ; exit if B was pressed
-	ldh a, [hTempCardIndex_ff98]
-	ldh [hTemp_ffa0], a ; store card chosen
+	bank1call HandleDiscardArenaEnergy
 	ret
 
 DiscardEnergy_AISelectEffect:
@@ -4026,7 +4018,9 @@ OptionalDiscardEnergy_PlayerSelectEffect:
 .select
 	xor a ; PLAY_AREA_ARENA
 	call CreateArenaOrBenchEnergyCardList
-	call nc, DiscardEnergy_PlayerSelectEffect.got_energy_list
+	jr c, .no_energy
+	bank1call HandlePlayAreaEnergyDiscardMenu
+.no_energy
 ; ignore carry if set, otherwise the deck index is in [hTemp_ffa0]
 	or a
 	ret
@@ -4193,7 +4187,7 @@ DiscardEnergyFromMatchingPokemonInBench_PlayerSelectEffect:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	call CreateArenaOrBenchEnergyCardList
 	jr c, .loop  ; no energy
-	call DiscardEnergy_PlayerSelectEffect.got_energy_list
+	bank1call HandlePlayAreaEnergyDiscardMenu
 ; ignore carry if set, because this is used for an EFFECTCMDTYPE_INITIAL_EFFECT_2
 ; otherwise, the deck index is in [hTemp_ffa0]
 .done
