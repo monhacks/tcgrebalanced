@@ -23,13 +23,18 @@ DoublePoisonEffect:
 	lb bc, CNF_SLP_PRZ, DOUBLE_POISONED
 	jr ApplyStatusEffect
 
+; Defending Pokémon becomes burned
+BurnEffect:
+	lb bc, CNF_SLP_PRZ, BURNED
+	jr ApplyStatusEffect
+
 Paralysis50PercentEffect: ; 2c011 (b:4011)
 	ldtx de, ParalysisCheckText
 	call TossCoin_BankB
 	ret nc
 
 ParalysisEffect: ; 2c018 (b:4018)
-	lb bc, PSN_DBLPSN, PARALYZED
+	lb bc, PSN_DBLPSN_BRN, PARALYZED
 	jr ApplyStatusEffect
 
 Confusion50PercentEffect: ; 2c01d (b:401d)
@@ -38,7 +43,7 @@ Confusion50PercentEffect: ; 2c01d (b:401d)
 	ret nc
 
 ConfusionEffect: ; 2c024 (b:4024)
-	lb bc, PSN_DBLPSN, CONFUSED
+	lb bc, PSN_DBLPSN_BRN, CONFUSED
 	jr ApplyStatusEffect
 
 Sleep50PercentEffect: ; 2c029 (b:4029)
@@ -47,7 +52,7 @@ Sleep50PercentEffect: ; 2c029 (b:4029)
 	ret nc
 
 SleepEffect: ; 2c030 (b:4030)
-	lb bc, PSN_DBLPSN, ASLEEP
+	lb bc, PSN_DBLPSN_BRN, ASLEEP
 	jr ApplyStatusEffect
 
 
@@ -108,7 +113,7 @@ ApplyStatusEffect: ; 2c035 (b:4035)
 JellyfishSting_PoisonConfusionEffect:
 	ld a, DUELVARS_ARENA_CARD_STATUS
 	call GetNonTurnDuelistVariable
-	and PSN_DBLPSN
+	and DOUBLE_POISONED
 	jp z, PoisonEffect  ; not yet Poisoned
 	jp ConfusionEffect
 
@@ -206,18 +211,23 @@ DoublePoisonEffect_PlayArea:
 	jr ApplyStatusEffectToPlayAreaPokemon
 
 ; input e: PLAY_AREA_* of the target Pokémon
+BurnEffect_PlayArea:
+	lb bc, CNF_SLP_PRZ, BURNED
+	jr ApplyStatusEffectToPlayAreaPokemon
+
+; input e: PLAY_AREA_* of the target Pokémon
 ParalysisEffect_PlayArea:
-	lb bc, PSN_DBLPSN, PARALYZED
+	lb bc, PSN_DBLPSN_BRN, PARALYZED
 	jr ApplyStatusEffectToPlayAreaPokemon
 
 ; input e: PLAY_AREA_* of the target Pokémon
 ConfusionEffect_PlayArea:
-	lb bc, PSN_DBLPSN, CONFUSED
+	lb bc, PSN_DBLPSN_BRN, CONFUSED
 	jr ApplyStatusEffectToPlayAreaPokemon
 
 ; input e: PLAY_AREA_* of the target Pokémon
 SleepEffect_PlayArea:
-	lb bc, PSN_DBLPSN, ASLEEP
+	lb bc, PSN_DBLPSN_BRN, ASLEEP
 	jr ApplyStatusEffectToPlayAreaPokemon
 
 
@@ -380,7 +390,7 @@ CountPoisonedPokemonInPlayArea:
 	call GetTurnDuelistVariable
 .loop_play_area
 	ld a, [hli]  ; get status and move to next
-	and PSN_DBLPSN
+	and DOUBLE_POISONED
 	jr z, .next
 	inc c
 .next

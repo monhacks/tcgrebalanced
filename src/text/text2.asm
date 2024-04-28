@@ -13,9 +13,9 @@ DamageCheckIfHeadsXDamageText: ; 37fcd (d:7fcd)
 	line "If Heads, x <RAMNUM> damage!!"
 	done
 
-IfHeadsDiscard1EnergyFromTargetText:
-	text "If Heads, discard an Energy"
-	line "from the Defending Pokémon!"
+YouMayDiscard1EnergyToHealBurnText:
+	text "You may discard an Energy"
+	line "to heal the Burn status."
 	done
 
 AlreadyRetreatedThisTurnText:

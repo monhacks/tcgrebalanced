@@ -3972,6 +3972,7 @@ Recover_CheckEnergyHP:
 
 DiscardEnergy_PlayerSelectEffect:
 	bank1call HandleDiscardArenaEnergy
+	ldh [hTemp_ffa0], a
 	ret
 
 DiscardEnergy_AISelectEffect:
@@ -4019,10 +4020,11 @@ OptionalDiscardEnergy_PlayerSelectEffect:
 	xor a ; PLAY_AREA_ARENA
 	call CreateArenaOrBenchEnergyCardList
 	jr c, .no_energy
+	xor a ; PLAY_AREA_ARENA
 	bank1call HandlePlayAreaEnergyDiscardMenu
+	ldh [hTemp_ffa0], a
 .no_energy
-; ignore carry if set, otherwise the deck index is in [hTemp_ffa0]
-	or a
+	or a  ; ignore carry if set
 	ret
 
 
@@ -4187,9 +4189,10 @@ DiscardEnergyFromMatchingPokemonInBench_PlayerSelectEffect:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	call CreateArenaOrBenchEnergyCardList
 	jr c, .loop  ; no energy
+	ldh a, [hTempPlayAreaLocation_ff9d]
 	bank1call HandlePlayAreaEnergyDiscardMenu
+	ldh [hTemp_ffa0], a
 ; ignore carry if set, because this is used for an EFFECTCMDTYPE_INITIAL_EFFECT_2
-; otherwise, the deck index is in [hTemp_ffa0]
 .done
 	or a
 	ret
@@ -5834,7 +5837,7 @@ ImakuniEffect: ; 2f216 (b:7216)
 	bank1call PlayAdhocAnimationOnPlayAreaArena_NoEffectiveness
 	ld a, DUELVARS_ARENA_CARD_STATUS
 	call GetTurnDuelistVariable
-	and PSN_DBLPSN
+	and PSN_DBLPSN_BRN
 	or CONFUSED
 	ld [hl], a
 	bank1call DrawDuelHUDs

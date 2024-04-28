@@ -126,18 +126,21 @@ DEF NO_STATUS       EQU $00
 DEF CONFUSED        EQU $01
 DEF ASLEEP          EQU $02
 DEF PARALYZED       EQU $03
+DEF BURNED          EQU $20
 DEF POISONED        EQU $80
 DEF DOUBLE_POISONED EQU $c0
 
 
+DEF BURNED_F          EQU 5
 DEF DOUBLE_POISONED_F EQU 6
 DEF POISONED_F        EQU 7
 
 
-DEF CNF_SLP_PRZ   EQU $0f ; confused, asleep or paralyzed
-DEF PSN_DBLPSN    EQU $f0 ; poisoned or double poisoned
-DEF PSN_DAMAGE    EQU 10
-DEF DBLPSN_DAMAGE EQU 20
+DEF CNF_SLP_PRZ    EQU $0f ; confused, asleep or paralyzed
+DEF PSN_DBLPSN_BRN EQU $f0 ; poisoned, double poisoned or burned
+DEF PSN_DAMAGE     EQU 10
+DEF DBLPSN_DAMAGE  EQU 20
+DEF BURN_DAMAGE    EQU 20
 
 
 ; TOOL constants (DUELVARS_ARENA_CARD_ATTACHED_TOOL)

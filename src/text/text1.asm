@@ -168,6 +168,11 @@ Received20DamageDueToPoisonText: ; 364e3 (d:64e3)
 	line "20 damage due to Double Poison."
 	done
 
+Received20DamageDueToBurnText:
+	text "<RAMTEXT> received"
+	line "20 damage due to Burn."
+	done
+
 IsStillAsleepText: ; 3650f (d:650f)
 	text "<RAMTEXT> is"
 	line "still Asleep."
@@ -181,6 +186,11 @@ IsCuredOfSleepText: ; 36523 (d:6523)
 IsCuredOfParalysisText: ; 36539 (d:6539)
 	text "<RAMTEXT> is"
 	line "cured of Paralysis."
+	done
+
+IsCuredOfBurnText:
+	text "<RAMTEXT> is"
+	line "cured of Burn."
 	done
 
 BetweenTurnsText: ; 36553 (d:6553)

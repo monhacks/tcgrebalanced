@@ -1008,7 +1008,7 @@ Pester_AIEffect:
 DeadlyPoison_DamageBoostEffect:
   ld a, DUELVARS_ARENA_CARD_STATUS
   call GetNonTurnDuelistVariable
-  and PSN_DBLPSN
+  and DOUBLE_POISONED
   ret z  ; not Poisoned
   ld a, 20
   jp AddToDamage

@@ -43,9 +43,11 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer UnableDueToParalysisText                           ; 0x0025
 	textpointer Received10DamageDueToPoisonText                    ; 0x0026
 	textpointer Received20DamageDueToPoisonText                    ; 0x0027
+	textpointer Received20DamageDueToBurnText
 	textpointer IsStillAsleepText                                  ; 0x0028
 	textpointer IsCuredOfSleepText                                 ; 0x0029
 	textpointer IsCuredOfParalysisText                             ; 0x002a
+	textpointer IsCuredOfBurnText
 	textpointer BetweenTurnsText                                   ; 0x002b
 	textpointer NoEnergyCardsText                                  ; 0x002d
 	textpointer IsThisOKText                                       ; 0x002e
@@ -234,7 +236,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer IfHeadsNoDamageNextTurnText                        ; 0x00f1
 	textpointer DamageCheckIfHeadsPlusDamageText                   ; 0x00f3
 	textpointer DamageCheckIfHeadsXDamageText                      ; 0x00f4
-	textpointer IfHeadsDiscard1EnergyFromTargetText
+	textpointer YouMayDiscard1EnergyToHealBurnText
 	textpointer AlreadyRetreatedThisTurnText                       ; 0x00f4
 	textpointer TrapCheckText                                      ; 0x00f5
 	; textpointer TransparencyCheckText                              ; 0x00f6

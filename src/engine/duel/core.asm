@@ -1009,35 +1009,52 @@ DisplayRetreatScreen:
 	ret
 
 
+; output:
+;   carry: set if no energies or Player cancelled selection
+;   a: deck index of the selected card | $ff
+;   [hTempCardIndex_ff98]: deck index of the selected card (if any)
 HandleDiscardArenaEnergy:
-	xor a ; PLAY_AREA_ARENA
+	ld e, PLAY_AREA_ARENA
 	; jr HandleDiscardPlayAreaEnergy
 	; fallthrough
 
 ; input:
-;   a: PLAY_AREA_* of the Pokémon to discard from
+;   e: PLAY_AREA_* of the Pokémon to discard from
+; output:
+;   carry: set if no energies or Player cancelled selection
+;   a: deck index of the selected card | $ff
+;   [hTempCardIndex_ff98]: deck index of the selected card (if any)
 HandleDiscardPlayAreaEnergy:
-	push af
+	ld a, e
+	push de
 	call CreateArenaOrBenchEnergyCardList
-	pop af
-	; jr HandlePlayAreaEnergyMenu
+	pop de
+	ret c  ; no energies
+	ld a, e
+	; jr HandlePlayAreaEnergyDiscardMenu
 	; fallthrough
 
 ; input:
 ;   a: PLAY_AREA_* of the Pokémon to discard from
+;   [wDuelTempList]: $ff-terminated list of energy cards
+; output:
+;   carry: set if Player cancelled selection
+;   a: deck index of the selected card | $ff
+;   [hTempCardIndex_ff98]: deck index of the selected card (if any)
 HandlePlayAreaEnergyDiscardMenu:
 	call DisplayEnergyDiscardScreen
 	call HandleEnergyDiscardMenuInput
+	ld a, $ff
 	ret c ; exit if B was pressed
 	ldh a, [hTempCardIndex_ff98]
-	ldh [hTemp_ffa0], a ; store card chosen
 	ret
 
 
 ; display the screen that prompts the player to select energy cards to discard
 ; in order to retreat a Pokemon card or use an attack like Ember. includes the
 ; card's information and a menu to select the attached energy cards to discard.
-; input: a = PLAY_AREA_* of the Pokemon trying to discard energies from.
+; input:
+;   a: PLAY_AREA_* of the Pokemon trying to discard energies from
 DisplayEnergyDiscardScreen:
 	ld [wcbe0], a
 	call EmptyScreen
@@ -1596,7 +1613,7 @@ HandleSleepCheck:
 ; coin toss was heads, cure sleep status
 	pop hl
 	push hl
-	ld a, PSN_DBLPSN
+	ld a, PSN_DBLPSN_BRN
 	and [hl]
 	ld [hl], a
 	ld a, DUEL_ANIM_HEAL
@@ -7188,7 +7205,46 @@ HandleOnAttackEffects:
 	call GetFirstPokemonWithAvailablePower
 	ret nc  ; no Pkmn Power-capable Pokémon was found
 	farcall SplashingAttacks_DamageEffect
-	ret
+	; jp HandleBurnDiscardEnergy
+	; fallthrough
+
+
+HandleBurnDiscardEnergy:
+; is the Active Pokémon Burned?
+	ld a, DUELVARS_ARENA_CARD_STATUS
+	call GetTurnDuelistVariable
+	and BURNED
+	ret z  ; no Burn status
+; does the Pokémon have any attached energies?
+	xor a  ; PLAY_AREA_ARENA
+	call CreateArenaOrBenchEnergyCardList
+	ret c  ; no energy
+; offer the choice to discard an Energy
+	ldtx hl, YouMayDiscard1EnergyToHealBurnText
+	call DrawWideTextBox_WaitForInput
+	xor a  ; PLAY_AREA_ARENA
+	call HandlePlayAreaEnergyDiscardMenu
+	ret c  ; cancelled
+; discard the selected energy
+	; ldh a, [hTempCardIndex_ff98]
+	call PutCardInDiscardPile
+; heal Burned status
+	ld a, DUELVARS_ARENA_CARD_STATUS
+	call GetTurnDuelistVariable
+	and DOUBLE_POISONED | CNF_SLP_PRZ
+	ld [hl], a
+; play healing animation
+	ld a, DUELVARS_ARENA_CARD
+	call GetTurnDuelistVariable
+	call GetCardIDFromDeckIndex
+	ld a, e
+	ld [wTempNonTurnDuelistCardID], a
+	call Func_6c7e
+	ldtx hl, IsCuredOfBurnText
+	call PrintNonTurnDuelistCardIDText
+	ld a, DUEL_ANIM_HEAL
+	call Func_6cab
+	jp WaitForWideTextBoxInput
 
 
 HandleOnUsePokemonPowerEffects:
@@ -7345,6 +7401,8 @@ HandleBetweenTurnsEvents:
 	jr z, .discard_pluspower
 	; has status condition
 	call HandlePoisonDamage
+	ld a, [hl]
+	call HandleBurnDamage
 	jr c, .discard_pluspower
 ; OATS sleep check is no longer between turns
 	; call HandleSleepCheck
@@ -7557,7 +7615,7 @@ IsArenaPokemonPoisoned:
 	call GetTurnDuelistVariable
 	or a
 	ret z
-	and PSN_DBLPSN
+	and DOUBLE_POISONED
 	ld a, [hl]
 	jr nz, .set_carry
 	or a
@@ -7640,7 +7698,7 @@ PrintNonTurnDuelistCardIDText:
 
 HandlePoisonDamage:
 	or a
-	bit POISONED_F , [hl]
+	bit POISONED_F, [hl]
 	ret z ; quit if not poisoned
 
 ; load damage and text according to normal/double poison
@@ -7670,6 +7728,47 @@ HandlePoisonDamage:
 
 ; deal poison damage
 	ld e, a
+	ld d, $00
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetTurnDuelistVariable
+	call SubtractHP
+	push hl
+	ld a, $8c
+	call Func_6cab
+	pop hl
+
+	call PrintKnockedOutIfHLZero
+	push af
+	call WaitForWideTextBoxInput
+	pop af
+	pop hl
+	ret
+
+
+HandleBurnDamage:
+	or a
+	bit BURNED_F, [hl]
+	ret z ; quit if not burned
+
+; load damage and text for burn
+	push hl
+	ldtx hl, Received20DamageDueToBurnText
+	ld a, BURN_DAMAGE
+	ld [wDuelAnimDamage], a
+	xor a
+	ld [wDuelAnimDamage + 1], a
+
+	push hl
+	call Func_6c7e
+	pop hl
+	call PrintNonTurnDuelistCardIDText
+
+; play animation
+	ld a, DUEL_ANIM_SMALL_FLAME
+	call Func_6cab
+
+; deal burn damage
+	ld e, BURN_DAMAGE
 	ld d, $00
 	ld a, DUELVARS_ARENA_CARD_HP
 	call GetTurnDuelistVariable
@@ -8114,7 +8213,7 @@ PrintThereWasNoEffectFromStatusText:
 	ldtx hl, ThereWasNoEffectFromPoisonConfusionText
 	cp POISONED | CONFUSED
 	ret z
-	and PSN_DBLPSN
+	and DOUBLE_POISONED
 	jr nz, .poison
 	ld a, c
 	and CNF_SLP_PRZ

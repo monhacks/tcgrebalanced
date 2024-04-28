@@ -989,7 +989,7 @@ ClearStatusOnSwitch:
 	jr nz, .skip_confusion
 ; clear confusion, preserve poison nybble
 	ld a, [hl]
-	and PSN_DBLPSN
+	and PSN_DBLPSN_BRN
 	ld [hl], a
 .skip_confusion
 	pop hl
