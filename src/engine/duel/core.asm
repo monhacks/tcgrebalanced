@@ -7219,6 +7219,15 @@ HandleBurnDiscardEnergy:
 	xor a  ; PLAY_AREA_ARENA
 	call CreateArenaOrBenchEnergyCardList
 	ret c  ; no energy
+
+	ld a, DUELVARS_DUELIST_TYPE
+	call GetTurnDuelistVariable
+	cp DUELIST_TYPE_LINK_OPP
+	jr z, .link_opp
+	and DUELIST_TYPE_AI_OPP
+	jr nz, .ai_opp
+
+; player
 ; offer the choice to discard an Energy
 	ldtx hl, YouMayDiscard1EnergyToHealBurnText
 	call DrawWideTextBox_WaitForInput
@@ -7227,6 +7236,20 @@ HandleBurnDiscardEnergy:
 	ret c  ; cancelled
 ; discard the selected energy
 	; ldh a, [hTempCardIndex_ff98]
+	call SerialSendByte  ; preserves a
+	jr .heal_burn
+
+.link_opp
+	call SerialRecvByte
+	jr .heal_burn
+
+.ai_opp
+; AI selects the first energy
+	ld a, [wDuelTempList]
+	; fallthrough
+
+.heal_burn
+	; a: deck index of the selected energy card
 	call PutCardInDiscardPile
 ; heal Burned status
 	ld a, DUELVARS_ARENA_CARD_STATUS
