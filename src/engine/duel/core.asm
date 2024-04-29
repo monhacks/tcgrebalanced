@@ -2694,6 +2694,8 @@ DrawDuelHUDs:
 	call CheckPrintPoisoned
 	inc c
 	call CheckPrintDoublePoisoned ; if double poisoned, print a second poison icon
+	inc c
+	call CheckPrintBurned
 	call SwapTurn
 	lb de, 7, 0 ; coordinates for opponent's arena card name and info icons
 	lb bc, 3, 1 ; coordinates for opponent's attached energies and HP bar
@@ -2707,8 +2709,10 @@ DrawDuelHUDs:
 	call CheckPrintPoisoned
 	dec c
 	call CheckPrintDoublePoisoned ; if double poisoned, print a second poison icon
-	call SwapTurn
-	ret
+	dec c
+	call CheckPrintBurned
+	jp SwapTurn
+
 
 DrawDuelHUD:
 	ld hl, wHUDEnergyAndHPBarsX
@@ -2843,8 +2847,7 @@ DrawDuelHorizontalSeparator:
 	call BankswitchVRAM1
 	ld hl, DuelHorizontalSeparatorCGBPalData
 	call WriteDataBlocksToBGMap0
-	call BankswitchVRAM0
-	ret
+	jp BankswitchVRAM0
 
 DuelEAndHPTileData:
 ; x, y, tiles[], 0
@@ -5853,6 +5856,9 @@ PrintPlayAreaCardHeader:
 	call CheckPrintPoisoned
 	inc b
 	call CheckPrintDoublePoisoned
+	dec c
+	call CheckPrintBurned
+	; inc c
 
 .skip_status
 	; finally check whether to print the Pluspower and/or Defender symbols
@@ -5881,6 +5887,17 @@ FaceDownCardTileNumbers:
 	db $d4, $02 ; stage 1
 	db $d8, $01 ; stage 2
 	db $dc, $01 ; stage 2 special
+
+; given a card's status in a, print the Burn symbol at bc if it's burned
+CheckPrintBurned:
+	push af
+	and BURNED
+	jr z, .print
+	ld a, SYM_FIRE
+.print
+	call WriteByteToBGMap0
+	pop af
+	ret
 
 ; given a card's status in a, print the Poison symbol at bc if it's poisoned
 CheckPrintPoisoned:
