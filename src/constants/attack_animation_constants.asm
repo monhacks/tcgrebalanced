@@ -121,7 +121,7 @@
 	const ATK_ANIM_LEER                   ; $74
 	const ATK_ANIM_CONFUSION_HIT          ; $75
 	const ATK_ANIM_118                    ; $76
-	const ATK_ANIM_119                    ; $77
+	const ATK_ANIM_BURN                   ; $77
 	const ATK_ANIM_BENCH_HIT              ; $78
 	const ATK_ANIM_HEAL                   ; $79
 	const ATK_ANIM_RECOIL_HIT             ; $7a

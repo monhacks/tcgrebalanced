@@ -1694,7 +1694,7 @@ PlayAttackAnimation_DealAttackDamage:
 	push de
 	push hl
 	call PlayAttackAnimation
-	call Func_741a
+	call PlayInflictStatusAnimation
 	call WaitAttackAnimation
 	pop hl
 	pop de

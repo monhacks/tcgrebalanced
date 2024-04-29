@@ -7220,7 +7220,7 @@ Func_6ba2:
 HandleOnAttackEffects:
 	ld a, POLIWHIRL  ; Splashing Attacks
 	call GetFirstPokemonWithAvailablePower
-	ret nc  ; no Pkmn Power-capable Pokémon was found
+	jr nc, HandleBurnDiscardEnergy  ; no Pkmn Power-capable Pokémon was found
 	farcall SplashingAttacks_DamageEffect
 	; jp HandleBurnDiscardEnergy
 	; fallthrough
@@ -7385,7 +7385,7 @@ HandleEndOfTurnEvents:
 
 ; apply and/or refresh status conditions and other events that trigger between turns
 HandleBetweenTurnsEvents:
-	call IsArenaPokemonPoisoned
+	call IsArenaPokemonPoisonedOrBurned
 	jr c, .something_to_handle
 	cp PARALYZED
 	jr z, .something_to_handle
@@ -7400,7 +7400,7 @@ HandleBetweenTurnsEvents:
 ; OATS poison only ticks for the turn holder
 ; OATS sleep checks are no longer done between turns
 	; call SwapTurn
-	; call IsArenaPokemonPoisoned
+	; call IsArenaPokemonPoisonedOrBurned
 	; call SwapTurn
 	; jr c, .something_to_handle
 ;.nothing_to_handle
@@ -7648,14 +7648,14 @@ DiscardAttachedDefenders:
 	ld de, DEFENDER
 	jp MoveCardToDiscardPileIfInPlayArea
 
-; return carry if the turn holder's arena Pokemon card is poisoned or double poisoned.
+; return carry if the turn holder's arena Pokemon card is poisoned or burned.
 ; also return the status condition in a.
-IsArenaPokemonPoisoned:
+IsArenaPokemonPoisonedOrBurned:
 	ld a, DUELVARS_ARENA_CARD_STATUS
 	call GetTurnDuelistVariable
 	or a
 	ret z
-	and DOUBLE_POISONED
+	and PSN_DBLPSN_BRN
 	ld a, [hl]
 	jr nz, .set_carry
 	or a
@@ -9068,7 +9068,7 @@ PlayAdhocAnimationOnDuelScene:
 	jp WaitAttackAnimation    ; preserves de, (hl, bc)?
 
 
-Func_741a:
+PlayInflictStatusAnimation:
 	ld hl, wEffectFunctionsFeedbackIndex
 	ld a, [hl]
 	or a
@@ -9097,6 +9097,9 @@ Func_741a:
 	jr z, .got_anim
 	ld e, ATK_ANIM_POISON
 	cp DOUBLE_POISONED
+	jr z, .got_anim
+	ld e, ATK_ANIM_BURN
+	cp BURNED
 	jr z, .got_anim
 	ld e, ATK_ANIM_CONFUSION
 	cp CONFUSED

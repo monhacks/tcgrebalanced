@@ -141,7 +141,7 @@ PointerTable_AttackAnimation:
 	dw AttackAnimation_Leer                ; ATK_ANIM_LEER
 	dw AttackAnimation_ConfusionHit        ; ATK_ANIM_CONFUSION_HIT
 	dw AttackAnimation_55e0                ; ATK_ANIM_118
-	dw AttackAnimation_55e5                ; ATK_ANIM_119
+	dw AttackAnimation_Burn                ; ATK_ANIM_BURN
 	dw AttackAnimation_BenchHit            ; ATK_ANIM_BENCH_HIT
 	dw AttackAnimation_Heal                ; ATK_ANIM_HEAL
 	dw AttackAnimation_RecoilHit           ; ATK_ANIM_RECOIL_HIT
@@ -831,6 +831,10 @@ AttackAnimation_RecoilHit:
 	anim_player         DUEL_ANIM_HIT
 	anim_normal         DUEL_ANIM_SHAKE3
 	anim_player         DUEL_ANIM_SHOW_DAMAGE
+	anim_end
+
+AttackAnimation_Burn:
+	anim_opponent       DUEL_ANIM_SMALL_FLAME
 	anim_end
 
 AttackAnimation_Poison:

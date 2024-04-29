@@ -1002,7 +1002,7 @@ Quickfreeze_Paralysis50PercentEffect:
 	ldh a, [hWhoseTurn]
 	ld h, a
 	bank1call PlayAttackAnimation
-	bank1call Func_741a
+	bank1call PlayInflictStatusAnimation
 	bank1call WaitAttackAnimation
 	bank1call Func_6df1
 	bank1call DrawDuelHUDs
@@ -1313,7 +1313,7 @@ Quickfreeze_Paralysis50PercentEffect: ; 2d2f3 (b:52f3)
 	ldh a, [hWhoseTurn]
 	ld h, a
 	bank1call PlayAttackAnimation
-	bank1call Func_741a
+	bank1call PlayInflictStatusAnimation
 	bank1call WaitAttackAnimation
 	bank1call Func_6df1
 	bank1call DrawDuelHUDs

@@ -2,6 +2,12 @@
 
 ## Version 0.9.0
 
+### Status Conditions Changes
+- New status condition: **Burn**.
+- A Burned Pokémon may discard an attached energy after attacking to heal the status condition.
+- A Burned Active Pokémon takes 20 damage at the end of the owner's turns.
+- Burn status remains on the Pokémon after switching out to the Bench; the condition has no effect while Benched.
+
 ### Grass Changes
 
 #### Metapod

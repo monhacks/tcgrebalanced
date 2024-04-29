@@ -46,6 +46,10 @@ PassivePowerEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, PassivePowerEffect
 	db  $00
 
+InflictBurnEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, BurnEffect
+	db  $00
+
 InflictPoisonEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PoisonEffect
 	; dbw EFFECTCMDTYPE_AI, PoisonFang_AIEffect
@@ -583,7 +587,7 @@ OutrageEffectCommands:
 ScaldEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DiscardEnergy_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PoisonEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, BurnEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, DiscardEnergy_AISelectEffect
 	db  $00

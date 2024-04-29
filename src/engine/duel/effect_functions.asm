@@ -729,7 +729,7 @@ StepIn_SwitchEffect:
 EvolutionaryFlame_DamageBurnEffect:
 	xor a  ; PLAY_AREA_ARENA
 	ldh [hTempPlayAreaLocation_ffa1], a
-	call PoisonEffect
+	call BurnEffect
 	jp Deal20DamageToTarget_DamageEffect
 
 
@@ -1134,7 +1134,7 @@ ScorchingColumn_DamageBurnEffect:
 	call ScorchingColumn_MultiplierEffect
 	ldh a, [hTemp_ffa0]
 	cp 2
-	jp nc, PoisonEffect
+	jp nc, BurnEffect
 	ret
 
 
