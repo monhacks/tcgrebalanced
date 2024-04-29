@@ -7804,7 +7804,7 @@ HandleBurnDamage:
 	call PrintNonTurnDuelistCardIDText
 
 ; play animation
-	ld a, DUEL_ANIM_BURN
+	ld a, DUEL_ANIM_SMALL_FLAME
 	call Func_6cab
 
 ; deal burn damage
