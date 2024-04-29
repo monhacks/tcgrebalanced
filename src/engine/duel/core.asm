@@ -7922,7 +7922,7 @@ Func_6df1:
 .asm_6e23
 	ld a, [hli]
 	or a
-	jr z, .asm_6e37
+	ret z
 	ld d, a
 	ld a, [wWhoseTurn]
 	cp d
@@ -7933,8 +7933,7 @@ Func_6df1:
 .asm_6e32
 	call ApplyStatusConditionToArenaPokemon
 	jr .asm_6e23
-.asm_6e37
-	ret
+
 
 ; apply the status condition at hl+1 to the arena Pokemon
 ; discard the arena Pokemon's status conditions contained in the bitmask at hl
