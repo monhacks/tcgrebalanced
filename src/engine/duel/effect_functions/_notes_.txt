@@ -8,6 +8,13 @@ It seems that, in many Pokémon sets, at least for Evolved Pokémon, there is a
 Spread damage to full Bench seems to be valued at 25 or 30 points.
 
 
+Poison should be valued somewhere between 5 and 10 points.
+Burn should be valued at 15 points.
+Paralysis should be valued between 15 and 20 points.
+Sleep should be valued at 15 points.
+Confusion should be valued at 15 points.
+
+
 ; ------------------------------------------------------------------------------
 ; Concepts - Lightning
 ; ------------------------------------------------------------------------------
