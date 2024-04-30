@@ -401,11 +401,23 @@ DuelMainInterface:
 	ld [wPlayerAttackingAttackIndex], a
 	ret
 
+
 PrintDuelMenuAndHandleInput:
 	call DrawWideTextBox
 	ld hl, DuelMenuData
 	call PlaceTextItems
-.menu_items_printed
+; OATS print extra icons beside the Done button
+	lb bc, 17, 16
+	ld a, DUELVARS_ARENA_CARD_STATUS
+	call GetTurnDuelistVariable
+	call CheckPrintPoisoned
+	inc b
+	call CheckPrintBurned
+
+	; jr SaveDuelDataAndHandleDuelMenuInput
+	; fallthrough
+
+SaveDuelDataAndHandleDuelMenuInput:
 	call SaveDuelData
 	ld a, [wDuelFinished]
 	or a
@@ -458,12 +470,23 @@ DuelMenuFunctionTable:
 	dw DuelMenu_Done
 
 
+DuelMenuData:
+	; x, y, text id
+	textitem 3,  14, HandText
+	textitem 9,  14, CheckText
+	textitem 15, 14, RetreatText
+	textitem 3,  16, AttackText
+	textitem 9,  16, PKMNPowerText
+	textitem 15, 16, DoneText
+	db $ff
+
+
 DrawCardFromDeckToHand:
 	call DrawCardFromDeck
 	call nc, AddCardToHand
 	ld a, OPPACTION_DRAW_CARD
 	call SetOppAction_SerialSendDuelData
-	jp PrintDuelMenuAndHandleInput.menu_items_printed
+	jp SaveDuelDataAndHandleDuelMenuInput
 
 
 ; triggered by pressing B + UP in the duel menu
@@ -3277,21 +3300,8 @@ DisplayDuelistTurnScreen:
 	call DrawDuelBoxMessage
 	ldtx hl, DuelistTurnText
 	call DrawWideTextBox_WaitForInput
-	call ExchangeRNG
-	ret
+	jp ExchangeRNG
 
-Unknown_54e2: ; unreferenced
-	db $00, $0c, $06, $0f, $00, $00, $00
-
-DuelMenuData:
-	; x, y, text id
-	textitem 3,  14, HandText
-	textitem 9,  14, CheckText
-	textitem 15, 14, RetreatText
-	textitem 3,  16, AttackText
-	textitem 9,  16, PKMNPowerText
-	textitem 15, 16, DoneText
-	db $ff
 
 ; display the screen that prompts the player to choose a Pokemon card to
 ; place in the arena or in the bench at the beginning of the duel.

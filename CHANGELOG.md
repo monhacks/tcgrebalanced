@@ -92,7 +92,7 @@
 - **Constrict**: removed.
 - New attack: **Ancient Call** (WC): 20 damage; add a Pokémon card from the deck to hand.
 
-#### Omanstar
+#### Omastar
 - Increased HP from 100 to 110.
 
 ### Lightning Changes
@@ -162,6 +162,9 @@
 #### Porygon
 - **Conversion Beam**: reduced cost from (CCC) to (CC).
 
+### Game Menu Changes
+- Updated Glossary pages.
+- Updated the main Duel menu to display damaging status icons (Poison, Burn) right after the **Done** button, if applicable.
 
 ## Version 0.8.0
 
