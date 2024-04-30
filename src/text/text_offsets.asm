@@ -2792,6 +2792,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ReturnToDeckDescription
 	textpointer StepInName
 	textpointer StepInDescription
+	textpointer VampiricAuraName
+	textpointer VampiricAuraDescription
 
 ; ------------------------------------------------------------------------------
 ; text12.asm

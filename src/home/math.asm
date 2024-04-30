@@ -60,6 +60,24 @@ ADividedBy10:
 	ret
 
 
+; returns a /= 2 rounded up
+HalfARoundedUp:
+	srl a
+	bit 0, a
+	ret z  ; rounded
+	add 5  ; round up to nearest 10
+	ret
+
+
+; returns a /= 2 rounded down
+HalfARoundedDown:
+	srl a
+	bit 0, a
+	ret z  ; rounded
+	sub 5  ; round down to nearest 10
+	ret
+
+
 ; Doubles the current value at de
 DoubleDE:
 	ld a, e

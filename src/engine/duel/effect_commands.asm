@@ -1501,10 +1501,6 @@ Deal10ToAnyPokemonEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, DamageTargetPokemon_AISelectEffect
 	db  $00
 
-NightAmbushEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, TargetedPoisonEffect
-	; fallthrough
-
 Deal20ToAnyPokemonEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Deal20DamageToTarget_DamageEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DamageTargetPokemon_PlayerSelectEffect
@@ -1519,6 +1515,10 @@ Deal20ToAnyPokemonEffectCommands:
 ; 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
 ; 	dbw EFFECTCMDTYPE_AI_SELECTION, DiscardEnergy_DamageTargetPokemon_AISelectEffect
 	; fallthrough
+
+NightAmbushEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, TargetedPoisonEffect
+	; fallthrough to Deal30ToAnyPokemonEffectCommands
 
 Deal30ToAnyPokemonEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Deal30DamageToTarget_DamageEffect

@@ -512,6 +512,28 @@ IsPrehistoricPowerActive:
 	ret
 
 
+; returns carry if the turn holder's Active Pokémon benefits
+; from Splashing Attacks
+; output:
+;   carry: set if Splashing Attacks is active
+IsSplashingAttacksActive:
+	ld b, PLAY_AREA_ARENA
+	ld c, WATER
+	ld e, POLIWHIRL
+	jr IsSpecialEnergyPowerActive
+
+
+; returns carry if the turn holder's Active Pokémon benefits
+; from Vampiric Aura
+; output:
+;   carry: set if Vampiric Aura is active
+IsVampiricAuraActive:
+	ld b, PLAY_AREA_ARENA
+	ld c, DARKNESS
+	ld e, GOLBAT
+	jr IsSpecialEnergyPowerActive
+
+
 ; returns carry if the turn holder's Pokémon in the given location
 ; benefits from Dark Retribution
 ; input:

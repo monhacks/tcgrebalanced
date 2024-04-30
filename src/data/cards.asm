@@ -1165,7 +1165,7 @@ ZubatCard:
 	dw NONE ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
+	energy 0 ; energies
 	tx SurpriseBiteName ; name
 	tx SurpriseBiteDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
@@ -1216,7 +1216,21 @@ GolbatCard:
 	tx ZubatName ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 2 ; energies
+	energy 0 ; energies
+	tx VampiricAuraName ; name
+	tx VampiricAuraDescription ; description
+	tx PokemonPowerDescriptionCont ; description (cont)
+	db 0 ; damage
+	db POKEMON_POWER ; category
+	dw PassivePowerEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_PKMN_POWER_1 ; animation
+
+	; attack 2
+	energy DARKNESS, 1, COLORLESS, 1 ; energies
 	tx NightAmbushName ; name
 	tx NightAmbushDescription ; description
 	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
@@ -1228,20 +1242,6 @@ GolbatCard:
 	db NONE ; flags 3
 	db 2
 	db ATK_ANIM_AGILITY_NO_HIT ; animation
-
-	; attack 2
-	energy DARKNESS, 1, COLORLESS, 2 ; energies
-	tx LeechLifeName ; name
-	tx LeechLifeDescription ; description
-	dw NONE ; description (cont)
-	db 30 ; damage
-	db DAMAGE_NORMAL ; category
-	dw LeechLifeEffectCommands ; effect commands
-	db NONE ; flags 1
-	db HEAL_USER ; flags 2
-	db NONE ; flags 3
-	db 3
-	db ATK_ANIM_DRAIN ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness

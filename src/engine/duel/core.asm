@@ -7226,14 +7226,14 @@ Func_6ba2:
 
 
 HandleOnAttackEffects:
-	ld a, POLIWHIRL  ; Splashing Attacks
-	call GetFirstPokemonWithAvailablePower
-	jr nc, .vampiric_aura  ; no Pkmn Power-capable Pokémon was found
-	farcall SplashingAttacks_DamageEffect
-.vampiric_aura
-	ld a, GOLBAT  ; Vampiric Aura
-	call GetFirstPokemonWithAvailablePower
-	jr nc, HandleBurnDiscardEnergy  ; no Pkmn Power-capable Pokémon was found
+	call IsVampiricAuraActive
+	jr nc, .splashing_attacks
+	; farcall Leech10DamageEffect
+	; farcall LeechHalfDamageEffect
+	farcall LeechUpTo20DamageEffect
+.splashing_attacks
+	call IsSplashingAttacksActive
+	jr nc, HandleBurnDiscardEnergy
 	farcall SplashingAttacks_DamageEffect
 	; jp HandleBurnDiscardEnergy
 	; fallthrough

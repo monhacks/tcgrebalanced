@@ -1676,3 +1676,16 @@ StepInDescription:
 	line "Then, switch this Pokémon with"
 	line "your Active Pokémon."
 	done
+
+VampiricAuraName:
+	text "Vampiric Aura"
+	done
+
+VampiricAuraDescription:
+	text "If your Active Pokémon has any"
+	line "attached <DARKNESS> Energy, its attacks"
+	line "that do damage to the Defending"
+	line "Pokémon also heal your Active"
+	line "Pokémon for up to 20 damage (10 if"
+	line "the attack only did 10 damage)."
+	done

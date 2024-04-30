@@ -1,6 +1,21 @@
 
 
 ; attack 2
+energy DARKNESS, 1, COLORLESS, 2 ; energies
+tx LeechLifeName ; name
+tx LeechLifeDescription ; description
+dw NONE ; description (cont)
+db 30 ; damage
+db DAMAGE_NORMAL ; category
+dw LeechLifeEffectCommands ; effect commands
+db NONE ; flags 1
+db HEAL_USER ; flags 2
+db NONE ; flags 3
+db 3
+db ATK_ANIM_DRAIN ; animation
+
+
+; attack 2
 energy WATER, 1, COLORLESS, 1 ; energies
 tx AquaBurstName ; name
 tx OptionalDiscard1Energy10BonusDamageDescription ; description

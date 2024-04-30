@@ -2,6 +2,17 @@
 ; Healing
 ; ------------------------------------------------------------------------------
 
+LeechHalfDamageEffect:
+	ld hl, wDealtDamage
+	ld a, [hli]  ; wDamageEffectiveness
+	or a
+	ret z  ; no damage
+	call HalfARoundedUp
+	ld e, a
+	ld d, [hl]
+	jr ApplyAndAnimateHPRecovery
+
+
 LeechLifeEffect:
 	ld hl, wDealtDamage
 	ld e, [hl]
@@ -20,6 +31,16 @@ Leech10DamageEffect:
 Heal10DamageEffect:
 	ld de, 10
 	jr ApplyAndAnimateHPRecovery
+
+
+LeechUpTo20DamageEffect:
+	ld hl, wDealtDamage
+	ld a, [hli]
+	or a
+	ret z ; return if no damage dealt
+	cp 20
+	jr c, Heal10DamageEffect
+	jr Heal20DamageEffect
 
 
 Leech20DamageEffect:

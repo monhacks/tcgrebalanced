@@ -166,6 +166,10 @@
 - New Pokémon Power: **Surprise Bite**: 10 damage to 1 of the opponent's Benched Pokémon that has no damage counters.
 - New attack: **Swarm** (D): 10 damage; put 1 Basic Pokémon from deck onto play; if the Bench was full, +10 damage.
 
+#### Golbat
+- **Leech Life**: removed.
+- New Pokémon Power: **Vampiric Aura**: the user's Pokémon with attached (D) Energy leech up to 20 damage when attacking.
+
 ### Colorless Changes
 
 #### Doduo

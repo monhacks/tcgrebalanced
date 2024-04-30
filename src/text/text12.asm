@@ -896,7 +896,7 @@ NightAmbushName:
 	done
 
 NightAmbushDescription:
-	text "This attack does 20 damage to 1"
+	text "This attack does 30 damage to 1"
 	line "of your opponent's Pokémon."
 	line "That Pokémon is now Poisoned."
 	; line "You may switch this Pokémon with"
