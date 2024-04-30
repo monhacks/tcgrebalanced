@@ -73,16 +73,19 @@ PrimalHuntEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, ChoosePokemonFromDeck_AISelectEffect
 	db  $00
 
-LureEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Lure_AssertPokemonInBench
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Lure_SwitchAndTrapDefendingPokemon
+AbilityLureEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, LureAbility_AssertPokemonInBench
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, LureAbility_SwitchDefendingPokemon
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Lure_SelectSwitchPokemon
-	dbw EFFECTCMDTYPE_AI_SELECTION, Lure_GetOpponentBenchPokemonWithLowestHP
 	db  $00
 
 PoisonLureEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Lure_AssertPokemonInBench
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, PoisonLure_SwitchEffect
+	; fallthrough to LureEffectCommands
+
+LureEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckOpponentBenchIsNotEmpty
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Lure_SwitchAndTrapDefendingPokemon
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Lure_SelectSwitchPokemon
 	dbw EFFECTCMDTYPE_AI_SELECTION, Lure_GetOpponentBenchPokemonWithLowestHP
 	db  $00
@@ -1431,14 +1434,12 @@ MoveOpponentEnergyToBenchEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, OptionalMoveOpponentEnergyToBench_AISelectEffect
 	db  $00
 
-WhirlwindEffectCommands:
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Whirlwind_SwitchEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Whirlwind_SelectEffect
-	dbw EFFECTCMDTYPE_AI_SWITCH_DEFENDING_PKMN, Whirlwind_SelectEffect
-	db  $00
-
 RamEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Ram_RecoilSwitchEffect
+	; fallthrough to WhirlwindEffectCommands
+
+WhirlwindEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Whirlwind_SwitchEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Whirlwind_SelectEffect
 	dbw EFFECTCMDTYPE_AI_SWITCH_DEFENDING_PKMN, Whirlwind_SelectEffect
 	db  $00

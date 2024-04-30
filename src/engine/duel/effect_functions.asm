@@ -2276,12 +2276,13 @@ BenchSelectionMenuParameters: ; 2c6e8 (b:46e8)
 	dw NULL ; function pointer if non-0
 
 ; return carry if there are no Pokemon cards in the non-turn holder's bench
-Lure_AssertPokemonInBench:
-	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	call GetNonTurnDuelistVariable
-	ldtx hl, EffectNoPokemonOnTheBenchText
-	cp 2
-	ret
+LureAbility_AssertPokemonInBench:
+	; call Lure_AssertPokemonInBench
+	call CheckOpponentBenchIsNotEmpty
+	ret c
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ldh [hTempPlayAreaLocation_ffa1], a
+	jp CheckPokemonPowerCanBeUsed
 
 ; return in hTempPlayAreaLocation_ffa1 the PLAY_AREA_* location
 ; of the Bench Pokemon that was selected for switch
@@ -2326,6 +2327,13 @@ PoisonLure_SwitchEffect:
 Lure_SwitchAndTrapDefendingPokemon:
 	call Lure_SwitchDefendingPokemon
 	jp UnableToRetreatEffect
+
+
+LureAbility_SwitchDefendingPokemon:
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	ldh [hTempPlayAreaLocation_ff9d], a
+	call SetUsedPokemonPowerThisTurn
+	jp Lure_SwitchDefendingPokemon
 
 
 ; If heads, defending Pokemon becomes poisoned. If tails, defending Pokemon becomes confused
