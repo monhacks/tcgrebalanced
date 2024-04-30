@@ -87,19 +87,6 @@ HblankWriteByteToBGMap0:
 	pop hl
 	ret
 
-; copy a bytes of data from hl to vBGMap0 address pointed to by coord at bc
-CopyDataToBGMap0:
-	push bc
-	push hl
-	push af
-	call BCCoordToBGMap0Address
-	pop af
-	ld b, a
-	pop hl
-	call SafeCopyDataHLtoDE
-	pop bc
-	ret
-
 ; copy b bytes of data from hl to de
 ; if LCD on, copy during h-blank only
 SafeCopyDataHLtoDE: ; 6fc (0:6fc)

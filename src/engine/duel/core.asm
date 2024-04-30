@@ -7228,6 +7228,11 @@ Func_6ba2:
 HandleOnAttackEffects:
 	ld a, POLIWHIRL  ; Splashing Attacks
 	call GetFirstPokemonWithAvailablePower
+	jr nc, .vampiric_aura  ; no Pkmn Power-capable Pokémon was found
+	farcall SplashingAttacks_DamageEffect
+.vampiric_aura
+	ld a, GOLBAT  ; Vampiric Aura
+	call GetFirstPokemonWithAvailablePower
 	jr nc, HandleBurnDiscardEnergy  ; no Pkmn Power-capable Pokémon was found
 	farcall SplashingAttacks_DamageEffect
 	; jp HandleBurnDiscardEnergy
@@ -9297,4 +9302,453 @@ DecideLinkDuelVariables:
 	ret
 .link_continue
 	or a
+	ret
+
+
+; ------------------------------------------------------------------------------
+; Imports from home/menus.asm
+; ------------------------------------------------------------------------------
+
+
+; handle input for the 2-row 3-column duel menu.
+; only handles input not involving the B, START, or SELECT buttons, that is,
+; navigating through the menu or selecting an item with the A button.
+; other input in handled by PrintDuelMenuAndHandleInput.handle_input
+HandleDuelMenuInput:
+	ldh a, [hDPadHeld]
+	or a
+	jr z, .blink_cursor
+	ld b, a
+	ld hl, wCurMenuItem
+	and D_UP | D_DOWN
+	jr z, .check_left
+	ld a, [hl]
+	xor 1 ; move to the other menu item in the same column
+	jr .dpad_pressed
+.check_left
+	bit D_LEFT_F, b
+	jr z, .check_right
+	ld a, [hl]
+	sub 2
+	jr nc, .dpad_pressed
+	; wrap to the rightmost item in the same row
+	and 1
+	add 4
+	jr .dpad_pressed
+.check_right
+	bit D_RIGHT_F, b
+	jr z, .dpad_not_pressed
+	ld a, [hl]
+	add 2
+	cp 6
+	jr c, .dpad_pressed
+	; wrap to the leftmost item in the same row
+	and 1
+.dpad_pressed
+	push af
+	ld a, SFX_01
+	call PlaySFX
+	call .erase_cursor
+	pop af
+	ld [wCurMenuItem], a
+	ldh [hCurMenuItem], a
+	xor a
+	ld [wCursorBlinkCounter], a
+	jr .blink_cursor
+.dpad_not_pressed
+	ldh a, [hDPadHeld]
+	and A_BUTTON
+	jp nz, HandleMenuInput.A_pressed
+.blink_cursor
+	; blink cursor every 16 frames
+	ld hl, wCursorBlinkCounter
+	ld a, [hl]
+	inc [hl]
+	and $f
+	ret nz
+	ld a, SYM_CURSOR_R
+	bit 4, [hl]
+	jr z, .draw_cursor
+.erase_cursor
+	ld a, SYM_SPACE
+.draw_cursor
+	ld e, a
+	ld a, [wCurMenuItem]
+	add a
+	ld c, a
+	ld b, $0
+	ld hl, DuelMenuCursorCoords
+	add hl, bc
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	ld a, e
+	call WriteByteToBGMap0
+	ld a, [wCurMenuItem]
+	ld e, a
+	or a
+	ret
+
+DuelMenuCursorCoords:
+	db  2, 14 ; Hand
+	db  2, 16 ; Attack
+	db  8, 14 ; Check
+	db  8, 16 ; Pkmn Power
+	db 14, 14 ; Retreat
+	db 14, 16 ; Done
+
+
+; set wCurMenuItem, and hCurMenuItem to a, and zero wCursorBlinkCounter
+SetMenuItem:
+	ld [wCurMenuItem], a
+	ldh [hCurMenuItem], a
+	xor a
+	ld [wCursorBlinkCounter], a
+	ret
+
+
+; initializes parameters for a card list (e.g. list of hand cards in a duel, or booster pack cards)
+; input:
+; a = list length
+; de = initial page scroll offset, initial item (in the visible page)
+; hl: 9 bytes with the rest of the parameters
+InitializeCardListParameters:
+	ld [wNumListItems], a
+	ld a, d
+	ld [wListScrollOffset], a
+	ld a, e
+	ld [wCurMenuItem], a
+	add d
+	ldh [hCurMenuItem], a
+	ld a, [hli]
+	ld [wCursorXPosition], a
+	ld a, [hli]
+	ld [wCursorYPosition], a
+	ld a, [hli]
+	ld [wListItemXPosition], a
+	ld a, [hli]
+	ld [wListItemNameMaxLength], a
+	ld a, [hli]
+	ld [wNumMenuItems], a
+	ld a, [hli]
+	ld [wCursorTile], a
+	ld a, [hli]
+	ld [wTileBehindCursor], a
+	ld a, [hli]
+	ld [wListFunctionPointer], a
+	ld a, [hli]
+	ld [wListFunctionPointer + 1], a
+	xor a
+	ld [wCursorBlinkCounter], a
+	ld a, 1
+	ld [wYDisplacementBetweenMenuItems], a
+	ret 
+
+
+; print the items of a list of cards (hand cards in a duel, cards from a booster pack...)
+; and initialize the parameters of the list given:
+; wDuelTempList = card list source
+; a = list length
+; de = initial page scroll offset, initial item (in the visible page)
+; hl: 9 bytes with the rest of the parameters
+PrintCardListItems:
+	call InitializeCardListParameters
+	ld hl, wMenuFunctionPointer
+	ld a, LOW(CardListMenuFunction)
+	ld [hli], a
+	ld a, HIGH(CardListMenuFunction)
+	ld [hli], a
+	ld a, 2
+	ld [wYDisplacementBetweenMenuItems], a
+	ld a, 1
+	ld [wCardListIndicatorYPosition], a
+	;	fallthrough
+
+; like PrintCardListItems, except more parameters are already initialized
+; called instead of PrintCardListItems to reload the list after moving up or down
+ReloadCardListItems:
+	ld e, SYM_SPACE
+	ld a, [wListScrollOffset]
+	or a
+	jr z, .cant_go_up
+	ld e, SYM_CURSOR_U
+.cant_go_up
+	ld a, [wCursorYPosition]
+	dec a
+	ld c, a
+	ld b, 18
+	ld a, e
+	call WriteByteToBGMap0
+	ld e, SYM_SPACE
+	ld a, [wListScrollOffset]
+	ld hl, wNumMenuItems
+	add [hl]
+	ld hl, wNumListItems
+	cp [hl]
+	jr nc, .cant_go_down
+	ld e, SYM_CURSOR_D
+.cant_go_down
+	ld a, [wNumMenuItems]
+	add a
+	add c
+	dec a
+	ld c, a
+	ld a, e
+	call WriteByteToBGMap0
+	ld a, [wListScrollOffset]
+	ld e, a
+	ld d, $00
+	ld hl, wDuelTempList
+	add hl, de
+	ld a, [wNumMenuItems]
+	ld b, a
+	ld a, [wListItemXPosition]
+	ld d, a
+	ld a, [wCursorYPosition]
+	ld e, a
+	ld c, $00
+.next_card
+	ld a, [hl]
+	cp $ff
+	jr z, .done
+	push hl
+	push bc
+	push de
+	call LoadCardDataToBuffer1_FromDeckIndex
+	call DrawCardSymbol
+	call InitTextPrinting
+	ld a, [wListItemNameMaxLength]
+	call CopyCardNameAndLevel
+	ld hl, wDefaultText
+	call ProcessText
+	pop de
+	pop bc
+	pop hl
+	inc hl
+	ld a, [wNumListItems]
+	dec a
+	inc c
+	cp c
+	jr c, .done
+	inc e
+	inc e
+	dec b
+	jr nz, .next_card
+.done
+	ret
+
+
+; this function is always loaded to wMenuFunctionPointer by PrintCardListItems
+; takes care of things like handling page scrolling and calling the function at wListFunctionPointer
+CardListMenuFunction:
+	ldh a, [hDPadHeld]
+	ld b, a
+	ld a, [wNumMenuItems]
+	dec a
+	ld c, a
+	ld a, [wCurMenuItem]
+	bit D_UP_F, b
+	jr z, .not_up
+	cp c
+	jp nz, .continue
+	; we're at the top of the page
+	xor a
+	ld [wCurMenuItem], a ; set to first item
+	ld hl, wListScrollOffset
+	ld a, [hl]
+	or a ; can we scroll up?
+	jr z, .no_more_items
+	dec [hl] ; scroll page up
+	call ReloadCardListItems
+	jp .continue
+.not_up
+	bit D_DOWN_F, b
+	jr z, .not_down
+	or a
+	jr nz, .not_last_visible_item
+	; we're at the bottom of the page
+	ld a, c
+	ld [wCurMenuItem], a ; set to last item
+	ld a, [wListScrollOffset]
+	add c
+	inc a
+	ld hl, wNumListItems
+	cp [hl] ; can we scroll down?
+	jr z, .no_more_items
+	ld hl, wListScrollOffset
+	inc [hl] ; scroll page down
+	call ReloadCardListItems
+	jp .continue
+.not_last_visible_item
+	; this appears to be a redundant check
+	ld hl, wListScrollOffset
+	add [hl]
+	ld hl, wNumListItems
+	cp [hl]
+	jp c, .continue ; should always jump
+	ld hl, wCurMenuItem
+	dec [hl]
+.no_more_items
+	xor a
+	ld [wRefreshMenuCursorSFX], a
+	jp .continue
+.not_down
+	bit D_LEFT_F, b
+	jr z, .not_left
+	ld a, [wListScrollOffset]
+	or a
+	jr z, .continue
+	ld hl, wNumMenuItems
+	sub [hl]
+	jr c, .top_of_page_reached
+	ld [wListScrollOffset], a
+	call ReloadCardListItems
+	jr .continue
+.top_of_page_reached
+	call EraseCursor
+	ld a, [wListScrollOffset]
+	ld hl, wCurMenuItem
+	add [hl]
+	ld c, a
+	ld hl, wNumMenuItems
+	sub [hl]
+	jr nc, .asm_28c4
+	add [hl]
+.asm_28c4
+	ld [wCurMenuItem], a
+	xor a
+	ld [wListScrollOffset], a
+	ld [wRefreshMenuCursorSFX], a
+	call ReloadCardListItems
+	jr .continue
+.not_left
+	bit D_RIGHT_F, b
+	jr z, .continue
+	ld a, [wNumMenuItems]
+	ld hl, wNumListItems
+	cp [hl]
+	jr nc, .continue
+	ld a, [wListScrollOffset]
+	ld hl, wNumMenuItems
+	add [hl]
+	ld c, a
+	add [hl]
+	dec a
+	ld hl, wNumListItems
+	cp [hl]
+	jr nc, .asm_28f9
+	ld a, c
+	ld [wListScrollOffset], a
+	call ReloadCardListItems
+	jr .continue
+.asm_28f9
+	call EraseCursor
+	ld a, [wListScrollOffset]
+	ld hl, wCurMenuItem
+	add [hl]
+	ld c, a
+	ld a, [wNumListItems]
+	ld hl, wNumMenuItems
+	sub [hl]
+	ld [wListScrollOffset], a
+	ld b, a
+	ld a, c
+	sub b
+	jr nc, .asm_2914
+	add [hl]
+.asm_2914
+	ld [wCurMenuItem], a
+	call ReloadCardListItems
+.continue
+	ld a, [wListScrollOffset]
+	ld hl, wCurMenuItem
+	add [hl]
+	ldh [hCurMenuItem], a
+	ld a, [wCardListIndicatorYPosition]
+	cp $ff
+	jr z, .skip_printing_indicator
+	; print <sel_item>/<num_items>
+	ld c, a
+	ldh a, [hCurMenuItem]
+	inc a
+	call OneByteNumberToTxSymbol_TrimLeadingZeros
+	ld b, 13
+	ld a, 2
+	call CopyDataToBGMap0
+	ld b, 15
+	ld a, SYM_SLASH
+	call WriteByteToBGMap0
+	ld a, [wNumListItems]
+	call OneByteNumberToTxSymbol_TrimLeadingZeros
+	ld b, 16
+	ld a, 2
+	call CopyDataToBGMap0
+.skip_printing_indicator
+	ld hl, wListFunctionPointer
+	ld a, [hli]
+	or [hl]
+	jr z, .no_list_function
+	ld a, [hld]
+	ld l, [hl]
+	ld h, a
+	ldh a, [hCurMenuItem]
+	jp hl ; execute the function at wListFunctionPointer
+.no_list_function
+	ldh a, [hKeysPressed]
+	and A_BUTTON | B_BUTTON
+	ret z
+	and B_BUTTON
+	jr nz, .pressed_b
+	scf
+	ret
+.pressed_b
+	ld a, $ff
+	ldh [hCurMenuItem], a
+	scf
+	ret
+
+; convert the number at a to TX_SYMBOL text format and write it to wDefaultText
+; replace leading zeros with SYM_SPACE
+OneByteNumberToTxSymbol_TrimLeadingZeros:
+	call OneByteNumberToTxSymbol
+	ld a, [hl]
+	cp SYM_0
+	ret nz
+	ld [hl], SYM_SPACE
+	ret
+
+
+; convert the number at a to TX_SYMBOL text format and write it to wDefaultText
+OneByteNumberToTxSymbol:
+	ld hl, wDefaultText
+	push hl
+	ld e, SYM_0 - 1
+.first_digit_loop
+	inc e
+	sub 10
+	jr nc, .first_digit_loop
+	ld [hl], e ; first digit
+	inc hl
+	add SYM_0 + 10
+	ld [hli], a ; second digit
+	ld [hl], SYM_SPACE
+	pop hl
+	ret
+
+
+; ------------------------------------------------------------------------------
+; Imports from home/bg_map.asm
+; ------------------------------------------------------------------------------
+
+; copy a bytes of data from hl to vBGMap0 address pointed to by coord at bc
+CopyDataToBGMap0:
+	push bc
+	push hl
+	push af
+	call BCCoordToBGMap0Address
+	pop af
+	ld b, a
+	pop hl
+	call SafeCopyDataHLtoDE
+	pop bc
 	ret
