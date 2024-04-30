@@ -821,15 +821,18 @@ EnergyCardsDescriptionText: ; 3dcb2 (f:5cb2)
 	done
 
 TrainerCardsDescriptionText: ; 3ddbe (f:5dbe)
-	text "Trainer Cards are support cards."
-	line "There are many Trainer Cards"
-	line "with different effects."
-	line "Trainer Cards are played during"
-	line "your turn by following the"
-	line "instructions on the card and then"
-	line "discarding it."
-	line "You may use as many Trainer Cards"
-	line "as you like."
+	text "Trainer Cards are support cards,"
+	line "with many different effects."
+	line "They are played during your turn"
+	line "by following the instructions on"
+	line "the card and then discarding it."
+	line "There are 2 types of Trainer Cards."
+	line ""
+	line "[Item] You may use as many Item"
+	line "   Cards as you like."
+	line ""
+	line "[Supporter] You may only use one"
+	line "   Supporter Card per turn."
 	done
 
 BasicPokemonDescriptionText: ; 3deb0 (f:5eb0)
