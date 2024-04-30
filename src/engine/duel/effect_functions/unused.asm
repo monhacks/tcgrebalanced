@@ -1,5 +1,57 @@
 ;
 
+GaleEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, GaleEffect
+	db  $00
+
+GaleEffect:
+	call HandleNoDamageOrEffect
+	ret c ; is unaffected
+
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetNonTurnDuelistVariable
+	or a
+	ret z ; return if Pokemon was KO'd
+
+; look at all the card locations and put all cards
+; that are in the Arena in the hand.
+	call SwapTurn
+	ld a, DUELVARS_CARD_LOCATIONS
+	call GetTurnDuelistVariable
+.loop_locations
+	ld a, [hl]
+	cp CARD_LOCATION_ARENA
+	jr nz, .next_card
+	; card in Arena found, put in hand
+	ld a, l
+	call AddCardToHand
+.next_card
+	inc l
+	ld a, l
+	cp DECK_SIZE
+	jr c, .loop_locations
+
+; empty the Arena card slot
+	ld l, DUELVARS_ARENA_CARD
+	ld a, [hl]
+	ld [hl], $ff
+	ld l, DUELVARS_ARENA_CARD_HP
+	ld [hl], 0
+	call LoadCardDataToBuffer1_FromDeckIndex
+	ld hl, wLoadedCard1Name
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call LoadTxRam2
+	ldtx hl, PokemonAndAllAttachedCardsReturnedToHandText
+	call DrawWideTextBox_WaitForInput
+	xor a
+	ld [wDuelDisplayedScreen], a
+	jp SwapTurn
+
+
+
+
 DiscardEnergy_PlayerSelectEffect:
 	xor a ; PLAY_AREA_ARENA
 	call CreateArenaOrBenchEnergyCardList
