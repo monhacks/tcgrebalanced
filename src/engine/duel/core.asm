@@ -5758,8 +5758,8 @@ PrintPlayAreaCardInformation:
 	ld e, a
 	ld d, 7
 	ldtx hl, KnockOutText
-	call InitTextPrinting_ProcessTextFromID
-	ret
+	jp InitTextPrinting_ProcessTextFromID
+
 
 ; print a turn holder's play area Pokemon card's name, level, face down stage card,
 ; color symbol, status symbol (if any), and pluspower/defender symbols (if any).
@@ -5984,8 +5984,8 @@ PrintPlayAreaCardAttachedEnergies:
 	call BCCoordToBGMap0Address
 	ld hl, wDefaultText
 	ld b, NUM_TYPES
-	call SafeCopyDataHLtoDE
-	ret
+	jp SafeCopyDataHLtoDE
+
 
 Func_6423:
 	ld hl, wDefaultText
@@ -6098,8 +6098,8 @@ Func_64b0:
 	jr nz, .asm_64ca
 	ld a, b
 	ld [wNumPlayAreaItems], a
-	call EnableLCD
-	ret
+	jp EnableLCD
+
 
 Func_64fc:
 	ld a, [wLoadedCard1Atk1Category]
@@ -6110,8 +6110,8 @@ Func_64fc:
 	ld e, a
 	ld d, $04
 	ld hl, wLoadedCard1Atk1Name
-	call InitTextPrinting_ProcessTextFromPointerToID
-	ret
+	jp InitTextPrinting_ProcessTextFromPointerToID
+
 
 ; display the screen that prompts the player to use the selected card's
 ; Pokemon Power. Includes the card's information above, and the Pokemon Power's
@@ -6362,8 +6362,8 @@ PrintUsedTrainerCardDescription:
 	call ProcessTextFromPointerToID
 	call SetOneLineSeparation
 	ldtx hl, UsedText
-	call DrawWideTextBox_WaitForInput
-	ret
+	jp DrawWideTextBox_WaitForInput
+
 
 ; save data of the current duel to sCurrentDuel
 ; byte 0 is $01, bytes 1 and 2 are the checksum, byte 3 is [wDuelType]
@@ -6431,8 +6431,8 @@ SaveDuelDataToDE:
 	inc hl
 	ld a, [wDuelType]
 	ld [hl], a ; sCurrentDuelData
-	call DisableSRAM
-	ret
+	jp DisableSRAM
+
 
 ; loads current Duel data from SRAM and also general save data
 ; if the data is not valid, returns carry
@@ -6465,7 +6465,7 @@ LoadSavedDuelData:
 	inc hl
 	ld a, c
 	or b
-	jr z, .done
+	jp z, DisableSRAM  ; done
 	push hl
 	push bc
 	ld c, [hl]
@@ -6485,9 +6485,7 @@ LoadSavedDuelData:
 	inc hl
 	inc hl
 	jr .next_block
-.done
-	call DisableSRAM
-	ret
+
 
 DuelDataToSave:
 ;	dw address, number of bytes to copy
@@ -6565,8 +6563,8 @@ DiscardSavedDuelData:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	call DisableSRAM
-	ret
+	jp DisableSRAM
+
 
 ; loads a player deck using index a instead of selected deck
 LoadSpecificPlayerDeck:
@@ -6794,8 +6792,8 @@ PrintAttachedEnergyToPokemon:
 	ldh a, [hTempCardIndex_ff98]
 	call LoadCardNameToTxRam2
 	ldtx hl, AttachedEnergyToPokemonText
-	call DrawWideTextBox_WaitForInput
-	ret
+	jp DrawWideTextBox_WaitForInput
+
 
 ; print the PokemonEvolvedIntoPokemonText, given the Pokemon card to evolve in wPreEvolutionPokemonCard,
 ; and the evolved Pokemon card in hTempCardIndex_ff98. also play a sound effect.
@@ -6807,8 +6805,8 @@ PrintPokemonEvolvedIntoPokemon:
 	ldh a, [hTempCardIndex_ff98]
 	call LoadCardNameToTxRam2_b
 	ldtx hl, PokemonEvolvedIntoPokemonText
-	call DrawWideTextBox_WaitForInput
-	ret
+	jp DrawWideTextBox_WaitForInput
+
 
 ; handle the opponent's turn in a link duel
 ; loop until either [wOpponentTurnEnded] or [wDuelFinished] is non-0
@@ -7037,8 +7035,8 @@ OppAction_BeginUseAttack:
 ; OATS sleep also requires a coin flip
 	cp ASLEEP
 	jr z, .has_status
-	call ExchangeRNG
-	ret
+	jp ExchangeRNG
+
 
 ; we make it here is attacker is affected by
 ; Sand Attack, Smokescreen, or confusion
@@ -7099,8 +7097,8 @@ OppAction_ForceSwitchActive:
 	jr c, .force_selection
 	call SwapTurn
 	ldh a, [hTempPlayAreaLocation_ff9d]
-	call SerialSendByte
-	ret
+	jp SerialSendByte
+
 
 OppAction_UsePokemonPower:
 	ldh a, [hTempCardIndex_ff9f]
