@@ -207,7 +207,9 @@ Func_2057:
 	ld c, a
 	ld b, [hl]
 	ld a, e
-	jp HblankWriteByteToBGMap0
+	; converting to jp breaks the ROM
+	call HblankWriteByteToBGMap0
+	ret
 
 ; loads the four tiles of the card set 2 icon constant provided in register a
 ; returns carry if the specified set does not have an icon
@@ -352,7 +354,9 @@ CopyFontsOrDuelGraphicsTiles:
 	call BankpushROM
 	ld c, TILE_SIZE
 	call CopyGfxData
-	jp BankpopROM
+	; converting to jp breaks the ROM
+	call BankpopROM
+	ret
 
 ; this function copies gfx data into sram
 Func_212f:
@@ -419,7 +423,9 @@ LoadFullWidthFontTiles:
 	call Copy1bppTiles
 	ld hl, v0Tiles1
 	call Copy1bppTiles
-	jp BankpopROM
+	; converting to jp breaks the ROM
+	call BankpopROM
+	ret
 
 ; copy 128 1bpp tiles from de to hl as 2bpp
 Copy1bppTiles:
