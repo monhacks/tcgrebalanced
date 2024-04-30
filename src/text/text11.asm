@@ -314,8 +314,8 @@ FlamesOfRageDescription: ; 5a5e8 (16:65e8)
 	line "on this Pokémon."
 	done
 
-TakeDownName: ; 5a739 (16:6739)
-	text "Take Down"
+RecklessChargeName:
+	text "Reckless Charge"
 	done
 
 SmashKickName: ; 5a7ca (16:67ca)

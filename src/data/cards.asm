@@ -2854,7 +2854,7 @@ ArcanineLv45Card:
 
 	; attack 1
 	energy COLORLESS, 2 ; energies
-	tx TakeDownName ; name
+	tx RecklessChargeName ; name
 	tx Recoil20Description ; description
 	dw NONE ; description (cont)
 	db 50 ; damage
@@ -9394,7 +9394,7 @@ DoduoCard:
 
 	; attack 2
 	energy COLORLESS, 1 ; energies
-	tx DoubleEdgeName ; name
+	tx RecklessChargeName ; name
 	tx Recoil10Description ; description
 	dw NONE ; description (cont)
 	db 20 ; damage

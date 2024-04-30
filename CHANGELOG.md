@@ -27,6 +27,11 @@
 - **Guillotine**: reworked.
 - New attack: **Guillotine** (GGC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
 
+### Fire Changes
+
+#### Arcanine Lv45
+- **Take Down**: renamed to **Reckless Charge**.
+
 ### Water Changes
 
 #### Wartortle
@@ -153,6 +158,9 @@
 - New attack: **Swarm** (D): 10 damage; put 1 Basic Pokémon from deck onto play; if the Bench was full, +10 damage.
 
 ### Colorless Changes
+
+#### Doduo
+- **Double Edge**: renamed to **Reckless Charge**.
 
 #### Tauros
 - **Take Down**: removed.

@@ -2526,7 +2526,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer IfActiveThisTurn10BonusDamageDescription
 	textpointer FlamesOfRageName                                   ; 0x08f9
 	textpointer FlamesOfRageDescription                            ; 0x08fa
-	textpointer TakeDownName                                       ; 0x08fe
+	textpointer RecklessChargeName
 	textpointer SmashKickName                                      ; 0x0902
 	textpointer FlameTailName                                      ; 0x0903
 	; textpointer StompName
