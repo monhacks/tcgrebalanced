@@ -108,11 +108,6 @@ PoisonStingName: ; 57ea1 (15:7ea1)
 	text "Poison Sting"
 	done
 
-MayInflictPoisonDescription: ; 57eaf (15:7eaf)
-	text "Flip a coin. If heads, the Defending"
-	line "Pokémon is now Poisoned."
-	done
-
 TwineedleName: ; 58070 (16:4070)
 	text "Twineedle"
 	done

@@ -320,10 +320,6 @@ Leech30DamageEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Leech30DamageEffect
 	db  $00
 
-Poison50PercentEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Poison50PercentEffect
-	db  $00
-
 EnergyTransEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, EnergyTrans_CheckPlayArea
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EnergyTrans_TransferEffect

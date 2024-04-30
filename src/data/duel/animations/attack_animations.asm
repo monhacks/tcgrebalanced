@@ -73,7 +73,7 @@ PointerTable_AttackAnimation:
 	dw AttackAnimation_Needles             ; ATK_ANIM_NEEDLES
 	dw AttackAnimation_Needles             ; ATK_ANIM_49
 	dw AttackAnimation_WhiteGas            ; ATK_ANIM_SMOG
-	dw AttackAnimation_WhiteGas            ; ATK_ANIM_51
+	dw AttackAnimation_PoisonSting         ; ATK_ANIM_POISON_STING
 	dw AttackAnimation_WhiteGas            ; ATK_ANIM_52
 	dw AttackAnimation_WhiteGas            ; ATK_ANIM_FOUL_GAS
 	dw AttackAnimation_WhiteGas            ; ATK_ANIM_FOUL_ODOR
@@ -434,6 +434,12 @@ AttackAnimation_SeismicToss:
 	anim_opponent       DUEL_ANIM_HIT
 	anim_normal         DUEL_ANIM_SHAKE1
 	anim_opponent       DUEL_ANIM_SHOW_DAMAGE
+	anim_end
+
+AttackAnimation_PoisonSting:
+	anim_player         DUEL_ANIM_GLOW
+	anim_opponent       DUEL_ANIM_NEEDLES
+	anim_normal         DUEL_ANIM_SHAKE1
 	anim_end
 
 AttackAnimation_Needles:

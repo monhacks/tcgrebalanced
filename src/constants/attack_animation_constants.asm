@@ -53,7 +53,7 @@
 	const ATK_ANIM_NEEDLES                ; $30
 	const ATK_ANIM_49                     ; $31
 	const ATK_ANIM_SMOG                   ; $32
-	const ATK_ANIM_51                     ; $33
+	const ATK_ANIM_POISON_STING           ; $33
 	const ATK_ANIM_52                     ; $34
 	const ATK_ANIM_FOUL_GAS               ; $35
 	const ATK_ANIM_FOUL_ODOR              ; $36

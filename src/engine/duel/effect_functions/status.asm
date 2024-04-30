@@ -9,11 +9,6 @@ ParalysisIfSelectedCardEffect:
 	jr ParalysisEffect
 
 
-Poison50PercentEffect: ; 2c000 (b:4000)
-	ldtx de, PoisonCheckText
-	call TossCoin_BankB
-	ret nc
-
 PoisonEffect: ; 2c007 (b:4007)
 	lb bc, CNF_SLP_PRZ, POISONED
 	jr ApplyStatusEffect

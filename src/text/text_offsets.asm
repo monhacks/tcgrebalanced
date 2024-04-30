@@ -2817,7 +2817,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer WhirlwindName                                      ; 0x082c
 	textpointer OpponentSwitchesPokemonDescription                 ; 0x082d
 	textpointer PoisonStingName                                    ; 0x0833
-	textpointer MayInflictPoisonDescription                        ; 0x0834
 	textpointer TwineedleName                                      ; 0x083b
 	textpointer SpitPoisonName                                     ; 0x0840
 	textpointer WrapName                                           ; 0x0841

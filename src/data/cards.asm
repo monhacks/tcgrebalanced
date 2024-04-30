@@ -619,16 +619,16 @@ WeedleCard:
 	; attack 2
 	energy GRASS, 1 ; energies
 	tx PoisonStingName ; name
-	tx MayInflictPoisonDescription ; description
+	tx InflictPoisonDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Poison50PercentEffectCommands ; effect commands
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw InflictPoisonEffectCommands ; effect commands
 	db INFLICT_POISON ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_NEEDLES ; animation
+	db ATK_ANIM_POISON_STING ; animation
 
 	db 0 ; retreat cost
 	db WR_FIRE ; weakness
@@ -875,16 +875,16 @@ NidoranFCard:
 	; attack 2
 	energy DARKNESS, 1 ; energies
 	tx PoisonStingName ; name
-	tx MayInflictPoisonDescription ; description
+	tx InflictPoisonDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Poison50PercentEffectCommands ; effect commands
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw InflictPoisonEffectCommands ; effect commands
 	db INFLICT_POISON ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_NEEDLES ; animation
+	db ATK_ANIM_POISON_STING ; animation
 
 	db 0 ; retreat cost
 	db WR_FIGHTING ; weakness
@@ -3735,16 +3735,16 @@ TentacoolCard:
 	; attack 1
 	energy WATER, 1 ; energies
 	tx PoisonStingName ; name
-	tx MayInflictPoisonDescription ; description
+	tx InflictPoisonDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Poison50PercentEffectCommands ; effect commands
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw InflictPoisonEffectCommands ; effect commands
 	db INFLICT_POISON ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_NEEDLES ; animation
+	db ATK_ANIM_POISON_STING ; animation
 
 	; attack 2
 	energy COLORLESS, 2 ; energies

@@ -16,6 +16,9 @@
 - **Harden**: removed.
 - New Pokémon Power: **Exoskeleton**: reduces damage taken by 20.
 
+#### Weedle
+- **Poison Sting**: reduced base damage from 10 to zero; always inflicts Poison.
+
 #### Kakuna
 - Reduced HP from 70 to 60.
 - Reduced Retreat Cost from 2 to 1.
@@ -45,6 +48,9 @@
 - **Steamroller**: reworked.
 - New Pokémon Power: **Step In**: if Benched, move all Energy from the Active Pokémon to this, then switch in.
 - New attack: **Steamroller** (CCC): 40 damage; +10 damage for each attached Water or Fighting Energy; excess damage goes to 1 Benched Pokémon.
+
+#### Tentacool
+- **Poison Sting**: reduced base damage from 10 to zero; always inflicts Poison.
 
 #### Krabby
 - **Bubble**: removed.
@@ -136,6 +142,9 @@
 - New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
 
 ### Darkness Changes
+
+#### Nidoran F
+- **Poison Sting**: reduced base damage from 10 to zero; always inflicts Poison.
 
 #### Zubat
 - **Supersonic**: removed.
