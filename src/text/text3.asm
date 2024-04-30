@@ -809,14 +809,13 @@ DamageCountersDescriptionText: ; 3dbc5 (f:5bc5)
 	done
 
 EnergyCardsDescriptionText: ; 3dcb2 (f:5cb2)
-	text "Energy Cards are cards that power"
-	line "your Pokémon, making them able"
-	line "to Attack."
-	line "There are 7 types of Energy Cards"
-	line "[<GRASS> Grass] [<FIRE> Fire]"
-	line "[<WATER> Water] [<LIGHTNING> Lightning]"
-	line "[<PSYCHIC> Psychic] [<FIGHTING> Fighting]"
-	line "and [<COLORLESS> Double Colorless]"
+	text "Energy Cards power your Pokémon,"
+	line "making them able to Attack."
+	line "There are 8 types of Energy Cards"
+	line "[<GRASS> Grass] [<FIRE> Fire] [<WATER> Water]"
+	line "[<LIGHTNING> Lightning] [<PSYCHIC> Psychic]"
+	line "[<FIGHTING> Fighting] [<DARKNESS> Darkness]"
+	line "and [<COLORLESS> Double Colorless]."
 	line "You may only play 1 Energy Card"
 	line "from your Hand per turn."
 	done
