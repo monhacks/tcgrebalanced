@@ -150,6 +150,9 @@
 
 ### Darkness Changes
 
+#### Ekans
+- **Poison Fang**: increased base damage from 10 to 20.
+
 #### Nidoran F
 - **Poison Sting**: always inflicts Poison.
 
