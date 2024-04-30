@@ -14,6 +14,7 @@
 - Reduced HP from 70 to 60.
 - Reduced Retreat Cost from 2 to 1.
 - **Harden**: removed.
+- **Hatch**: reduced cost from (GC) to (G); reduced healing from 30 to 20.
 - New Pokémon Power: **Exoskeleton**: reduces damage taken by 20.
 
 #### Weedle
@@ -22,6 +23,7 @@
 #### Kakuna
 - Reduced HP from 70 to 60.
 - Reduced Retreat Cost from 2 to 1.
+- **Poison Evolution**: reduced cost from (GC) to (G).
 
 #### Pinsir
 - **Guillotine**: reworked.

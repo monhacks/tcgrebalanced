@@ -155,7 +155,7 @@ EvolutionFromDeck_AISelectEffect:
 
 ; Evolves and heals the user.
 Hatch_EvolveEffect:
-	ld e, 30
+	ld e, 20
 	call HealUserHP_NoAnimation
 	call ClearStatusFromTarget_NoAnim
 	; fallthrough

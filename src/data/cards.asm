@@ -513,7 +513,7 @@ MetapodCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy GRASS, 1, COLORLESS, 1 ; energies
+	energy GRASS, 1 ; energies
 	tx HatchName ; name
 	tx HatchDescription ; description
 	dw NONE ; description (cont)
@@ -669,7 +669,7 @@ KakunaCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy GRASS, 1, COLORLESS, 1 ; energies
+	energy GRASS, 1 ; energies
 	tx PoisonEvolutionName ; name
 	tx PoisonEvolutionDescription ; description
 	dw NONE ; description (cont)
