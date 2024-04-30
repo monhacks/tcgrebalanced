@@ -808,25 +808,11 @@ ArbokCard:
 	tx EkansName ; pre-evo name
 
 	; attack 1
-	energy DARKNESS, 1, COLORLESS, 1 ; energies
-	tx DeadlyPoisonName ; name
-	tx DeadlyPoisonDescription ; description
-	dw NONE ; description (cont)
-	db 20 ; damage
-	db DAMAGE_PLUS ; category
-	dw DeadlyPoisonEffectCommands ; effect commands
-	db INFLICT_POISON ; flags 1
-	db NONE ; flags 2
-	db NONE ; flags 3
-	db 0
-	db ATK_ANIM_POISON_FANG ; animation
-
-	; attack 2
-	energy DARKNESS, 1, COLORLESS, 2 ; energies
+	energy DARKNESS, 1 ; energies
 	tx TerrorStrikeName ; name
 	tx DamagePerPokemonPowerDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 10 ; damage
 	db DAMAGE_PLUS ; category
 	dw TerrorStrikeEffectCommands ; effect commands
 	db NONE ; flags 1
@@ -834,6 +820,20 @@ ArbokCard:
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_DARK_MIND ; animation
+
+	; attack 2
+	energy DARKNESS, 1, COLORLESS, 1 ; energies
+	tx DeadlyPoisonName ; name
+	tx DeadlyPoisonDescription ; description
+	dw NONE ; description (cont)
+	db 30 ; damage
+	db DAMAGE_PLUS ; category
+	dw DeadlyPoisonEffectCommands ; effect commands
+	db INFLICT_POISON ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_POISON_FANG ; animation
 
 	db 1 ; retreat cost
 	db WR_FIGHTING ; weakness
