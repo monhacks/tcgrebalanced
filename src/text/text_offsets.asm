@@ -2794,6 +2794,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer StepInDescription
 	textpointer VampiricAuraName
 	textpointer VampiricAuraDescription
+	textpointer ReactivePoisonName
+	textpointer ReactivePoisonDescription
 
 ; ------------------------------------------------------------------------------
 ; text12.asm

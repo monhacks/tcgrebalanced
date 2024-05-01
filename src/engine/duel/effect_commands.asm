@@ -889,6 +889,11 @@ PesterEffectCommands:
 	dbw EFFECTCMDTYPE_AI, Pester_AIEffect
 	db  $00
 
+ReactivePoisonEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, ReactivePoison_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AI, ReactivePoison_AIEffect
+	db  $00
+
 FishingTailEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, FishingTail_DiscardPileCheck
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SelectedCard_AddToHandFromDiscardPile

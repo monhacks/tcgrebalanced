@@ -993,6 +993,38 @@ GrassKnot_AIEffect:
 ; Based on Status Conditions
 ; ------------------------------------------------------------------------------
 
+; bonus damage for each status condition on the Defending Pokémon
+ReactivePoison_DamageBoostEffect:
+  ld a, DUELVARS_ARENA_CARD_STATUS
+  call GetNonTurnDuelistVariable
+	or a
+	ret z  ; no status
+	ld bc, $00
+; confusion, sleep, paralysis
+  and CNF_SLP_PRZ
+  jr z, .poison
+  ld b, 20
+.poison
+	ld a, [hl]
+  and DOUBLE_POISONED
+  jr z, .burn
+  ld c, 20
+.burn
+	ld a, [hl]
+  and BURNED
+	ld a, 0
+  jr z, .tally
+  ld a, 20
+.tally
+	add b
+	add c
+  jp AddToDamage
+
+ReactivePoison_AIEffect:
+  call ReactivePoison_DamageBoostEffect
+  jp SetDefiniteAIDamage
+
+
 ; double damage if the Defending Pokémon has a status condition
 Pester_DamageBoostEffect:
   call CheckOpponentHasStatus

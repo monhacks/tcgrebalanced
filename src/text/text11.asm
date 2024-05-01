@@ -1689,3 +1689,13 @@ VampiricAuraDescription:
 	line "Pokémon for up to 20 damage (10 if"
 	line "the attack only did 10 damage)."
 	done
+
+ReactivePoisonName:
+	text "Reactive Poison"
+	done
+
+ReactivePoisonDescription:
+	text "This attack does 20 more damage"
+	line "for each Special Condition on"
+	line "the Defending Pokémon."
+	done
