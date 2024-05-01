@@ -1,4 +1,54 @@
 
+JigglypuffLv12Card:
+	db TYPE_PKMN_PSYCHIC ; type
+	gfx JigglypuffLv12CardGfx ; gfx
+	tx JigglypuffName ; name
+	db PROMOSTAR ; rarity
+	db PROMOTIONAL | PRO ; sets
+	db JIGGLYPUFF_LV12
+	db 40 ; hp
+	db BASIC ; stage
+	dw NONE ; pre-evo name
+
+	; attack 1
+	energy COLORLESS, 1 ; energies
+	tx CallForFamilyName ; name
+	tx CallForFamilyDescription ; description
+	dw NONE ; description (cont)
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw CallForFamilyEffectCommands ; effect commands
+	db NONE ; flags 1
+	db NONE ; flags 2
+	db SPECIAL_AI_HANDLING ; flags 3
+	db 0
+	db ATK_ANIM_GLOW_EFFECT ; animation
+
+	; attack 2
+	energy PSYCHIC, 1 ; energies
+	tx LightStepsName ; name
+	tx EnergySlideDescription ; description
+	dw NONE ; description (cont)
+	db 10 ; damage
+	db DAMAGE_NORMAL ; category
+	dw EnergySlideEffectCommands ; effect commands
+	db NONE ; flags 1
+	db DISCARD_ENERGY ; flags 2
+	db NONE ; flags 3
+	db 0
+	db ATK_ANIM_BOYFRIENDS ; animation
+
+	db 0 ; retreat cost
+	db WR_DARKNESS ; weakness
+	db NONE ; resistance
+	tx BalloonName ; category
+	db 39 ; Pokedex number
+	db 0
+	db 12 ; level
+	db 1, 8 ; length
+	dw 12 * 10 ; weight
+	tx JigglypuffDescription ; description
+	db 16
 
 ; attack 2
 energy COLORLESS, 1 ; energies

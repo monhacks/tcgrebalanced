@@ -1464,7 +1464,11 @@ TrainerCardAsPokemonEffectCommands:
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, TrainerCardAsPokemon_PlayerSelectSwitch
 	db  $00
 
-HealingMelodyEffectCommands:
+SoothingMelodyEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SleepEffect
+	; fallthrough to Heal10DamageFromAllEffectCommands
+
+Heal10DamageFromAllEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Heal10DamageFromAll_HealEffect
 	db  $00
 

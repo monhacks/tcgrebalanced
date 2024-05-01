@@ -1505,7 +1505,7 @@ ChallengeCupPrizeCards:
 	db MEW_LV8
 	tx MewTradeCardName
 
-	db JIGGLYPUFF_LV12
+	db JIGGLYPUFF
 	tx JigglypuffTradeCardName
 
 	db ENERGY_RECYCLER

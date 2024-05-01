@@ -130,7 +130,7 @@ UnnamedDeck:
 	; card_item PIDGEY,          4
 	; card_item PIDGEOTTO,       4
 	; card_item PIDGEOT_LV40,    4
-	; card_item JIGGLYPUFF_LV13, 4
+	; card_item JIGGLYPUFF,      4
 	; card_item POKEMON_BREEDER, 4
 	; deck_list_end
 	db 0
@@ -342,7 +342,7 @@ UnnamedDeck2:
 	; card_item PIDGEY,          4
 	; card_item PIDGEOTTO,       4
 	; card_item PIDGEOT_LV38,    4
-	; card_item JIGGLYPUFF_LV13, 4
+	; card_item JIGGLYPUFF,      4
 	; card_item POKEMON_BREEDER, 4
 	; deck_list_end
 
@@ -354,7 +354,7 @@ UnnamedDeck2:
 	; card_item MYSTERIOUS_FOSSIL,  4
 	; card_item SCYTHER,            4
 	; card_item PARAS,              4
-	; card_item JIGGLYPUFF_LV13,    4
+	; card_item JIGGLYPUFF,         4
 	; card_item WEEDLE,             4
 	; card_item AERODACTYL,         4
 	; deck_list_end
@@ -394,7 +394,7 @@ UnnamedDeck2:
 	; card_item MYSTERIOUS_FOSSIL,  4
 	; card_item POKEMON_BREEDER,    4
 	; card_item PSYDUCK,            4
-	; card_item JIGGLYPUFF_LV13,    4
+	; card_item JIGGLYPUFF,         4
 	; card_item WEEDLE,             4
 	; card_item AERODACTYL,         4
 	; card_item BULBASAUR,          4
@@ -411,7 +411,7 @@ UnnamedDeck2:
 	; card_item NIDORANM,         4
 	; card_item SCYTHER,          4
 	; card_item PARAS,            4
-	; card_item JIGGLYPUFF_LV13,  4
+	; card_item JIGGLYPUFF,       4
 	; card_item WEEDLE,           4
 	; deck_list_end
 
@@ -448,7 +448,7 @@ UnnamedDeck2:
 	; card_item GOLBAT,           4
 	; card_item DODUO,            4
 	; card_item DODRIO,           4
-	; card_item JIGGLYPUFF_LV13,  4
+	; card_item JIGGLYPUFF,       4
 	; card_item POKEMON_CENTER,   4
 	; card_item PLUSPOWER,        3
 	; card_item PROFESSOR_OAK,    2
@@ -759,7 +759,7 @@ BulbasaurAndFriendsDeck:
 	card_item GOLDEEN,          2
 	card_item SEAKING,          1
 	card_item VAPOREON_LV42,    1
-	card_item JIGGLYPUFF_LV13,  1
+	card_item JIGGLYPUFF,       1
 	card_item MEOWTH_LV15,      1
 	card_item EEVEE,            2
 	card_item KANGASKHAN,       1
@@ -1130,7 +1130,7 @@ FireChargeDeck:
 	card_item GROWLITHE,                4
 	card_item ARCANINE_LV45,            3
 	card_item MAGMAR_LV24,              2
-	card_item JIGGLYPUFF_LV12,          4
+	card_item JIGGLYPUFF,               4
 	card_item WIGGLYTUFF_LV36,          1
 	card_item CHANSEY,                  2
 	card_item TAUROS,                   2
@@ -1429,7 +1429,7 @@ LonelyFriendsDeck:
 	card_item OMANYTE,                 2
 	card_item OMASTAR,                 1
 	card_item AERODACTYL,              1
-	card_item JIGGLYPUFF_LV13,         4
+	card_item JIGGLYPUFF,              4
 	card_item WIGGLYTUFF_LV36,         4
 	card_item PROFESSOR_OAK,           2
 	card_item BILL,                    2
@@ -1637,7 +1637,7 @@ NapTimeDeck:
 	card_item GASTLY_LV8,       4
 	card_item HAUNTER_LV17,     2
 	card_item HAUNTER_LV22,     2
-	card_item JIGGLYPUFF_LV13,  4
+	card_item JIGGLYPUFF,       4
 	card_item WIGGLYTUFF_LV36,  3
 	card_item BILL,             2
 	card_item SWITCH,           2

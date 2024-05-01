@@ -2,6 +2,9 @@
 
 ## Version 0.9.0
 
+### Removed Cards
+- Jigglypuff Lv12
+
 ### Status Conditions Changes
 - New status condition: **Burn**.
 - A Burned Pokémon may discard an attached energy after attacking to heal the status condition.
@@ -142,7 +145,14 @@
 
 #### Jigglypuff Lv13
 - **Call for Family**: removed.
+- **Light Steps**: removed.
 - New attack: **Lead** (C): add a Supporter from the deck to the hand.
+- New attack: **Lullaby** (P): inflicts Sleep.
+
+#### Wigglytuff Lv28
+- **Lullaby**: removed.
+- **Pester**: reduced cost from (PP) to (CC) and base damage from 30 to 20.
+- New attack: **Soothing Melody** (P): inflicts Sleep; heals 10 damage from all of the user's Pokémon.
 
 #### Wigglytuff Lv36
 - **Do the Wave**: removed.

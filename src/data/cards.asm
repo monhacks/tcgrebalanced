@@ -170,8 +170,7 @@ CardPointers:
 	dw FearowCard
 	dw ClefairyCard
 	dw ClefableCard
-	dw JigglypuffLv12Card
-	dw JigglypuffLv13Card
+	dw JigglypuffCard
 	dw WigglytuffLv28Card
 	dw WigglytuffLv36Card
 	dw MeowthLv15Card
@@ -8938,14 +8937,14 @@ ClefableLv28Card:
 	tx ClefableDescription ; description
 	db 0
 
-JigglypuffLv12Card:
+JigglypuffCard:
 	db TYPE_PKMN_PSYCHIC ; type
-	gfx JigglypuffLv12CardGfx ; gfx
+	gfx JigglypuffLv13CardGfx ; gfx
 	tx JigglypuffName ; name
-	db PROMOSTAR ; rarity
-	db PROMOTIONAL | PRO ; sets
-	db JIGGLYPUFF_LV12
-	db 40 ; hp
+	db CIRCLE ; rarity
+	db EVOLUTION | GB ; sets
+	db JIGGLYPUFF
+	db 50 ; hp
 	db BASIC ; stage
 	dw NONE ; pre-evo name
 
@@ -8958,57 +8957,6 @@ JigglypuffLv12Card:
 	; Gather Energy (C)
 	; Search your deck for a basic Energy card and attach it to 1 of your Pokémon.
 	; Shuffle your deck afterward.
-
-	; attack 1
-	energy COLORLESS, 1 ; energies
-	tx HealingMelodyName ; name
-	tx Heal10DamageFromAllDescription ; description
-	dw NONE ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
-	dw HealingMelodyEffectCommands ; effect commands
-	db NONE ; flags 1
-	db HEAL_USER ; flags 2
-	db NONE ; flags 3
-	db 1
-	db ATK_ANIM_RECOVER ; animation
-
-	; attack 2
-	energy COLORLESS, 1 ; energies
-	tx ExpandName ; name
-	tx ReduceDamageTakenBy10Description ; description
-	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_NORMAL ; category
-	dw ReduceDamageTakenBy10EffectCommands ; effect commands
-	db NONE ; flags 1
-	db NULLIFY_OR_WEAKEN_ATTACK ; flags 2
-	db NONE ; flags 3
-	db 10
-	db ATK_ANIM_EXPAND ; animation
-
-	db 0 ; retreat cost
-	db WR_DARKNESS ; weakness
-	db NONE ; resistance
-	tx BalloonName ; category
-	db 39 ; Pokedex number
-	db 0
-	db 12 ; level
-	db 1, 8 ; length
-	dw 12 * 10 ; weight
-	tx JigglypuffDescription ; description
-	db 16
-
-JigglypuffLv13Card:
-	db TYPE_PKMN_PSYCHIC ; type
-	gfx JigglypuffLv13CardGfx ; gfx
-	tx JigglypuffName ; name
-	db CIRCLE ; rarity
-	db EVOLUTION | GB ; sets
-	db JIGGLYPUFF_LV13
-	db 50 ; hp
-	db BASIC ; stage
-	dw NONE ; pre-evo name
 
 	; attack 1
 	energy COLORLESS, 1 ; energies
@@ -9026,17 +8974,17 @@ JigglypuffLv13Card:
 
 	; attack 2
 	energy PSYCHIC, 1 ; energies
-	tx LightStepsName ; name
-	tx EnergySlideDescription ; description
+	tx LullabyName ; name
+	tx InflictSleepDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
+	db 0 ; damage
 	db DAMAGE_NORMAL ; category
-	dw EnergySlideEffectCommands ; effect commands
-	db NONE ; flags 1
-	db DISCARD_ENERGY ; flags 2
+	dw InflictSleepEffectCommands ; effect commands
+	db INFLICT_SLEEP ; flags 1
+	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_BOYFRIENDS ; animation
+	db ATK_ANIM_LULLABY ; animation
 
 	db 0 ; retreat cost
 	db WR_DARKNESS ; weakness
@@ -9062,25 +9010,25 @@ WigglytuffLv28Card:
 	tx JigglypuffName ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
-	tx LullabyName ; name
-	tx InflictSleepDescription ; description
+	energy PSYCHIC, 1 ; energies
+	tx SoothingMelodyName ; name
+	tx SoothingMelodyDescription ; description
 	dw NONE ; description (cont)
 	db 0 ; damage
-	db DAMAGE_NORMAL ; category
-	dw InflictSleepEffectCommands ; effect commands
+	db RESIDUAL ; category
+	dw SoothingMelodyEffectCommands ; effect commands
 	db INFLICT_SLEEP ; flags 1
-	db NONE ; flags 2
+	db HEAL_USER ; flags 2
 	db NONE ; flags 3
-	db 0
+	db 1
 	db ATK_ANIM_LULLABY ; animation
 
 	; attack 2
-	energy PSYCHIC, 2 ; energies
+	energy COLORLESS, 2 ; energies
 	tx PesterName ; name
 	tx PesterDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 20 ; damage
 	db DAMAGE_PLUS ; category
 	dw PesterEffectCommands ; effect commands
 	db NONE ; flags 1

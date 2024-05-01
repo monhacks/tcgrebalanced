@@ -1356,8 +1356,14 @@ SynthesisDescription:
 	line "Shuffle your deck afterward."
 	done
 
-HealingMelodyName:
-	text "Healing Melody"
+SoothingMelodyName:
+	text "Soothing Melody"
+	done
+
+SoothingMelodyDescription:
+	text "Heal 10 damage from each of your"
+	line "Pokémon. The Defending Pokémon"
+	line "is now Asleep."
 	done
 
 Heal10DamageFromAllDescription:

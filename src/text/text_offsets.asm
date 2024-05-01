@@ -2730,7 +2730,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer CrunchName
 	textpointer SynthesisName
 	textpointer SynthesisDescription
-	textpointer HealingMelodyName
+	textpointer SoothingMelodyName
+	textpointer SoothingMelodyDescription
 	textpointer Heal10DamageFromAllDescription
 	textpointer LunarPowerName
 	textpointer LeadName

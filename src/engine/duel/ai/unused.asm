@@ -683,7 +683,7 @@ AIDecide_ComputerSearch_FireCharge:
 	ld a, TAUROS
 	call LookForCardIDInHandList_Bank8
 	jr nc, .tauros
-	ld a, JIGGLYPUFF_LV12
+	ld a, JIGGLYPUFF
 	call LookForCardIDInHandList_Bank8
 	jr nc, .jigglypuff
 	; fallthrough
@@ -710,7 +710,7 @@ AIDecide_ComputerSearch_FireCharge:
 	ld [wce06], a
 	jr .find_discard_cards
 .jigglypuff
-	ld e, JIGGLYPUFF_LV12
+	ld e, JIGGLYPUFF
 	ld a, CARD_LOCATION_DECK
 	call LookForCardIDInLocation
 	jp nc, .no_carry

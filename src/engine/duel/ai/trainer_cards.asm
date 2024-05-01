@@ -3926,7 +3926,7 @@ AIDecide_Recycle:
 	jr .loop_1
 
 .jigglypuff
-	cp JIGGLYPUFF_LV12
+	cp JIGGLYPUFF
 	jr nz, .loop_1
 	ld a, b
 	ld [wAITempVars + 3], a
@@ -4427,7 +4427,7 @@ AIDecide_Pokeball:
 	ld a, CARD_LOCATION_DECK
 	call LookForCardIDInLocation
 	ret c
-	ld e, JIGGLYPUFF_LV12
+	ld e, JIGGLYPUFF
 	ld a, CARD_LOCATION_DECK
 	call LookForCardIDInLocation
 	ret c

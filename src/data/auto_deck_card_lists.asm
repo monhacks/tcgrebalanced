@@ -349,8 +349,7 @@ CutePokemonCardList:
 	card_item JOLTEON_LV29,             1
 	card_item CLEFAIRY,                 2
 	card_item CLEFABLE,                 1
-	card_item JIGGLYPUFF_LV12,          2
-	card_item JIGGLYPUFF_LV13,          2
+	card_item JIGGLYPUFF,               4
 	card_item WIGGLYTUFF_LV36,          2
 	card_item EEVEE,                    4
 	card_item PROFESSOR_OAK,            2
@@ -616,7 +615,7 @@ DreamEaterHaunterCardList:
 	card_item GENGAR,                  2
 	card_item DROWZEE,                 3
 	card_item HYPNO,                   2
-	card_item JIGGLYPUFF_LV13,         2
+	card_item JIGGLYPUFF,              2
 	card_item MEOWTH_LV15,             2
 	card_item PROFESSOR_OAK,           2
 	card_item BILL,                    2
@@ -635,7 +634,7 @@ ScavengingSlowbroCardList:
 	card_item JYNX,              3
 	card_item MEWTWO_LV53,       2
 	card_item MEW_LV23,          2
-	card_item JIGGLYPUFF_LV13,   4
+	card_item JIGGLYPUFF,        4
 	card_item EEVEE,             2
 	card_item ENERGY_RETRIEVAL,  2
 	card_item ENERGY_REMOVAL,    3
@@ -900,7 +899,7 @@ FireChargeCardList:
 	card_item GROWLITHE,                4
 	card_item ARCANINE_LV45,            3
 	card_item MAGMAR_LV24,              2
-	card_item JIGGLYPUFF_LV12,          4
+	card_item JIGGLYPUFF,               4
 	card_item WIGGLYTUFF_LV36,          1
 	card_item CHANSEY,                  2
 	card_item TAUROS,                   2
@@ -1010,7 +1009,7 @@ BulbasaurAndFriendsCardList:
 	card_item GASTLY_LV8,       2
 	card_item HAUNTER_LV22,     1
 	card_item JYNX,             1
-	card_item JIGGLYPUFF_LV13,  1
+	card_item JIGGLYPUFF,       1
 	card_item MEOWTH_LV15,      1
 	card_item KANGASKHAN,       1
 	card_item PROFESSOR_OAK,    1
