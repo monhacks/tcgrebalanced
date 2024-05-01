@@ -1,6 +1,21 @@
 
 
 ; attack 2
+energy COLORLESS, 1 ; energies
+tx ExpandName ; name
+tx ReduceDamageTakenBy10Description ; description
+dw NONE ; description (cont)
+db 10 ; damage
+db DAMAGE_NORMAL ; category
+dw ReduceDamageTakenBy10EffectCommands ; effect commands
+db NONE ; flags 1
+db NULLIFY_OR_WEAKEN_ATTACK ; flags 2
+db NONE ; flags 3
+db 10
+db ATK_ANIM_EXPAND ; animation
+
+
+; attack 2
 energy DARKNESS, 1, COLORLESS, 2 ; energies
 tx LeechLifeName ; name
 tx LeechLifeDescription ; description
