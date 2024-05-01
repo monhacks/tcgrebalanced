@@ -1479,7 +1479,7 @@ OverwhelmName:
 	done
 
 OverwhelmDescription:
-	text "If the opponent has 6 or more cards"
+	text "If the opponent has 4 or more cards"
 	line "in their hand, they discard a random"
 	line "card from their hand and the"
 	line "Defending Pokémon is now Paralyzed."

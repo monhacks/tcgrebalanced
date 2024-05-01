@@ -1125,6 +1125,11 @@ VoltSwitchEffect:
 ; ------------------------------------------------------------------------------
 
 
+ToxicWaste_DamagePoisonEffect:
+	call ToxicWaste_DamageBoostEffect
+	jp DoublePoisonEffect
+
+
 ; DiscardEnergy_DamageTargetPokemon_AISelectEffect:
 ; 	call DiscardEnergy_AISelectEffect      ; uses [hTemp_ffa0]
 ; 	jp DamageTargetPokemon_AISelectEffect  ; uses [hTempPlayAreaLocation_ffa1]
@@ -1266,8 +1271,8 @@ DeadlyPoisonEffect:
 OverwhelmEffect:
 	ld a, DUELVARS_NUMBER_OF_CARDS_IN_HAND
 	call GetNonTurnDuelistVariable
-	cp 6
-	ret c  ; less than 7 cards
+	cp 4
+	ret c  ; less than 4 cards
 	call Discard1RandomCardFromOpponentsHandEffect
 	jp ParalysisEffect
 

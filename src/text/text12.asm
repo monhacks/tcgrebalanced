@@ -230,14 +230,25 @@ RoutDescription:
 	line "Benched Pokémon."
 	done
 
-ToxicName: ; 587b5 (16:47b5)
+ToxicName:
 	text "Toxic"
 	done
 
-ToxicDescription: ; 587bc (16:47bc)
+ToxicDescription:
 	text "The Defending Pokémon is now Badly"
 	line "Poisoned. It takes 20 Poison damage"
 	line "instead of 10."
+	done
+
+ToxicWasteName:
+	text "Toxic Waste"
+	done
+
+ToxicWasteDescription:
+	text "The Defending Pokémon is now Badly"
+	line "Poisoned. If you have 7 or more"
+	line "Item cards in your discard pile,"
+	line "this attack does 30 more damage."
 	done
 
 LeechLifeName: ; 588a7 (16:48a7)

@@ -224,6 +224,11 @@ TerrorStrikeEffectCommands:
 	dbw EFFECTCMDTYPE_AI, TerrorStrike_AIEffect
 	db  $00
 
+ToxicWasteEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, ToxicWaste_DamagePoisonEffect
+	dbw EFFECTCMDTYPE_AI, ToxicWaste_AIEffect
+	db  $00
+
 ToxicEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DoublePoisonEffect
 	; dbw EFFECTCMDTYPE_AI, Toxic_AIEffect

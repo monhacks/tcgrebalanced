@@ -170,6 +170,11 @@
 - **Leech Life**: removed.
 - New Pokémon Power: **Vampiric Aura**: the user's Pokémon with attached (D) Energy leech up to 20 damage when attacking.
 
+#### Muk
+- **Overwhelm**: reduced cost from (CCC) to (D); reduced damage from 30 to 10; changed condition from 6 cards in the opponent's hand to 4 cards.
+- **Toxic**: removed.
+- New attack: **Toxic Waste** (DC): 10 damage; inflicts Double Poison; +30 damage if you have at least 7 Items in the discard pile.
+
 ### Colorless Changes
 
 #### Doduo

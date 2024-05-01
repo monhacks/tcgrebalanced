@@ -2848,8 +2848,10 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer HornDrillName                                      ; 0x0861
 	textpointer RoutName
 	textpointer RoutDescription
-	textpointer ToxicName                                          ; 0x0866
-	textpointer ToxicDescription                                   ; 0x0867
+	textpointer ToxicName
+	textpointer ToxicDescription
+	textpointer ToxicWasteName
+	textpointer ToxicWasteDescription
 	textpointer LeechLifeName                                      ; 0x086a
 	textpointer LeechLifeDescription                               ; 0x086b
 	textpointer GrowthName
