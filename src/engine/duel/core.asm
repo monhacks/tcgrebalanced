@@ -3365,9 +3365,9 @@ HandlePlayerSelectionFromCardList_AllowCancel:
 	ldtx hl, PleaseSelectCardText
 	call SetCardListHeaderText
 	call DisplayCardList
-	ldh a, [hTempCardIndex_ff98]
-	ret nc
 	ld a, $ff
+	ret c
+	ldh a, [hTempCardIndex_ff98]
 	ret
 
 ; Handles screen for the Player to choose any card from a pre-built list.
