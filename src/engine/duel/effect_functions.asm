@@ -7902,14 +7902,6 @@ SelectedDiscardPileCards_ShuffleIntoDeckEffect:
 	ret
 
 
-; return carry if non-turn duelist has no benched Pokemon
-Giovanni_BenchCheck:
-	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	call GetNonTurnDuelistVariable
-	ldtx hl, EffectNoPokemonOnTheBenchText
-	cp 2
-	ret
-
 Giovanni_PlayerSelection:
 	ldtx hl, ChooseAPokemonToSwitchWithActivePokemonText
 	call DrawWideTextBox_WaitForInput

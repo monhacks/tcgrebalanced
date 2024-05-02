@@ -1834,7 +1834,7 @@ EnergyRecyclerEffectCommands:
 	db  $00
 
 GiovanniEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, Giovanni_BenchCheck
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckOpponentBenchIsNotEmpty
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, Giovanni_PlayerSelection
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Giovanni_SwitchEffect
 	db  $00
