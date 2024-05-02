@@ -195,6 +195,9 @@
 - **Rampage**: reduced cost from (CCC) to (CC).
 - New attack: **Stampede** (C): 20 damage; 10 damage to 1 of the user's Benched Pokémon.
 
+#### Ditto
+- **Copy**: increased cost from (CC) to (CCC).
+
 #### Porygon
 - **Conversion Beam**: reduced cost from (CCC) to (CC).
 
