@@ -6316,6 +6316,7 @@ MoveDiscardPileCardToTopOfDeckEffect:
 ; it wasn't the Player who played the Trainer card.
 Recycle_AddToDeckEffect:
 	call SelectedCard_AddToDeckFromDiscardPileEffect
+	ldtx hl, CardWasChosenText
 	jp SelectedCard_ShowDetailsIfOpponentsTurn
 
 
@@ -6323,6 +6324,7 @@ Prank_AddToDeckEffect:
 	call SwapTurn
 	call SelectedCard_AddToDeckFromDiscardPileEffect
 	call SwapTurn
+	ldtx hl, CardWasChosenText
 	jp SelectedCard_ShowDetailsIfOpponentsTurn
 
 
@@ -7726,11 +7728,14 @@ FishingTail_AISelection:
 	ret
 
 
+; input:
+;   hl: pointer to text to display
 SelectedCard_ShowDetailsIfOpponentsTurn:
+	push hl
 	call IsPlayerTurn
+	pop hl
 	ret c
 	ldh a, [hTemp_ffa0]
-	ldtx hl, CardWasChosenText
 	bank1call DisplayCardDetailScreen
 	ret
 
@@ -7758,25 +7763,9 @@ Revive_PlaceInPlayAreaEffect: ; 2fbb0 (b:7bb0)
 	call MoveDiscardPileCardToHand
 	call AddCardToHand
 	call PutHandPokemonCardInPlayArea
-
-; set HP to half, rounded up
-; OATS no longer sets to half
-;	add DUELVARS_ARENA_CARD_HP
-;	call GetTurnDuelistVariable
-;	srl a
-;	bit 0, a
-;	jr z, .rounded
-;	add 5 ; round up HP to nearest 10
-;.rounded
-;	ld [hl], a
-	call IsPlayerTurn
-	ret c ; done if Player played Revive
-
 ; display card
-	ldh a, [hTemp_ffa0]
 	ldtx hl, PlacedOnTheBenchText
-	bank1call DisplayCardDetailScreen
-	ret
+	jp SelectedCard_ShowDetailsIfOpponentsTurn
 
 
 ; input:
