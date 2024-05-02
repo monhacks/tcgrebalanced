@@ -906,9 +906,9 @@ AttackAnimation_HealingWindPlayArea:
 AttackAnimation_Gale:
 	anim_player         DUEL_ANIM_GLOW
 	anim_opponent       DUEL_ANIM_WHIRLWIND
-	; anim_opponent       DUEL_ANIM_HIT
-	; anim_normal         DUEL_ANIM_SHAKE1
-	; anim_opponent       DUEL_ANIM_SHOW_DAMAGE
+	anim_opponent       DUEL_ANIM_HIT
+	anim_normal         DUEL_ANIM_SHAKE1
+	anim_opponent       DUEL_ANIM_SHOW_DAMAGE
 	anim_normal         DUEL_ANIM_FLASH
 	anim_end
 

@@ -8520,11 +8520,11 @@ Pidgeot2Card:
 	tx PidgeottoName ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 2 ; energies
+	energy COLORLESS, 1 ; energies
 	tx WhirlwindName ; name
 	tx OpponentSwitchesPokemonDescription ; description
 	dw NONE ; description (cont)
-	db 40 ; damage
+	db 20 ; damage
 	db DAMAGE_NORMAL ; category
 	dw WhirlwindEffectCommands ; effect commands
 	db NONE ; flags 1
@@ -8535,19 +8535,19 @@ Pidgeot2Card:
 
 	; attack 2
 	energy COLORLESS, 3 ; energies
-	tx GaleName ; name
-	tx GaleDescription ; description
+	tx HurricaneName ; name
+	tx HurricaneDescription ; description
 	dw NONE ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
-	dw GaleEffectCommands ; effect commands
+	db 40 ; damage
+	db DAMAGE_NORMAL ; category
+	dw HurricaneEffectCommands ; effect commands
 	db NONE ; flags 1
 	db FLAG_2_BIT_7 ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_GALE ; animation
 
-	db 1 ; retreat cost
+	db 2 ; retreat cost
 	db WR_LIGHTNING ; weakness
 	db WR_FIGHTING ; resistance
 	tx BirdName ; category

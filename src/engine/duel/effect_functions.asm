@@ -5113,27 +5113,56 @@ MimicEffect:
 	jp DrawNCards_NoCardDetails
 
 
-GaleEffect:
+Hurricane_PlayerSelectEffect:
+	ldtx hl, ChoosePokemonToReturnToTheHandText
+	call DrawWideTextBox_WaitForInput
+	call SwapTurn
+	call HandlePlayerSelectionPokemonInPlayArea_AllowCancel
+	ldh [hTempPlayAreaLocation_ffa1], a
+	jp SwapTurn
+
+
+Hurricane_AISelectEffect:
+	call SwapTurn
+	call GetBenchPokemonWithHighestHP
+	ldh [hTempPlayAreaLocation_ffa1], a
+	jp SwapTurn
+
+
+Hurricane_ReturnToHandEffect:
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	cp $ff
+	ret z  ; none selected
+	or a
+	jr nz, .bench
+; arena
 	call HandleNoDamageOrEffect
 	ret c ; is unaffected
-
 	ld a, DUELVARS_ARENA_CARD_HP
 	call GetNonTurnDuelistVariable
 	or a
-	ret z ; return if Pokemon was KO'd
-
-; look at all the card locations and put all cards
-; that are in the Arena in the hand.
+	ret z  ; Knocked Out
+	xor a  ; PLAY_AREA_ARENA
+.bench
 	call SwapTurn
-	ld e, PLAY_AREA_ARENA
-	call ReturnPokemonAndAttachedCardsToHand
+	call ReturnPokemonAndAttachedCardsToHandEffect
+	jp SwapTurn
 
-; empty the Arena card slot
-	ld l, DUELVARS_ARENA_CARD
-	ld a, [hl]
-	ld [hl], $ff
-	ld l, DUELVARS_ARENA_CARD_HP
-	ld [hl], 0
+
+; assume:
+;   call to SwapTurn if necessary
+; input:
+;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the cards to return to the hand
+ReturnPokemonAndAttachedCardsToHandEffect:
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	ld e, a
+	add DUELVARS_ARENA_CARD
+	call GetTurnDuelistVariable
+	push af
+	call ReturnPokemonAndAttachedCardsToHand  ; preserves de
+	call EmptyPlayAreaSlot  ; input e
+	pop af
+
 	call LoadCardDataToBuffer1_FromDeckIndex
 	ld hl, wLoadedCard1Name
 	ld a, [hli]
@@ -5144,14 +5173,15 @@ GaleEffect:
 	call DrawWideTextBox_WaitForInput
 	xor a
 	ld [wDuelDisplayedScreen], a
-	jp SwapTurn
+	ret
 
 
 ; input:
-;   e: PLAY_AREA_* of the cards to return to the hand
+;   a: PLAY_AREA_* of the cards to return to the hand
+; preserves: bc, de
 ReturnPokemonAndAttachedCardsToHand:
-	ld a, CARD_LOCATION_ARENA
-	or e
+	push de
+	or CARD_LOCATION_ARENA
 	ld e, a
 	ld a, DUELVARS_CARD_LOCATIONS
 	call GetTurnDuelistVariable
@@ -5167,6 +5197,30 @@ ReturnPokemonAndAttachedCardsToHand:
 	ld a, l
 	cp DECK_SIZE
 	jr c, .loop_locations
+	pop de
+	ret
+
+
+; This lazy version of EmptyPlayAreaSlot changes fewer variables.
+; Assume that it is used in conjunction with an attack.
+; After attacking, the engine takes care of cleaning up empty slots.
+; Sets `DUELVARS_*_CARD_HP` to zero, which effectively counts
+; as a KO and triggers the Active Pokémon replacement routine.
+; Also sets `DUELVARS_*_CARD` to $ff, which
+;   (1) signals an empty slot;
+;   (2) prevents counting a prize-awarding KO
+; input:
+;   a: PLAY_AREA_* of the target to remove
+; preserves: bc, d
+LazyEmptyPlayAreaSlot:
+	ld e, a
+	add DUELVARS_ARENA_CARD
+	call GetTurnDuelistVariable
+	ld [hl], $ff
+	ld a, DUELVARS_ARENA_CARD_HP
+	add e
+	ld l, a
+	ld [hl], 0
 	ret
 
 
@@ -7134,7 +7188,7 @@ PokemonFlute_DisablePowersEffect:
 
 
 ScoopUpNet_PlayerSelectEffect:
-	ldtx hl, ChoosePokemonToScoopUpText
+	ldtx hl, ChoosePokemonToReturnToTheHandText
 	call DrawWideTextBox_WaitForInput
 ; handle Player selection
 	ld a, CARDTEST_BASIC_POKEMON
@@ -7144,7 +7198,7 @@ ScoopUpNet_PlayerSelectEffect:
 
 
 PokemonNurse_PlayerSelectEffect:
-	ldtx hl, ChoosePokemonToScoopUpText
+	ldtx hl, ChoosePokemonToReturnToTheHandText
 	call DrawWideTextBox_WaitForInput
 ; handle Player selection
 	call HandlePlayerSelectionPokemonInPlayArea_AllowCancel
@@ -7252,7 +7306,7 @@ ReturnBenchedPokemonToHand:
 ;	ldh a, [hTempPlayAreaLocation_ffa1]
 ;	call ClearStatusFromTarget_NoAnim
 
-; finally, shift Pokemon slots
+; finally, shift Pokemon slots (necessary for Trainer cards)
 	jp ShiftAllPokemonToFirstPlayAreaSlots
 
 

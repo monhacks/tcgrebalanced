@@ -187,6 +187,12 @@
 
 ### Colorless Changes
 
+#### Pidgeot Lv40
+- Increased Retreat Cost from 1 to 2.
+- **Whirlwind**: reduced cost from (CC) to (C); reduced base damage from 40 to 20.
+- **Gale**: removed.
+- New attack: **Hurricane** (CCC): 40 damage; you may return 1 of the opponent's Pokémon and all attached cards to their hand.
+
 #### Doduo
 - **Double Edge**: renamed to **Reckless Charge**.
 

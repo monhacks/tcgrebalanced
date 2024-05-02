@@ -568,17 +568,12 @@ ChoosePokemonToAttachDefenderToText: ; 3968b (e:568b)
 	line "attach Defender to."
 	done
 
-Text0159: ; 396b4 (e:56b4)
-	text "You can draw up to <RAMNUM> cards."
-	line "A to Draw, B to End."
-	done
-
-ChoosePokemonToReturnToTheDeckText: ; 396e6 (e:56e6)
+ChoosePokemonToReturnToTheDeckText:
 	text "Choose a Pokémon to"
 	line "return to the Deck."
 	done
 
-ChoosePokemonToPlaceInPlayText: ; 3970f (e:570f)
+ChoosePokemonToPlaceInPlayText:
 	text "Choose a Pokémon to"
 	line "place in play."
 	done
@@ -588,9 +583,9 @@ ChoosePokemonToEvolveText:
 	line "to Evolve."
 	done
 
-ChoosePokemonToScoopUpText: ; 39756 (e:5756)
+ChoosePokemonToReturnToTheHandText:
 	text "Choose a Pokémon to"
-	line "Scoop Up."
+	line "return to the Hand."
 	done
 
 ChooseCardFromYourHandToSwitchText: ; 39775 (e:5775)

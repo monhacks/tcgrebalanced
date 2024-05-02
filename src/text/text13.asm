@@ -104,6 +104,17 @@ RagingStormDescription:
 ; ------------------------------------------------------------------------------
 
 
+; GaleName:
+; 	text "Gale"
+; 	done
+
+; GaleDescription:
+; 	text "Return the Defending Pokémon and"
+; 	line "all cards attached to it to your"
+; 	line "opponent's hand."
+; 	done
+
+
 ; VaporEssenceName:
 ; 	text "Vapor Essence"
 ; 	done

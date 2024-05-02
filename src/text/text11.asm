@@ -1323,18 +1323,14 @@ Deal40ToAnyPokemonDescription:
 	line "of your opponent's Pokémon."
 	done
 
-GaleName:
-	text "Gale"
-	done
-
-GaleDescription:
-	text "Return the Defending Pokémon and"
-	line "all cards attached to it to your"
-	line "opponent's hand."
-	done
-
 HurricaneName:
 	text "Hurricane"
+	done
+
+HurricaneDescription:
+	text "You may return 1 of your opponent's"
+	line "Pokémon and all cards attached to it"
+	line "to your opponent's hand."
 	done
 
 TwisterName:

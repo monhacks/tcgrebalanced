@@ -1384,8 +1384,10 @@ LunarPowerEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, LunarPower_AISelectEffect
 	db  $00
 
-GaleEffectCommands:
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, GaleEffect
+HurricaneEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Hurricane_ReturnToHandEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Hurricane_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Hurricane_AISelectEffect
 	db  $00
 
 DevastatingWindEffectCommands:

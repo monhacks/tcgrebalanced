@@ -337,11 +337,10 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Choose2HandCardsFromHandToReturnToDeckText         ; 0x0156
 	textpointer ChooseCardToPlaceInHandText                        ; 0x0157
 	textpointer ChoosePokemonToAttachDefenderToText                ; 0x0158
-	textpointer Text0159                                           ; 0x0159
-	textpointer ChoosePokemonToReturnToTheDeckText                 ; 0x015a
-	textpointer ChoosePokemonToPlaceInPlayText                     ; 0x015b
+	textpointer ChoosePokemonToReturnToTheDeckText
+	textpointer ChoosePokemonToPlaceInPlayText
 	textpointer ChoosePokemonToEvolveText
-	textpointer ChoosePokemonToScoopUpText                         ; 0x015d
+	textpointer ChoosePokemonToReturnToTheHandText
 	textpointer ChooseCardFromYourHandToSwitchText                 ; 0x015e
 	textpointer ChooseCardFromYourHandToAttachText                 ; 0x015e
 	textpointer ChooseCardToSwitchText                             ; 0x015f
@@ -2723,9 +2722,8 @@ TextOffsets:: ; 34000 (d:4000)
 	; textpointer Discard1EnergyDeal30ToAnyPokemonDescription
 	textpointer Deal30ToAnyPokemonDescription
 	textpointer Deal40ToAnyPokemonDescription
-	textpointer GaleName                                           ; 0x0ae1
-	textpointer GaleDescription                                    ; 0x0ae2
-	textpointer HurricaneName                                      ; 0x0ae4
+	textpointer HurricaneName
+	textpointer HurricaneDescription
 	textpointer TwisterName                                        ; 0x0ae4
 	textpointer CrunchName
 	textpointer SynthesisName

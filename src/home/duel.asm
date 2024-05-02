@@ -1192,7 +1192,9 @@ MovePlayAreaCardToDiscardPile:
 	ret
 
 ; init a turn holder's play area slot to empty
-; which slot (arena or benchx) is determined by the play area location offset (PLAY_AREA_*) in e
+; input:
+;   e: PLAY_AREA_* of the target to empty
+; preserves: bc
 EmptyPlayAreaSlot:
 	ldh a, [hWhoseTurn]
 	ld h, a
