@@ -691,11 +691,11 @@ SplashingAttacks_DamageEffect:
 	call DrawWideTextBox_WaitForInput
 	call HandlePlayerSelectionOpponentPokemonInBench
 	ldh [hTempPlayAreaLocation_ffa1], a
-	call SerialSendByte
+	call SerialSend8Bytes
 	jr .done
 
 .link_opp
-	call SerialRecvByte
+	call SerialRecv8Bytes
 	ldh [hTempPlayAreaLocation_ffa1], a
 	jr .done
 

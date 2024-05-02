@@ -7266,11 +7266,11 @@ HandleBurnDiscardEnergy:
 	ret c  ; cancelled
 ; discard the selected energy
 	; ldh a, [hTempCardIndex_ff98]
-	call SerialSendByte  ; preserves a
+	call SerialSend8Bytes  ; preserves a
 	jr .heal_burn
 
 .link_opp
-	call SerialRecvByte
+	call SerialRecv8Bytes
 	jr .heal_burn
 
 .ai_opp
@@ -8874,8 +8874,8 @@ Func_7338:
 	call DoFrame
 	call SerialRecvByte
 	jr c, Func_7338
-	call Func_7344
-	ret
+	; jr Func_7344
+	; fallthrough
 
 Func_7344:
 	push af
@@ -8886,8 +8886,7 @@ Func_7344:
 	ret
 .asm_734d
 	call Func_3b31
-	call DuelTransmissionError
-	ret
+	jp DuelTransmissionError
 
 BuildVersion:
 	db "VER 12/20 09:36", TX_END
