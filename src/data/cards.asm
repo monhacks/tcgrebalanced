@@ -6345,7 +6345,7 @@ PrimeapeCard:
 	db DIAMOND ; rarity
 	db MYSTERY | JUNGLE ; sets
 	db PRIMEAPE
-	db 70 ; hp
+	db 80 ; hp
 	db STAGE1 ; stage
 	tx MankeyName ; pre-evo name
 
@@ -6368,7 +6368,7 @@ PrimeapeCard:
 	tx RageName ; name
 	tx RageDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
+	db 20 ; damage
 	db DAMAGE_PLUS ; category
 	dw RageEffectCommands ; effect commands
 	db NONE ; flags 1

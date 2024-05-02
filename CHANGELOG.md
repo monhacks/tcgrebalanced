@@ -113,6 +113,10 @@
 
 ### Fighting Changes
 
+#### Primeape
+- Increased HP from 70 to 80.
+- **Rage**: increased base damage from 10 to 20.
+
 #### Machop
 - **Defensive Stance**: removed.
 - **Low Kick**: removed.
