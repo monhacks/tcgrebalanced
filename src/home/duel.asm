@@ -1435,6 +1435,7 @@ CountCardIDInLocation:
 
 ; returns [[hWhoseTurn] << 8 + a] in a and in [hl]
 ; i.e. duelvar a of the player whose turn it is
+; preserves: f, bc, de
 GetTurnDuelistVariable:
 	ld l, a
 	ldh a, [hWhoseTurn]
