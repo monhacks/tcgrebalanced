@@ -215,7 +215,7 @@ EvolutionFromDeck_EvolveEffect:
 	call DrawWideTextBox_WaitForInput
 ; FIXME this is harmless, but probably turn off Pokémon Powers in general code
 ; this is the one that changes hTempCardIndex_ff9f
-	bank1call OnPokemonPlayedInitVariablesAndPowers
+	call OnPokemonPlayedInitVariablesAndPowers
 	pop af
 	ldh [hTempCardIndex_ff9f], a
 	jp SyncShuffleDeck
