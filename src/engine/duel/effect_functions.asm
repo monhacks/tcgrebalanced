@@ -7906,11 +7906,10 @@ Giovanni_PlayerSelection:
 	ldtx hl, ChooseAPokemonToSwitchWithActivePokemonText
 	call DrawWideTextBox_WaitForInput
 	call SwapTurn
-	bank1call HasAlivePokemonInBench
-	bank1call OpenPlayAreaScreenForSelection
-	ldh a, [hTempPlayAreaLocation_ff9d]
+	call HandlePlayerSelectionPokemonInBench_AllowCancel
 	ldh [hTemp_ffa0], a
 	jp SwapTurn
+
 
 Giovanni_SwitchEffect:
 ; play whirlwind animation
