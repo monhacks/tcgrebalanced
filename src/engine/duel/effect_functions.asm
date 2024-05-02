@@ -5125,20 +5125,8 @@ GaleEffect:
 ; look at all the card locations and put all cards
 ; that are in the Arena in the hand.
 	call SwapTurn
-	ld a, DUELVARS_CARD_LOCATIONS
-	call GetTurnDuelistVariable
-.loop_locations
-	ld a, [hl]
-	cp CARD_LOCATION_ARENA
-	jr nz, .next_card
-	; card in Arena found, put in hand
-	ld a, l
-	call AddCardToHand
-.next_card
-	inc l
-	ld a, l
-	cp DECK_SIZE
-	jr c, .loop_locations
+	ld e, PLAY_AREA_ARENA
+	call ReturnPokemonAndAttachedCardsToHand
 
 ; empty the Arena card slot
 	ld l, DUELVARS_ARENA_CARD
@@ -5157,6 +5145,29 @@ GaleEffect:
 	xor a
 	ld [wDuelDisplayedScreen], a
 	jp SwapTurn
+
+
+; input:
+;   e: PLAY_AREA_* of the cards to return to the hand
+ReturnPokemonAndAttachedCardsToHand:
+	ld a, CARD_LOCATION_ARENA
+	or e
+	ld e, a
+	ld a, DUELVARS_CARD_LOCATIONS
+	call GetTurnDuelistVariable
+.loop_locations
+	ld a, [hl]
+	cp e
+	jr nz, .next_card
+; found a card in the given location
+	ld a, l
+	call AddCardToHand  ; preserves: af, hl, de
+.next_card
+	inc l
+	ld a, l
+	cp DECK_SIZE
+	jr c, .loop_locations
+	ret
 
 
 Whirlwind_SelectEffect:
