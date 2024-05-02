@@ -7171,7 +7171,7 @@ ScoopUpFromArena:
 
 ; after switching, scoop up the benched Pokémon as normal
 	ldh a, [hTemp_ffa0]
-	call ReturnBenchedPokemonToHandEffect
+	call ReturnBenchedPokemonToHand
 
 ; if card was not played by Player, show detail screen
 	call IsPlayerTurn
@@ -7185,7 +7185,7 @@ ScoopUpFromArena:
 
 ScoopUpFromBench:
 	ldh a, [hTempPlayAreaLocation_ffa1]
-	call ReturnBenchedPokemonToHandEffect
+	call ReturnBenchedPokemonToHand
 
 ; if card was not played by Player, show detail screen
 	call IsPlayerTurn
@@ -7199,7 +7199,7 @@ ScoopUpFromBench:
 
 ; input:
 ;   a: PLAY_AREA_* of the benched Pokémon to scoop up
-ReturnBenchedPokemonToHandEffect:
+ReturnBenchedPokemonToHand:
 ; store chosen card location to Scoop Up
 	ld d, a
 	or CARD_LOCATION_PLAY_AREA
