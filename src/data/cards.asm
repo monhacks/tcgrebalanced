@@ -8433,14 +8433,14 @@ PidgeottoCard:
 
 	; attack 2
 	energy COLORLESS, 2 ; energies
-	tx WhirlwindName ; name
-	tx OpponentSwitchesPokemonDescription ; description
+	tx FlyName ; name
+	tx FlyDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 20 ; damage
 	db DAMAGE_NORMAL ; category
-	dw WhirlwindEffectCommands ; effect commands
+	dw FlyEffectCommands ; effect commands
 	db NONE ; flags 1
-	db SWITCH_OPPONENT_POKEMON ; flags 2
+	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_WHIRLWIND ; animation

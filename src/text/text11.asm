@@ -1323,6 +1323,15 @@ Deal40ToAnyPokemonDescription:
 	line "of your opponent's Pokémon."
 	done
 
+FlyName:
+	text "Fly"
+	done
+
+FlyDescription:
+	text "Return this Pokémon and all cards"
+	line "attached to it to your hand."
+	done
+
 HurricaneName:
 	text "Hurricane"
 	done

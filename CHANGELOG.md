@@ -187,6 +187,10 @@
 
 ### Colorless Changes
 
+#### Pidgeotto
+- **Whirlwind**: removed.
+- New attack: **Fly** (CC): 20 damage; returns the Pokémon and all attached cards to your hand.
+
 #### Pidgeot Lv40
 - Increased Retreat Cost from 1 to 2.
 - **Whirlwind**: reduced cost from (CC) to (C); reduced base damage from 40 to 20.

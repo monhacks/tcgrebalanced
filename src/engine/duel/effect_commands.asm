@@ -1384,6 +1384,10 @@ LunarPowerEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, LunarPower_AISelectEffect
 	db  $00
 
+FlyEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Fly_ReturnToHandEffect
+	db  $00
+
 HurricaneEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Hurricane_ReturnToHandEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Hurricane_PlayerSelectEffect

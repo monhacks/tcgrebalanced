@@ -2722,6 +2722,8 @@ TextOffsets:: ; 34000 (d:4000)
 	; textpointer Discard1EnergyDeal30ToAnyPokemonDescription
 	textpointer Deal30ToAnyPokemonDescription
 	textpointer Deal40ToAnyPokemonDescription
+	textpointer FlyName
+	textpointer FlyDescription
 	textpointer HurricaneName
 	textpointer HurricaneDescription
 	textpointer TwisterName                                        ; 0x0ae4

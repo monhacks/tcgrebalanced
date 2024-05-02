@@ -5149,6 +5149,17 @@ Hurricane_ReturnToHandEffect:
 	jp SwapTurn
 
 
+Fly_ReturnToHandEffect:
+	ld a, DUELVARS_ARENA_CARD_HP
+	call GetTurnDuelistVariable
+	or a
+	ret z  ; Knocked Out
+	xor a  ; PLAY_AREA_ARENA
+	ldh [hTempPlayAreaLocation_ffa1], a
+	; jp ReturnPokemonAndAttachedCardsToHandEffect
+	; fallthrough
+
+
 ; assume:
 ;   call to SwapTurn if necessary
 ; input:
