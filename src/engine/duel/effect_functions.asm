@@ -7734,34 +7734,21 @@ SelectedCard_ShowDetailsIfOpponentsTurn:
 	bank1call DisplayCardDetailScreen
 	ret
 
-; return carry if Bench is full or
-; if no Basic Pokemon cards in Discard Pile.
-Revive_BenchCheck: ; 2fb80 (b:7b80)
-	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
-	call GetTurnDuelistVariable
-	ldtx hl, NoSpaceOnTheBenchText
-	cp MAX_PLAY_AREA_POKEMON
-	ccf
+
+; return carry if Bench is full or if no Basic Pokemon cards in Discard Pile
+Revive_BenchCheck:
+	call CheckBenchIsNotFull
 	ret c
 	call CreateBasicPokemonCardListFromDiscardPile
 	ldtx hl, ThereAreNoPokemonInDiscardPileText
 	ret
 
-Revive_PlayerSelection: ; 2fb93 (b:7b93)
+
+Revive_PlayerSelection:
 ; create Basic Pokemon card list from Discard Pile
 	ldtx hl, ChooseBasicPokemonToPlaceOnBenchText
 	call DrawWideTextBox_WaitForInput
-	call CreateBasicPokemonCardListFromDiscardPile
-	bank1call InitAndDrawCardListScreenLayout_MenuTypeSelectCheck
-
-; display screen to select Pokemon
-	ldtx hl, PleaseSelectCardText
-	ldtx de, PlayerDiscardPileText
-	bank1call SetCardListHeaderText
-	bank1call DisplayCardList
-
-; store selection
-	ldh a, [hTempCardIndex_ff98]
+	call HandlePlayerSelectionFromDiscardPile_BasicPokemon
 	ldh [hTemp_ffa0], a
 	ret
 
