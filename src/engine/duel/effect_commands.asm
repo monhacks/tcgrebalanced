@@ -1572,6 +1572,14 @@ LeadEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, Lead_AISelectEffect
 	db  $00
 
+FriendshipSongEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SelectedCard_AddToHandFromDeckEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Heal10DamageFromAll_HealEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Lead_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Lead_AISelectEffect
+	db  $00
+
 TransportEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCardList_AddToHandFromDeckEffect

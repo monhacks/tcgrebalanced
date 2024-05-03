@@ -2558,7 +2558,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer CowardiceName                                      ; 0x094f
 	textpointer CowardiceDescription                               ; 0x0950
 	textpointer JellyfishStingName                                 ; 0x0954
-	textpointer HeadbuttName                                       ; 0x0957
 	textpointer ClampName                                          ; 0x0964
 	textpointer FlailName                                          ; 0x096d
 	textpointer FlailDescription                                   ; 0x096e
@@ -2567,8 +2566,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer OpponentAttackMayDoNothingDescription              ; 0x0973
 	textpointer RestName                                           ; 0x0974
 	textpointer RestDescription                                    ; 0x0974
-	textpointer ConfusionWaveName                                  ; 0x0974
-	textpointer ConfusionWaveDescription                           ; 0x0974
 	textpointer HornAttackName                                     ; 0x097b
 	textpointer RendName
 	textpointer Bonus20IfOpponentIsDamagedDescription
@@ -2734,8 +2731,9 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer SoothingMelodyDescription
 	textpointer Heal10DamageFromAllDescription
 	textpointer LunarPowerName
-	textpointer LeadName
-	textpointer LeadDescription
+	textpointer FriendshipSongName
+	textpointer FriendshipSongDescription
+	textpointer TransportDescription
 	textpointer LightStepsName
 	textpointer EnergySlideName
 	textpointer EnergySlideDescription
@@ -2886,7 +2884,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer MoonblastName
 	textpointer MetronomeDescription
 	textpointer DoubleEdgeName                                     ; 0x0b04
-	textpointer FriendshipSongName                                 ; 0x0b08
 	textpointer ExpandName                                         ; 0x0b0a
 	textpointer ReduceDamageTakenBy10Description                   ; 0x0b0b
 	textpointer LullabyName                                        ; 0x0b0d

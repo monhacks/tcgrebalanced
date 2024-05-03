@@ -8946,14 +8946,14 @@ JigglypuffCard:
 
 	; attack 1
 	energy COLORLESS, 1 ; energies
-	tx LeadName ; name
-	tx LeadDescription ; description
+	tx FriendshipSongName ; name
+	tx FriendshipSongDescription ; description
 	dw NONE ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw LeadEffectCommands ; effect commands
+	dw FriendshipSongEffectCommands ; effect commands
 	db DRAW_CARD ; flags 1
-	db NONE ; flags 2
+	db HEAL_USER ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_LURE ; animation

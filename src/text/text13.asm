@@ -103,6 +103,16 @@ RagingStormDescription:
 ; Unused Text
 ; ------------------------------------------------------------------------------
 
+; LeadName:
+; 	text "Lead"
+; 	done
+
+; LeadDescription:
+; 	text "Search your deck for a Supporter"
+; 	line "card, reveal it, and put it into"
+; 	line "your hand. Then, shuffle your deck."
+; 	done
+
 
 ; GaleName:
 ; 	text "Gale"

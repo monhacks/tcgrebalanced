@@ -480,10 +480,6 @@ JellyfishStingName: ; 5ba02 (16:7a02)
 	text "Jellyfish Sting"
 	done
 
-HeadbuttName: ; 5ba7d (16:7a7d)
-	text "Headbutt"
-	done
-
 ClampName: ; 5bc7e (16:7c7e)
 	text "Clamp"
 	done
@@ -521,15 +517,6 @@ RestDescription:
 	text "Remove all Special Conditions and"
 	line "3 damage counters from this Pokémon."
 	line "This Pokémon is now Asleep."
-	done
-
-ConfusionWaveName:
-	text "Confusion Wave"
-	done
-
-ConfusionWaveDescription:
-	text "Both this Pokémon and the Defending"
-	line "Pokémon are now Confused."
 	done
 
 HornAttackName: ; 5c1f5 (17:41f5)
@@ -1380,14 +1367,16 @@ LunarPowerName:
 	text "Lunar Power"
 	done
 
-LeadName:
-	text "Lead"
+FriendshipSongName:
+	text "Friendship Song"
 	done
 
-LeadDescription:
+FriendshipSongDescription:
 	text "Search your deck for a Supporter"
 	line "card, reveal it, and put it into"
-	line "your hand. Then, shuffle your deck."
+	line "your hand. Then, shuffle your deck"
+	line "and heal 10 damage from each of"
+	line "your Pokémon."
 	done
 
 TransportDescription:

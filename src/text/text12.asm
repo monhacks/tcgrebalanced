@@ -407,10 +407,6 @@ DoubleEdgeName: ; 61f05 (18:5f05)
 	text "Double-edge"
 	done
 
-FriendshipSongName: ; 61fa8 (18:5fa8)
-	text "Friendship Song"
-	done
-
 ExpandName: ; 6204e (18:604e)
 	text "Expand"
 	done

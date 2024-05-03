@@ -152,7 +152,7 @@
 #### Jigglypuff Lv13
 - **Call for Family**: removed.
 - **Light Steps**: removed.
-- New attack: **Lead** (C): add a Supporter from the deck to the hand.
+- New attack: **Friendship Song** (C): add a Supporter from the deck to the hand; heals 10 damage from all of the user's Pokémon.
 - New attack: **Lullaby** (P): inflicts Sleep.
 
 #### Wigglytuff Lv28
