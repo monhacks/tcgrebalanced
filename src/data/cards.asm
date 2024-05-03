@@ -4293,20 +4293,6 @@ SeakingCard:
 	db STAGE1 ; stage
 	tx GoldeenName ; pre-evo name
 
-	; attack X
-	; energy WATER, 2, COLORLESS, 1 ; energies
-	; tx AquaReturnName ; name
-	; tx ReturnToDeckDescription ; description
-	; dw NONE ; description (cont)
-	; db 90 ; damage
-	; db DAMAGE_NORMAL ; category
-	; dw AquaReturnEffectCommands ; effect commands
-	; db NONE ; flags 1
-	; db NONE ; flags 2
-	; db NONE ; flags 3
-	; db 0
-	; db ATK_ANIM_WATER_JETS ; animation
-
 	; attack 1
 	energy COLORLESS, 2 ; energies
 	tx RendName ; name
@@ -4570,11 +4556,11 @@ LaprasCard:
 	; attack 1
 	energy COLORLESS, 1 ; energies
 	tx TransportName ; name
-	tx LeadDescription ; description
+	tx TransportDescription ; description
 	dw NONE ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw LeadEffectCommands ; effect commands
+	dw TransportEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
@@ -4583,17 +4569,17 @@ LaprasCard:
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
-	tx IcyWindName ; name
-	tx Damage1BenchedPokemon10Description ; description
-	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
-	db 20 ; damage
+	tx AquaReturnName ; name
+	tx ReturnToDeckDescription ; description
+	dw NONE ; description (cont)
+	db 50 ; damage
 	db DAMAGE_NORMAL ; category
-	dw Damage1BenchedPokemon10EffectCommands ; effect commands
-	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
+	dw AquaReturnEffectCommands ; effect commands
+	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
-	db 10
-	db ATK_ANIM_BLIZZARD ; animation
+	db 0
+	db ATK_ANIM_WATER_JETS ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness

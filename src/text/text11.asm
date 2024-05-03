@@ -1390,6 +1390,13 @@ LeadDescription:
 	line "your hand. Then, shuffle your deck."
 	done
 
+TransportDescription:
+	text "Search your deck for up to 2"
+	line "Supporter cards, reveal them, and"
+	line "put them into your hand."
+	line "Then, shuffle your deck."
+	done
+
 LightStepsName:
 	text "Light Steps"
 	done

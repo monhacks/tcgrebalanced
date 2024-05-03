@@ -1569,6 +1569,10 @@ TutorFightingEnergy_AISelectEffect:
 	ret
 
 
+Transport_PlayerSelectEffect:
+	ld a, TYPE_TRAINER_SUPPORTER
+	jr Tutor2OfCardType_PlayerSelectEffect
+
 RapidCharge_PlayerSelectEffect:
 	ld a, TYPE_ENERGY_LIGHTNING
 	jr Tutor2OfCardType_PlayerSelectEffect
@@ -1603,6 +1607,10 @@ Tutor2OfCardType_PlayerSelectEffect:
 	ldh [hTempList + 2], a  ; terminator
 	ret
 
+
+Transport_AISelectEffect:
+	ld b, TYPE_TRAINER_SUPPORTER
+	jr Tutor2OfCardType_AISelectEffect
 
 RapidCharge_AISelectEffect:
 	ld b, TYPE_ENERGY_LIGHTNING

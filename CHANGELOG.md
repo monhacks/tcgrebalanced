@@ -95,7 +95,9 @@
 - **Raging Storm**: replaced extra damage vs the Defending Pokémon with 20 damage to all of the opponent's Benched Pokémon.
 
 #### Lapras
-- **Icy Wind**: reduced cost from (WCC) to (WC).
+- **Transport**: tutor 2 Supporters instead of 1.
+- **Icy Wind**: removed.
+- New attack: **Aqua Return** (WC): 50 damage; return this Pokémon and all attached cards to the deck.
 
 #### Omanyte
 - Increased HP from 70 to 80.
