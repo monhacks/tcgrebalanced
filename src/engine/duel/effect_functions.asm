@@ -539,6 +539,8 @@ INCLUDE "engine/duel/effect_functions/damage.asm"
 ; assumes: call to SwapTurn if needed
 ; inputs:
 ;   e: PLAY_AREA_* of the target
+; output:
+;   carry: set if the target was Knocked Out
 Put2DamageCountersOnTarget:
 	ld d, 20
 	jr ApplyDirectDamage_RegularAnim
@@ -549,6 +551,8 @@ Put2DamageCountersOnTarget:
 ; assumes: call to SwapTurn if needed
 ; inputs:
 ;   e: PLAY_AREA_* of the target
+; output:
+;   carry: set if the target was Knocked Out
 Put1DamageCounterOnTarget:
 	ld d, 10
 	; jr ApplyDirectDamage_RegularAnim
@@ -562,6 +566,8 @@ Put1DamageCounterOnTarget:
 ; inputs:
 ;   d: amount of damage to deal
 ;   e: PLAY_AREA_* of the target
+; output:
+;   carry: set if the target was Knocked Out
 ; preserves:
 ;   hl, de, bc
 ApplyDirectDamage_RegularAnim:
@@ -620,6 +626,7 @@ ApplyDirectDamage:
 	jr z, .skip_knocked_out
 	call PrintKnockedOutIfHLZero
 	call WaitForWideTextBoxInput
+	scf  ; signal KO
 .skip_knocked_out
 	pop bc
 	pop de
@@ -999,7 +1006,14 @@ Put1DamageCounterOnTarget_DamageEffect:
 	ld e, a
 	call SwapTurn
 	call Put1DamageCounterOnTarget
-	jp SwapTurn
+	call SwapTurn
+	ret nc
+; Knocked Out Defending Pokémon
+	ld a, DUELVARS_MISC_TURN_FLAGS
+	call GetTurnDuelistVariable
+	set TURN_FLAG_KO_OPPONENT_POKEMON_F, [hl]
+	bank1call ClearKnockedOutPokemon_TakePrizes_CheckGameOutcome
+	ret
 
 
 ; Remove status conditions from target PLAY_AREA_* and attach an Energy from Hand.
