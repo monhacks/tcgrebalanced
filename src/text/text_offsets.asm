@@ -2633,6 +2633,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Recoil10Description
 	textpointer Recoil20Description
 	textpointer Recoil30Description
+	textpointer SpikedArmorName
 	textpointer StrikeBackName
 	textpointer StrikeBackDescription
 	textpointer StoneBarrageName                                   ; 0x0a33

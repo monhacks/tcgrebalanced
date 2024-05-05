@@ -874,6 +874,10 @@ Recoil30Description:
 	text "Also does 30 damage to itself."
 	done
 
+SpikedArmorName:
+	text "Spiked Armor"
+	done
+
 StrikeBackName:
 	text "Strike Back"
 	done
