@@ -7333,7 +7333,7 @@ AbraCard:
 	dw NONE ; pre-evo name
 
 	; attack 1
-	energy PSYCHIC, 1 ; energies
+	energy COLORLESS, 1 ; energies
 	tx TeleportName ; name
 	tx TeleportDescription ; description
 	dw NONE ; description (cont)
@@ -7347,7 +7347,7 @@ AbraCard:
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
-	energy PSYCHIC, 1, COLORLESS, 1 ; energies
+	energy PSYCHIC, 1 ; energies
 	tx ConfuseRayName ; name
 	tx InflictConfusionDescription ; description
 	dw NONE ; description (cont)

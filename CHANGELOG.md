@@ -143,6 +143,10 @@
 
 ### Psychic Changes
 
+#### Abra
+- **Teleport**: reduced cost from (P) to (C).
+- **Confuse Ray**: reduced cost from (PC) to (P).
+
 #### Clefairy
 - **Lead**: removed.
 - **Friend Tackle**: removed.
