@@ -1332,6 +1332,8 @@ AttackPageDisplayPointerTable:
 ; display ATTACKPAGE_ATTACK1_1
 DisplayAttackPage_Attack1Page1:
 	call DisplayCardPage_PokemonAttack1Page1
+	ld hl, wLoadedCard1Atk1Description + 2
+	call PrintContinuedDescriptionSymbol
 	jr SwitchAttackPage
 
 ; display ATTACKPAGE_ATTACK1_2 if it exists. otherwise return in order
@@ -1347,6 +1349,8 @@ DisplayAttackPage_Attack1Page2:
 ; display ATTACKPAGE_ATTACK2_1
 DisplayAttackPage_Attack2Page1:
 	call DisplayCardPage_PokemonAttack2Page1
+	ld hl, wLoadedCard1Atk2Description + 2
+	call PrintContinuedDescriptionSymbol
 	jr SwitchAttackPage
 
 ; display ATTACKPAGE_ATTACK2_2 if it exists. otherwise return in order
@@ -1367,6 +1371,21 @@ SwitchAttackPage:
 	xor [hl]
 	ld [hl], a
 	ret
+
+
+; input:
+;   hl: loaded attack description pointer (e.g., wLoadedCard1Atk1Description + 2)
+PrintContinuedDescriptionSymbol:
+	; ld hl, wLoadedCard1Atk1Description + 2
+	ld a, [hli]
+	or [hl]
+	ret z
+	ld b, 18
+	ld c, 16
+	ld a, SYM_ATK_DESCR
+	ld a, SYM_CURSOR_D
+	jp WriteByteToBGMap0
+
 
 ; given the card at hTempCardIndex_ff98, for each non-empty, non-Pokemon Power attack slot,
 ; prints its information at lines 13 (first attack, if any), and 15 (second attack, if any)
@@ -4860,7 +4879,9 @@ CardPageRetreatWRNumberTextData:
 DisplayCardPage_PokemonAttack1Page1:
 	ld hl, wLoadedCard1Atk1Name
 	ld de, wLoadedCard1Atk1Description
-	jr DisplayPokemonAttackCardPage
+	call DisplayPokemonAttackCardPage
+	ld hl, wLoadedCard1Atk1Description + 2
+	jp PrintContinuedDescriptionSymbol
 
 DisplayCardPage_PokemonAttack1Page2:
 	ld hl, wLoadedCard1Atk1Name
@@ -4870,7 +4891,9 @@ DisplayCardPage_PokemonAttack1Page2:
 DisplayCardPage_PokemonAttack2Page1:
 	ld hl, wLoadedCard1Atk2Name
 	ld de, wLoadedCard1Atk2Description
-	jr DisplayPokemonAttackCardPage
+	call DisplayPokemonAttackCardPage
+	ld hl, wLoadedCard1Atk2Description + 2
+	jp PrintContinuedDescriptionSymbol
 
 DisplayCardPage_PokemonAttack2Page2:
 	ld hl, wLoadedCard1Atk2Name
