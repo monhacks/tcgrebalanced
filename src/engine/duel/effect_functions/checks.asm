@@ -580,6 +580,18 @@ CheckDefendingPokemonHas50HpOrLess:
 
 
 ; returns carry if the Pokémon Power has already been used in this turn.
+; also stores the triggering location in [htemp_ffa0].
+; inputs:
+;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon using the Power
+CheckPokemonPowerCanBeUsed_StoreTrigger:
+	call CheckPokemonPowerCanBeUsed
+	ret c
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ldh [hTemp_ffa0], a
+	ret
+
+
+; returns carry if the Pokémon Power has already been used in this turn.
 ; inputs:
 ;   [hTempPlayAreaLocation_ff9d]: PLAY_AREA_* of the Pokémon using the Power
 CheckPokemonPowerCanBeUsed:

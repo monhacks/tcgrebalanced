@@ -330,23 +330,9 @@ FleetFooted_PreconditionCheck:
 	ret
 
 
-Shift_OncePerTurnCheck:
-  ldh a, [hTempPlayAreaLocation_ff9d]
-  ldh [hTemp_ffa0], a
-	jp CheckPokemonPowerCanBeUsed
-
-
 StressPheromones_PreconditionCheck:
 	call CheckTempLocationPokemonHasAnyDamage
 	ret c
-	jp CheckPokemonPowerCanBeUsed
-
-
-StepIn_PreconditionCheck:
-	call CheckTriggeringPokemonIsOnTheBench
-	ret c
-	; ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
 	jp CheckPokemonPowerCanBeUsed
 
 
@@ -997,7 +983,7 @@ TryGiveDamageCounter_StrangeBehavior:
 
 
 Curse_DamageEffect:
-	call SetUsedPokemonPowerThisTurn
+	call SetUsedPokemonPowerThisTurn_RestoreTrigger
 	; fallthrough
 
 Put1DamageCounterOnTarget_DamageEffect:
@@ -2718,6 +2704,12 @@ Shift_PlayerSelectEffect: ; 2cd21 (b:4d21)
 	ret
 
 
+SetUsedPokemonPowerThisTurn_RestoreTrigger:
+	ldh a, [hTemp_ffa0]
+	ldh [hTempPlayAreaLocation_ff9d], a
+	; jr SetUsedPokemonPowerThisTurn
+	; fallthrough
+
 SetUsedPokemonPowerThisTurn:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	add DUELVARS_ARENA_CARD_FLAGS
@@ -2888,14 +2880,15 @@ PetalDance_BonusEffect:
 
 
 HelpingHand_CheckUse:
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
+	call CheckArenaPokemonHasStatus
+	ret c  ; Arena card does not have status conditions
+	; jp StepIn_PreconditionCheck
+	; fallthrough
+
+StepIn_PreconditionCheck:
 	call CheckTriggeringPokemonIsOnTheBench
-	ret c  ; can't use this Power on the Active Spot
-	call CheckPokemonPowerCanBeUsed
-	ret c  ; can't use this Power due to status or Toxic Gas
-; return carry if the Arena card does not have status conditions
-	jp CheckArenaPokemonHasStatus
+	ret c
+	jp CheckPokemonPowerCanBeUsed_StoreTrigger
 
 
 HelpingHand_RemoveStatusEffect:
@@ -4906,10 +4899,7 @@ NutritionSupport_AttachEnergyEffect:
 
 
 EnergyGenerator_AttachEnergyEffect:
-; restore [hTempPlayAreaLocation_ff9d] from [hTemp_ffa0]
-	ldh a, [hTemp_ffa0]
-	ldh [hTempPlayAreaLocation_ff9d], a
-	call SetUsedPokemonPowerThisTurn
+	call SetUsedPokemonPowerThisTurn_RestoreTrigger
 	call EnergySpike_AttachEnergyEffect
 	ldh a, [hTempPlayAreaLocation_ffa1]
 	ld e, a   ; location
@@ -4917,15 +4907,11 @@ EnergyGenerator_AttachEnergyEffect:
 
 
 EnergyLift_PreconditionCheck:
-	call CheckPokemonPowerCanBeUsed
-	ret c  ; cannot be used
 	call CheckBenchIsNotEmpty
 	ret c  ; no bench
 	call AttachEnergyFromHand_HandCheck
 	ret c
-
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
+	jp CheckPokemonPowerCanBeUsed_StoreTrigger
 
 ;	ld a, [wAlreadyPlayedEnergyOrSupporter]
 ;	and USED_FIRESTARTER_THIS_TURN
@@ -4934,12 +4920,10 @@ EnergyLift_PreconditionCheck:
 ;.already_used
 ;	ldtx hl, OnlyOncePerTurnText
 ;	scf
-	ret
+;	ret
 
 
 RainbowTeam_OncePerTurnCheck:
-	call CheckPokemonPowerCanBeUsed
-	ret c  ; cannot be used
 	call CheckBenchIsNotEmpty
 	ret c  ; no bench
 	call CreateEnergyCardListFromDiscardPile_OnlyBasic
@@ -4947,9 +4931,7 @@ RainbowTeam_OncePerTurnCheck:
 	call CheckNoDuplicateColorsInPlayArea
 	ldtx hl, MultiplePokemonOfTheSameColorText
 	ret c  ; duplicate colors
-
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
+	jp CheckPokemonPowerCanBeUsed_StoreTrigger
 
 ;	ld a, [wAlreadyPlayedEnergyOrSupporter]
 ;	and USED_FIRESTARTER_THIS_TURN
@@ -4958,7 +4940,7 @@ RainbowTeam_OncePerTurnCheck:
 ;.already_used
 ;	ldtx hl, OnlyOncePerTurnText
 ;	scf
-	ret
+;	ret
 
 
 RainbowTeam_AttachEnergyEffect:
@@ -5000,13 +4982,9 @@ CrushingCharge_DiscardAndAttachEnergyEffect:
 
 
 LightningHaste_OncePerTurnCheck:
-	call CheckPokemonPowerCanBeUsed
-	ret c  ; cannot be used
 	call CreateEnergyCardListFromDiscardPile_OnlyLightning
 	ret c  ; no energy
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
-	ret
+	jp CheckPokemonPowerCanBeUsed_StoreTrigger
 
 
 LightningHaste_AttachEnergyEffect:
@@ -5029,15 +5007,11 @@ LightningHaste_AttachEnergyEffect:
 
 
 Firestarter_OncePerTurnCheck:
-	call CheckPokemonPowerCanBeUsed
-	ret c  ; cannot be used
 	call CheckBenchIsNotEmpty
 	ret c  ; no bench
 	call CreateEnergyCardListFromDiscardPile_OnlyFire
 	ret c  ; no energy
-
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
+	jp CheckPokemonPowerCanBeUsed_StoreTrigger
 
 ;	ld a, [wAlreadyPlayedEnergyOrSupporter]
 ;	and USED_FIRESTARTER_THIS_TURN
@@ -5046,7 +5020,7 @@ Firestarter_OncePerTurnCheck:
 ;.already_used
 ;	ldtx hl, OnlyOncePerTurnText
 ;	scf
-	ret
+;	ret
 
 Firestarter_AttachEnergyEffect:
 	xor a  ; cannot select active spot
@@ -5097,11 +5071,8 @@ _AttachEnergyFromDiscardPileToBenchEffect:
 	; fallthrough
 
 .attach
-; restore [hTempPlayAreaLocation_ff9d] from [hTemp_ffa0]
-	ldh a, [hTemp_ffa0]
-	ldh [hTempPlayAreaLocation_ff9d], a
 ; flag Firestarter as being used (requires [hTempPlayAreaLocation_ff9d])
-	call SetUsedPokemonPowerThisTurn
+	call SetUsedPokemonPowerThisTurn_RestoreTrigger
 	; ld a, [wAlreadyPlayedEnergyOrSupporter]
 	; or USED_FIRESTARTER_THIS_TURN
 	; ld [wAlreadyPlayedEnergyOrSupporter], a
@@ -5640,10 +5611,7 @@ AttachEnergyFromHand_OnlyActive_AISelectEffect:
 
 
 EnergyLift_AttachEnergyEffect:
-; restore [hTempPlayAreaLocation_ff9d] from [hTemp_ffa0]
-	ldh a, [hTemp_ffa0]
-	ldh [hTempPlayAreaLocation_ff9d], a
-	call SetUsedPokemonPowerThisTurn
+	call SetUsedPokemonPowerThisTurn_RestoreTrigger
 	; jr AttachEnergyFromHand_AttachEnergyEffect
 	; fallthrough
 

@@ -2027,11 +2027,8 @@ RainDance_AttachEnergyEffect:
 	; fallthrough
 
 .attach
-; restore [hTempPlayAreaLocation_ff9d] from [hTemp_ffa0]
-	ldh a, [hTemp_ffa0]
-	ldh [hTempPlayAreaLocation_ff9d], a
 ; flag Rain Dance as being used (requires [hTempPlayAreaLocation_ff9d])
-	call SetUsedPokemonPowerThisTurn
+	call SetUsedPokemonPowerThisTurn_RestoreTrigger
 
 ; pick Water Energy from Hand
 	call CreateHandCardList_OnlyWaterEnergy
