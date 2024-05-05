@@ -69,6 +69,8 @@ HandleSpecialAIAttacks:
 	jr z, .Clefairy
 	cp ODDISH
 	jr z, .Sprout
+	cp BULBASAUR
+	jr z, .Sprout
 	cp ARTICUNO_LV35
 	jp z, .Freeze
 	cp MOLTRES_LV35

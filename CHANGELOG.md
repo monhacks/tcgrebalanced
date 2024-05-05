@@ -13,6 +13,15 @@
 
 ### Grass Changes
 
+#### Bulbasaur
+- Increased HP from 40 to 50.
+- **Growl**: removed.
+- New attack: **Sprout** (C): searches the Deck for any Grass type card and adds it to the hand.
+
+#### Ivysaur
+- Increased HP from 60 to 80.
+- **Poison Whip**: reduced cost from (GCC) to (GC); increased damage from 20 to 30.
+
 #### Metapod
 - Reduced HP from 70 to 60.
 - Reduced Retreat Cost from 2 to 1.
