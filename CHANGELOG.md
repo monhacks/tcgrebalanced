@@ -71,6 +71,9 @@
 #### Tentacool
 - **Poison Sting**: always inflicts Poison.
 
+#### Cloyster
+- **Cold Crush**: increased damage from 30 to 40.
+
 #### Krabby
 - **Bubble**: removed.
 - **Guillotine**: removed.

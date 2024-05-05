@@ -4006,7 +4006,7 @@ CloysterCard:
 	tx ColdCrushName ; name
 	tx Discard1EnergyFromBothActiveDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 40 ; damage
 	db DAMAGE_NORMAL ; category
 	dw Discard1EnergyFromBothActiveEffectCommands ; effect commands
 	db NONE ; flags 1
