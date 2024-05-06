@@ -1382,7 +1382,7 @@ PrintContinuedDescriptionSymbol:
 	ret z
 	ld b, 18
 	ld c, 16
-	ld a, SYM_ATK_DESCR
+	; ld a, SYM_ATK_DESCR
 	ld a, SYM_CURSOR_D
 	jp WriteByteToBGMap0
 
