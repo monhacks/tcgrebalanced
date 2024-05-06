@@ -874,9 +874,17 @@ Recoil30Description:
 	text "Also does 30 damage to itself."
 	done
 
-SpikedArmorName:
-	text "Spiked Armor"
-	done
+; SpikedArmorName:
+; 	text "Spiked Armor"
+; 	done
+
+; SpikedArmorDescription:
+; 	text "This Pokémon takes 10 less damage"
+; 	line "from attacks. If this is your Active"
+; 	text "Pokémon and it is damaged by an"
+; 	line "opponent's attack, put 1 damage"
+; 	line "counter on the Attacking Pokémon."
+; 	done
 
 StrikeBackName:
 	text "Strike Back"
@@ -888,16 +896,6 @@ StrikeBackDescription:
 	line "attack (even if this Pokémon is"
 	line "Knocked Out), put 2 damage counters"
 	line "on the Attacking Pokémon."
-	done
-
-StoneBarrageName: ; 5ed41 (17:6d41)
-	text "Stone Barrage"
-	done
-
-FlipUntilTails10xDescription:
-	text "Flip a coin until you get tails."
-	line "This attack does 10 damage times"
-	line "the number of heads."
 	done
 
 RockThrowName: ; 5eede (17:6ede)
@@ -941,12 +939,6 @@ RageDescription: ; 5f27f (17:727f)
 
 BattleArmorName:
 	text "Battle Armor"
-	done
-
-BattleArmorDescription:
-	text "This Pokémon takes 20 less damage"
-	line "from attacks (after applying"
-	line "Weakness and Resistance)."
 	done
 
 BonemerangName: ; 5f332 (17:7332)
@@ -1006,8 +998,8 @@ CloseCombatName:
 	text "Close Combat"
 	done
 
-SpikeName: ; 5f889 (17:7889)
-	text "Spike"
+SpikesName:
+	text "Spikes"
 	done
 
 RamName: ; 5f8fa (17:78fa)

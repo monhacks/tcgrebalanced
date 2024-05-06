@@ -2106,7 +2106,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PunchingName
 	textpointer LickingName
 	textpointer PoisonGasName
-	textpointer SpikesName
+	textpointer SpikeName
 	textpointer VineName
 	textpointer ParentName
 	textpointer DragonName
@@ -2633,11 +2633,10 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Recoil10Description
 	textpointer Recoil20Description
 	textpointer Recoil30Description
-	textpointer SpikedArmorName
+	; textpointer SpikedArmorName
+	; textpointer SpikedArmorDescription
 	textpointer StrikeBackName
 	textpointer StrikeBackDescription
-	textpointer StoneBarrageName                                   ; 0x0a33
-	textpointer FlipUntilTails10xDescription
 	textpointer RockThrowName                                      ; 0x0a3a
 	textpointer RockSlideName                                      ; 0x0a3d
 	textpointer ExplosionName
@@ -2646,7 +2645,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ReduceDamageBy20Description
 	textpointer RageDescription                                    ; 0x0a48
 	textpointer BattleArmorName                                    ; 0x0a6c
-	textpointer BattleArmorDescription                             ; 0x0a4c
 	textpointer BonemerangName                                     ; 0x0a4c
 	textpointer CallForFamilyName
 	textpointer CallForFamilyDescription
@@ -2659,7 +2657,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer HighJumpKickName                                   ; 0x0a59
 	textpointer SkyUppercutName
 	textpointer CloseCombatName
-	textpointer SpikeName                                          ; 0x0a64
+	textpointer SpikesName
 	textpointer RamName                                            ; 0x0a67
 	textpointer RamDescription
 	textpointer FossilEnergyName

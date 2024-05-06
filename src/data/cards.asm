@@ -6812,7 +6812,7 @@ MarowakLv26Card:
 	; depends: HandleDefenderDamageReductionEffects
 	energy 0 ; energies
 	tx BattleArmorName ; name
-	tx BattleArmorDescription ; description
+	tx ExoskeletonDescription ; description
 	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
 	db POKEMON_POWER ; category

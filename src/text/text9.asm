@@ -1435,8 +1435,8 @@ PoisonGasName:
 	text "Poison Gas"
 	done
 
-SpikesName:
-	text "Spikes"
+SpikeName:
+	text "Spike"
 	done
 
 VineName:
