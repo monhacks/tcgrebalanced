@@ -1,5 +1,32 @@
 ;
 
+
+; code for something like a Natural Cure
+; heal 20 from self on energy attachment
+HandleOnPlayEnergyEffects:
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	add DUELVARS_ARENA_CARD
+	call GetTurnDuelistVariable
+	call GetCardIDFromDeckIndex
+	ld a, e
+	cp GOODRA  ; this is where you put the ID of your card
+	ret nz  ; not Goodra
+	ldh a, [hTempPlayAreaLocation_ff9d]
+	ld e, a
+	call GetCardDamageAndMaxHP
+	or a
+	ret z  ; no damage
+	ld c, 20
+	cp 20
+	jr nc, .skip_cap
+	ld c, a
+.skip_cap
+	ld a, c
+	farcall HealPlayAreaCardHP
+	ret
+
+
+
 GaleEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, GaleEffect
 	db  $00
