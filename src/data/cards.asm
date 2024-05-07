@@ -3950,17 +3950,17 @@ ShellderCard:
 	db ATK_ANIM_PROTECT ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 1 ; energies
+	energy COLORLESS, 2 ; energies
 	tx ClampName ; name
-	tx ClampDescription ; description
+	tx ConstrictDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
-	db DAMAGE_NORMAL ; category
-	dw ClampEffectCommands ; effect commands
-	db INFLICT_PARALYSIS ; flags 1
-	db DISCARD_ENERGY ; flags 2
+	db 10 ; damage
+	db DAMAGE_PLUS ; category
+	dw ConstrictEffectCommands ; effect commands
+	db NONE ; flags 1
+	db FLAG_2_BIT_6 ; flags 2
 	db NONE ; flags 3
-	db 0
+	db 1
 	db ATK_ANIM_HIT ; animation
 
 	db 0 ; retreat cost

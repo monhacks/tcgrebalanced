@@ -72,7 +72,8 @@
 - **Poison Sting**: always inflicts Poison.
 
 #### Shellder
-- **Clamp**: removed coin flip; discards an energy attached to the user; always inflicts Paralysis.
+- **Clamp**: reworked.
+- New attack: **Clamp** (CC): 10 damage; increase opponent's retreat cost by 1 and deal +10 damage for each (C) in retreat cost.
 
 #### Cloyster
 - **Cold Crush**: removed.

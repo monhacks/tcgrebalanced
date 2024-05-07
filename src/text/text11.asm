@@ -484,12 +484,6 @@ ClampName:
 	text "Clamp"
 	done
 
-ClampDescription:
-	text "Discard an Energy attached to this"
-	line "Pokémon. The Defending Pokémon is"
-	line "now Paralyzed."
-	done
-
 FlailName: ; 5be7c (16:7e7c)
 	text "Flail"
 	done

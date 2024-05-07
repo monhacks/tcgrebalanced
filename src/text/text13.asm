@@ -114,6 +114,13 @@ IcicleSpearsDescription:
 ; Unused Text
 ; ------------------------------------------------------------------------------
 
+; ClampDescription:
+; 	text "Discard an Energy attached to this"
+; 	line "Pokémon. The Defending Pokémon is"
+; 	line "now Paralyzed."
+; 	done
+
+
 ; LeadName:
 ; 	text "Lead"
 ; 	done
