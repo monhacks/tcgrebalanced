@@ -1204,7 +1204,7 @@ WildfireEffectCommands:
 SheerColdEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Water
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, SheerCold_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SheerCold_DamageBoostEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SheerCold_MultiplierEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DiscardOpponentEnergy_DiscardEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, SheerCold_DiscardEnergyEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DiscardOpponentEnergy_PlayerSelectEffect

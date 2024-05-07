@@ -473,13 +473,13 @@ Thunderstorm_MultiplierEffect:
 	jp SetDefiniteDamage
 
 
-SheerCold_DamageBoostEffect:
 Wildfire_DamageBoostEffect:
 	ldh a, [hTemp_ffa0]
 	call ATimes10
 	jp AddToDamage
 
 
+SheerCold_MultiplierEffect:
 ScorchingColumn_MultiplierEffect:
 Discharge_MultiplierEffect:
 	ldh a, [hTemp_ffa0]

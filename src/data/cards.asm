@@ -4881,8 +4881,8 @@ ArticunoLv35Card:
 	tx SheerColdName ; name
 	tx SheerColdDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_PLUS ; category
+	db 20 ; damage
+	db DAMAGE_X ; category
 	dw SheerColdEffectCommands ; effect commands
 	db NONE ; flags 1
 	db FLAG_2_BIT_5 ; flags 2

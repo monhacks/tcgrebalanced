@@ -366,7 +366,7 @@ SheerColdName:
 SheerColdDescription:
 	text "Discard 1 or more <WATER> Energy attached"
 	line "to this Pokémon to use this attack."
-	line "This attack does 10 more damage for"
+	line "This attack does 20 damage for"
 	line "each Energy discarded this way."
 	line "Discard an Energy attached to the"
 	line "Defending Pokémon."

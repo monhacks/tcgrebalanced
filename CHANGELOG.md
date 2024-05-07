@@ -124,6 +124,9 @@
 #### Omastar
 - Increased HP from 100 to 110.
 
+#### Articuno Lv35
+- **Sheer Cold**: reduced base damage from 10 to 0; increased damage bonus from 10 to 20 per discarded energy.
+
 ### Lightning Changes
 
 #### Surfing Pikachu
