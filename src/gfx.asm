@@ -1796,8 +1796,8 @@ ShellderCardGfx::
 	INCBIN "gfx/cards/shellder.pal"
 
 CloysterCardGfx::
-	INCBIN "gfx/cards/cloyster.2bpp"
-	INCBIN "gfx/cards/cloyster.pal"
+	INCBIN "gfx/cards/cloyster2.2bpp"
+	INCBIN "gfx/cards/cloyster2.pal"
 
 KrabbyCardGfx::
 	INCBIN "gfx/cards/krabby.2bpp"
