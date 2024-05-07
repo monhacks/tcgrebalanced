@@ -744,15 +744,6 @@ ThunderWaveName: ; 5d591 (17:5591)
 	text "Thunder Wave"
 	done
 
-SonicboomName: ; 5d86b (17:586b)
-	text "Sonicboom"
-	done
-
-SonicboomDescription:
-	text "Don't apply Weakness and Resistance"
-	line "for this attack."
-	done
-
 EnergySpikeName: ; 5da72 (17:5a72)
 	text "Energy Spike"
 	done

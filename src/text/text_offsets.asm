@@ -2605,8 +2605,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ThunderName                                        ; 0x09cb
 	textpointer DamageUpTo2BenchedDescription                      ; 0x09cf
 	textpointer ThunderWaveName                                    ; 0x09d2
-	textpointer SonicboomName                                      ; 0x09dc
-	textpointer SonicboomDescription                               ; 0x09dd
 	textpointer EnergySpikeName                                    ; 0x09e4
 	textpointer EnergySpikeDescription                             ; 0x09e5
 	textpointer OtherEffectsStillHappenDescriptionCont
