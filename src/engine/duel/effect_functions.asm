@@ -4010,6 +4010,15 @@ DiscardEnergy_AISelectEffect:
 	ldh [hTemp_ffa0], a
 	ret
 
+DiscardBasicEnergy_AISelectEffect:
+	xor a ; PLAY_AREA_ARENA
+	call CreateArenaOrBenchEnergyCardList
+	ld c, DOUBLE_COLORLESS_ENERGY
+	call RemoveCardIDFromCardList
+	ld a, [wDuelTempList] ; pick first card
+	ldh [hTemp_ffa0], a
+	ret
+
 
 FirePunch_AISelectEffect:
 	call _StoreFF_CheckIfUserIsDamaged
@@ -6150,6 +6159,7 @@ EnergySwitch_PlayerSelection:
 EnergySlide_PlayerSelection:
 	ld a, $ff
 	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetTurnDuelistVariable
 	cp 2
@@ -6174,6 +6184,7 @@ EnergySlide_PlayerSelection:
 EnergySlide_AISelectEffect:
 	ld a, $ff
 	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
 
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetTurnDuelistVariable
@@ -6191,7 +6202,7 @@ EnergySlide_AISelectEffect:
 	ld a, e
 	ldh [hTempPlayAreaLocation_ffa1], a
 ; choose an energy to move
-	jp DiscardEnergy_AISelectEffect
+	jp DiscardBasicEnergy_AISelectEffect
 .skip
 	inc e
 	dec d
@@ -6207,6 +6218,7 @@ MoveOpponentEnergyToBench_PlayerSelection:
 OptionalMoveOpponentEnergyToBench_AISelectEffect:
 	ld a, $ff
 	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetNonTurnDuelistVariable
 	or a
@@ -6217,7 +6229,7 @@ OptionalMoveOpponentEnergyToBench_AISelectEffect:
 MoveOpponentEnergyToBench_AISelectEffect:
 	call SwapTurn
 ; store energy to discard in [hTemp_ffa0]
-	call DiscardEnergy_AISelectEffect
+	call DiscardBasicEnergy_AISelectEffect
 ; pick the first Benched Pokémon
 	ld a, PLAY_AREA_BENCH_1
 	ldh [hTempPlayAreaLocation_ffa1], a
