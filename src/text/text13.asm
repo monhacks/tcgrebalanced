@@ -110,6 +110,16 @@ IcicleSpearsDescription:
 	line "Benched Pokémon."
 	done
 
+DarkPrisonName:
+	text "Dark Prison"
+	done
+
+DarkPrisonDescription:
+	text "Your opponent's Pokémon with a"
+	line "Status Condition pay <COLORLESS> more for"
+	line "their Retreat Cost."
+	done
+
 ; ------------------------------------------------------------------------------
 ; Unused Text
 ; ------------------------------------------------------------------------------

@@ -2574,14 +2574,28 @@ GetPlayAreaCardRetreatCost:
 	add DUELVARS_ARENA_CARD
 	call GetTurnDuelistVariable
 	call LoadCardDataToBuffer1_FromDeckIndex  ; preserves hl
-	; apply Retreat Cost penalties before discounts
+; apply Retreat Cost penalties before discounts
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	or a
 	jp nz, GetLoadedCard1RetreatCost  ; exit, not arena, penalties are not applicable
-	ld l, DUELVARS_ARENA_CARD_SUBSTATUS2
-	ld a, [hl]
+; Dark Prison ability
+	call SwapTurn
+	call IsDarkPrisonActive
+	call SwapTurn
+	jr nc, .substatus
+	ld a, DUELVARS_ARENA_CARD_STATUS
+	call GetTurnDuelistVariable
+	or a
+	jr z, .substatus
+	ld hl, wLoadedCard1RetreatCost
+	inc [hl]
+; increased Retreat Cost substatus
+.substatus
+	ld a, DUELVARS_ARENA_CARD_SUBSTATUS2
+	call GetTurnDuelistVariable
 	cp SUBSTATUS2_RETREAT_PLUS_1
 	jp nz, GetLoadedCard1RetreatCost  ; exit, no substatus
+; add to default Retreat Cost
 	ld hl, wLoadedCard1RetreatCost
 	inc [hl]
 	jp GetLoadedCard1RetreatCost

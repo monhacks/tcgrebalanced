@@ -481,6 +481,16 @@ IsActiveSpotPokemonPowerActive:
 	ret
 
 
+; return carry if turn holder has Tentacruel and its Dark Prison Pkmn Power is active
+; preserves: bc, de
+IsDarkPrisonActive:
+	call ArePokemonPowersDisabled
+	ccf
+	ret nc
+	ld a, TENTACRUEL
+	jp GetFirstPokemonWithAvailablePower
+
+
 ; return carry if turn holder has Mew and its Clairvoyance Pkmn Power is active
 ; preserves: bc, de
 IsClairvoyanceActive:

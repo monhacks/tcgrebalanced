@@ -3126,6 +3126,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer RagingStormDescription
 	textpointer IcicleSpearsName
 	textpointer IcicleSpearsDescription
+	textpointer DarkPrisonName
+	textpointer DarkPrisonDescription
 
 	; unused
 	; textpointer VaporEssenceName

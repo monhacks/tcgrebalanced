@@ -72,6 +72,11 @@
 - **Poison Sting**: removed.
 - New attack: **Wicked Tentacle** (W): move an Energy from the Defending Pokémon to another Pokémon; inflicts Poison on both Pokémon.
 
+#### Tentacruel
+- **Wicked Tentacle**: removed.
+- **Jellyfish Sting**: increased damage from 20 to 30.
+- New Pokémon Power: **Dark Prison**: increases the Retreat Cost of the opponent's Pokémon with a Status Condition by 1.
+
 #### Shellder
 - **Clamp**: reworked.
 - New attack: **Clamp** (CC): 10 damage; increase opponent's retreat cost by 1 and deal +10 damage for each (C) in retreat cost.

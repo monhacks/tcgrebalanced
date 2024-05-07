@@ -3783,25 +3783,25 @@ TentacruelCard:
 	tx TentacoolName ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
-	tx WickedTentacleName ; name
-	tx WickedTentacleDescription ; description
-	dw NONE ; description (cont)
+	energy 0 ; energies
+	tx DarkPrisonName ; name
+	tx DarkPrisonDescription ; description
+	tx PokemonPowerDescriptionCont ; description (cont)
 	db 0 ; damage
-	db RESIDUAL ; category
-	dw WickedTentacleEffectCommands ; effect commands
-	db INFLICT_POISON ; flags 1
+	db POKEMON_POWER ; category
+	dw PassivePowerEffectCommands ; effect commands
+	db NONE ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_WHIP_NO_HIT ; animation
+	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
 	tx JellyfishStingName ; name
 	tx PoisonOrConfusionIfPoisonedDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
+	db 30 ; damage
 	db DAMAGE_NORMAL ; category
 	dw JellyfishStingEffectCommands ; effect commands
 	db INFLICT_POISON | INFLICT_CONFUSION ; flags 1
