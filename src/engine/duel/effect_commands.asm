@@ -477,6 +477,14 @@ ParalysisIfDiscardedEnergyEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, OptionalDiscardEnergyForStatus_AISelectEffect
 	db  $00
 
+ClampEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DiscardEnergy_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, ParalysisEffect
+	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, DiscardEnergy_AISelectEffect
+	db  $00
+
 ThunderWaveEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, ThunderWave_PreconditionCheck
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, ThunderWave_PlayerSelectEffect

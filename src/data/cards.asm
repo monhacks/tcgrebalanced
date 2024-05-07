@@ -3952,13 +3952,13 @@ ShellderCard:
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
 	tx ClampName ; name
-	tx MayInflictParalysisDescription ; description
+	tx ClampDescription ; description
 	dw NONE ; description (cont)
 	db 20 ; damage
 	db DAMAGE_NORMAL ; category
-	dw Paralysis50PercentEffectCommands ; effect commands
+	dw ClampEffectCommands ; effect commands
 	db INFLICT_PARALYSIS ; flags 1
-	db NONE ; flags 2
+	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_HIT ; animation

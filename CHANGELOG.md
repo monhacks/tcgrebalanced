@@ -71,6 +71,9 @@
 #### Tentacool
 - **Poison Sting**: always inflicts Poison.
 
+#### Shellder
+- **Clamp**: removed coin flip; discards an energy attached to the user; always inflicts Paralysis.
+
 #### Cloyster
 - **Cold Crush**: increased damage from 30 to 40.
 

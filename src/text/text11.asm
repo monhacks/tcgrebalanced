@@ -480,8 +480,14 @@ JellyfishStingName: ; 5ba02 (16:7a02)
 	text "Jellyfish Sting"
 	done
 
-ClampName: ; 5bc7e (16:7c7e)
+ClampName:
 	text "Clamp"
+	done
+
+ClampDescription:
+	text "Discard an Energy attached to this"
+	line "Pokémon. The Defending Pokémon is"
+	line "now Paralyzed."
 	done
 
 FlailName: ; 5be7c (16:7e7c)
