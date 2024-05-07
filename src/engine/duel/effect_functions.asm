@@ -1125,6 +1125,11 @@ VoltSwitchEffect:
 ; ------------------------------------------------------------------------------
 
 
+WickedTentacle_PoisonTransferEffect:
+	call MoveOpponentEnergyToBench_TransferEffect
+	jp PoisonEffect
+
+
 ToxicWaste_DamagePoisonEffect:
 	call ToxicWaste_DamageBoostEffect
 	jp DoublePoisonEffect

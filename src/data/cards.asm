@@ -3733,17 +3733,17 @@ TentacoolCard:
 
 	; attack 1
 	energy WATER, 1 ; energies
-	tx PoisonStingName ; name
-	tx InflictPoisonDescription ; description
+	tx WickedTentacleName ; name
+	tx WickedTentacleDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_NORMAL ; category
-	dw InflictPoisonEffectCommands ; effect commands
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw WickedTentacleEffectCommands ; effect commands
 	db INFLICT_POISON ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_NEEDLES ; animation
+	db ATK_ANIM_WHIP_NO_HIT ; animation
 
 	; attack 2
 	energy COLORLESS, 2 ; energies

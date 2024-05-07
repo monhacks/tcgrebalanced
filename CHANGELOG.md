@@ -69,7 +69,8 @@
 - New attack: **Steamroller** (CCC): 40 damage; +10 damage for each attached Water or Fighting Energy; excess damage goes to 1 Benched Pokémon.
 
 #### Tentacool
-- **Poison Sting**: always inflicts Poison.
+- **Poison Sting**: removed.
+- New attack: **Wicked Tentacle** (W): move an Energy from the Defending Pokémon to another Pokémon; inflicts Poison on both Pokémon.
 
 #### Shellder
 - **Clamp**: reworked.

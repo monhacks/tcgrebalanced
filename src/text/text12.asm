@@ -1046,7 +1046,7 @@ WickedTentacleDescription:
 	text "Move a Basic Energy card from the"
 	line "Defending Pokémon to one of your"
 	line "opponent's Benched Pokémon."
-	line "That Pokémon is now Poisoned."
+	line "Both Pokémon are now Poisoned."
 	done
 
 PoisonOrConfusionIfPoisonedDescription:
