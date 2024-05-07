@@ -2579,7 +2579,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer RecoverName                                        ; 0x0986
 	textpointer RecoverDescription                                 ; 0x0987
 	textpointer EnergySpiralName
-	textpointer TackleName                                         ; 0x098c
+	textpointer Counter20DamageDescription
 	textpointer ShellPressName
 	textpointer FocusEnergyName                                    ; 0x099a
 	textpointer MysteriousFossilName                               ; 0x09a1
@@ -3125,6 +3125,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer BurnOutDescription
 	textpointer RagingStormName
 	textpointer RagingStormDescription
+	textpointer IcicleSpearsName
+	textpointer IcicleSpearsDescription
 
 	; unused
 	; textpointer VaporEssenceName

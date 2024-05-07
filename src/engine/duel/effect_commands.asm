@@ -1298,6 +1298,10 @@ GrowlEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, GrowlEffect
 	db  $00
 
+IcicleSpearsEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Counter20DamageEffect
+	; fallthrough to DamageUpTo2Benched10EffectCommands
+
 DamageUpTo2Benched10EffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectUpTo2Benched_BenchDamageEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, SelectUpTo2Benched_PlayerSelectEffect

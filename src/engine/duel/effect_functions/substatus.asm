@@ -3,11 +3,12 @@
 ; ------------------------------------------------------------------------------
 
 
+Counter20DamageEffect:
+	ld a, SUBSTATUS1_COUNTER_20
+	jr ApplySubstatus1ToAttackingCard
+
+
 FocusEnergyEffect:
-; OATS Focus Energy applies to any Pokémon
-	; ld a, [wTempTurnDuelistCardID]
-	; cp VAPOREON_LV29
-	; ret nz
 	ld a, SUBSTATUS1_NEXT_TURN_DOUBLE_DAMAGE
 	jr ApplySubstatus1ToAttackingCard
 

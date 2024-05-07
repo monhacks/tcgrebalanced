@@ -98,6 +98,17 @@ RagingStormDescription:
 	line "if you have more Prize cards"
 	line "remaining than your opponent."
 
+IcicleSpearsName:
+	text "Icicle Spears"
+	done
+
+IcicleSpearsDescription:
+	text "Choose up to 2 of your opponent's"
+	line "Benched Pokémon. This attack does"
+	line "10 damage to each. Don't apply"
+	line "Weakness and Resistance for"
+	line "Benched Pokémon."
+	done
 
 ; ------------------------------------------------------------------------------
 ; Unused Text

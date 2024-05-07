@@ -1,4 +1,36 @@
 
+
+; attack 2
+energy WATER, 1, COLORLESS, 1 ; energies
+tx ClampName ; name
+tx ClampDescription ; description
+dw NONE ; description (cont)
+db 20 ; damage
+db DAMAGE_NORMAL ; category
+dw ClampEffectCommands ; effect commands
+db INFLICT_PARALYSIS ; flags 1
+db DISCARD_ENERGY ; flags 2
+db NONE ; flags 3
+db 0
+db ATK_ANIM_HIT ; animation
+
+
+; attack 2
+energy WATER, 1, COLORLESS, 1 ; energies
+tx ColdCrushName ; name
+tx Discard1EnergyFromBothActiveDescription ; description
+dw NONE ; description (cont)
+db 40 ; damage
+db DAMAGE_NORMAL ; category
+dw Discard1EnergyFromBothActiveEffectCommands ; effect commands
+db NONE ; flags 1
+db DISCARD_ENERGY ; flags 2
+db NONE ; flags 3
+db 0
+db ATK_ANIM_BLIZZARD ; animation
+
+
+
 JigglypuffLv12Card:
 	db TYPE_PKMN_PSYCHIC ; type
 	gfx JigglypuffLv12CardGfx ; gfx

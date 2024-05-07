@@ -4002,18 +4002,18 @@ CloysterCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 1 ; energies
-	tx ColdCrushName ; name
-	tx Discard1EnergyFromBothActiveDescription ; description
-	dw NONE ; description (cont)
-	db 40 ; damage
+	energy COLORLESS, 3 ; energies
+	tx IcicleSpearsName ; name
+	tx IcicleSpearsDescription ; description
+	tx Counter20DamageDescription ; description (cont)
+	db 30 ; damage
 	db DAMAGE_NORMAL ; category
-	dw Discard1EnergyFromBothActiveEffectCommands ; effect commands
-	db NONE ; flags 1
-	db DISCARD_ENERGY ; flags 2
+	dw IcicleSpearsEffectCommands ; effect commands
+	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
+	db NONE ; flags 2
 	db NONE ; flags 3
-	db 0
-	db ATK_ANIM_BLIZZARD ; animation
+	db 10
+	db ATK_ANIM_NEEDLES ; animation
 
 	db 1 ; retreat cost
 	db WR_LIGHTNING ; weakness

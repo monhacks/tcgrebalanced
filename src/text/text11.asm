@@ -582,8 +582,12 @@ EnergySpiralName:
 	text "Energy Spiral"
 	done
 
-TackleName: ; 5c456 (17:4456)
-	text "Tackle"
+Counter20DamageDescription:
+	text "Until your next turn, if this"
+	line "Pokémon is damaged by an opponent's"
+	line "attack (even if this Pokémon is"
+	line "Knocked Out), put 2 damage counters"
+	line "on the Attacking Pokémon."
 	done
 
 ShellPressName:

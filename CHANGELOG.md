@@ -75,7 +75,8 @@
 - **Clamp**: removed coin flip; discards an energy attached to the user; always inflicts Paralysis.
 
 #### Cloyster
-- **Cold Crush**: increased damage from 30 to 40.
+- **Cold Crush**: removed.
+- New attack: **Icicle Spears** (CCC): 30 damage; 10 damage to 2 of the opponent's Benched Pokémon; until next turn, do 20 damage back to attackers.
 
 #### Krabby
 - **Bubble**: removed.

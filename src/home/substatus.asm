@@ -1083,6 +1083,15 @@ IsCounterattackActive:
 .rocky_helmet
 	; TODO
 
+.counter_substatus
+	ld a, DUELVARS_ARENA_CARD_SUBSTATUS1
+	call GetTurnDuelistVariable
+	cp SUBSTATUS1_COUNTER_20
+	jr nz, .done
+	ld hl, 20
+	call AddToDamage_DE
+
+.done
 ; carry set if non-zero damage
 	call CapMaximumDamage_DE
 	ld a, e
