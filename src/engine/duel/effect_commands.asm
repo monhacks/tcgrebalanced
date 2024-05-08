@@ -641,6 +641,10 @@ Discard1EnergyFromBothActiveEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DiscardOpponentEnergy_DiscardEffect
 	db  $00
 
+RocketShellEffectCommands:
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ReduceDamageTakenBy10Effect
+	; fallthrough to Bounce1EnergyEffectCommands
+
 Bounce1EnergyEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DiscardEnergy_PlayerSelectEffect
@@ -848,13 +852,6 @@ BulkUpEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SelectedCard_AddToHandFromDeckEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, TutorFightingEnergy_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, TutorFightingEnergy_AISelectEffect
-	db  $00
-
-RocketShellEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, RocketShell_AddToHandEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ReduceDamageTakenBy10Effect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, RocketShell_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AI_SELECTION, RocketShell_AISelectEffect
 	db  $00
 
 DoubleDamageIfAttachedEnergyEffectCommands:

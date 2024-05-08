@@ -3391,13 +3391,13 @@ WartortleCard:
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
 	tx RocketShellName ; name
-	tx RocketShellDescription ; description
+	tx Bounce1EnergyDescription ; description
 	tx ReduceDamageTakenBy10Description ; description (cont)
-	db 20 ; damage
+	db 40 ; damage
 	db DAMAGE_NORMAL ; category
 	dw RocketShellEffectCommands ; effect commands
 	db NONE ; flags 1
-	db NULLIFY_OR_WEAKEN_ATTACK ; flags 2
+	db DISCARD_ENERGY | NULLIFY_OR_WEAKEN_ATTACK ; flags 2
 	db NONE ; flags 3
 	db 10
 	db ATK_ANIM_HIT_PROTECT ; animation

@@ -1,5 +1,45 @@
 ;
 
+RocketShellEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, RocketShell_AddToHandEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, ReduceDamageTakenBy10Effect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, RocketShell_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, RocketShell_AISelectEffect
+	db  $00
+
+
+RocketShell_AISelectEffect:
+	ld a, $ff
+	ldh [hTempList], a
+	ld a, [wAlreadyPlayedEnergyOrSupporter]
+	and PLAYED_ENERGY_THIS_TURN
+	jr nz, TutorWaterEnergy_AISelectEffect  ; played energy
+	ld a, [wAlreadyPlayedEnergyOrSupporter]
+	and USED_RAIN_DANCE_THIS_TURN
+	ret z  ; did not play energy
+	; jr TutorWaterEnergy_AISelectEffect
+	; fallthrough
+
+
+RocketShell_PlayerSelectEffect:
+	ld a, $ff
+	ldh [hTempList], a
+	ld a, [wAlreadyPlayedEnergyOrSupporter]
+	and PLAYED_ENERGY_THIS_TURN
+	jr nz, TutorWaterEnergy_PlayerSelectEffect  ; played energy
+	ld a, [wAlreadyPlayedEnergyOrSupporter]
+	and USED_RAIN_DANCE_THIS_TURN
+	ret z  ; did not play energy
+	; jr TutorWaterEnergy_PlayerSelectEffect
+	; fallthrough
+
+
+RocketShell_AddToHandEffect:
+	ldh a, [hTemp_ffa0]
+	cp $ff
+	ret z
+	jr AddDeckCardToHandAndShuffleEffect
+
 
 ; code for something like a Natural Cure
 ; heal 20 from self on energy attachment

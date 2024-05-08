@@ -52,7 +52,8 @@
 ### Water Changes
 
 #### Wartortle
-- **Rocket Shell**: reduced cost from (WCC) to (WC); reduced base damage from 30 to 20.
+- **Rocket Shell**: reworked.
+- New attack: **Rocket Shell** (WC): 40 damage; put an Energy attached to the Pokémon back into the hand; reduces damage taken by 10.
 
 #### Blastoise
 - Reduced HP from 120 to 110.

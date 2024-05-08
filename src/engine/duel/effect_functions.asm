@@ -1518,17 +1518,6 @@ AquaticRescue_AISelectEffect:
 	ret
 
 
-RocketShell_PlayerSelectEffect:
-	ld a, $ff
-	ldh [hTempList], a
-	ld a, [wAlreadyPlayedEnergyOrSupporter]
-	and PLAYED_ENERGY_THIS_TURN
-	jr nz, TutorWaterEnergy_PlayerSelectEffect  ; played energy
-	ld a, [wAlreadyPlayedEnergyOrSupporter]
-	and USED_RAIN_DANCE_THIS_TURN
-	ret z  ; did not play energy
-	; fallthrough
-
 TutorWaterEnergy_PlayerSelectEffect:
 	; ld b, 5
 	; call CreateDeckCardListTopNCards
@@ -1545,17 +1534,6 @@ TutorFightingEnergy_PlayerSelectEffect:
 	ldh [hTempList], a
 	ret
 
-
-RocketShell_AISelectEffect:
-	ld a, $ff
-	ldh [hTempList], a
-	ld a, [wAlreadyPlayedEnergyOrSupporter]
-	and PLAYED_ENERGY_THIS_TURN
-	jr nz, TutorWaterEnergy_AISelectEffect  ; played energy
-	ld a, [wAlreadyPlayedEnergyOrSupporter]
-	and USED_RAIN_DANCE_THIS_TURN
-	ret z  ; did not play energy
-	; fallthrough
 
 TutorWaterEnergy_AISelectEffect:
 	; ld b, 5
@@ -6307,7 +6285,7 @@ StressPheromones_AddToHandEffect:
 	call SetUsedPokemonPowerThisTurn
 	ldh a, [hAIPkmnPowerEffectParam]
 	ldh [hTemp_ffa0], a
-	; jr SelectedCard_AddToHandFromDeckEffect
+	; jr RocketShell_AddToHandEffect
 	; fallthrough
 
 
