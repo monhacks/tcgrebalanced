@@ -925,7 +925,7 @@ NotEnoughEnergyCardsText: ; 37781 (d:7781)
 	text "Not enough Energy cards."
 	done
 
-NotEnoughFireEnergyText: ; 3779b (d:779b)
+NotEnoughFireEnergyText:
 	text "Not enough Fire Energy."
 	done
 
@@ -933,8 +933,12 @@ NotEnoughLightningEnergyText:
 	text "Not enough Lightning Energy."
 	done
 
-NotEnoughWaterEnergyText: ; 377d0 (d:77d0)
+NotEnoughWaterEnergyText:
 	text "Not enough Water Energy."
+	done
+
+NotEnoughPsychicEnergyText:
+	text "Not enough Psychic Energy."
 	done
 
 ThereAreNoTrainerCardsInDiscardPileText: ; 377ea (d:77ea)

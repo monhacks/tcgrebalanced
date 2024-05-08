@@ -120,9 +120,26 @@ DarkPrisonDescription:
 	line "their Retreat Cost."
 	done
 
+PsychicNovaName:
+	text "Psychic Nova"
+	done
+
+PsychicNovaDescription:
+	text "Discard 1 or more <PSYCHIC> Energy attached"
+	line "to this Pokémon to use this attack."
+	line "This attack does 20 damage for"
+	line "each Energy discarded this way."
+	line "Discard a random card from"
+	line "your opponent's hand."
+	done
+
 ; ------------------------------------------------------------------------------
 ; Unused Text
 ; ------------------------------------------------------------------------------
+
+; PsyburnName:
+; 	text "Psyburn"
+; 	done
 
 ; RocketShellDescription:
 ; 	text "If you attached an Energy card from"

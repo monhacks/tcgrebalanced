@@ -148,6 +148,7 @@ Get1RandomCardFromOpponentsHand:
 ; returns deck index of discarded card in a
 Discard1RandomCardFromOpponentsHand:
   call Get1RandomCardFromOpponentsHand
+  ret c
 ; could use MoveHandCardToDiscardPile here, but the check to avoid
 ; anything other than CARD_LOCATION_HAND is redundant;
 ; it is already done in CreateHandCardList

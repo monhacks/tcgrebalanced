@@ -479,6 +479,7 @@ Wildfire_DamageBoostEffect:
 	jp AddToDamage
 
 
+PsychicNova_MultiplierEffect:
 SheerCold_MultiplierEffect:
 ScorchingColumn_MultiplierEffect:
 Discharge_MultiplierEffect:
@@ -500,15 +501,29 @@ Discharge_AIEffect:
 	jp SetDefiniteAIDamage
 
 
-SheerCold_AIEffect:
+PsychicNova_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
 	call HandleEnergyColorOverride
-	ld a, [wAttachedEnergies + WATER]
+	ld a, [wAttachedEnergies + PSYCHIC]
+	add a  ; x2
 	call ATimes10
 	; ld d, 0
 	; ld e, a
 	; jp UpdateExpectedAIDamage
-	call AddToDamage
+	call SetDefiniteDamage
+	jp SetDefiniteAIDamage
+
+
+SheerCold_AIEffect:
+	call GetPlayAreaCardAttachedEnergies
+	call HandleEnergyColorOverride
+	ld a, [wAttachedEnergies + WATER]
+	add a  ; x2
+	call ATimes10
+	; ld d, 0
+	; ld e, a
+	; jp UpdateExpectedAIDamage
+	call SetDefiniteDamage
 	jp SetDefiniteAIDamage
 
 

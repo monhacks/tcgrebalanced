@@ -3075,6 +3075,22 @@ CheckArenaPokemonHasEnergy_Water:
 	ret
 
 
+; return carry if no Psychic energy cards
+CheckArenaPokemonHasEnergy_Psychic:
+	ld e, PLAY_AREA_ARENA
+	call GetPlayAreaCardAttachedEnergies
+	call HandleEnergyColorOverride
+	ldtx hl, NotEnoughPsychicEnergyText
+	ld a, [wAttachedEnergies + PSYCHIC]
+	cp 1
+	ret
+
+
+PsychicNova_PlayerSelectEffect:
+	call CreateListOfPsychicEnergyAttachedToArena
+	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
+
+
 SheerCold_PlayerSelectEffect:
 	call CreateListOfWaterEnergyAttachedToArena
 	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
@@ -3140,6 +3156,13 @@ DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect:
 	ret
 
 
+PsychicNova_AISelectEffect:
+; AI always chooses all cards to discard
+	call CreateListOfPsychicEnergyAttachedToArena
+	ldh [hTemp_ffa0], a
+	jr DiscardAnyNumberOfAttachedEnergy_AISelectEffect
+
+
 SheerCold_AISelectEffect:
 	call DiscardOpponentEnergy_AISelectEffect
 ; AI always chooses all cards to discard
@@ -3174,6 +3197,10 @@ DiscardAnyNumberOfAttachedEnergy_AISelectEffect:
 	ld b, 0
 	jp CopyDataHLtoDE
 
+
+PsychicNova_DiscardEnergyEffect:
+	call CreateListOfPsychicEnergyAttachedToArena
+	jr DiscardAnyNumberOfAttachedEnergy_DiscardEnergyEffect
 
 SheerCold_DiscardEnergyEffect:
 	call CreateListOfWaterEnergyAttachedToArena

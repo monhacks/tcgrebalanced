@@ -195,10 +195,11 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer NoEnergyCardsAttachedToPokemonInYourPlayAreaText   ; 0x00bd
 	textpointer NoEnergyCardsAttachedToPokemonInOppPlayAreaText    ; 0x00be
 	textpointer EnergyCardsRequiredToRetreatText                   ; 0x00bf
-	textpointer NotEnoughEnergyCardsText                           ; 0x00c0
-	textpointer NotEnoughFireEnergyText                            ; 0x00c1
+	textpointer NotEnoughEnergyCardsText
+	textpointer NotEnoughFireEnergyText
 	textpointer NotEnoughLightningEnergyText
-	textpointer NotEnoughWaterEnergyText                           ; 0x00c3
+	textpointer NotEnoughWaterEnergyText
+	textpointer NotEnoughPsychicEnergyText
 	textpointer ThereAreNoTrainerCardsInDiscardPileText            ; 0x00c4
 	textpointer NoAttackMayBeChoosenText                           ; 0x00c5
 	; textpointer YouDidNotReceiveAnAttackToMirrorMoveText           ; 0x00c6
@@ -2705,7 +2706,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer BarrierDescription                                 ; 0x0ac3
 	textpointer EnergyAbsorptionName                               ; 0x0ac6
 	textpointer EnergyAbsorptionDescription                        ; 0x0ac7
-	textpointer PsyburnName                                        ; 0x0ac8
 	textpointer NeutralizingShieldName                             ; 0x0acb
 	textpointer NeutralizingShieldDescription                      ; 0x0acc
 	textpointer PsywaveName                                        ; 0x0ad2
@@ -3127,6 +3127,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer IcicleSpearsDescription
 	textpointer DarkPrisonName
 	textpointer DarkPrisonDescription
+	textpointer PsychicNovaName
+	textpointer PsychicNovaDescription
 
 	; unused
 	; textpointer VaporEssenceName

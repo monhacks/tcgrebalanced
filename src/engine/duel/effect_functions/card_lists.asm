@@ -306,6 +306,12 @@ CreatePokemonCardListFromDiscardPile:
 	ret
 
 
+; creates in wDuelTempList list of attached Psychic Energy cards
+; that are attached to the Turn Duelist's Arena card.
+CreateListOfPsychicEnergyAttachedToArena:
+	ld a, TYPE_ENERGY_PSYCHIC
+	jr CreateListOfMatchingEnergyAttachedToArena
+
 ; creates in wDuelTempList list of attached Water Energy cards
 ; that are attached to the Turn Duelist's Arena card.
 CreateListOfWaterEnergyAttachedToArena:

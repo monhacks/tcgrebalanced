@@ -198,6 +198,10 @@
 - **Do the Wave**: removed.
 - New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
 
+#### Mewtwo Lv60
+- **Psyburn**: removed.
+- New attack: **Psychic Nova** (P): discard any number of attached (P); 20 damage for each discarded energy; discard 1 random card from the opponent's hand.
+
 ### Darkness Changes
 
 #### Ekans

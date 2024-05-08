@@ -1244,10 +1244,6 @@ EnergyAbsorptionDescription: ; 61078 (18:5078)
 	line "them to this Pokémon."
 	done
 
-PsyburnName: ; 610c7 (18:50c7)
-	text "Psyburn"
-	done
-
 NeutralizingShieldName:
 	text "Neutralizing Shield"
 	done
