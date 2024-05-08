@@ -2496,7 +2496,7 @@ CharmeleonCard:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy FIRE, 1, COLORLESS, 2 ; energies
+	energy FIRE, 1, COLORLESS, 1 ; energies
 	tx FlamethrowerName ; name
 	tx Discard1EnergyDescription ; description
 	dw NONE ; description (cont)

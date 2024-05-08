@@ -43,6 +43,9 @@
 
 ### Fire Changes
 
+#### Charmeleon
+- **Flamethrower**: reduced cost from (FCC) to (FC).
+
 #### Arcanine Lv45
 - **Take Down**: renamed to **Reckless Charge**.
 
