@@ -2999,7 +2999,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer AquaticRescueName
 	textpointer AquaticRescueDescription
 	textpointer RocketShellName
-	textpointer RocketShellDescription
 	textpointer AquaLauncherName
 	textpointer AquaLauncherDescription
 	textpointer SteamrollerName
