@@ -3103,7 +3103,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer SurpriseBiteName
 	textpointer SurpriseBiteDescription
 	textpointer ConcentrationName
-	textpointer ConcentrationDescription
 
 ; ------------------------------------------------------------------------------
 ; text13.asm
