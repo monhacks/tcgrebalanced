@@ -748,7 +748,8 @@ EnergySpikeName:
 EnergySpikeDescription:
 	text "Search your deck for a basic Energy"
 	line "card and attach it to 1 of your"
-	line "Pokémon. Then, shuffle your deck."
+	line "Benched Pokémon."
+	line "Then, shuffle your deck."
 	done
 
 OtherEffectsStillHappenDescriptionCont:

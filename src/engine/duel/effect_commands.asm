@@ -1345,10 +1345,17 @@ NutritionSupportEffectCommands:
 	db  $00
 
 EnergySpikeEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, EnergySpike_AttachEnergyEffect
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, EnergySpike_PreconditionCheck
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Accelerate1EnergyFromDeck_AttachEnergyEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EnergySpike_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, EnergySpike_AISelectEffect
+	db  $00
+
+Accelerate1EnergyFromDeckEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDeckIsNotEmpty
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Accelerate1EnergyFromDeck_AttachEnergyEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Accelerate1EnergyFromDeck_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, Accelerate1EnergyFromDeck_AISelectEffect
 	db  $00
 
 UnableToRetreatEffectCommands:
@@ -1648,7 +1655,7 @@ SynthesisEffectCommands:
 EnergyGeneratorEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, EnergyGenerator_PreconditionCheck
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, EnergyGenerator_AttachEnergyEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, EnergySpike_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Accelerate1EnergyFromDeck_PlayerSelectEffect
 	db  $00
 
 QueenPressEffectCommands:

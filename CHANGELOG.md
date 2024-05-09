@@ -150,6 +150,9 @@
 - **Surf**: removed.
 - New attack: **Do the Wave** (CCC): 10 damage; +10 damage for each of the user's Benched Pokémon.
 
+#### Electrode Lv35
+- **Energy Spike**: attaches Energy only to Benched Pokémon.
+
 #### Zapdos Lv40
 - **Energize**: renamed to **Plasma**; increased cost from (C) to (L); increased damage from 0 to 10.
 

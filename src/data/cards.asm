@@ -10069,11 +10069,11 @@ DragoniteLv45Card:
 	; attack 1
 	energy COLORLESS, 3 ; energies
 	tx EnergyHurricaneName ; name
-	tx EnergySpikeDescription ; description
+	tx Accelerate1EnergyFromDeckDescription ; description
 	dw NONE ; description (cont)
 	db 50 ; damage
 	db DAMAGE_NORMAL ; category
-	dw EnergySpikeEffectCommands ; effect commands
+	dw Accelerate1EnergyFromDeckEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3

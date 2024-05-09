@@ -336,6 +336,12 @@ StressPheromones_PreconditionCheck:
 	jp CheckPokemonPowerCanBeUsed
 
 
+EnergySpike_PreconditionCheck:
+	call CheckDeckIsNotEmpty
+	ret c
+	jp CheckBenchIsNotEmpty
+
+
 ; ------------------------------------------------------------------------------
 ; Discard Cards
 ; ------------------------------------------------------------------------------
@@ -4845,8 +4851,16 @@ UnaffectedByWeaknessResistancePowersEffectsEffect:
 	ret
 
 
-NutritionSupport_PlayerSelectEffect:
 EnergySpike_PlayerSelectEffect:
+	xor a  ; FALSE
+	ld [wMultiPurposeByte], a
+	jr Accelerate1EnergyFromDeck_PlayerSelectEffect.start
+
+NutritionSupport_PlayerSelectEffect:
+Accelerate1EnergyFromDeck_PlayerSelectEffect:
+	ld a, TRUE
+	ld [wMultiPurposeByte], a
+.start
 	ld a, $ff
 	ldh [hEnergyTransEnergyCard], a
 
@@ -4865,15 +4879,26 @@ EnergySpike_PlayerSelectEffect:
 
 ; choose a Pokemon in Play Area to attach card
 	call EmptyScreen
-	ldtx hl, ChoosePokemonToAttachEnergyCardText
-	call DrawWideTextBox_WaitForInput
-	call HandlePlayerSelectionPokemonInPlayArea
+	call AttachEnergyToPokemon_PlayerSelectEffect
 	ldh [hTempPlayAreaLocation_ffa1], a
 	ret
 
 
-NutritionSupport_AISelectEffect:
+; choose a Pokemon in Play Area to attach card
+; input:
+;   [wMultiPurposeByte]: TRUE if the Arena Pokémon is a valid choice
+AttachEnergyToPokemon_PlayerSelectEffect:
+	ldtx hl, ChoosePokemonToAttachEnergyCardText
+	call DrawWideTextBox_WaitForInput
+	ld a, [wMultiPurposeByte]
+	or a
+	jp z, HandlePlayerSelectionPokemonInBench
+	jp HandlePlayerSelectionPokemonInPlayArea
+
+
 EnergySpike_AISelectEffect:
+NutritionSupport_AISelectEffect:
+Accelerate1EnergyFromDeck_AISelectEffect:
 ; retrieve the presered [hTempPlayAreaLocation_ffa1] from scoring phase
 ; just for safety, ensure it is a valid play area index
 	ld a, $ff
@@ -4901,7 +4926,7 @@ EnergySpike_AISelectEffect:
 	ret
 
 
-EnergySpike_AttachEnergyEffect:
+Accelerate1EnergyFromDeck_AttachEnergyEffect:
 	ldh a, [hEnergyTransEnergyCard]
 	cp $ff
 	jp z, SyncShuffleDeck  ; done
@@ -4923,7 +4948,7 @@ EnergySpike_AttachEnergyEffect:
 
 
 NutritionSupport_AttachEnergyEffect:
-	call EnergySpike_AttachEnergyEffect
+	call Accelerate1EnergyFromDeck_AttachEnergyEffect
 	ldh a, [hTempPlayAreaLocation_ffa1]
 	ld e, a   ; location
 	ld d, 10  ; damage
@@ -4932,7 +4957,7 @@ NutritionSupport_AttachEnergyEffect:
 
 EnergyGenerator_AttachEnergyEffect:
 	call SetUsedPokemonPowerThisTurn_RestoreTrigger
-	call EnergySpike_AttachEnergyEffect
+	call Accelerate1EnergyFromDeck_AttachEnergyEffect
 	ldh a, [hTempPlayAreaLocation_ffa1]
 	ld e, a   ; location
 	jp Put2DamageCountersOnTarget
@@ -5080,17 +5105,7 @@ _AttachEnergyFromDiscardPileToBenchEffect:
 	jr .attach
 
 .player
-	ldtx hl, ChoosePokemonToAttachEnergyCardText
-	call DrawWideTextBox_WaitForInput
-; choose a Pokemon in Play Area to attach card
-	ld a, [wMultiPurposeByte]
-	or a
-	jr z, .bench_only
-	call HandlePlayerSelectionPokemonInPlayArea
-	jr .got_pokemon
-.bench_only
-	call HandlePlayerSelectionPokemonInBench
-.got_pokemon
+	call AttachEnergyToPokemon_PlayerSelectEffect
 	ld e, a  ; set selected Pokémon
 	ldh [hTempPlayAreaLocation_ffa1], a
 	call SerialSend8Bytes
