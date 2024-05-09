@@ -4411,7 +4411,7 @@ StarmieCard:
 
 	; attack 2
 	energy COLORLESS, 1 ; energies
-	tx EnergySpiralName ; name
+	tx EnergyBurstName ; name
 	tx DamagePerEnergyAttachedToBothActiveDescription ; description
 	dw NONE ; description (cont)
 	db 10 ; damage

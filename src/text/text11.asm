@@ -569,8 +569,8 @@ RecoverDescription:
 	line "Then, heal all damage from it."
 	done
 
-EnergySpiralName:
-	text "Energy Spiral"
+EnergyBurstName:
+	text "Energy Burst"
 	done
 
 Counter20DamageDescription:

@@ -117,6 +117,9 @@
 - **Waterfall**: removed.
 - New attack: **Riptide** (WC): 10 damage; shuffle 4 Energy cards from discard pile into deck; +10 damage for each returned Energy.
 
+#### Starmie
+- **Energy Spiral**: renamed to **Energy Burst**.
+
 #### Magikarp
 - Increased HP from 30 to 40.
 
