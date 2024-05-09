@@ -2520,9 +2520,9 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ConfuseRayName                                     ; 0x08e4
 	textpointer FireBlastName                                      ; 0x08e9
 	textpointer FireFangName                                       ; 0x08ec
-	textpointer FlareName                                          ; 0x08f3
+	textpointer FlareName
+	textpointer FlareDescription
 	textpointer QuickAttackName                                    ; 0x08f7
-	textpointer Heads10BonusDamageDescription
 	textpointer IfActiveThisTurn10BonusDamageDescription
 	textpointer FlamesOfRageName                                   ; 0x08f9
 	textpointer FlamesOfRageDescription                            ; 0x08fa
@@ -2532,7 +2532,6 @@ TextOffsets:: ; 34000 (d:4000)
 	; textpointer StompName
 	textpointer AgilityName                                        ; 0x0909
 	textpointer FirePunchName                                      ; 0x090d
-	textpointer SmokescreenName                                    ; unused
 	textpointer BiteName                                           ; 0x0916
 	textpointer RageName                                           ; 0x0917
 	textpointer WildfireName
@@ -2900,6 +2899,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Draw1CardDescription                               ; 0x0b3b
 	textpointer Draw2CardsDescription
 	textpointer PlasmaName
+	textpointer PlasmaDescription
 	textpointer RampageName                                        ; 0x0b40
 	textpointer RampageDescription                                 ; 0x0b41
 	textpointer CopyName

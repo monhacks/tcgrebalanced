@@ -3211,7 +3211,7 @@ MoltresLv35Card:
 	; attack 1
 	energy FIRE, 1 ; energies
 	tx FlareName ; name
-	tx Attach1FireEnergyFromDiscardDescription ; description
+	tx FlareDescription ; description
 	dw NONE ; description (cont)
 	db 10 ; damage
 	db DAMAGE_NORMAL ; category
@@ -5917,7 +5917,7 @@ ZapdosLv40Card:
 	; attack 1
 	energy LIGHTNING, 1 ; energies
 	tx PlasmaName ; name
-	tx Attach1LightningEnergyFromDiscardDescription ; description
+	tx PlasmaDescription ; description
 	dw NONE ; description (cont)
 	db 10 ; damage
 	db DAMAGE_NORMAL ; category

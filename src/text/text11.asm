@@ -284,17 +284,18 @@ FireFangName: ; 5a2ec (16:62ec)
 	text "Fire Fang"
 	done
 
-FlareName: ; 5a4e8 (16:64e8)
+FlareName:
 	text "Flare"
+	done
+
+FlareDescription:
+	text "You must attach a <FIRE> Energy from"
+	line "your discard pile to this Pokémon"
+	line "to use this attack."
 	done
 
 QuickAttackName: ; 5a55c (16:655c)
 	text "Quick Attack"
-	done
-
-Heads10BonusDamageDescription: ; 5a56a (16:656a)
-	text "Flip a coin. If heads, this attack"
-	line "does 10 additional damage."
 	done
 
 IfActiveThisTurn10BonusDamageDescription:
@@ -332,10 +333,6 @@ AgilityName:
 
 FirePunchName: ; 5a9b3 (16:69b3)
 	text "Fire Punch"
-	done
-
-SmokescreenName: ; 5aa6e (16:6a6e)
-	text "Smokescreen"
 	done
 
 BiteName: ; 5ab8d (16:6b8d)

@@ -496,6 +496,12 @@ PlasmaName:
 	text "Plasma"
 	done
 
+PlasmaDescription:
+	text "You must attach a <LIGHTNING> Energy from"
+	line "your discard pile to this Pokémon"
+	line "to use this attack."
+	done
+
 RampageName: ; 62ade (18:6ade)
 	text "Rampage"
 	done
