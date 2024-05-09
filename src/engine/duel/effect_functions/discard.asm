@@ -97,6 +97,16 @@ ShowDiscardedDeckCardDetails:
 ; Discard From Hand
 ; ------------------------------------------------------------------------------
 
+
+Discard1RandomCardFromOpponentsHandIf4OrMoreEffect:
+  ld a, DUELVARS_NUMBER_OF_CARDS_IN_HAND
+	call GetNonTurnDuelistVariable
+	cp 4
+	ret c  ; less than 4 cards
+  ; jr Discard1RandomCardFromOpponentsHandEffect
+  ; fallthrough
+
+
 ; chooses a card at random from the opponents hand
 ; and moves it to the discard pile
 ; return carry if there are no cards to discard

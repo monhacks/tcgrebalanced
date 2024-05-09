@@ -1241,7 +1241,7 @@ PsychicNovaEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Psychic
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, PsychicNova_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PsychicNova_MultiplierEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Discard1RandomCardFromOpponentsHandEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Discard1RandomCardFromOpponentsHandIf4OrMoreEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, PsychicNova_DiscardEnergyEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, PsychicNova_AISelectEffect
 	dbw EFFECTCMDTYPE_AI, PsychicNova_AIEffect

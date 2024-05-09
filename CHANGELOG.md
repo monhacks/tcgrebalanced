@@ -200,7 +200,7 @@
 
 #### Mewtwo Lv60
 - **Psyburn**: removed.
-- New attack: **Psychic Nova** (P): discard any number of attached (P); 20 damage for each discarded energy; discard 1 random card from the opponent's hand.
+- New attack: **Psychic Nova** (P): discard any number of attached (P); 20 damage for each discarded energy; discard 1 random card from the opponent's hand if they have 4 or more.
 
 ### Darkness Changes
 

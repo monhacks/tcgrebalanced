@@ -127,15 +127,20 @@ PsychicNovaName:
 PsychicNovaDescription:
 	text "Discard 1 or more <PSYCHIC> Energy attached"
 	line "to this Pokémon to use this attack."
-	line "This attack does 20 damage for"
-	line "each Energy discarded this way."
-	line "Discard a random card from"
-	line "your opponent's hand."
+	line "This attack does 20 damage for each"
+	line "Energy discarded this way."
+	line "If your opponent has 4 or more cards"
+	line "in their hand, discard 1 at random."
 	done
 
 ; ------------------------------------------------------------------------------
 ; Unused Text
 ; ------------------------------------------------------------------------------
+
+; Discard1RandomCardFromOpponentsHandIf4OrMoreDescription:
+; 	text "If your opponent has 4 or more cards"
+; 	line "in their hand, discard 1 at random."
+; 	done
 
 ; PsyburnName:
 ; 	text "Psyburn"
