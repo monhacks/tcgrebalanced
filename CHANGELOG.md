@@ -194,6 +194,7 @@
 
 #### Hitmonlee
 - **Stretch Kick**: reduced cost from (CC) to (F).
+- **High Jump Kick**: reduced cost from (FCC) to (FC); reduced damage from 50 to 40.
 
 #### Kabuto
 - Increased HP from 60 to 80.
