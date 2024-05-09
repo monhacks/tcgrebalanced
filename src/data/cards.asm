@@ -3121,17 +3121,17 @@ FlareonLv22Card:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy FIRE, 1, COLORLESS, 1 ; energies
-	tx BurnOutName ; name
-	tx BurnOutDescription ; description
+	energy COLORLESS, 2 ; energies
+	tx UnstableEvolutionName ; name
+	tx UnstableEvolutionDescription ; description
 	dw NONE ; description (cont)
 	db 50 ; damage
 	db DAMAGE_NORMAL ; category
-	dw BurnOutEffectCommands ; effect commands
+	dw UnstableEvolutionEffectCommands ; effect commands
 	db LOW_RECOIL ; flags 1
-	db FLAG_2_BIT_7 ; flags 2
-	db NONE ; flags 3
-	db 10
+	db NONE ; flags 2
+	db NONE ; flags 3  | SPECIAL_AI_HANDLING
+	db 0
 	db ATK_ANIM_BIG_FLAME ; animation
 
 	db 1 ; retreat cost
@@ -4619,14 +4619,14 @@ VaporeonLv29Card:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 1 ; energies
-	tx EnergySwirlName ; name
-	tx EnergySwirlDescription ; description
+	energy COLORLESS, 2 ; energies
+	tx UnstableEvolutionName ; name
+	tx UnstableEvolutionDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
+	db 50 ; damage
 	db DAMAGE_NORMAL ; category
-	dw Bounce1EnergyFromOpponentEffectCommands ; effect commands
-	db NONE ; flags 1
+	dw UnstableEvolutionEffectCommands ; effect commands
+	db LOW_RECOIL ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3  | SPECIAL_AI_HANDLING
 	db 0
@@ -5799,18 +5799,18 @@ JolteonLv24Card:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy LIGHTNING, 1, COLORLESS, 1 ; energies
-	tx ThunderSpearName ; name
-	tx Deal30ToAnyPokemonDescription ; description
-	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
-	dw Deal30ToAnyPokemonEffectCommands ; effect commands
-	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
-	db FLAG_2_BIT_6 ; flags 2
-	db NONE ; flags 3
-	db 2
-	db ATK_ANIM_MAGNETIC_STORM ; animation
+	energy COLORLESS, 2 ; energies
+	tx UnstableEvolutionName ; name
+	tx UnstableEvolutionDescription ; description
+	dw NONE ; description (cont)
+	db 50 ; damage
+	db DAMAGE_NORMAL ; category
+	dw UnstableEvolutionEffectCommands ; effect commands
+	db LOW_RECOIL ; flags 1
+	db NONE ; flags 2
+	db NONE ; flags 3  | SPECIAL_AI_HANDLING
+	db 0
+	db ATK_ANIM_THUNDER ; animation
 
 	db 1 ; retreat cost
 	db WR_FIGHTING ; weakness

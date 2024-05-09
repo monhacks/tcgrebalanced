@@ -322,6 +322,11 @@ DevolveSelectedPokemonEffect:
 	ret
 
 
+DevolveTurnHolderArenaPokemonEffect:
+	xor a  ; PLAY_AREA_ARENA
+	jr DevolveSelectedPokemonEffect
+
+
 ;
 DevolutionSpray_DevolutionEffect:
 	ldh a, [hTempPlayAreaLocation_ffa1]
@@ -330,7 +335,7 @@ DevolutionSpray_DevolutionEffect:
 	ld b, a
 	ld a, ATK_ANIM_GLOW_PLAY_AREA
 	bank1call PlayAdhocAnimationOnPlayAreaLocation_NoEffectiveness
-	jp DevolveSelectedPokemonEffect
+	jr DevolveSelectedPokemonEffect
 	; bank1call DrawDuelHUDs
 
 

@@ -49,6 +49,10 @@
 #### Arcanine Lv45
 - **Take Down**: renamed to **Reckless Charge**.
 
+#### Flareon Lv22
+- **Burn Out**: removed.
+- New attack: **Unstable Evolution** (CC): 50 damage; devolve the user and discard 1 energy attached to it.
+
 #### Moltres Lv35
 - **Flare**: increased cost from (C) to (F) and damage from 0 to 10.
 
@@ -132,6 +136,10 @@
 - **Icy Wind**: removed.
 - New attack: **Aqua Return** (WC): 50 damage; return this Pokémon and all attached cards to the deck.
 
+#### Vaporeon Lv29
+- **Energy Swirl**: removed.
+- New attack: **Unstable Evolution** (CC): 50 damage; devolve the user and discard 1 energy attached to it.
+
 #### Vaporeon Lv42
 - **Hydro Pump**: removed.
 - New attack: **Water Pulse** (W): discard any number of attached (W); 20 damage for each discarded energy; inflicts Confusion if 2 or more were discarded.
@@ -156,6 +164,10 @@
 
 #### Electrode Lv35
 - **Energy Spike**: attaches Energy only to Benched Pokémon.
+
+#### Jolteon Lv24
+- **Thunder Spear**: removed.
+- New attack: **Unstable Evolution** (CC): 50 damage; devolve the user and discard 1 energy attached to it.
 
 #### Zapdos Lv40
 - **Energize**: renamed to **Plasma**; increased cost from (C) to (L); increased damage from 0 to 10.

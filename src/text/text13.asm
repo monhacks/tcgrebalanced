@@ -82,6 +82,15 @@ EvolutionaryWaveDescription:
 	line "Pokémon."
 	done
 
+UnstableEvolutionName:
+	text "Unstable Evolution"
+	done
+
+UnstableEvolutionDescription:
+	text "Devolve this Pokémon and discard"
+	line "1 Energy attached to it."
+	done
+
 EnergySwirlName:
 	text "Energy Swirl"
 	done
