@@ -2601,12 +2601,11 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer Thundershock20Description
 	textpointer ReturnName
 	textpointer ImmuneIfKnockedOutOpponentDescription
-	textpointer SurfName                                           ; 0x09c7
-	textpointer ThunderName                                        ; 0x09cb
-	textpointer DamageUpTo2BenchedDescription                      ; 0x09cf
-	textpointer ThunderWaveName                                    ; 0x09d2
-	textpointer EnergySpikeName                                    ; 0x09e4
-	textpointer EnergySpikeDescription                             ; 0x09e5
+	textpointer ThunderName
+	textpointer DamageUpTo2BenchedDescription
+	textpointer ThunderWaveName
+	textpointer EnergySpikeName
+	textpointer EnergySpikeDescription
 	textpointer OtherEffectsStillHappenDescriptionCont
 	textpointer ThunderpunchName
 	textpointer Damage1FriendlyBenchedPokemon10Description

@@ -727,11 +727,7 @@ ImmuneIfKnockedOutOpponentDescription:
 	line "damage, done to this Pokémon."
 	done
 
-SurfName: ; 5d2cc (17:52cc)
-	text "Surf"
-	done
-
-ThunderName: ; 5d3a5 (17:53a5)
+ThunderName:
 	text "Thunder"
 	done
 
@@ -741,15 +737,15 @@ DamageUpTo2BenchedDescription:
 	line "10 damage to each."
 	done
 
-ThunderWaveName: ; 5d591 (17:5591)
+ThunderWaveName:
 	text "Thunder Wave"
 	done
 
-EnergySpikeName: ; 5da72 (17:5a72)
+EnergySpikeName:
 	text "Energy Spike"
 	done
 
-EnergySpikeDescription: ; 5da80 (17:5a80)
+EnergySpikeDescription:
 	text "Search your deck for a basic Energy"
 	line "card and attach it to 1 of your"
 	line "Pokémon. Then, shuffle your deck."
