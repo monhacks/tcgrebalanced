@@ -3113,6 +3113,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer DischargeDescription
 	textpointer ScorchingColumnName
 	textpointer ScorchingColumnDescription
+	textpointer WaterPulseName
+	textpointer WaterPulseDescription
 	textpointer EvolutionaryThunderName
 	textpointer EvolutionaryThunderDescription
 	textpointer EvolutionaryFlameName

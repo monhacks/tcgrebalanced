@@ -35,6 +35,19 @@ ScorchingColumnDescription:
 	line "Defending Pokémon is now Burned."
 	done
 
+WaterPulseName:
+	text "Water Pulse"
+	done
+
+WaterPulseDescription:
+	text "Discard 1 or more <WATER> Energy attached"
+	line "to this Pokémon to use this attack."
+	line "This attack does 20 damage for each"
+	line "Energy discarded this way."
+	line "If you discarded at least 2, the"
+	line "Defending Pokémon is now Confused."
+	done
+
 EvolutionaryThunderName:
 	text "Evolutionary Thunder"
 	done

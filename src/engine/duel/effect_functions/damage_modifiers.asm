@@ -515,6 +515,7 @@ PsychicNova_AIEffect:
 
 
 SheerCold_AIEffect:
+WaterPulse_AIEffect:
 	call GetPlayAreaCardAttachedEnergies
 	call HandleEnergyColorOverride
 	ld a, [wAttachedEnergies + WATER]

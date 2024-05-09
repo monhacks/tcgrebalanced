@@ -132,6 +132,10 @@
 - **Icy Wind**: removed.
 - New attack: **Aqua Return** (WC): 50 damage; return this Pokémon and all attached cards to the deck.
 
+#### Vaporeon Lv42
+- **Hydro Pump**: removed.
+- New attack: **Water Pulse** (W): discard any number of attached (W); 20 damage for each discarded energy; inflicts Confusion if 2 or more were discarded.
+
 #### Omanyte
 - Increased HP from 70 to 80.
 - **Constrict**: removed.

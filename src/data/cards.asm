@@ -4671,13 +4671,13 @@ VaporeonLv42Card:
 
 	; attack 2
 	energy COLORLESS, 2 ; energies
-	tx HydroPumpName ; name
-	tx HydroPumpDescription ; description
+	tx WaterPulseName ; name
+	tx WaterPulseDescription ; description
 	dw NONE ; description (cont)
 	db 20 ; damage
-	db DAMAGE_PLUS ; category
-	dw HydroPumpEffectCommands ; effect commands
-	db NONE ; flags 1
+	db DAMAGE_X ; category
+	dw WaterPulseEffectCommands ; effect commands
+	db INFLICT_CONFUSION ; flags 1
 	db ATTACHED_ENERGY_BOOST ; flags 2
 	db NONE ; flags 3
 	db 0

@@ -1168,6 +1168,14 @@ Discharge_DamageParalysisEffect:
 	ret
 
 
+WaterPulse_DamageConfusionEffect:
+	call Discharge_MultiplierEffect
+	ldh a, [hTemp_ffa0]
+	cp 2
+	jp nc, ConfusionEffect
+	ret
+
+
 PluckEffect:
 	call DiscardOpponentTool_DiscardEffect
 	jp c, DoubleDamage_DamageBoostEffect
@@ -3104,6 +3112,7 @@ PsychicNova_PlayerSelectEffect:
 
 
 SheerCold_PlayerSelectEffect:
+WaterPulse_PlayerSelectEffect:
 	call CreateListOfWaterEnergyAttachedToArena
 	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
 
@@ -3177,6 +3186,10 @@ PsychicNova_AISelectEffect:
 
 SheerCold_AISelectEffect:
 	call DiscardOpponentEnergy_AISelectEffect
+	; jr WaterPulse_AISelectEffect
+	; fallthrough
+
+WaterPulse_AISelectEffect:
 ; AI always chooses all cards to discard
 	call CreateListOfWaterEnergyAttachedToArena
 	ldh [hTemp_ffa0], a
@@ -3215,6 +3228,7 @@ PsychicNova_DiscardEnergyEffect:
 	jr DiscardAnyNumberOfAttachedEnergy_DiscardEnergyEffect
 
 SheerCold_DiscardEnergyEffect:
+WaterPulse_DiscardEnergyEffect:
 	call CreateListOfWaterEnergyAttachedToArena
 	jr DiscardAnyNumberOfAttachedEnergy_DiscardEnergyEffect
 

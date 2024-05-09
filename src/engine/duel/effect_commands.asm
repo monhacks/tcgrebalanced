@@ -1243,6 +1243,15 @@ ScorchingColumnEffectCommands:
 	dbw EFFECTCMDTYPE_AI, ScorchingColumn_AIEffect
 	db  $00
 
+WaterPulseEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Water
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, WaterPulse_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, WaterPulse_DamageConfusionEffect
+	dbw EFFECTCMDTYPE_DISCARD_ENERGY, WaterPulse_DiscardEnergyEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, WaterPulse_AISelectEffect
+	dbw EFFECTCMDTYPE_AI, WaterPulse_AIEffect
+	db  $00
+
 PsychicNovaEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasEnergy_Psychic
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, PsychicNova_PlayerSelectEffect
