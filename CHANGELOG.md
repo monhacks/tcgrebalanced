@@ -277,6 +277,8 @@
 ### Game Menu Changes
 - Updated Glossary pages.
 - Updated the main Duel menu to display damaging status icons (Poison, Burn) right after the **Done** button, if applicable.
+- Disabled Sam's practice duel.
+
 
 ## Version 0.8.0
 
