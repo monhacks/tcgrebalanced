@@ -1552,8 +1552,8 @@ ParasectCard:
 	; attack 2
 	energy GRASS, 1, COLORLESS, 2 ; energies
 	tx FungalGrowthName ; name
-	tx FungalGrowthDescription ; description
-	dw NONE ; description (cont)
+	tx LeechLifeDescription ; description
+	tx InflictSleepDescription ; description (cont)
 	db 20 ; damage
 	db DAMAGE_NORMAL ; category
 	dw FungalGrowthEffectCommands ; effect commands

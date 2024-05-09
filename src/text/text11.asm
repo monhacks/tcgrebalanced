@@ -29,13 +29,6 @@ FungalGrowthName:
 	text "Fungal Growth"
 	done
 
-FungalGrowthDescription:
-	text "Heal from this Pokémon the same"
-	line "amount of damage you did to the"
-	line "Defending Pokémon. The Defending"
-	line "Pokémon is now Asleep."
-	done
-
 ShiftName:
 	text "Shift"
 	done
@@ -1095,11 +1088,6 @@ ScavengeDescription:
 
 SleepingGasName: ; 604c3 (18:44c3)
 	text "Sleeping Gas"
-	done
-
-MayInflictSleepDescription: ; 604d1 (18:44d1)
-	text "Flip a coin. If heads, the Defending"
-	line "Pokémon is now Asleep."
 	done
 
 DestinyBondName: ; 6050e (18:450e)

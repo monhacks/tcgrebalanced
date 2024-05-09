@@ -2468,7 +2468,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer EnergySporesName
 	textpointer Attach2EnergyFromDiscardToAnyPkmnDescription
 	textpointer FungalGrowthName
-	textpointer FungalGrowthDescription
 	textpointer ShiftName                                          ; 0x0890
 	textpointer ShiftDescription                                   ; 0x0891
 	textpointer VenomPowderName                                    ; 0x0892
@@ -2676,7 +2675,6 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ScavengeName                                       ; 0x0a8c
 	textpointer ScavengeDescription                                ; 0x0a8d
 	textpointer SleepingGasName                                    ; 0x0a94
-	textpointer MayInflictSleepDescription                         ; 0x0a95
 	textpointer DestinyBondName                                    ; 0x0a96
 	textpointer DestinyBondDescription                             ; 0x0a97
 	textpointer LickName                                           ; 0x0a9a
