@@ -4670,7 +4670,7 @@ VaporeonLv42Card:
 	db ATK_ANIM_PKMN_POWER_1 ; animation
 
 	; attack 2
-	energy COLORLESS, 2 ; energies
+	energy WATER, 1 ; energies
 	tx WaterPulseName ; name
 	tx WaterPulseDescription ; description
 	dw NONE ; description (cont)
