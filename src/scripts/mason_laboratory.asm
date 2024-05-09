@@ -165,8 +165,8 @@ Script_Sam:
 	jump_if_event_equal EVENT_SAM_MENU_CHOICE, SAM_MENU_RULES, Script_LostToSam.ows_d6b0
 	jump_if_event_equal EVENT_SAM_MENU_CHOICE, SAM_MENU_NOTHING, .ows_d637
 ; SAM_MENU_PRACTICE_DUEL
-	print_npc_text Text05cb
-	ask_question_jump Text05cc, .ows_d647
+	; print_npc_text Text05cb
+	; ask_question_jump Text05cc, .ows_d647
 .ows_d637
 	print_npc_text Text05cd
 	quit_script_fully
