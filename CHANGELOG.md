@@ -199,7 +199,9 @@
 - New attack: **Friend Tackle** (CC): 20 damage; +20 damage if the user played a Supporter this turn.
 
 #### Mewtwo Lv60
+- **Energy Absorption**: removed.
 - **Psyburn**: removed.
+- New attack: **Concentration** (P): attach 1 Psychic Energy from discard pile to the user; heal 20 HP.
 - New attack: **Psychic Nova** (P): discard any number of attached (P); 20 damage for each discarded energy; discard 1 random card from the opponent's hand if they have 4 or more.
 
 ### Darkness Changes

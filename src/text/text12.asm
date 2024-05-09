@@ -737,6 +737,11 @@ Attach1WaterEnergyFromDiscardDescription:
 	line "discard pile to this Pokémon."
 	done
 
+Attach1PsychicEnergyFromDiscardDescription:
+	text "Attach a <PSYCHIC> Energy from your"
+	line "discard pile to this Pokémon."
+	done
+
 ; AbsorbWaterName:
 ; 	text "Absorb Water"
 ; 	done
@@ -1547,4 +1552,8 @@ SurpriseBiteDescription:
 	line "put 1 damage counter on 1 of"
 	line "your opponent's Benched Pokémon"
 	line "that has no damage counters."
+	done
+
+ConcentrationName:
+	text "Concentration"
 	done

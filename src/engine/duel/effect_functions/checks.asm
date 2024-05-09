@@ -211,6 +211,11 @@ CheckDiscardPileHasBasicEnergyCards:
 
 
 ; return carry if no Water Energy cards in Discard Pile
+CheckDiscardPileHasPsychicEnergyCards:
+  jp CreateEnergyCardListFromDiscardPile_OnlyPsychic
+
+
+; return carry if no Water Energy cards in Discard Pile
 CheckDiscardPileHasWaterEnergyCards:
   jp CreateEnergyCardListFromDiscardPile_OnlyWater
 

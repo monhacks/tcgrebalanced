@@ -99,6 +99,12 @@ CreateEnergyCardListFromDiscardPile_WaterFighting:
 DEF ALL_ENERGY_ALLOWED EQU $ff
 
 ; makes a list in wDuelTempList with the deck indices
+; of all Psychic energy cards found in Turn Duelist's Discard Pile.
+CreateEnergyCardListFromDiscardPile_OnlyPsychic:
+	ld c, TYPE_ENERGY_PSYCHIC
+	jr CreateEnergyCardListFromDiscardPile
+
+; makes a list in wDuelTempList with the deck indices
 ; of all Fire energy cards found in Turn Duelist's Discard Pile.
 CreateEnergyCardListFromDiscardPile_OnlyFire:
 	ld c, TYPE_ENERGY_FIRE

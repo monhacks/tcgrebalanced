@@ -2951,6 +2951,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer NaturalRemedyDescription
 	textpointer Attach1FireEnergyFromDiscardDescription
 	textpointer Attach1WaterEnergyFromDiscardDescription
+	textpointer Attach1PsychicEnergyFromDiscardDescription
 	; textpointer AbsorbWaterName
 	textpointer Retrieve1WaterEnergyFromDiscardDescription
 	textpointer SplashingAttacksName
@@ -3101,6 +3102,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer VoltSwitchDescription
 	textpointer SurpriseBiteName
 	textpointer SurpriseBiteDescription
+	textpointer ConcentrationName
+	textpointer ConcentrationDescription
 
 ; ------------------------------------------------------------------------------
 ; text13.asm

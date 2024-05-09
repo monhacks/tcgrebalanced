@@ -26,7 +26,7 @@ HandleSpecialAIAttacks:
 	cp GEODUDE
 	jp z, .Mend
 	cp MEWTWO_LV60
-	jp z, .EnergyAbsorption
+	jp z, .Concentration
 	cp BELLSPROUT
 	jp z, .Growth
 	cp ZAPDOS_LV68
@@ -237,13 +237,13 @@ HandleSpecialAIAttacks:
 
 ; if any Psychic Energy is found in the Discard Pile,
 ; return a score of $80 + 2.
-.EnergyAbsorption:
-	ld e, PSYCHIC_ENERGY
-	ld a, CARD_LOCATION_DISCARD_PILE
-	call CheckIfAnyCardIDinLocation
-	jp nc, .zero_score
-	ld a, $82
-	ret
+; .EnergyAbsorption:
+; 	ld e, PSYCHIC_ENERGY
+; 	ld a, CARD_LOCATION_DISCARD_PILE
+; 	call CheckIfAnyCardIDinLocation
+; 	jp nc, .zero_score
+; 	ld a, $82
+; 	ret
 
 .Mend:
 	call GetPlayAreaCardAttachedEnergies
@@ -276,6 +276,10 @@ HandleSpecialAIAttacks:
 
 .Freeze:
 	ld e, WATER_ENERGY
+	jr .accelerate_self_from_discard_got_energy
+
+.Concentration:
+	ld e, PSYCHIC_ENERGY
 	jr .accelerate_self_from_discard_got_energy
 
 .JunkMagnet:

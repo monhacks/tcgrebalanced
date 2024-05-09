@@ -1125,6 +1125,11 @@ VoltSwitchEffect:
 ; ------------------------------------------------------------------------------
 
 
+Concentration_EnergyHealingEffect:
+	call AccelerateFromDiscard_AttachToPokemonEffect
+	jp Heal20DamageEffect
+
+
 WickedTentacle_PoisonTransferEffect:
 	call MoveOpponentEnergyToBench_TransferEffect
 	jp PoisonEffect
@@ -3856,6 +3861,13 @@ EnergyAbsorption_AISelectEffect:
 Retrieve1WaterEnergyFromDiscard_SelectEffect:
 ; pick the first energy card
 	call CreateEnergyCardListFromDiscardPile_OnlyWater
+	ld a, 1
+	jr PickFirstNCardsFromList_SelectEffect
+
+
+Attach1PsychicEnergyFromDiscard_SelectEffect:
+; pick the first energy card
+	call CreateEnergyCardListFromDiscardPile_OnlyPsychic
 	ld a, 1
 	jr PickFirstNCardsFromList_SelectEffect
 

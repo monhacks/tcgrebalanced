@@ -1009,6 +1009,12 @@ BarrierEffectCommands:
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardAllAttachedEnergiesEffect
 	db  $00
 
+ConcentrationEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDiscardPileHasPsychicEnergyCards
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Attach1PsychicEnergyFromDiscard_SelectEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Concentration_EnergyHealingEffect
+	db  $00
+
 FreezeEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDiscardPileHasWaterEnergyCards
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Attach1WaterEnergyFromDiscard_SelectEffect

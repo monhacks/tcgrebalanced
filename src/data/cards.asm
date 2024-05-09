@@ -8099,14 +8099,14 @@ MewtwoLv60Card:
 
 	; attack 1
 	energy PSYCHIC, 1 ; energies
-	tx EnergyAbsorptionName ; name
-	tx EnergyAbsorptionDescription ; description
-	dw NONE ; description (cont)
+	tx ConcentrationName ; name
+	tx Attach1PsychicEnergyFromDiscardDescription ; description
+	tx Heal20DamageDescription ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw EnergyAbsorptionEffectCommands ; effect commands
+	dw ConcentrationEffectCommands ; effect commands
 	db NONE ; flags 1
-	db NONE ; flags 2
+	db HEAL_USER ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3
 	db 0
 	db ATK_ANIM_GLOW_EFFECT ; animation
