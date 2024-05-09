@@ -1125,6 +1125,7 @@ VoltSwitchEffect:
 ; ------------------------------------------------------------------------------
 
 
+Freeze_EnergyHealingEffect:
 Concentration_EnergyHealingEffect:
 	call AccelerateFromDiscard_AttachToPokemonEffect
 	jp Heal20DamageEffect

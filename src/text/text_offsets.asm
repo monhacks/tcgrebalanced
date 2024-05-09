@@ -2899,7 +2899,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer FetchName                                          ; 0x0b3a
 	textpointer Draw1CardDescription                               ; 0x0b3b
 	textpointer Draw2CardsDescription
-	textpointer CometPunchName                                     ; 0x0b3c
+	textpointer PlasmaName
 	textpointer RampageName                                        ; 0x0b40
 	textpointer RampageDescription                                 ; 0x0b41
 	textpointer CopyName

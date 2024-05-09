@@ -3209,18 +3209,18 @@ MoltresLv35Card:
 	dw NONE ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
+	energy FIRE, 1 ; energies
 	tx FlareName ; name
 	tx Attach1FireEnergyFromDiscardDescription ; description
 	dw NONE ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
+	db 10 ; damage
+	db DAMAGE_NORMAL ; category
 	dw FlareEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3
 	db 1
-	db ATK_ANIM_GLOW_EFFECT ; animation
+	db ATK_ANIM_SMALL_FLAME ; animation
 
 	; attack 2
 	energy FIRE, 1 ; energies
@@ -3298,7 +3298,7 @@ MoltresLv37Card:
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
-	db ATK_ANIM_FIRE_SPIN ; animation
+	db ATK_ANIM_DIVE_BOMB ; animation
 
 	db 1 ; retreat cost
 	db NONE ; weakness
@@ -4863,17 +4863,17 @@ ArticunoLv35Card:
 	dw NONE ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
+	energy WATER, 1 ; energies
 	tx FreezeName ; name
 	tx Attach1WaterEnergyFromDiscardDescription ; description
-	dw NONE ; description (cont)
+	tx Heal20DamageDescription ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
 	dw FreezeEffectCommands ; effect commands
 	db NONE ; flags 1
-	db NONE ; flags 2
+	db HEAL_USER ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3
-	db 1
+	db 20
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
@@ -5915,18 +5915,18 @@ ZapdosLv40Card:
 	dw NONE ; pre-evo name
 
 	; attack 1
-	energy COLORLESS, 1 ; energies
-	tx EnergizeName ; name
+	energy LIGHTNING, 1 ; energies
+	tx PlasmaName ; name
 	tx Attach1LightningEnergyFromDiscardDescription ; description
 	dw NONE ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
+	db 10 ; damage
+	db DAMAGE_NORMAL ; category
 	dw EnergizeEffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3
 	db 0
-	db ATK_ANIM_GLOW_EFFECT ; animation
+	db ATK_ANIM_THUNDER_WAVE ; animation
 
 	; attack 2
 	energy LIGHTNING, 1 ; energies
@@ -8108,7 +8108,7 @@ MewtwoLv60Card:
 	db NONE ; flags 1
 	db HEAL_USER ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3
-	db 0
+	db 20
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2

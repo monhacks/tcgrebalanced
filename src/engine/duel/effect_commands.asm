@@ -1018,7 +1018,7 @@ ConcentrationEffectCommands:
 FreezeEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDiscardPileHasWaterEnergyCards
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Attach1WaterEnergyFromDiscard_SelectEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, AccelerateFromDiscard_AttachToPokemonEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Freeze_EnergyHealingEffect
 	db  $00
 
 FlareEffectCommands:

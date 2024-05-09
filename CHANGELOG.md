@@ -49,6 +49,9 @@
 #### Arcanine Lv45
 - **Take Down**: renamed to **Reckless Charge**.
 
+#### Moltres Lv35
+- **Flare**: increased cost from (C) to (F) and damage from 0 to 10.
+
 ### Water Changes
 
 #### Wartortle
@@ -135,6 +138,7 @@
 - Increased HP from 100 to 110.
 
 #### Articuno Lv35
+- **Freeze**: increased cost from (C) to (W); heals 20 HP.
 - **Sheer Cold**: reduced base damage from 10 to 0; increased damage bonus from 10 to 20 per discarded energy.
 
 ### Lightning Changes
@@ -142,6 +146,9 @@
 #### Surfing Pikachu
 - **Surf**: removed.
 - New attack: **Do the Wave** (CCC): 10 damage; +10 damage for each of the user's Benched Pokémon.
+
+#### Zapdos Lv40
+- **Energize**: renamed to **Plasma**; increased cost from (C) to (L); increased damage from 0 to 10.
 
 ### Fighting Changes
 
