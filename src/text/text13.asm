@@ -159,6 +159,12 @@ PsychicNovaDescription:
 ; Unused Text
 ; ------------------------------------------------------------------------------
 
+; ScaldDescription:
+; 	text "Discard an Energy attached to this"
+; 	line "Pokémon. The Defending Pokémon is"
+; 	line "now Burned."
+; 	done
+
 ; Discard1RandomCardFromOpponentsHandIf4OrMoreDescription:
 ; 	text "If your opponent has 4 or more cards"
 ; 	line "in their hand, discard 1 at random."

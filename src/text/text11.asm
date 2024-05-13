@@ -538,10 +538,9 @@ ScaldName:
 	text "Scald"
 	done
 
-ScaldDescription:
-	text "Discard an Energy attached to this"
-	line "Pokémon. The Defending Pokémon is"
-	line "now Burned."
+InflictBurnDescription:
+	text "The Defending Pokémon is now"
+	line "Burned."
 	done
 
 CoreRegenerationName:

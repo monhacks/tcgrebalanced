@@ -4194,12 +4194,12 @@ SeadraCard:
 	; attack 1
 	energy WATER, 1 ; energies
 	tx ScaldName ; name
-	tx ScaldDescription ; description
+	tx InflictBurnDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
+	db 10 ; damage
 	db DAMAGE_NORMAL ; category
-	dw ScaldEffectCommands ; effect commands
-	db NONE ; flags 1
+	dw InflictBurnEffectCommands ; effect commands
+	db INFLICT_POISON ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
 	db 0
