@@ -4206,7 +4206,7 @@ SeadraCard:
 	db ATK_ANIM_WATER_GUN ; animation
 
 	; attack 2
-	energy WATER, 1, COLORLESS, 1 ; energies
+	energy WATER, 1 ; energies
 	tx DragonArrowName ; name
 	tx DragonArrowDescription ; description
 	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
