@@ -3180,7 +3180,7 @@ FlareonLv28Card:
 	db DAMAGE_X ; category
 	dw ScorchingColumnEffectCommands ; effect commands
 	db INFLICT_POISON ; flags 1
-	db DISCARD_ENERGY | FLAG_2_BIT_5 ; flags 2
+	db ATTACHED_ENERGY_BOOST | DISCARD_ENERGY | FLAG_2_BIT_5 ; flags 2
 	db NONE ; flags 3
 	db 9
 	db ATK_ANIM_BIG_FLAME ; animation
@@ -4678,7 +4678,7 @@ VaporeonLv42Card:
 	db DAMAGE_X ; category
 	dw WaterPulseEffectCommands ; effect commands
 	db INFLICT_CONFUSION ; flags 1
-	db ATTACHED_ENERGY_BOOST ; flags 2
+	db ATTACHED_ENERGY_BOOST | DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_HYDRO_PUMP ; animation
@@ -5332,7 +5332,7 @@ RaichuLv35Card:
 	db DAMAGE_X ; category
 	dw DischargeEffectCommands ; effect commands
 	db INFLICT_PARALYSIS ; flags 1
-	db DISCARD_ENERGY | FLAG_2_BIT_5 ; flags 2
+	db ATTACHED_ENERGY_BOOST | DISCARD_ENERGY | FLAG_2_BIT_5 ; flags 2
 	db NONE ; flags 3
 	db 9
 	db ATK_ANIM_THUNDERBOLT ; animation
@@ -5886,7 +5886,7 @@ JolteonLv29Card:
 	db DAMAGE_X ; category
 	dw DischargeEffectCommands ; effect commands
 	db INFLICT_PARALYSIS ; flags 1
-	db DISCARD_ENERGY | FLAG_2_BIT_5 ; flags 2
+	db ATTACHED_ENERGY_BOOST | DISCARD_ENERGY | FLAG_2_BIT_5 ; flags 2
 	db NONE ; flags 3
 	db 9
 	db ATK_ANIM_THUNDERBOLT ; animation
@@ -8120,7 +8120,7 @@ MewtwoLv60Card:
 	db DAMAGE_X ; category
 	dw PsychicNovaEffectCommands ; effect commands
 	db NONE ; flags 1
-	db DISCARD_ENERGY ; flags 2
+	db ATTACHED_ENERGY_BOOST | DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3
 	db 0
 	db ATK_ANIM_PSYCHIC_HIT ; animation
