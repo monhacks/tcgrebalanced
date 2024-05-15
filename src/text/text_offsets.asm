@@ -2788,6 +2788,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer VampiricAuraDescription
 	textpointer ReactivePoisonName
 	textpointer ReactivePoisonDescription
+	textpointer DragonArrowName
+	textpointer DragonArrowDescription
 
 ; ------------------------------------------------------------------------------
 ; text12.asm

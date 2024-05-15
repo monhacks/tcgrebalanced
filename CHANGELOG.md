@@ -114,8 +114,9 @@
 
 #### Seadra
 - **Riptide**: removed.
-- **Sharpshooter**: cost increased from (W) to (WC); no longer discards an energy.
+- **Sharpshooter**: removed.
 - New attack: **Scald** (W): 10 damage; inflicts Burn.
+- New attack: **Dragon Arrow** (W): discard any number of attached energies; 20 damage for each discarded energy to 1 of the opponent's Pokémon.
 
 #### Seaking
 - **Waterfall**: removed.

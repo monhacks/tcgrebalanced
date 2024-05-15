@@ -398,6 +398,15 @@ CreateListOfMatchingEnergyAttachedToArena:
 	ret
 
 
+; output:
+;	  a: number of cards in list
+;   carry: set if no cards were found
+;	  [wDuelTempList]: $ff-terminated card list
+CreateListOfEnergiesAttachedToArena:
+	ld a, PLAY_AREA_ARENA
+	jp CreateArenaOrBenchEnergyCardList
+
+
 ; ------------------------------------------------------------------------------
 ; Deck Lists
 ; ------------------------------------------------------------------------------

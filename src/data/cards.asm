@@ -4207,16 +4207,16 @@ SeadraCard:
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 1 ; energies
-	tx SharpshooterName ; name
-	tx Deal30ToAnyPokemonDescription ; description
+	tx DragonArrowName ; name
+	tx DragonArrowDescription ; description
 	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
 	db 0 ; damage
 	db RESIDUAL ; category
-	dw Deal30ToAnyPokemonEffectCommands ; effect commands
+	dw DragonArrowEffectCommands ; effect commands
 	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
-	db FLAG_2_BIT_6 ; flags 2
+	db ATTACHED_ENERGY_BOOST | DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3
-	db 2
+	db 0
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	db 1 ; retreat cost

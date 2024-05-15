@@ -227,6 +227,15 @@ DealDamageToTargetA_DE_DamageEffect:
 	jp SwapTurn
 
 
+DealVarX20DamageToTarget_DamageEffect:
+	ldh a, [hTemp_ffa0]
+	add a  ; x2
+	call ATimes10
+	ld d, 0
+	ld e, a
+	jr DealDamageToTarget_DE_DamageEffect
+
+
 ;
 TrampleEffect:
 DealExcessDamageToTarget_DamageEffect:
@@ -338,13 +347,16 @@ SurpriseBite_PlayerSelectEffect:
 
 
 ; can choose any Pokémon in Play Area
+; output:
+;   a: PLAY_AREA_* of the selected Pokémon
+;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the selected Pokémon
+;   z: set if Arena is selected
+;   nz: set if Bench is selected
 DamageTargetPokemon_AISelectEffect:
-	xor a  ; PLAY_AREA_ARENA
-	ldh [hTempPlayAreaLocation_ffa1], a
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetNonTurnDuelistVariable
 	cp 2
-	jr c, .done ; has no Bench Pokemon
+	jr c, .arena  ; has no Bench Pokemon
 ; AI always picks Pokemon with lowest HP remaining
 	call GetOpponentBenchPokemonWithLowestHP
 ; amount of HP remaining is in e
@@ -354,7 +366,7 @@ DamageTargetPokemon_AISelectEffect:
 	ld a, e
 	cp [hl]
 	jr c, .done  ; got minimum
-; arena is lower
+.arena
 	xor a
 	ldh [hTempPlayAreaLocation_ffa1], a
 .done

@@ -3106,6 +3106,11 @@ CheckArenaPokemonHasEnergy_Psychic:
 	ret
 
 
+DragonArrow_PlayerSelectEffect:
+	call CreateListOfEnergiesAttachedToArena
+	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
+
+
 PsychicNova_PlayerSelectEffect:
 	call CreateListOfPsychicEnergyAttachedToArena
 	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
@@ -3177,6 +3182,26 @@ DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect:
 	ret
 
 
+DragonArrow_AISelectEffect:
+	call DamageTargetPokemon_AISelectEffect
+; 	add DUELVARS_ARENA_CARD_HP
+; 	call GetNonTurnDuelistVariable
+; 	push hl
+	call CreateListOfEnergiesAttachedToArena
+	ldh [hTemp_ffa0], a
+; 	ld c, a
+; 	pop hl
+; 	ld a, [hl]
+; 	srl a
+; 	cp 11
+; 	jr nc, .done
+; 	ld c, 1
+; .done
+; 	ld a, c
+; 	ldh [hTemp_ffa0], a
+	jr DiscardAnyNumberOfAttachedEnergy_AISelectEffect
+
+
 PsychicNova_AISelectEffect:
 ; AI always chooses all cards to discard
 	call CreateListOfPsychicEnergyAttachedToArena
@@ -3222,6 +3247,10 @@ DiscardAnyNumberOfAttachedEnergy_AISelectEffect:
 	ld b, 0
 	jp CopyDataHLtoDE
 
+
+DragonArrow_DiscardEnergyEffect:
+	call CreateListOfEnergiesAttachedToArena
+	jr DiscardAnyNumberOfAttachedEnergy_DiscardEnergyEffect
 
 PsychicNova_DiscardEnergyEffect:
 	call CreateListOfPsychicEnergyAttachedToArena

@@ -1674,3 +1674,15 @@ ReactivePoisonDescription:
 	line "for each Special Condition on"
 	line "the Defending Pokémon."
 	done
+
+DragonArrowName:
+	text "Dragon Arrow"
+	done
+
+DragonArrowDescription:
+	text "Discard 1 or more Energies attached"
+	line "to this Pokémon to use this attack."
+	line "This attack does 20 damage to 1 of"
+	line "your opponent's Pokémon for each"
+	line "Energy discarded this way."
+	done
