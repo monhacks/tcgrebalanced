@@ -7195,7 +7195,7 @@ KabutopsCard:
 	db STAR ; rarity
 	db MYSTERY | FOSSIL ; sets
 	db KABUTOPS
-	db 100 ; hp
+	db 110 ; hp
 	db STAGE2 ; stage
 	tx KabutoName ; pre-evo name
 
@@ -7208,7 +7208,7 @@ KabutopsCard:
 	tx PrimalScytheName ; name
 	tx PrimalScytheDescription ; description
 	dw NONE ; description (cont)
-	db 20 ; damage
+	db 30 ; damage
 	db DAMAGE_PLUS ; category
 	dw PrimalScytheEffectCommands ; effect commands
 	db NONE ; flags 1
@@ -7222,7 +7222,7 @@ KabutopsCard:
 	tx SharpSickleName ; name
 	tx SharpSickleDescription ; description
 	dw NONE ; description (cont)
-	db 50 ; damage
+	db 60 ; damage
 	db DAMAGE_PLUS ; category
 	dw SharpSickleEffectCommands ; effect commands
 	db NONE ; flags 1

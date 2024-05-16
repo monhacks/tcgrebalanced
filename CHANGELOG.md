@@ -211,6 +211,11 @@
 - **Kabuto Armor**: removed.
 - New Pokémon Power: **Fossil Energy**: until end of turn, changes all energies to Fighting energy.
 
+#### Kabutops
+- Increased HP from 100 to 110.
+- **Primal Scythe**: increased base damage from 20 to 30.
+- **Sharp Sickle**: increased base damage from 50 to 60.
+
 ### Psychic Changes
 
 #### Abra
