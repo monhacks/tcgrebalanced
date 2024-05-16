@@ -1265,6 +1265,10 @@ OddishCard:
 	db BASIC ; stage
 	dw NONE ; pre-evo name
 
+	; (C) Floral Invitation
+	; Search your deck for 2 Grass Pokémon, reveal them, and put them in your hand.
+	; Then, shuffle your deck.
+
 	; attack 1
 	energy COLORLESS, 1 ; energies
 	tx SproutName ; name
