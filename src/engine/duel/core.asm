@@ -5343,6 +5343,7 @@ OpenPlayAreaScreenForViewing:
 OpenPlayAreaScreenForSelection:
 	ld a, START
 ;	fallthrough
+	;	fallthrough
 
 DisplayPlayAreaScreen:
 	ld [wNoItemSelectionMenuKeys], a
@@ -5375,7 +5376,7 @@ DisplayPlayAreaScreen:
 	ld [wNumMenuItems], a
 .asm_604c
 	call DoFrame
-	call Func_60dd
+	call HandleExamineHandOrPlayAreaWhileChoosingPokemon
 	jr nc, .asm_6061
 	cp $02
 	jp z, .asm_60ac
@@ -5385,6 +5386,7 @@ DisplayPlayAreaScreen:
 .asm_6061
 	call HandleMenuInput
 	jr nc, .asm_604c
+; A or B were pressed
 	ld a, e
 	ld [wSelectedDuelSubMenuItem], a
 	ld a, [wExcludeArenaPokemon]
@@ -5398,7 +5400,7 @@ DisplayPlayAreaScreen:
 	ld a, [wCurPlayAreaSlot]
 	add DUELVARS_ARENA_CARD
 	call GetTurnDuelistVariable
-	cp -1
+	cp $ff
 	jr z, .asm_6022
 	call GetCardIDFromDeckIndex
 	call LoadCardDataToBuffer1_FromCardID
@@ -5462,7 +5464,7 @@ PlayAreaScreenMenuFunction:
 	scf
 	ret
 
-Func_60dd:
+HandleExamineHandOrPlayAreaWhileChoosingPokemon:
 	ld a, [wcbd4]
 	or a
 	ret z
