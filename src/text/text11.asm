@@ -243,8 +243,9 @@ FirestarterName:
 
 FirestarterDescription:
 	text "Once during your turn, you may"
-	line "attach a <FIRE> Energy from your Discard"
-	line "Pile to 1 of your Benched Pokémon."
+	line "attach a <FIRE> Energy from your"
+	line "Discard Pile to 1 of your"
+	line "Benched Pokémon."
 	done
 
 EnergyLoopName:
