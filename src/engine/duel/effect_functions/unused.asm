@@ -1,6 +1,46 @@
 ;
 
 
+EggsplosionEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Eggsplosion_MultiplierEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Eggsplosion_HealEffect
+	dbw EFFECTCMDTYPE_AI, Eggsplosion_AIEffect
+	db  $00
+
+;
+Eggsplosion_AIEffect:
+	ld a, 3
+	call GetNumAttachedEnergiesAtMostA_Arena
+; tails = heal 10, heads = deal 10
+	call ATimes10
+	ld d, 0
+	ld e, a
+	srl a
+	; ld a, 15
+	; lb de, 0, 30
+	jp SetExpectedAIDamage
+
+; Flip coins equal to attached energies;
+; deal 10 damage per heads and heal 10 damage per tails
+; cap at 30 damage
+Eggsplosion_MultiplierEffect:
+	ld a, 3
+	call GetNumAttachedEnergiesAtMostA_Arena
+	call X10DamagePerHeads_MultiplierEffect
+; heal 10 damage per tails (store for later)
+	ld a, [wCoinTossNumTails]
+	ldh [hTemp_ffa0], a
+	ret
+
+; heal 10 damage for each tails, stored in [hTemp_ffa0]
+Eggsplosion_HealEffect:
+	ldh a, [hTemp_ffa0]
+	call ATimes10
+	jp HealADamageEffect
+
+
+
+
 DragonArrowEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DragonArrow_PlayerSelectEffect
@@ -5711,3 +5751,162 @@ BigThunderEffect: ; 2e7cb (b:67cb)
 	ld de, 70 ; damage to inflict
 	call RandomlyDamagePlayAreaPokemon
 	ret
+
+
+
+
+
+
+;
+
+FurySwipesEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, FurySwipes_MultiplierEffect
+	dbw EFFECTCMDTYPE_AI, FurySwipes_AIEffect
+	db  $00
+
+
+DoubleAttackX20X10EffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DoubleAttackX20X10_MultiplierEffect
+	dbw EFFECTCMDTYPE_AI, DoubleAttackX20X10_AIEffect
+	db  $00
+
+
+
+;
+FurySwipes_AIEffect:
+	ld a, 10
+	lb de, 0, 100
+	jp SetExpectedAIDamage
+
+
+;
+
+
+FurySwipes_MultiplierEffect:
+	xor a
+	ldh [hTemp_ffa0], a
+.loop_coin_toss
+	ldtx de, FlipUntilFailAppears10DamageForEachHeadsText
+	xor a
+	call TossCoinATimes_BankB
+	jr nc, .tails
+	ld hl, hTemp_ffa0
+	inc [hl] ; increase heads count
+	jr .loop_coin_toss
+
+.tails
+; store resulting damage
+	ldh a, [hTemp_ffa0]
+	ld l, a
+	ld h, 10
+	call HtimesL
+; cap damage at 250
+	; ld de, wDamage
+	; ld a, l
+	; ld [de], a
+	; inc de
+	; ld a, h
+	; ld [de], a
+	ld a, l
+	ld [wDamage], a
+	ld a, h
+	or a
+	ret z  ; no overflow
+	ld a, MAX_DAMAGE
+	ld [wDamage], a
+	ret
+
+
+
+; outputs:
+;   a: amount of damage added
+;   [wCoinTossTotalNum]: number of flipped coins
+;   [wCoinTossNumHeads]: number of flipped heads
+;   [wCoinTossNumTails]: number of flipped tails
+Plus10DamageIfHeads_DamageBoostEffect:
+  ld a, 1  ; coin flips
+  ; fallthrough
+
+; input:
+;   a: number of coins to flip
+; outputs:
+;   a: amount of damage added
+;   [wCoinTossTotalNum]: number of flipped coins
+;   [wCoinTossNumHeads]: number of flipped heads
+;   [wCoinTossNumTails]: number of flipped tails
+Plus10DamagePerHeads_DamageBoostEffect:
+  ld hl, 10
+  call Plus10DamagePerHeads_TossCoins
+  jp AddToDamage
+
+
+; input:
+;   a: number of coins to flip
+;   hl: amount of damage to add per heads (display)
+; outputs:
+;   a: amount of bonus damage to add (heads x 10)
+;   [wCoinTossTotalNum]: number of flipped coins
+;   [wCoinTossNumHeads]: number of flipped heads
+;   [wCoinTossNumTails]: number of flipped tails
+; preserves: hl
+Plus10DamagePerHeads_TossCoins:
+  ld e, a  ; store number of coins
+  call LoadTxRam3  ; preserves hl, de
+  ld a, e
+  ldtx de, DamageCheckIfHeadsPlusDamageText
+  call TossACoins
+  jp ATimes10
+
+
+
+;
+; input:
+;   a: number of coins to flip
+; outputs:
+;   a: amount of damage added
+;   [wCoinTossTotalNum]: number of flipped coins
+;   [wCoinTossNumHeads]: number of flipped heads
+;   [wCoinTossNumTails]: number of flipped tails
+X10DamagePerHeads_MultiplierEffect:
+  ld hl, 10
+  call X10DamagePerHeads_TossCoins
+  jp SetDefiniteDamage
+
+
+; input:
+;   a: number of coins to flip
+;   hl: amount of damage per heads
+; outputs:
+;   a: amount of damage to set (heads x 10)
+;   [wCoinTossTotalNum]: number of flipped coins
+;   [wCoinTossNumHeads]: number of flipped heads
+;   [wCoinTossNumTails]: number of flipped tails
+; preserves: hl
+X10DamagePerHeads_TossCoins:
+  ld e, a  ; store number of coins
+  call LoadTxRam3  ; preserves hl, de
+  ld a, e
+  ldtx de, DamageCheckIfHeadsXDamageText
+  call TossACoins
+  jp ATimes10
+
+
+
+;
+DoubleAttackX20X10_AIEffect:
+	ld a, (15 * 2)
+	lb de, 20, 40
+	jp SetExpectedAIDamage
+
+
+;
+DoubleAttackX20X10_MultiplierEffect:
+  ld a, 2
+  ld hl, 20
+  call X10DamagePerHeads_TossCoins
+; tails = 10, heads = 20
+; result = (10 * tails) + (20 * heads)
+; result = (10 * coins) + (10 * heads)
+; a = 10 * heads
+  add 20
+  jp SetDefiniteDamage

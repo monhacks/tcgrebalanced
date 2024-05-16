@@ -304,6 +304,12 @@ Trade_PreconditionCheck:
 
 ; this Power needs to back up hTempPlayAreaLocation_ff9d
 EnergyGenerator_PreconditionCheck:
+	ld e, 30
+	call CheckSomePokemonWithEnoughHP
+	ret c
+	; fallthrough
+
+; this Power needs to back up hTempPlayAreaLocation_ff9d
 CrushingCharge_PreconditionCheck:
 	ldh a, [hTempPlayAreaLocation_ff9d]
 	ldh [hTemp_ffa0], a
@@ -2429,37 +2435,6 @@ Teleport_ReturnToDeckEffect:
 	call ReturnPlayAreaPokemonToDeckEffect
 	ld a, 4
 	jp DrawNCards_NoCardDetails
-
-
-Eggsplosion_AIEffect:
-	ld a, 3
-	call GetNumAttachedEnergiesAtMostA_Arena
-; tails = heal 10, heads = deal 10
-	call ATimes10
-	ld d, 0
-	ld e, a
-	srl a
-	; ld a, 15
-	; lb de, 0, 30
-	jp SetExpectedAIDamage
-
-; Flip coins equal to attached energies;
-; deal 10 damage per heads and heal 10 damage per tails
-; cap at 30 damage
-Eggsplosion_MultiplierEffect:
-	ld a, 3
-	call GetNumAttachedEnergiesAtMostA_Arena
-	call X10DamagePerHeads_MultiplierEffect
-; heal 10 damage per tails (store for later)
-	ld a, [wCoinTossNumTails]
-	ldh [hTemp_ffa0], a
-	ret
-
-; heal 10 damage for each tails, stored in [hTemp_ffa0]
-Eggsplosion_HealEffect:
-	ldh a, [hTemp_ffa0]
-	call ATimes10
-	jp HealADamageEffect
 
 
 ; returns carry if no Grass Energy in Play Area
@@ -4948,11 +4923,25 @@ Accelerate1EnergyFromDeck_PlayerSelectEffect:
 ;   [wMultiPurposeByte]: TRUE if the Arena Pokémon is a valid choice
 AttachEnergyToPokemon_PlayerSelectEffect:
 	ldtx hl, ChoosePokemonToAttachEnergyCardText
+.display
 	call DrawWideTextBox_WaitForInput
 	ld a, [wMultiPurposeByte]
 	or a
 	jp z, HandlePlayerSelectionPokemonInBench
 	jp HandlePlayerSelectionPokemonInPlayArea
+
+
+EnergyGenerator_PlayerSelectEffect:
+	call Accelerate1EnergyFromDeck_PlayerSelectEffect
+	ret c
+.loop
+	ldh a, [hTempPlayAreaLocation_ffa1]
+	ld e, 30
+	call CheckPokemonHasEnoughHP
+	ret nc
+	call AttachEnergyToPokemon_PlayerSelectEffect.display
+	ldh [hTempPlayAreaLocation_ffa1], a
+	jr .loop
 
 
 EnergySpike_AISelectEffect:
@@ -5098,6 +5087,10 @@ CrushingCharge_DiscardAndAttachEnergyEffect:
 
 
 LightningHaste_OncePerTurnCheck:
+	xor a  ; PLAY_AREA_ARENA
+	ld e, 20  ; HP
+	call CheckPokemonHasEnoughHP
+	ret c  ; not enough HP
 	call CreateEnergyCardListFromDiscardPile_OnlyLightning
 	ret c  ; no energy
 	jp CheckPokemonPowerCanBeUsed_StoreTrigger

@@ -2488,8 +2488,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer HypnoblastName                                     ; 0x08ae
 	textpointer TeleportBlastName                                  ; 0x08b3
 	textpointer SwitchThisPokemonDescription
-	textpointer EggsplosionName
-	textpointer EggsplosionDescription
+	; textpointer EggsplosionName
+	; textpointer EggsplosionDescription
 	textpointer BigEggsplosionName
 	textpointer DamagePerEnergyAttachedToBothActiveDescription
 	textpointer FoulGasName                                        ; 0x08ba

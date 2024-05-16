@@ -159,6 +159,18 @@ PsychicNovaDescription:
 ; Unused Text
 ; ------------------------------------------------------------------------------
 
+; EggsplosionName:
+; 	text "Eggsplosion"
+; 	done
+
+; EggsplosionDescription:
+; 	text "Flip a coin for each Energy"
+; 	line "(up to 3) attached to this Pokémon."
+; 	line "This attack does 10 damage"
+; 	line "for each Heads. Heal 10 damage"
+; 	line "from this Pokémon for each Tails."
+; 	done
+
 ; ScaldDescription:
 ; 	text "Discard an Energy attached to this"
 ; 	line "Pokémon. The Defending Pokémon is"

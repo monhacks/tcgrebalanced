@@ -198,12 +198,6 @@ RapidSpinEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, RapidSpin_AISelectEffect
 	db  $00
 
-EggsplosionEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Eggsplosion_MultiplierEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Eggsplosion_HealEffect
-	dbw EFFECTCMDTYPE_AI, Eggsplosion_AIEffect
-	db  $00
-
 DamagePerEnergyAttachedToBothActiveEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DamagePerEnergyAttachedToBothActive_MultiplierEffect
 	dbw EFFECTCMDTYPE_AI, DamagePerEnergyAttachedToBothActive_AIEffect
@@ -308,12 +302,6 @@ AssassinFlightEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Deal40DamageToTarget_DamageEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DamageTargetBenchedPokemon_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, DamageTargetBenchedPokemon_AISelectEffect
-	db  $00
-
-TwineedleEffectCommands:
-DoubleAttackX20X10EffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, DoubleAttackX20X10_MultiplierEffect
-	dbw EFFECTCMDTYPE_AI, DoubleAttackX20X10_AIEffect
 	db  $00
 
 Leech10DamageEffectCommands:
@@ -1090,11 +1078,6 @@ RecoverEffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Recover_HealEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DiscardEnergy_DiscardEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, DiscardEnergy_AISelectEffect
-	db  $00
-
-FurySwipesEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, FurySwipes_MultiplierEffect
-	dbw EFFECTCMDTYPE_AI, FurySwipes_AIEffect
 	db  $00
 
 BurnOutEffectCommands:

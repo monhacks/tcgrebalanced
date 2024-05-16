@@ -2024,18 +2024,30 @@ ExeggcuteCard:
 	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
-	energy COLORLESS, 1 ; energies
-	tx EggsplosionName ; name
-	tx EggsplosionDescription ; description
+	energy GRASS, 1, COLORLESS, 1 ; energies
+	tx LeechSeedName ; name
+	tx Heal10DamageDescription ; description
 	dw NONE ; description (cont)
-	db 10 ; damage
-	db DAMAGE_X ; category
-	dw EggsplosionEffectCommands ; effect commands
+	db 20 ; damage
+	db DAMAGE_NORMAL ; category
+	dw Leech10DamageEffectCommands ; effect commands
 	db NONE ; flags 1
-	db ATTACHED_ENERGY_BOOST | HEAL_USER ; flags 2
+	db HEAL_USER ; flags 2
 	db NONE ; flags 3
-	db 0
-	db ATK_ANIM_HIT ; animation
+	db 1
+	db ATK_ANIM_DRAIN ; animation
+	; energy COLORLESS, 1 ; energies
+	; tx EggsplosionName ; name
+	; tx EggsplosionDescription ; description
+	; dw NONE ; description (cont)
+	; db 10 ; damage
+	; db DAMAGE_X ; category
+	; dw EggsplosionEffectCommands ; effect commands
+	; db NONE ; flags 1
+	; db ATTACHED_ENERGY_BOOST | HEAL_USER ; flags 2
+	; db NONE ; flags 3
+	; db 0
+	; db ATK_ANIM_HIT ; animation
 
 	db 0 ; retreat cost
 	db WR_FIRE ; weakness

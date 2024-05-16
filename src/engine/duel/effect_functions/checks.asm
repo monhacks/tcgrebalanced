@@ -542,6 +542,12 @@ CheckIfPlayAreaHasAnyDamage_ExcludeTempLocation:
 	ret
 
 
+GetMad_CheckDamage:
+	xor a  ; PLAY_AREA_ARENA
+	ldh [hTempPlayAreaLocation_ff9d], a
+	jr StrangeBehavior_CheckDamage.check_damage
+
+
 ; returns carry if Strange Behavior cannot be used
 StrangeBehavior_CheckDamage:
 ; can Pkmn Power be used?
@@ -554,19 +560,44 @@ StrangeBehavior_CheckDamage:
 .check_damage
 	call CheckIfPlayAreaHasAnyDamage_ExcludeTempLocation
 	ret c
+	ld e, 20 ; HP
+	; fallthrough
+
 ; can this Pokémon receive any damage counters without KO-ing?
+; input:
+;   e: minimum amount of HP
+CheckTriggeringPokemonHasEnoughHP:
 	ldh a, [hTempPlayAreaLocation_ff9d]
+	; fallthrough
+
+; input:
+;   a: PLAY_AREA_* of the Pokémon to check
+;   e: minimum amount of HP
+; preserves: bc, de
+CheckPokemonHasEnoughHP:
 	add DUELVARS_ARENA_CARD_HP
 	call GetTurnDuelistVariable
+	cp e
 	ldtx hl, CannotUseBecauseItWillBeKnockedOutText
-	cp 10 + 10
 	ret
 
 
-GetMad_CheckDamage:
-	xor a  ; PLAY_AREA_ARENA
-	ldh [hTempPlayAreaLocation_ff9d], a
-	jr StrangeBehavior_CheckDamage.check_damage
+; input:
+;   e: minimum amount of HP
+CheckSomePokemonWithEnoughHP:
+	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
+	call GetTurnDuelistVariable
+	ld c, a
+	ld b, PLAY_AREA_ARENA
+.loop_play_area
+	ld a, b
+	call CheckPokemonHasEnoughHP
+	ret nc  ; enough
+	inc b
+	dec c
+	jr nz, .loop_play_area
+	scf
+	ret
 
 
 ; output:

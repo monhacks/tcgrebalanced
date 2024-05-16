@@ -37,6 +37,10 @@
 - Reduced Retreat Cost from 2 to 1.
 - **Poison Evolution**: reduced cost from (GC) to (G).
 
+#### Exeggcute
+- **Eggsplosion**: removed.
+- New attack: **Leech Seed** (GC): 20 damage; heal 10 damage.
+
 #### Pinsir
 - **Guillotine**: reworked.
 - New attack: **Guillotine** (GGC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
