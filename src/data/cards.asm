@@ -3897,18 +3897,18 @@ DewgongCard:
 	tx SeelName ; pre-evo name
 
 	; attack 1
-	energy WATER, 1 ; energies
-	tx DeepDiveName ; name
-	tx DeepDiveDescription ; description
-	dw NONE ; description (cont)
-	db 0 ; damage
-	db RESIDUAL ; category
-	dw DeepDiveEffectCommands ; effect commands
-	db NONE ; flags 1
-	db HEAL_USER ; flags 2
+	energy WATER, 1, COLORLESS, 1 ; energies
+	tx IceBeamName ; name
+	tx Discard1EnergyFromTargetDescription ; description
+	tx IceBeamDescriptionCont ; description (cont)
+	db 20 ; damage
+	db DAMAGE_NORMAL ; category
+	dw IceBeamEffectCommands ; effect commands
+	db INFLICT_PARALYSIS ; flags 1
+	db NONE ; flags 2
 	db SPECIAL_AI_HANDLING ; flags 3
 	db 3
-	db ATK_ANIM_GLOW_EFFECT ; animation
+	db ATK_ANIM_BEAM ; animation
 
 	; attack 2
 	energy WATER, 2, COLORLESS, 1 ; energies

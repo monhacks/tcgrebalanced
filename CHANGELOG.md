@@ -95,6 +95,10 @@
 - **Jellyfish Sting**: increased damage from 20 to 30.
 - New Pokémon Power: **Dark Prison**: increases the Retreat Cost of the opponent's Pokémon with a Status Condition by 1.
 
+#### Dewgong
+- **Deep Dive**: removed.
+- New attack: **Ice Beam** (WC): 20 damage; discard 1 Energy from the Defending Pokémon; if there are none, inflict Paralysis.
+
 #### Shellder
 - **Clamp**: reworked.
 - New attack: **Clamp** (CC): 10 damage; increase opponent's retreat cost by 1 and deal +10 damage for each (C) in retreat cost.

@@ -1671,3 +1671,12 @@ DragonArrowDescription:
 	line "your opponent's Pokémon, plus 20"
 	line "for each Energy discarded this way."
 	done
+
+IceBeamName:
+	text "Ice Beam"
+	done
+
+IceBeamDescriptionCont:
+	text "If there are none, the Defending"
+	line "Pokémon is now Paralyzed."
+	done

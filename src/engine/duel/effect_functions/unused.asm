@@ -1,6 +1,15 @@
 ;
 
 
+DeepDiveEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Heal30DamageEffect_PreserveAttackAnimation
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, SwitchUser_SwitchEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, SwitchUser_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, SwitchUser_AISelectEffect
+	db  $00
+
+
 EggsplosionEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Eggsplosion_MultiplierEffect
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, Eggsplosion_HealEffect

@@ -18,6 +18,14 @@ INCLUDE "engine/duel/effect_functions/status.asm"
 INCLUDE "engine/duel/effect_functions/substatus.asm"
 
 
+; paralyze if no energy card was discarded
+IceBeam_ParalysisEffect:
+	ldh a, [hEnergyTransEnergyCard]
+	cp $ff
+	jp z, ParalysisEffect
+	ret
+
+
 ; ------------------------------------------------------------------------------
 ; Coin Flip
 ; ------------------------------------------------------------------------------

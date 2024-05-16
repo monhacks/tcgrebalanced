@@ -2787,6 +2787,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer ReactivePoisonDescription
 	textpointer DragonArrowName
 	textpointer DragonArrowDescription
+	textpointer IceBeamName
+	textpointer IceBeamDescriptionCont
 
 ; ------------------------------------------------------------------------------
 ; text12.asm

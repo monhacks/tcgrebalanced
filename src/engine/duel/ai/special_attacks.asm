@@ -61,6 +61,8 @@ HandleSpecialAIAttacks:
 	jp z, .HyperBeam
 	cp NINETALES_LV35
 	jp z, .HyperBeam
+	cp DEWGONG
+	jp z, .HyperBeam
 	cp NIDORANF
 	jr z, .CallForFamily
 	cp KANGASKHAN
@@ -85,8 +87,6 @@ HandleSpecialAIAttacks:
 	; jr z, .DevastatingWind
 	cp GASTLY_LV17
 	jp z, .EnergyConversion
-	cp DEWGONG
-	jr z, .Teleport
 	cp SANDSLASH
 	jr z, .Teleport
 	cp MACHOP

@@ -78,13 +78,13 @@ Heal30DamageEffect:
 
 
 ; to be used in effects that happen BEFORE_DAMAGE
-Heal30DamageEffect_PreserveAttackAnimation:
-	ld a, [wLoadedAttackAnimation]
-	push af
-	call Heal30DamageEffect
-	pop af
-	ld [wLoadedAttackAnimation], a
-	ret
+; Heal30DamageEffect_PreserveAttackAnimation:
+; 	ld a, [wLoadedAttackAnimation]
+; 	push af
+; 	call Heal30DamageEffect
+; 	pop af
+; 	ld [wLoadedAttackAnimation], a
+; 	ret
 
 
 HealADamageEffect:
