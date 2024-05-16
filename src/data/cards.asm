@@ -3141,7 +3141,7 @@ FlareonLv22Card:
 	db DAMAGE_NORMAL ; category
 	dw UnstableEvolutionEffectCommands ; effect commands
 	db LOW_RECOIL ; flags 1
-	db NONE ; flags 2
+	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3  | SPECIAL_AI_HANDLING
 	db 0
 	db ATK_ANIM_BIG_FLAME ; animation
@@ -4639,7 +4639,7 @@ VaporeonLv29Card:
 	db DAMAGE_NORMAL ; category
 	dw UnstableEvolutionEffectCommands ; effect commands
 	db LOW_RECOIL ; flags 1
-	db NONE ; flags 2
+	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3  | SPECIAL_AI_HANDLING
 	db 0
 	db ATK_ANIM_WHIRLPOOL ; animation
@@ -5819,7 +5819,7 @@ JolteonLv24Card:
 	db DAMAGE_NORMAL ; category
 	dw UnstableEvolutionEffectCommands ; effect commands
 	db LOW_RECOIL ; flags 1
-	db NONE ; flags 2
+	db DISCARD_ENERGY ; flags 2
 	db NONE ; flags 3  | SPECIAL_AI_HANDLING
 	db 0
 	db ATK_ANIM_THUNDER ; animation
