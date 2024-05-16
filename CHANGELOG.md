@@ -116,7 +116,7 @@
 - **Riptide**: removed.
 - **Sharpshooter**: removed.
 - New attack: **Scald** (W): 10 damage; inflicts Burn.
-- New attack: **Dragon Arrow** (W): discard any number of attached energies; 20 damage for each discarded energy to 1 of the opponent's Pokémon.
+- New attack: **Dragon Arrow** (W): discard any number of attached energies; 10 damage to 1 of the opponent's Pokémon, +20 damage for each discarded energy.
 
 #### Seaking
 - **Waterfall**: removed.

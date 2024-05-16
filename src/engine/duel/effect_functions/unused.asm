@@ -1,5 +1,53 @@
 ;
 
+
+DragonArrowEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DragonArrow_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DealVarX20DamageToTarget_DamageEffect
+	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DragonArrow_DiscardEnergyEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DamageTargetPokemon_PlayerSelectEffect
+	dbw EFFECTCMDTYPE_AI_SELECTION, DragonArrow_AISelectEffect
+	db  $00
+
+
+DragonArrow_PlayerSelectEffect:
+	call CreateListOfEnergiesAttachedToArena
+	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
+
+
+DragonArrow_AISelectEffect:
+	call DamageTargetPokemon_AISelectEffect
+; 	add DUELVARS_ARENA_CARD_HP
+; 	call GetNonTurnDuelistVariable
+; 	push hl
+	call CreateListOfEnergiesAttachedToArena
+	ldh [hTemp_ffa0], a
+; 	ld c, a
+; 	pop hl
+; 	ld a, [hl]
+; 	srl a
+; 	cp 11
+; 	jr nc, .done
+; 	ld c, 1
+; .done
+; 	ld a, c
+; 	ldh [hTemp_ffa0], a
+	jr DiscardAnyNumberOfAttachedEnergy_AISelectEffect
+
+
+
+DealVarX20DamageToTarget_DamageEffect:
+	ldh a, [hTemp_ffa0]
+	add a  ; x2
+	call ATimes10
+	ld d, 0
+	ld e, a
+	jr DealDamageToTarget_DE_DamageEffect
+
+
+
+
 ScaldEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DiscardEnergy_PlayerSelectEffect

@@ -513,27 +513,6 @@ HandlePlayerSelectionOpponentPokemonInBench:
 	jp SwapTurn
 
 
-PlayerSelectAndStorePokemonInPlayArea:
-	call HandlePlayerSelectionPokemonInPlayArea
-	ldh [hTemp_ffa0], a
-	ret
-
-PlayerSelectAndStorePokemonInBench:
-	call HandlePlayerSelectionPokemonInBench
-	ldh [hTemp_ffa0], a
-	ret
-
-PlayerSelectAndStoreOpponentPokemonInPlayArea:
-	call HandlePlayerSelectionOpponentPokemonInPlayArea
-	ldh [hTemp_ffa0], a
-	ret
-
-PlayerSelectAndStoreOpponentPokemonInBench:
-	call HandlePlayerSelectionOpponentPokemonInBench
-	ldh [hTemp_ffa0], a
-	ret
-
-
 ; output:
 ;   [hTempPlayAreaLocation_ffa1]: PLAY_AREA_* of the selected card | $ff
 ;   carry: set if the Player cancelled selection

@@ -227,15 +227,6 @@ DealDamageToTargetA_DE_DamageEffect:
 	jp SwapTurn
 
 
-DealVarX20DamageToTarget_DamageEffect:
-	ldh a, [hTemp_ffa0]
-	add a  ; x2
-	call ATimes10
-	ld d, 0
-	ld e, a
-	jr DealDamageToTarget_DE_DamageEffect
-
-
 ;
 TrampleEffect:
 DealExcessDamageToTarget_DamageEffect:

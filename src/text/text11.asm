@@ -1680,9 +1680,9 @@ DragonArrowName:
 	done
 
 DragonArrowDescription:
-	text "Discard 1 or more Energies attached"
-	line "to this Pokémon to use this attack."
-	line "This attack does 20 damage to 1 of"
-	line "your opponent's Pokémon for each"
-	line "Energy discarded this way."
+	text "Discard any number of Energies"
+	line "attached to this Pokémon."
+	line "This attack does 10 damage to 1 of"
+	line "your opponent's Pokémon, plus 20"
+	line "for each Energy discarded this way."
 	done

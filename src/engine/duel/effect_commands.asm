@@ -1263,13 +1263,11 @@ PsychicNovaEffectCommands:
 	db  $00
 
 DragonArrowEffectCommands:
-	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckArenaPokemonHasAnyEnergiesAttached
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_2, DragonArrow_PlayerSelectEffect
-	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DealVarX20DamageToTarget_DamageEffect
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DragonArrow_DamageEffect
 	dbw EFFECTCMDTYPE_DISCARD_ENERGY, DragonArrow_DiscardEnergyEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, DamageTargetPokemon_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, DragonArrow_AISelectEffect
-	dbw EFFECTCMDTYPE_AI, WaterPulse_AIEffect
 	db  $00
 
 ImmuneIfKnockedOutOpponentEffectCommands:

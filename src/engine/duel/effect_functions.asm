@@ -658,6 +658,16 @@ PrimalThunder_DrawbackEffect:
 	jp DamageAllFriendlyPokemon30Effect
 
 
+DragonArrow_DamageEffect:
+	ldh a, [hTemp_ffa0]
+	add a  ; x2
+	call ATimes10
+	add 10  ; base
+	ld d, 0
+	ld e, a
+	jp DealDamageToTarget_DE_DamageEffect
+
+
 ; ------------------------------------------------------------------------------
 ; Damage Modifiers
 ; ------------------------------------------------------------------------------
@@ -1212,13 +1222,13 @@ PanicVine_ConfusionTrapEffect:
 
 
 NaturalRemedy_HealEffect:
-	ldh a, [hTemp_ffa0]
+	ldh a, [hTempPlayAreaLocation_ffa1]
 	cp $ff
 	ret z
 	ld e, a   ; location
 	ld d, 20  ; damage
 	call HealPlayAreaCardHP
-	ldh a, [hTemp_ffa0]
+	ldh a, [hTempPlayAreaLocation_ffa1]
 	jp c, ClearStatusFromTargetEffect
 	jp ClearStatusFromTarget_NoAnim
 
@@ -3108,7 +3118,13 @@ CheckArenaPokemonHasEnergy_Psychic:
 
 DragonArrow_PlayerSelectEffect:
 	call CreateListOfEnergiesAttachedToArena
-	jr DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
+	jr c, .none
+	call DiscardAnyNumberOfAttachedEnergy_PlayerSelectEffect
+	ret nc
+.none
+	xor a
+	ldh [hTemp_ffa0], a
+	ret
 
 
 PsychicNova_PlayerSelectEffect:
@@ -6132,7 +6148,8 @@ NaturalRemedy_PlayerSelection:
 	ldtx hl, ChoosePkmnToHealText
 	call DrawWideTextBox_WaitForInput
 .read_input
-	call PlayerSelectAndStorePokemonInPlayArea
+	call HandlePlayerSelectionPokemonInPlayArea
+	ldh [hTempPlayAreaLocation_ffa1], a
 	ld e, a
 	call GetCardDamageAndMaxHP
 	or a

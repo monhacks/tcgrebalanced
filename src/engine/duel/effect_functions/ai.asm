@@ -7,7 +7,7 @@ NaturalRemedy_AISelectEffect:
 	ld a, DUELVARS_NUMBER_OF_POKEMON_IN_PLAY_AREA
 	call GetTurnDuelistVariable
 	ld c, a   ; loop counter
-	ld d, 30  ; current max damage (heal at least 30)
+	ld d, 20  ; current max damage (heal at least 20)
 	ld e, PLAY_AREA_ARENA  ; location iterator
 	ld b, $ff  ; location of max damage
 	ld l, DUELVARS_ARENA_CARD_STATUS
@@ -40,7 +40,7 @@ NaturalRemedy_AISelectEffect:
 	jr nz, .loop
 ; return selected location (or $ff) in a and [hTemp_ffa0]
 	ld a, b
-	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
 	ret
 
 
