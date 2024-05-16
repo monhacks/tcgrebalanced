@@ -159,6 +159,8 @@
 
 #### Omastar
 - Increased HP from 100 to 110.
+- **Spiral Drain**: increased damage from 30 to 40.
+- **Primal Swirl**: increased damage from 40 to 50.
 
 #### Articuno Lv35
 - **Freeze**: increased cost from (C) to (W); heals 20 HP.

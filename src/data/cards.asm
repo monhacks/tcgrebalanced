@@ -4828,7 +4828,7 @@ OmastarCard:
 	tx SpiralDrainName ; name
 	tx Heal20DamageDescription ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
+	db 40 ; damage
 	db DAMAGE_NORMAL ; category
 	dw Leech20DamageEffectCommands ; effect commands
 	db NONE ; flags 1
@@ -4842,7 +4842,7 @@ OmastarCard:
 	tx PrimalSwirlName ; name
 	tx PrimalSwirlDescription ; description
 	dw NONE ; description (cont)
-	db 40 ; damage
+	db 50 ; damage
 	db DAMAGE_NORMAL ; category
 	dw PrimalSwirlEffectCommands ; effect commands
 	db NONE ; flags 1
