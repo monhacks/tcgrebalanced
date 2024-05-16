@@ -5342,7 +5342,6 @@ OpenPlayAreaScreenForViewing:
 
 OpenPlayAreaScreenForSelection:
 	ld a, START
-;	fallthrough
 	;	fallthrough
 
 DisplayPlayAreaScreen:
