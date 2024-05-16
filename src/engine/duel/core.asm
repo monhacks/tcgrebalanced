@@ -5381,7 +5381,6 @@ DisplayPlayAreaScreen:
 	jp z, .asm_60ac
 	pop af
 	ldh [hTempCardIndex_ff98], a
-	ld a, [wcbd4] ; useless
 	jr OpenPlayAreaScreenForSelection
 .asm_6061
 	call HandleMenuInput
