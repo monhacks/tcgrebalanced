@@ -128,10 +128,6 @@ SwitchThisPokemonDescription:
 	line "your Benched Pokémon."
 	done
 
-BigEggsplosionName:
-	text "Big Eggsplosion"
-	done
-
 DamagePerEnergyAttachedToBothActiveDescription:
 	text "This attack does 10 damage for each"
 	line "Energy attached to this Pokémon and"

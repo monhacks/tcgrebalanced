@@ -41,6 +41,9 @@
 - **Eggsplosion**: removed.
 - New attack: **Leech Seed** (GC): 20 damage; heal 10 damage.
 
+#### Exeggutor
+- **Big Eggsplosion**: renamed to **Energy Burst**.
+
 #### Pinsir
 - **Guillotine**: reworked.
 - New attack: **Guillotine** (GGC): Knocks Out the Defending Pokémon if it has 50 HP or less remaining.
