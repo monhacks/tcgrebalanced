@@ -7241,7 +7241,7 @@ KabutopsCard:
 	tx ShellfishName ; category
 	db 141 ; Pokedex number
 	db 0
-	db 30 ; level
+	db 45 ; level
 	db 4, 3 ; length
 	dw 89 * 10 ; weight
 	tx KabutopsDescription ; description
