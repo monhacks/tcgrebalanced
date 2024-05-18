@@ -256,14 +256,9 @@ Guillotine50EffectCommands:
 	dbw EFFECTCMDTYPE_AFTER_DAMAGE, KnockOutDefendingPokemonEffect
 	db  $00
 
-CrabhammerEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Crabhammer_DamageBoostEffect
-	dbw EFFECTCMDTYPE_AI, Crabhammer_AIEffect
-	db  $00
-
-SharpSickleEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SharpSickle_DamageBoostEffect
-	dbw EFFECTCMDTYPE_AI, SharpSickle_AIEffect
+Guillotine70EffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckDefendingPokemonHas70HpOrLess
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, KnockOutDefendingPokemonEffect
 	db  $00
 
 PowerLariatEffectCommands:
@@ -1099,13 +1094,6 @@ PrankEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Prank_AddToDeckEffect
 	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Prank_PlayerSelectEffect
 	dbw EFFECTCMDTYPE_AI_SELECTION, Prank_AISelectEffect
-	db  $00
-
-PrimalScytheEffectCommands:
-	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PrimalScythe_DiscardDamageBoostEffect
-	dbw EFFECTCMDTYPE_AI, PrimalScythe_AIEffect
-	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PrimalScythe_PlayerHandCardSelection
-	dbw EFFECTCMDTYPE_AI_SELECTION, PrimalScythe_AISelectEffect
 	db  $00
 
 KarateChopEffectCommands:

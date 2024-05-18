@@ -1,5 +1,36 @@
 
 ; attack 1
+energy FIGHTING, 1 ; energies
+tx PrimalScytheName ; name
+tx PrimalScytheDescription ; description
+dw NONE ; description (cont)
+db 30 ; damage
+db DAMAGE_PLUS ; category
+dw PrimalScytheEffectCommands ; effect commands
+db NONE ; flags 1
+db NONE ; flags 2
+db NONE ; flags 3
+db 0
+db ATK_ANIM_TEAR ; animation
+
+; attack 2
+energy FIGHTING, 1, COLORLESS, 2 ; energies
+tx SharpSickleName ; name
+tx SharpSickleDescription ; description
+dw NONE ; description (cont)
+db 60 ; damage
+db DAMAGE_PLUS ; category
+dw SharpSickleEffectCommands ; effect commands
+db NONE ; flags 1
+db NONE ; flags 2
+db NONE ; flags 3
+db 2
+db ATK_ANIM_MULTIPLE_SLASH ; animation
+
+
+
+
+; attack 1
 energy WATER, 1 ; energies
 tx DeepDiveName ; name
 tx DeepDiveDescription ; description

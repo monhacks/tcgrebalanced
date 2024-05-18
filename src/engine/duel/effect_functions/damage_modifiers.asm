@@ -44,19 +44,6 @@ DoubleDamage_DamageBoostEffect:
   ret
 
 
-; just add 40 damage, precondition checks have already been made
-PrimalScythe_DamageBoostEffect:
-	ld a, 40
-	call AddToDamage
-	jp SetDefiniteAIDamage
-
-PrimalScythe_AIEffect:
-	call CheckMysteriousFossilInHand
-	call nc, PrimalScythe_DamageBoostEffect
-	or a
-	ret
-
-
 ; ------------------------------------------------------------------------------
 ; Based on Energy Cards
 ; ------------------------------------------------------------------------------
@@ -814,34 +801,6 @@ TerrorStrike_AIEffect:
 ; ------------------------------------------------------------------------------
 ; Based on Defending Pokémon
 ; ------------------------------------------------------------------------------
-
-
-; +40 damage versus Basic Pokémon
-Crabhammer_DamageBoostEffect:
-	ld a, DUELVARS_ARENA_CARD_STAGE
-	call GetNonTurnDuelistVariable
-	and a
-	ret nz  ; not a BASIC Pokémon
-	ld a, 40
-	jp AddToDamage
-
-Crabhammer_AIEffect:
-  call Crabhammer_DamageBoostEffect
-  jp SetDefiniteAIDamage
-
-
-; +30 damage versus Evolved Pokémon
-SharpSickle_DamageBoostEffect:
-	ld a, DUELVARS_ARENA_CARD_STAGE
-	call GetNonTurnDuelistVariable
-	and a
-	ret z  ; BASIC Pokémon
-	ld a, 30
-	jp AddToDamage
-
-SharpSickle_AIEffect:
-  call SharpSickle_DamageBoostEffect
-  jp SetDefiniteAIDamage
 
 
 ; return in a 10x damage per Energy in the Opponent's Retreat Cost.

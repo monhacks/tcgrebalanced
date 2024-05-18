@@ -7208,31 +7208,31 @@ KabutopsCard:
 	; counters on it. (Don't apply Weakness and Resistance for Benched Pokémon.)
 
 	; attack 1
-	energy FIGHTING, 1 ; energies
-	tx PrimalScytheName ; name
-	tx PrimalScytheDescription ; description
+	energy COLORLESS, 2 ; energies
+	tx SharpSickleName ; name
+	tx Guillotine70Description ; description
 	dw NONE ; description (cont)
-	db 30 ; damage
-	db DAMAGE_PLUS ; category
-	dw PrimalScytheEffectCommands ; effect commands
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw Guillotine70EffectCommands ; effect commands
 	db NONE ; flags 1
 	db NONE ; flags 2
-	db NONE ; flags 3
+	db SPECIAL_AI_HANDLING ; flags 3
 	db 0
 	db ATK_ANIM_TEAR ; animation
 
 	; attack 2
 	energy FIGHTING, 1, COLORLESS, 2 ; energies
-	tx SharpSickleName ; name
-	tx SharpSickleDescription ; description
-	dw NONE ; description (cont)
+	tx PrimalScytheName ; name
+	tx DamageUpTo2BenchedDescription ; description
+	tx NoWeaknessResistanceForBenchDescriptionCont ; description (cont)
 	db 60 ; damage
-	db DAMAGE_PLUS ; category
-	dw SharpSickleEffectCommands ; effect commands
-	db NONE ; flags 1
+	db DAMAGE_NORMAL ; category
+	dw DamageUpTo2Benched10EffectCommands ; effect commands
+	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
 	db NONE ; flags 2
 	db NONE ; flags 3
-	db 2
+	db 10
 	db ATK_ANIM_MULTIPLE_SLASH ; animation
 
 	db 2 ; retreat cost

@@ -52,19 +52,6 @@ ChoosePokemonFromDeck_AISelectEffect:
 	ret
 
 
-PrimalScythe_AISelectEffect:
-	call CheckMysteriousFossilInHand
-	ldh [hTemp_ffa0], a
-	jr nc, .found
-	or a  ; reset carry
-	ret
-
-.found
-; always discard
-	ldh [hTemp_ffa0], a
-	ret
-
-
 OptionalDoubleDamage_AISelectEffect:
 	call ApplyDamageModifiers_DamageToTarget  ; damage in e
 	ld a, DUELVARS_ARENA_CARD_HP

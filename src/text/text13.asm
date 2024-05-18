@@ -159,6 +159,26 @@ PsychicNovaDescription:
 ; Unused Text
 ; ------------------------------------------------------------------------------
 
+; DiscardMysteriousFossilText:
+; 	text "Discard Mysterious Fossil?"
+; 	done
+
+; PrimalScytheName:
+; 	text "Primal Scythe"
+; 	done
+
+; PrimalScytheDescription:
+; 	text "You may discard Mysterious Fossil"
+; 	line "from your hand. If you do, this"
+; 	line "attack does 40 more damage."
+; 	done
+
+; SharpSickleDescription:
+; 	text "If the Defending Pokémon is an"
+; 	line "Evolved Pokémon, this attack does"
+; 	line "30 more damage."
+; 	done
+
 ; EggsplosionName:
 ; 	text "Eggsplosion"
 ; 	done

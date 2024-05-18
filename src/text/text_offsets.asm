@@ -2503,6 +2503,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer IronGripName                                       ; 0x08cf
 	textpointer GuillotineName
 	textpointer Guillotine50Description
+	textpointer Guillotine70Description
 	textpointer EmberName                                          ; 0x08d4
 	textpointer OptionalDiscard1Energy10BonusDamageDescription
 	textpointer Discard1EnergyDescription
@@ -3012,10 +3013,7 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer PrimordialDreamDescription
 	textpointer PrimalSwirlName
 	textpointer PrimalSwirlDescription
-	textpointer DiscardMysteriousFossilText
 	textpointer PrimalScytheName
-	textpointer PrimalScytheDescription
-	textpointer SharpSickleDescription
 	; textpointer FossilFangsName
 	textpointer SpeedImpactName
 	textpointer SpeedImpactDescription

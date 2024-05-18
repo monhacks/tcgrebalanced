@@ -202,6 +202,12 @@ Guillotine50Description:
 	line "it is Knocked Out."
 	done
 
+Guillotine70Description:
+	text "If the Defending Pokémon has"
+	line "70 HP or less remaining,"
+	line "it is Knocked Out."
+	done
+
 EmberName: ; 59e0e (16:5e0e)
 	text "Ember"
 	done
@@ -1009,7 +1015,7 @@ PrimalHuntDescription:
 	line "your hand."
 	done
 
-SharpSickleName: ; 5fbf9 (17:7bf9)
+SharpSickleName:
 	text "Sharp Sickle"
 	done
 

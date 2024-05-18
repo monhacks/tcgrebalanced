@@ -1,5 +1,129 @@
 ;
 
+CrabhammerEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Crabhammer_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AI, Crabhammer_AIEffect
+	db  $00
+
+
+; +40 damage versus Basic Pokémon
+Crabhammer_DamageBoostEffect:
+	ld a, DUELVARS_ARENA_CARD_STAGE
+	call GetNonTurnDuelistVariable
+	and a
+	ret nz  ; not a BASIC Pokémon
+	ld a, 40
+	jp AddToDamage
+
+Crabhammer_AIEffect:
+  call Crabhammer_DamageBoostEffect
+  jp SetDefiniteAIDamage
+
+
+;
+SharpSickleEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, SharpSickle_DamageBoostEffect
+	dbw EFFECTCMDTYPE_AI, SharpSickle_AIEffect
+	db  $00
+
+
+; +30 damage versus Evolved Pokémon
+SharpSickle_DamageBoostEffect:
+	ld a, DUELVARS_ARENA_CARD_STAGE
+	call GetNonTurnDuelistVariable
+	and a
+	ret z  ; BASIC Pokémon
+	ld a, 30
+	jp AddToDamage
+
+SharpSickle_AIEffect:
+  call SharpSickle_DamageBoostEffect
+  jp SetDefiniteAIDamage
+
+
+PrimalScytheEffectCommands:
+	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, PrimalScythe_DiscardDamageBoostEffect
+	dbw EFFECTCMDTYPE_AI, PrimalScythe_AIEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, PrimalScythe_PlayerHandCardSelection
+	dbw EFFECTCMDTYPE_AI_SELECTION, PrimalScythe_AISelectEffect
+	db  $00
+
+
+PrimalScythe_AISelectEffect:
+	call CheckMysteriousFossilInHand
+	ldh [hTemp_ffa0], a
+	jr nc, .found
+	or a  ; reset carry
+	ret
+
+.found
+; always discard
+	ldh [hTemp_ffa0], a
+	ret
+
+
+PrimalScythe_PlayerHandCardSelection:
+	call CheckMysteriousFossilInHand
+	jr c, .none_in_hand
+; found a Mysterious Fossil in hand
+	ldh [hTemp_ffa0], a
+	ldtx hl, DiscardMysteriousFossilText
+	call YesOrNoMenuWithText_SetCursorToYes
+	ret nc  ; selected Yes
+
+; selected No
+	ld a, $ff
+.none_in_hand
+	or a  ; reset carry
+.done
+	ldh [hTemp_ffa0], a
+	ret
+
+
+; returns carry if the player does not have Mysterious Fossil in hand
+; output:
+;   a: deck index of Mysterious Fossil | $ff
+;   carry: set if there is no Mysterious Fossil in hand
+CheckMysteriousFossilInHand:
+	call CreateHandCardList
+	ld hl, wDuelTempList
+.loop_hand
+	ld a, [hli]
+	cp $ff
+	jr z, .none
+	call GetCardIDFromDeckIndex  ; preserves hl
+	ld a, e
+	cp MYSTERIOUS_FOSSIL
+	jr nz, .loop_hand
+
+; found a Mysterious Fossil in hand
+	dec hl
+	ld a, [hl]
+	ret
+
+.none
+	scf
+	ret
+
+
+; just add 40 damage, precondition checks have already been made
+PrimalScythe_DamageBoostEffect:
+	ld a, 40
+	call AddToDamage
+	jp SetDefiniteAIDamage
+
+PrimalScythe_AIEffect:
+	call CheckMysteriousFossilInHand
+	call nc, PrimalScythe_DamageBoostEffect
+	or a
+	ret
+
+
+PrimalScythe_DiscardDamageBoostEffect:
+	call SelectedCards_Discard1FromHand
+	ret c  ; no Mysterious Fossil
+	jp PrimalScythe_DamageBoostEffect
+
 
 DeepDiveEffectCommands:
 	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckBenchIsNotEmpty

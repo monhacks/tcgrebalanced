@@ -390,12 +390,6 @@ MountainSwing_DiscardDeckEffect:
 	jp DiscardFromOpponentsDeckEffect
 
 
-PrimalScythe_DiscardDamageBoostEffect:
-	call SelectedCards_Discard1FromHand
-	ret c  ; no Mysterious Fossil
-	jp PrimalScythe_DamageBoostEffect
-
-
 PrimalCold_DrawbackEffect:
 	call CheckOpponentHasMorePrizeCardsRemaining
 	ret c  ; opponent Prizes < user Prizes (losing)
@@ -4857,7 +4851,7 @@ SelectUpTo2Benched_AISelectEffect: ; 2e6c3 (b:66c3)
 	call SwapTurn
 	ret
 
-SelectUpTo2Benched_BenchDamageEffect: ; 2e71f (b:671f)
+SelectUpTo2Benched_BenchDamageEffect:
 	call SwapTurn
 	ld hl, hTempList
 .loop_selection
@@ -6161,24 +6155,6 @@ NaturalRemedy_PlayerSelection:
 	or a
 	jr z, .read_input ; no damage, no status, loop back to start
 .done
-	ret
-
-
-PrimalScythe_PlayerHandCardSelection:
-	call CheckMysteriousFossilInHand
-	jr c, .none_in_hand
-; found a Mysterious Fossil in hand
-	ldh [hTemp_ffa0], a
-	ldtx hl, DiscardMysteriousFossilText
-	call YesOrNoMenuWithText_SetCursorToYes
-	ret nc  ; selected Yes
-
-; selected No
-	ld a, $ff
-.none_in_hand
-	or a  ; reset carry
-.done
-	ldh [hTemp_ffa0], a
 	ret
 
 

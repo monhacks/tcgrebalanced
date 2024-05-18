@@ -217,8 +217,10 @@
 
 #### Kabutops
 - Increased HP from 100 to 110.
-- **Primal Scythe**: increased base damage from 20 to 30.
-- **Sharp Sickle**: increased base damage from 50 to 60.
+- **Primal Scythe**: reworked.
+- **Sharp Sickle**: reworked.
+- New attack: **Sharp Sickle** (CC): Knocks Out the Defending Pokémon if it has 70 HP or less.
+- New attack: **Primal Scythe** (FCC): 60 damage; 10 damage to 2 Benched targets.
 
 ### Psychic Changes
 

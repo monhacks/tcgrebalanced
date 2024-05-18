@@ -97,6 +97,8 @@ HandleSpecialAIAttacks:
 	jp z, .GetMad
 	cp KINGLER
 	jp z, .Guillotine
+	cp KABUTOPS
+	jp z, .Guillotine
 
 ; return zero score.
 .zero_score
