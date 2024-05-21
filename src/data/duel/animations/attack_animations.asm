@@ -126,7 +126,7 @@ PointerTable_AttackAnimation:
 	dw AttackAnimation_SolarPower          ; ATK_ANIM_SOLAR_POWER
 	dw AttackAnimation_PoisonFang          ; ATK_ANIM_POISON_FANG
 	dw AttackAnimation_DarkMindNoHit       ; ATK_ANIM_DARK_MIND_NO_HIT
-	dw AttackAnimation_PoisonFang          ; ATK_ANIM_104
+	dw AttackAnimation_WhipNoGlow          ; ATK_ANIM_WHIP_NO_GLOW
 	dw AttackAnimation_WhipNoDamage        ; ATK_ANIM_WHIP_NO_HIT
 	dw AttackAnimation_FriendshipSong      ; ATK_ANIM_FRIENDSHIP_SONG
 	dw AttackAnimation_Scrunch             ; ATK_ANIM_SCRUNCH
@@ -382,6 +382,9 @@ AttackAnimation_Slash:
 
 AttackAnimation_Whip:
 	anim_player         DUEL_ANIM_GLOW
+	; fallthrough
+
+AttackAnimation_WhipNoGlow:
 	anim_opponent       DUEL_ANIM_WHIP
 	anim_opponent       DUEL_ANIM_HIT
 	anim_normal         DUEL_ANIM_SHAKE1

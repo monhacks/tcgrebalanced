@@ -227,6 +227,18 @@ DealDamageToTargetA_DE_DamageEffect:
 	jp SwapTurn
 
 
+; input:
+;   a: ATK_ANIM_* constant
+;   de: amount of damage
+DealDamageToArenaPokemon_CustomAnim:
+	ld [wLoadedAttackAnimation], a
+	call SwapTurn
+	; ld de, 30
+	ld b, PLAY_AREA_ARENA
+	call DealDamageToPlayAreaPokemon
+	jp SwapTurn
+
+
 ;
 TrampleEffect:
 DealExcessDamageToTarget_DamageEffect:

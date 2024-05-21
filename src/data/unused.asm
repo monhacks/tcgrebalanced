@@ -1,5 +1,21 @@
 
 ; attack 1
+energy WATER, 1, COLORLESS, 1 ; energies
+tx SpiralDrainName ; name
+tx Heal20DamageDescription ; description
+dw NONE ; description (cont)
+db 40 ; damage
+db DAMAGE_NORMAL ; category
+dw Leech20DamageEffectCommands ; effect commands
+db NONE ; flags 1
+db HEAL_USER ; flags 2
+db NONE ; flags 3
+db 2
+db ATK_ANIM_DRAIN ; animation
+
+
+
+; attack 1
 energy FIGHTING, 1 ; energies
 tx PrimalScytheName ; name
 tx PrimalScytheDescription ; description

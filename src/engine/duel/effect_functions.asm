@@ -2315,7 +2315,7 @@ LureAbility_AssertPokemonInBench:
 	call CheckOpponentBenchIsNotEmpty
 	ret c
 	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTempPlayAreaLocation_ffa1], a
+	ldh [hTemp_ffa0], a
 	jp CheckPokemonPowerCanBeUsed
 
 ; return in hTempPlayAreaLocation_ffa1 the PLAY_AREA_* location
@@ -2324,27 +2324,22 @@ Lure_SelectSwitchPokemon:
 	ldtx hl, SelectPkmnOnBenchToSwitchWithActiveText
 	call DrawWideTextBox_WaitForInput
 	call SwapTurn
-	bank1call HasAlivePokemonInBench
-.select_pokemon
-	bank1call OpenPlayAreaScreenForSelection
-	jr c, .select_pokemon
-	ldh a, [hTempPlayAreaLocation_ff9d]
-	ldh [hTemp_ffa0], a
-	call SwapTurn
-	ret
+	call HandlePlayerSelectionPokemonInBench
+	ldh [hTempPlayAreaLocation_ffa1], a
+	jp SwapTurn
 
 ; Return in hTemp_ffa0 the PLAY_AREA_* of the non-turn holder's Pokemon card in bench with the lowest (remaining) HP.
 ; if multiple cards are tied for the lowest HP, the one with the highest PLAY_AREA_* is returned.
 Lure_GetOpponentBenchPokemonWithLowestHP:
 	call GetOpponentBenchPokemonWithLowestHP
-	ldh [hTemp_ffa0], a
+	ldh [hTempPlayAreaLocation_ffa1], a
 	ret
 
 ; Defending Pokemon is swapped out for the one with the PLAY_AREA_* at hTemp_ffa0
 ; unless Mew's Neutralizing Shield or Haunter's Transparency prevents it.
 Lure_SwitchDefendingPokemon:
 	call SwapTurn
-	ldh a, [hTemp_ffa0]
+	ldh a, [hTempPlayAreaLocation_ffa1]
 	ld e, a
 	call HandleNShieldAndTransparency
 	call nc, SwapArenaWithBenchPokemon
@@ -2364,10 +2359,17 @@ Lure_SwitchAndTrapDefendingPokemon:
 
 
 LureAbility_SwitchDefendingPokemon:
-	ldh a, [hTempPlayAreaLocation_ffa1]
+	ldh a, [hTemp_ffa0]
 	ldh [hTempPlayAreaLocation_ff9d], a
 	call SetUsedPokemonPowerThisTurn
 	jp Lure_SwitchDefendingPokemon
+
+
+DragOff_SwitchAndDamageEffect:
+	call Lure_SwitchDefendingPokemon
+	ld de, 30  ; damage
+	ld a, ATK_ANIM_WHIP_NO_GLOW
+	jp DealDamageToArenaPokemon_CustomAnim
 
 
 ; If heads, defending Pokemon becomes poisoned. If tails, defending Pokemon becomes confused

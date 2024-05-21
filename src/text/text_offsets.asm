@@ -3132,6 +3132,8 @@ TextOffsets:: ; 34000 (d:4000)
 	textpointer DarkPrisonDescription
 	textpointer PsychicNovaName
 	textpointer PsychicNovaDescription
+	textpointer DragOffName
+	textpointer DragOffDescription
 
 	; unused
 	; textpointer VaporEssenceName

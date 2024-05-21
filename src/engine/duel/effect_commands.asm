@@ -90,9 +90,12 @@ LureEffectCommands:
 	dbw EFFECTCMDTYPE_AI_SELECTION, Lure_GetOpponentBenchPokemonWithLowestHP
 	db  $00
 
-; AcidEffectCommands:
-; 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, UnableToRetreatEffect
-; 	db  $00
+DragOffEffectCommands:
+	dbw EFFECTCMDTYPE_INITIAL_EFFECT_1, CheckOpponentBenchIsNotEmpty
+	dbw EFFECTCMDTYPE_AFTER_DAMAGE, DragOff_SwitchAndDamageEffect
+	dbw EFFECTCMDTYPE_REQUIRE_SELECTION, Lure_SelectSwitchPokemon
+	dbw EFFECTCMDTYPE_AI_SELECTION, Lure_GetOpponentBenchPokemonWithLowestHP
+	db  $00
 
 ConstrictEffectCommands:
 	dbw EFFECTCMDTYPE_BEFORE_DAMAGE, Constrict_TrapDamageBoostEffect

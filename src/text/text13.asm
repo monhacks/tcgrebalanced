@@ -155,6 +155,17 @@ PsychicNovaDescription:
 	line "in their hand, discard 1 at random."
 	done
 
+DragOffName:
+	text "Drag Off"
+	done
+
+DragOffDescription:
+	text "Switch in 1 of your opponent's"
+	line "Benched Pokémon to the Active Spot."
+	line "This attack does 30 damage to the"
+	line "new Active Pokémon."
+	done
+
 ; ------------------------------------------------------------------------------
 ; Unused Text
 ; ------------------------------------------------------------------------------

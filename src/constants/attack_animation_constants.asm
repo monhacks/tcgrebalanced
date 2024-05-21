@@ -106,7 +106,7 @@
 	const ATK_ANIM_SOLAR_POWER            ; $65
 	const ATK_ANIM_POISON_FANG            ; $66
 	const ATK_ANIM_DARK_MIND_NO_HIT       ; $67
-	const ATK_ANIM_104                    ; $68
+	const ATK_ANIM_WHIP_NO_GLOW           ; $68
 	const ATK_ANIM_WHIP_NO_HIT            ; $69
 	const ATK_ANIM_FRIENDSHIP_SONG        ; $6a
 	const ATK_ANIM_SCRUNCH                ; $6b

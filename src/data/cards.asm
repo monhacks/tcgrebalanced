@@ -4828,18 +4828,18 @@ OmastarCard:
 	; your opponent's next turn.
 
 	; attack 1
-	energy WATER, 1, COLORLESS, 1 ; energies
-	tx SpiralDrainName ; name
-	tx Heal20DamageDescription ; description
+	energy COLORLESS, 2 ; energies
+	tx DragOffName ; name
+	tx DragOffDescription ; description
 	dw NONE ; description (cont)
-	db 40 ; damage
-	db DAMAGE_NORMAL ; category
-	dw Leech20DamageEffectCommands ; effect commands
-	db NONE ; flags 1
-	db HEAL_USER ; flags 2
+	db 0 ; damage
+	db RESIDUAL ; category
+	dw DragOffEffectCommands ; effect commands
+	db DAMAGE_TO_OPPONENT_BENCH ; flags 1
+	db SWITCH_OPPONENT_POKEMON ; flags 2
 	db NONE ; flags 3
 	db 2
-	db ATK_ANIM_DRAIN ; animation
+	db ATK_ANIM_GLOW_EFFECT ; animation
 
 	; attack 2
 	energy WATER, 1, COLORLESS, 2 ; energies
